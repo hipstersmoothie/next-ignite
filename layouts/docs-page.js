@@ -1,8 +1,12 @@
-import SidebarLayout from "../components/with-sidebar";
+import makeSidebarAndNavBarLayout from "./sidebar-and-navbar";
+import { Sidebar } from "../components/sidebar";
+import { H1 } from "../components/h1";
+
+const SidebarAndNavBarLayout = makeSidebarAndNavBarLayout();
 
 export default frontMatter => ({ children: content }) => (
-  <SidebarLayout>
-    <h1>{frontMatter.title}</h1>
+  <SidebarAndNavBarLayout>
+    <H1>{frontMatter.title}</H1>
     {content}
-  </SidebarLayout>
+  </SidebarAndNavBarLayout>
 );

@@ -1,8 +1,9 @@
-import { Sidebar } from "../components/sidebar";
+import makeNavBarLayout from "../layouts/navbar";
+
+const NavBarLayout = makeNavBarLayout();
 
 export default () => (
-  <div>
-    <Sidebar />
-    <div>Welcome</div>
-  </div>
+  <NavBarLayout>
+    <h1>Home Page</h1>
+  </NavBarLayout>
 );
