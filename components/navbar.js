@@ -1,8 +1,10 @@
 import Link from "next/link";
-import searchIndex from "../search.json";
+import { titleCase } from "title-case";
+import makeClass from "clsx";
 
 import { Anchor } from "./anchor";
 import { formatPath } from "../utils/format-path";
+import searchIndex from "../search.json";
 
 const Search = () => {
   const [search, setSearch] = React.useState("");
@@ -37,22 +39,29 @@ const Search = () => {
   );
 };
 
-export const NavBar = () => {
-  return (
-    <div className="flex justify-between items-center h-12 px-6">
-      <Link href="/">
-        <Anchor>Home</Anchor>
-      </Link>
+export const NavBar = ({ sections }) => (
+  <div className="flex justify-between items-center h-12 px-6">
+    <Link href="/">
+      <Anchor>Home</Anchor>
+    </Link>
 
-      <div className="flex">
-        <Search />
-        <Link href="/docs">
-          <Anchor className="pr-4">Docs</Anchor>
+    <div className="flex">
+      <Search />
+      <Link href="/docs">
+        <Anchor className="pr-4">Docs</Anchor>
+      </Link>
+      {sections.map((section, index) => (
+        <Link key={section} href={`/${section}`}>
+          <Anchor
+            className={makeClass(
+              "capitalize",
+              index !== sections.length - 1 && "pr-4"
+            )}
+          >
+            {titleCase(section)}
+          </Anchor>
         </Link>
-        <Link href="/blog">
-          <Anchor>Blog</Anchor>
-        </Link>
-      </div>
+      ))}
     </div>
-  );
-};
+  </div>
+);

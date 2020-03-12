@@ -1,5 +1,5 @@
 import Link from "next/link";
-import makeNavBarLayout from "../layouts/navbar";
+import makeNavBarLayout from "../layouts/nav-bar";
 
 import { formatPath } from "../utils/format-path";
 import { frontMatter as firstPost } from "../pages/blog/first.mdx";
