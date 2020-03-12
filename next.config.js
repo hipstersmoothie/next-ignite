@@ -6,7 +6,7 @@ const pages = [];
 if (isProduction) {
   fs.writeFileSync("search.json", JSON.stringify([]));
 }
-\
+
 const withMdxEnhanced = require("next-mdx-enhanced")({
   onContent: page => {
     if (isProduction) {
