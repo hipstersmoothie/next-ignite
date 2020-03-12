@@ -22,9 +22,9 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
       if (!layout) {
         const defaultLayout = __resourcePath.split("/")[0];
 
-        if (defaultLayout === 'blog') {
+        if (defaultLayout === "blog") {
           return {
-            layout: 'nav-bar'
+            layout: "nav-bar"
           };
         } else if (
           fs.existsSync(
@@ -36,7 +36,7 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
           };
         } else {
           return {
-            layout: 'docs'
+            layout: "docs"
           };
         }
       }
@@ -45,4 +45,15 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
   }
 });
 
-module.exports = withMdxEnhanced({});
+module.exports = withMdxEnhanced({
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        PAGES_DIR: JSON.stringify(path.resolve("./pages")),
+        MDX_DATA_DIR: JSON.stringify(path.resolve("./.mdx-data"))
+      })
+    );
+
+    return config;
+  }
+});

@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from 'next/router'
 
-const requirePage = require.context("../pages/", true, /\.mdx$/);
+const requirePage = require.context(PAGES_DIR, true, /\.mdx$/);
 
 export default function Custom404(props) {
   const path = Router.router?.asPath.replace(/^\/+/g, '').split('/')[0]

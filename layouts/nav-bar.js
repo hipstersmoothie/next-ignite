@@ -4,7 +4,7 @@ import { NavBar } from "../components/navbar";
 import { Sidebar } from "../components/sidebar";
 
 // Get all pages
-const requirePage = require.context("../pages/", true, /\.mdx$/);
+const requirePage = require.context(PAGES_DIR, true, /\.mdx$/);
 const topLevelSections = Array.from(new Set(
   requirePage
     .keys()
@@ -13,7 +13,6 @@ const topLevelSections = Array.from(new Set(
     // we only care about directories
     .filter(key => !key.includes(".") && key !== 'docs')
 ));
-
 
 export default () => ({ children: content }) => (
   <>

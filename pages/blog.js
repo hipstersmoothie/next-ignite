@@ -6,8 +6,8 @@ import { formatPath } from "../utils/format-path";
 import { Anchor } from "../components/anchor";
 
 const NavBarLayout = makeNavBarLayout();
-const posts = require.context("../pages/blog/", true, /\.mdx$/).keys();
-const requireFrontMatters = require.context("../.mdx-data", true, /\.json$/);
+const posts = require.context(PAGES_DIR + "/blog/", true, /\.mdx$/).keys();
+const requireFrontMatters = require.context(MDX_DATA_DIR, true, /\.json$/);
 const frontMatters = requireFrontMatters.keys().map(requireFrontMatters);
 
 const BlogPostList = () => {

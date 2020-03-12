@@ -5,9 +5,9 @@ import { H1 } from "../components/h1";
 import makeNavBarLayout from "./nav-bar";
 
 const NavBarLayout = makeNavBarLayout();
-const requireFrontMatters = require.context("../.mdx-data", true, /\.json$/);
+const requireFrontMatters = require.context(MDX_DATA_DIR, true, /\.json$/);
 // Get all pages
-const requirePage = require.context("../pages/", true, /\.mdx$/);
+const requirePage = require.context(PAGES_DIR, true, /\.mdx$/);
 // Get all frontMatter data
 const frontMatters = requireFrontMatters.keys().map(requireFrontMatters);
 
