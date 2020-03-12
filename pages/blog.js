@@ -1,36 +1,23 @@
 import Link from "next/link";
-import path from "path";
 
-import makeNavBarLayout from "../layouts/nav-bar";
-import { formatPath } from "../utils/format-path";
+import getBlogPosts from "../src/get-blog-posts";
+import makeNavBarLayout from "../src/layouts/nav-bar";
 import { Anchor } from "../components/anchor";
 
 const NavBarLayout = makeNavBarLayout();
-const posts = require.context(PAGES_DIR + "/blog/", true, /\.mdx$/).keys();
-const requireFrontMatters = require.context(MDX_DATA_DIR, true, /\.json$/);
-const frontMatters = requireFrontMatters.keys().map(requireFrontMatters);
+const posts = getBlogPosts();
 
-const BlogPostList = () => {
-  const blogPosts = posts
-    .map(key => path.relative("./", key))
-    .map(key =>
-      frontMatters.find(f => f.__resourcePath === path.join("blog", key))
-    );
-
-  return (
-    <NavBarLayout>
-      <h1>Blog Posts</h1>
-      <ul>
-        {blogPosts.map(page => (
-          <li key={page.__resourcePath}>
-            <Link href={formatPath(page.__resourcePath)}>
-              <Anchor>{page.title}</Anchor>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </NavBarLayout>
-  );
-};
-
-export default BlogPostList;
+export default () => (
+  <NavBarLayout>
+    <h1>Blog Posts</h1>
+    <ul>
+      {posts.map(page => (
+        <li key={page.__resourcePath}>
+          <Link href={page.__resourcePath}>
+            <Anchor>{page.title}</Anchor>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </NavBarLayout>
+);

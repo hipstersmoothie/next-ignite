@@ -2,9 +2,9 @@ import Link from "next/link";
 import { titleCase } from "title-case";
 import makeClass from "clsx";
 
-import { Anchor } from "./anchor";
-import { formatPath } from "../utils/format-path";
-import searchIndex from "../search.json";
+import { Anchor } from "../../components/anchor";
+import { formatPath } from "../format-path";
+import searchIndex from "../../search.json";
 
 const Search = () => {
   const [search, setSearch] = React.useState("");

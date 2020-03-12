@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { formatPath } from "../utils/format-path";
-import { Anchor } from "./anchor";
+import { formatPath } from "../format-path";
+import { Anchor } from "../../components/anchor";
 
 export const Sidebar = ({ links }) => (
   <div className="w-1/5">

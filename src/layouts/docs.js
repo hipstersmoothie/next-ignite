@@ -1,7 +1,7 @@
 import path from "path";
 
 import { Sidebar } from "../components/sidebar";
-import { H1 } from "../components/h1";
+import { H1 } from "../../components/h1";
 import makeNavBarLayout from "./nav-bar";
 
 const NavBarLayout = makeNavBarLayout();
