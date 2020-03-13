@@ -46,7 +46,7 @@ export const NavBar = ({ sections }) => {
   const components = useMDXComponents();
   
   return (
-    <div className="flex justify-between items-center h-12 px-6">
+    <div className="flex justify-between items-center h-16 px-6">
       <Link href="/">
         <components.a>Home</components.a>
       </Link>

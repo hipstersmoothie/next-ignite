@@ -25,6 +25,7 @@
     "ignite": "link:./",
     "next-mdx-enhanced": "^2.4.0",
     "postcss-import": "^12.0.1",
+    "postcss-nested": "^4.2.1",
     "tailwindcss": "^1.2.0"
   }
 }

@@ -1,3 +1,15 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+.blockquote > *:first-child {
+  margin-top: 0;
+}
+
+.blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+.ul li {
+  @apply list-disc ml-6;
+}

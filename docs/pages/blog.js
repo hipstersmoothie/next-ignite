@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { getBlogPosts, makeNavBarLayout } from "ignite";
-
-import { Anchor } from "../components/anchor";
+import { getBlogPosts, makeNavBarLayout, igniteComponents } from "ignite";
 
 const NavBarLayout = makeNavBarLayout();
 const posts = getBlogPosts();
@@ -14,7 +12,7 @@ export default () => (
       {posts.map(page => (
         <li key={page.__resourcePath}>
           <Link href={page.__resourcePath}>
-            <Anchor>{page.title}</Anchor>
+            <igniteComponents.a>{page.title}</igniteComponents.a>
           </Link>
         </li>
       ))}
