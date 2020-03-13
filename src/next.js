@@ -9,7 +9,7 @@ if (isProduction) {
 }
 
 const withMdxEnhanced = require("next-mdx-enhanced")({
-  layoutPath: "src/layouts",
+  layoutPath: path.resolve('./dist/esm/layouts'),
   onContent: page => {
     if (isProduction) {
       pages.push(page);
@@ -48,14 +48,14 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
   }
 });
 
-module.exports = (nextConfig = {}) =>
+module.exports =  (nextConfig = {}) =>
   withMdxEnhanced({
     ...nextConfig,
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
       config.plugins.push(
         new webpack.DefinePlugin({
-          PAGES_DIR: JSON.stringify(path.resolve("./pages")),
-          MDX_DATA_DIR: JSON.stringify(path.resolve("./.mdx-data"))
+          PAGES_DIR: JSON.stringify(path.resolve("./docs/pages")),
+          MDX_DATA_DIR: JSON.stringify(path.resolve("./docs/.mdx-data"))
         })
       );
 

@@ -1,3 +1,5 @@
+import React from 'react';
+
 // TODO make pretty
 const SidebarItem = props => <li style={{ color: "red" }} {...props} />;
 // TODO make pretty

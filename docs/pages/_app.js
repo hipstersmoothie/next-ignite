@@ -2,13 +2,13 @@ import React from "react";
 import App from "next/app";
 import makeClass from "clsx";
 import { MDXProvider } from "@mdx-js/react";
+import { igniteComponents } from "ignite";
 
 import styles from "../css/components.module.css";
 import "../css/tailwind.css";
 
 import { Anchor } from "../components/anchor";
 import { H1 } from "../components/h1";
-import igniteComponents from '../src/mdx-components'
 
 const components = {
   ...igniteComponents,

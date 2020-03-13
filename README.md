@@ -35,14 +35,16 @@ yarn dev
    import React from "react";
    import App from "next/app";
    import { MDXProvider } from "@mdx-js/react";
+   import igniteComponents from '../src/mdx-components'
 
    import "../css/tailwind.css";
 
    import { Anchor } from "../components/anchor";
    import { H1 } from "../components/h1";
 
-   // Add components for all the base components
+   // Override any of the base components
    const components = {
+     ...igniteComponents,
      a: Anchor,
      h1: H1
    };
@@ -61,3 +63,7 @@ yarn dev
 
    export default MyApp;
    ```
+
+// TODO docs for setting up blog
+// TODO for more top level sections
+// TODO custom sidebar

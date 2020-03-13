@@ -1,7 +1,6 @@
 import Link from "next/link";
+import { getBlogPosts, makeNavBarLayout } from "ignite";
 
-import getBlogPosts from "../src/get-blog-posts";
-import makeNavBarLayout from "../src/layouts/nav-bar";
 import { Anchor } from "../components/anchor";
 
 const NavBarLayout = makeNavBarLayout();

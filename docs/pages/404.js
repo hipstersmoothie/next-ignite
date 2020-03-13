@@ -1,5 +1,5 @@
-import React from 'react';
-import useFirstPageRedirect from '../src/use-first-page-redirect';
+import React from "react";
+import { useFirstPageRedirect } from "ignite";
 
 export default function Custom404(props) {
   const page = useFirstPageRedirect();

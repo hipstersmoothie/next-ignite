@@ -1,3 +1,4 @@
+import React from 'react';
 import path from "path";
 import { useMDXComponents } from "@mdx-js/react";
 

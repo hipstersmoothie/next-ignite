@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 search.json
+dist
 
 # dependencies
 /node_modules
@@ -27,4 +28,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # Ignore next-mdx-enhanced cache directory
-.mdx-data
+docs/.mdx-data
+docs/.next

@@ -1,10 +1,12 @@
+import React from 'react';
 import Link from "next/link";
 import { titleCase } from "title-case";
 import makeClass from "clsx";
 import { useMDXComponents } from "@mdx-js/react";
 
 import { formatPath } from "../format-path";
-import searchIndex from "../../search.json";
+// import searchIndex from "../../search.json";
+const searchIndex = []
 
 const Search = () => {
   const components = useMDXComponents();
