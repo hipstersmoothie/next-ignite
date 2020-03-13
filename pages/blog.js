@@ -10,6 +10,7 @@ const posts = getBlogPosts();
 export default () => (
   <NavBarLayout>
     <h1>Blog Posts</h1>
+
     <ul>
       {posts.map(page => (
         <li key={page.__resourcePath}>

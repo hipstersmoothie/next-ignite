@@ -23,7 +23,9 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
       if (!layout) {
         const defaultLayout = __resourcePath.split("/")[0];
 
-        if (defaultLayout === "blog") {
+        if (__resourcePath.includes("_sidebar.mdx")) {
+          return {};
+        } else if (defaultLayout === "blog") {
           return {
             layout: "nav-bar"
           };

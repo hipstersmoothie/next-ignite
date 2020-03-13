@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { titleCase } from "title-case";
 import makeClass from "clsx";
+import { useMDXComponents } from "@mdx-js/react";
 
-import { Anchor } from "../../components/anchor";
 import { formatPath } from "../format-path";
 import searchIndex from "../../search.json";
 
 const Search = () => {
+  const components = useMDXComponents();
   const [search, setSearch] = React.useState("");
   const normalizedSearch = search.toLowerCase();
   const results = searchIndex.filter(
@@ -29,9 +30,9 @@ const Search = () => {
       {search && (
         <div className="absolute">
           {results.map(result => (
-            <Anchor href={formatPath(result.__resourcePath)}>
+            <components.a href={formatPath(result.__resourcePath)}>
               {result.title}
-            </Anchor>
+            </components.a>
           ))}
         </div>
       )}
@@ -39,29 +40,33 @@ const Search = () => {
   );
 };
 
-export const NavBar = ({ sections }) => (
-  <div className="flex justify-between items-center h-12 px-6">
-    <Link href="/">
-      <Anchor>Home</Anchor>
-    </Link>
-
-    <div className="flex">
-      <Search />
-      <Link href="/docs">
-        <Anchor className="pr-4">Docs</Anchor>
+export const NavBar = ({ sections }) => {
+  const components = useMDXComponents();
+  
+  return (
+    <div className="flex justify-between items-center h-12 px-6">
+      <Link href="/">
+        <components.a>Home</components.a>
       </Link>
-      {sections.map((section, index) => (
-        <Link key={section} href={`/${section}`}>
-          <Anchor
-            className={makeClass(
-              "capitalize",
-              index !== sections.length - 1 && "pr-4"
-            )}
-          >
-            {titleCase(section)}
-          </Anchor>
+
+      <div className="flex">
+        <Search />
+        <Link href="/docs">
+          <components.a className="pr-4">Docs</components.a>
         </Link>
-      ))}
+        {sections.map((section, index) => (
+          <Link key={section} href={`/${section}`}>
+            <components.a
+              className={makeClass(
+                "capitalize",
+                index !== sections.length - 1 && "pr-4"
+              )}
+            >
+              {titleCase(section)}
+            </components.a>
+          </Link>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
