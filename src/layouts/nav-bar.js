@@ -16,7 +16,7 @@ const topLevelSections = Array.from(new Set(
 ));
 
 export default () => ({ children: content }) => (
-  <div className="min-h-screen flex flex-col">
+  <div id="ignite" className="min-h-screen flex flex-col">
     <NavBar sections={topLevelSections} />
     {content}
   </div>

@@ -2,14 +2,20 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-.blockquote > *:first-child {
-  margin-top: 0;
-}
+#ignite {
+  .blockquote > *:first-child {
+    margin-top: 0;
+  }
 
-.blockquote > *:last-child {
-  margin-bottom: 0;
-}
+  .blockquote > *:last-child {
+    margin-bottom: 0;
+  }
 
-.ul li {
-  @apply list-disc ml-6;
+  .ul li {
+    @apply list-disc ml-6;
+  }
+
+  .ol li {
+    @apply list-decimal ml-6;
+  }
 }

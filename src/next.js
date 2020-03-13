@@ -1,5 +1,8 @@
 const fs = require("fs");
 const path = require("path");
+const rehypePrism = require("@mapbox/rehype-prism");
+const emoji = require('remark-emoji')
+const a11yEmoji = require('rehype-accessible-emojis')
 
 const isProduction = process.env.NODE_ENV === "production";
 const pages = [];
@@ -9,7 +12,9 @@ if (isProduction) {
 }
 
 const withMdxEnhanced = require("next-mdx-enhanced")({
-  layoutPath: path.resolve('./dist/esm/layouts'),
+  layoutPath: path.resolve("./dist/esm/layouts"),
+  remarkPlugins: [emoji],
+  rehypePlugins: [a11yEmoji, [rehypePrism, { ignoreMissing: true }]],
   onContent: page => {
     if (isProduction) {
       pages.push(page);
@@ -48,7 +53,7 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
   }
 });
 
-module.exports =  (nextConfig = {}) =>
+module.exports = (nextConfig = {}) =>
   withMdxEnhanced({
     ...nextConfig,
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {

@@ -27,7 +27,7 @@ export default frontMatter => ({ children: content }) => {
       <div className="flex flex-1">
         <Sidebar links={links} folder={resource} />
 
-        <div className="flex-1 pt-8 pb-16 max-w-screen-sm lg:max-w-screen-md mx-auto">
+        <div className="flex-1 pt-8 pb-32 max-w-screen-sm lg:max-w-screen-md mx-auto">
           <components.h1>{frontMatter.title}</components.h1>
           {content}
         </div>

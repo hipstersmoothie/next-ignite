@@ -30,16 +30,26 @@ const SidebarLink = ({ href, ...props }) => {
   );
 };
 
+const DEFAULT_SPACING = "my-4";
+
 const h1 = props => (
-  <h1 className="text-gray-900 text-5xl font-semibold" {...props} />
-);
-const h2 = props => (
   <h1
-    className="text-gray-900 text-3xl font-normal border-b border-gray-300 pb-4 mb-8"
+    className="text-gray-900 text-5xl font-semibold leading-loose"
     {...props}
   />
 );
-const p = props => <p className="my-4 text-gray-700" {...props} />;
+const h2 = props => (
+  <h2
+    className="text-gray-900 text-3xl font-normal border-b border-gray-300 pb-4 mb-8 mt-12"
+    {...props}
+  />
+);
+const h3 = props => (
+  <h3 className="text-gray-900 text-2xl font-normal mt-8" {...props} />
+);
+const p = props => (
+  <p className={makeClass(DEFAULT_SPACING, "text-gray-700")} {...props} />
+);
 const blockquote = props => (
   <blockquote
     className="blockquote bg-gray-200 px-6 py-6 my-8 border-l-4 border-blue-500"
@@ -53,6 +63,7 @@ const inlineCode = props => (
     {...props}
   />
 );
+
 const a = React.forwardRef(({ className, ...props }, ref) => (
   <a
     ref={ref}
@@ -61,7 +72,24 @@ const a = React.forwardRef(({ className, ...props }, ref) => (
   />
 ));
 const ul = ({ className, ...props }) => (
-  <ul className={makeClass(className, "ul")} {...props} />
+  <ul className={makeClass(className, DEFAULT_SPACING, "ul")} {...props} />
+);
+const ol = ({ className, ...props }) => (
+  <ol className={makeClass(className, DEFAULT_SPACING, "ol")} {...props} />
+);
+
+const code = ({ className, ...props }) => (
+  <code
+    className={makeClass(className, "text-gray-600 rounded block py-4 px-2")}
+    {...props}
+  />
+);
+
+const pre = ({ className, ...props }) => (
+  <pre
+    className={makeClass(className, DEFAULT_SPACING, "bg-gray-200 rounded")}  
+    {...props}
+  />
 );
 
 export default {
@@ -73,9 +101,13 @@ export default {
 
   h1,
   h2,
+  h3,
   p,
   inlineCode,
+  code,
+  pre,
   a,
   ul,
+  ol,
   blockquote
 };

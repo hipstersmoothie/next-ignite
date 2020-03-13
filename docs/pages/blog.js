@@ -1,21 +1,26 @@
 import Link from "next/link";
-import { getBlogPosts, makeNavBarLayout, igniteComponents } from "ignite";
+import { getBlogPosts, makeNavBarLayout } from "ignite";
+import { useMDXComponents } from "@mdx-js/react";
 
 const NavBarLayout = makeNavBarLayout();
 const posts = getBlogPosts();
 
-export default () => (
-  <NavBarLayout>
-    <h1>Blog Posts</h1>
+export default () => {
+  const components = useMDXComponents();
 
-    <ul>
-      {posts.map(page => (
-        <li key={page.__resourcePath}>
-          <Link href={page.__resourcePath}>
-            <igniteComponents.a>{page.title}</igniteComponents.a>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </NavBarLayout>
-);
+  return (
+    <NavBarLayout>
+      <components.h1>Blog Posts</components.h1>
+
+      <components.ul>
+        {posts.map(page => (
+          <li key={page.__resourcePath}>
+            <Link href={page.__resourcePath}>
+              <components.a>{page.title}</components.a>
+            </Link>
+          </li>
+        ))}
+      </components.ul>
+    </NavBarLayout>
+  );
+};

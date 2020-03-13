@@ -4,7 +4,7 @@ import makeClass from "clsx";
 import { MDXProvider } from "@mdx-js/react";
 import { igniteComponents } from "ignite";
 
-import styles from "../css/components.module.css";
+import "prismjs/themes/prism.css";
 import "ignite/dist/main.css";
 
 class MyApp extends App {

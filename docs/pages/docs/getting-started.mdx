@@ -1,0 +1,140 @@
+---
+title: "Getting Started"
+---
+
+`ignite` is distrubuted on `npm`.
+
+```bash
+npm i --save-dev ignite
+# or
+yarn add -d ignite
+```
+
+## Setup
+
+Getting setup with `ignite` require you to create a few files in additon to all of your actual documentation.
+
+First create a folder named `docs` and structure it to resemble the following.
+
+```
+📦docs
+ ┣ 📂pages
+ ┃ ┣ 📂docs
+ ┃ ┃ ┣ intro.mdx
+ ┃ ┣ 404.js
+ ┃ ┣ _app.js
+```
+
+You **must have**:
+
+- `pages/_app.js`
+- `pages/404.js`
+- `pages/docs/intro.mdx`
+
+### `_app.tsx`
+
+You need to at least do the following:
+
+1. Import `MDXProvider`, `igniteComponents`, and combine the at the root of the app
+2. Import `ignite`'s css
+3. Import a `prismjs` theme to style the code block
+
+```jsx
+import React from "react";
+import App from "next/app";
+import { MDXProvider } from "@mdx-js/react";
+import { igniteComponents } from "ignite";
+
+// Import a prismjs theme to highlight the code blocks
+// Make sure to import this first! The order matters
+import "prismjs/themes/prism.css";
+// Import the css to style the docs
+import "ignite/dist/main.css";
+
+import { Anchor } from "../components/anchor";
+import { H1 } from "../components/h1";
+
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props;
+
+    return (
+      <MDXProvider components={components}>
+        <Component {...pageProps} />
+      </MDXProvider>
+    );
+  }
+}
+
+export default MyApp;
+```
+
+### `404.js`
+
+This is where most of the magic happens :confetti_ball:.
+`useFirstPageRedirect` will determine what page to display first when routed to `https://your-app.com/docs`.
+The default will redirect this URL to `https://your-app.com/docs/intro`.
+
+```jsx
+import React from "react";
+import { useFirstPageRedirect } from "ignite";
+
+export default function Custom404(props) {
+  const page = useFirstPageRedirect();
+
+  if (page) {
+    return null
+  }
+
+  return <div>Oops, looks like we can't find that page!</div>;
+}
+```
+
+If you want some other page to be the first page shown simply pass the name of the `.mdx` file you want to shown
+
+```js
+const page = useFirstPageRedirect('welcome');
+```
+
+Now a user would get redirected to `https://your-app.com/docs/welcome`.
+
+## Start writing docs :tada:
+
+Now that you have all that set up you can start writing documentation!
+All you need to do is start adding `.mdx` files to `pages/docs`.
+A good one to start with is `pages/docs/intro.mdx` since this will be the first page shown to the user.
+
+**`pages/docs/intro.mdx`:**
+
+```mdx
+---
+title: "My Introduction"
+---
+
+The start of my amazing documentation.
+```
+
+Now start up the development server:
+
+```sh
+yarn ignite dev
+```
+
+Once it's done loading you should see that that your documentation has loaded and `ignite` automatically created a sidebar for you! :astonished:
+
+## Explore More Features
+
+`ignite` tries to be as flexible as possible, so many parts are customizable.
+Explore the documentation to find all the documentation site :candy: we include.
+
+***Highlights:***
+
+:star: [Customize the sidebar](./custom-sidebar)
+
+:star: [Home/Cover Page](./home-page)
+
+:star: [Set up a blog](./blog)
+
+:star: [Multiple top-Level documenation sections](./multi-docs)
+
+:star: [Use JavaScript for any page](./javascript-pages)

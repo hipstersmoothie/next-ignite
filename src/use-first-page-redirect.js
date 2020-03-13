@@ -4,9 +4,9 @@ import Router from 'next/router'
 const requirePage = require.context(PAGES_DIR, true, /\.mdx$/);
 
 /** Redirect the application to the intro page of a docs section */
-export default function useFirstPageRedirect() {
+export default function useFirstPageRedirect(page = 'intro') {
   const path = Router.router?.asPath.replace(/^\/+/g, '').split('/')[0]
-  const page = requirePage.keys().find(key => key.includes(`${path}/intro`))
+  const page = requirePage.keys().find(key => key.includes(`${path}/${page}`))
 
   React.useEffect(() => {
     if (!page) {
