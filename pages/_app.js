@@ -8,8 +8,10 @@ import "../css/tailwind.css";
 
 import { Anchor } from "../components/anchor";
 import { H1 } from "../components/h1";
+import igniteComponents from '../src/mdx-components'
 
 const components = {
+  ...igniteComponents,
   a: Anchor,
   h1: H1,
   h2: ({ className, ...props }) => (
