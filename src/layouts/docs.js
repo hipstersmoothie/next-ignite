@@ -16,8 +16,6 @@ const frontMatters = requireFrontMatters.keys().map(requireFrontMatters);
 const hasHomePage = getHasHomepage();
 const topLevelSections = getTopLevelSections();
 
-console.log({hasHomePage})
-
 export default frontMatter => ({ children: content }) => {
   const components = useMDXComponents();
   const resource = frontMatter.__resourcePath.split("/")[0];

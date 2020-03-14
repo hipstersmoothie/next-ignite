@@ -5,6 +5,23 @@ import Link from "next/link";
 
 import { SidebarActiveItem } from "./sidebar";
 
+const Logo = ({ className, ...props }) => (
+  <a
+    tabIndex={0}
+    className={makeClass(
+      "h-full focus:outline-none flex items-center h-full text-gray-800 font-normal hover:font-semibold focus:font-semibold cursor-pointer text-xl",
+      className
+    )}
+  >
+    <img
+      alt={`${PROJECT_NAME} Logo`}
+      src="/logo.svg"
+      className="h-full p-3 pl-0"
+    />
+    {PROJECT_NAME}
+  </a>
+);
+
 const Sidebar = ({ className, ...props }) => (
   <div
     className={makeClass(
@@ -115,6 +132,8 @@ const pre = ({ className, ...props }) => (
 );
 
 export default {
+  Logo,
+
   Sidebar,
   SidebarItem,
   SidebarLink,

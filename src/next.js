@@ -59,6 +59,7 @@ module.exports = (nextConfig = {}) =>
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
       config.plugins.push(
         new webpack.DefinePlugin({
+          PROJECT_NAME: JSON.stringify('ignite'),
           PAGES_DIR: JSON.stringify(path.resolve("./docs/pages")),
           MDX_DATA_DIR: JSON.stringify(path.resolve("./docs/.mdx-data"))
         })

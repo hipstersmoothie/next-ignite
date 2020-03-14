@@ -43,14 +43,14 @@ const Search = () => {
 };
 
 export const NavBar = ({ sections, hasHomePage }) => {
-  const components = useMDXComponents();
+  const { Logo, ...components } = useMDXComponents();
 
   return (
     <div className="border-b border-grey-200 mx-10">
       <div className="h-16 px-6 max-w-screen-xl mx-auto w-full flex justify-between items-center ">
         {hasHomePage ? (
           <Link href="/">
-            <components.a>Home</components.a>
+             <Logo />
           </Link>
         ) : (
           <div />

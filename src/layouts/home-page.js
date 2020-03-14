@@ -9,7 +9,7 @@ export default frontMatter => ({ children: content }) => (
   <NavBarLayout>
     <div className="bg-blue-500 pt-20 pb-24">
       <div className="max-w-screen-sm lg:max-w-screen-md mx-auto text-center text-white">
-        <h1 className="text-6xl">{frontMatter.title}</h1>
+        <h1 className="text-6xl">{frontMatter.title || PROJECT_NAME}</h1>
         <h2 className="text-2xl font-light text-blue-100">
           {frontMatter.tagline}
         </h2>
