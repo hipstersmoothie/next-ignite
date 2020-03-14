@@ -30,21 +30,22 @@ export default frontMatter => ({ children: content }) => {
 
   return hasHomePage ? (
     <NavBarLayout>
-      <div className="flex flex-1">
+      <div className="flex flex-1 w-full max-w-screen-sm lg:max-w-screen-xl mx-auto">
         <Sidebar links={links} folder={resource} />
 
-        <div className="flex-1 pt-8 pb-32 max-w-screen-sm lg:max-w-screen-md mx-auto">
+        <div className="flex-1 pt-8 pb-32 mx-auto max-w-screen-sm lg:max-w-screen-md">
           <components.h1>{frontMatter.title}</components.h1>
           {content}
         </div>
       </div>
     </NavBarLayout>
   ) : (
-    <div className="flex flex-1 min-h-screen">
+    <div className="flex flex-1 min-h-screen max-w-screen-xl mx-auto w-full">
       <Sidebar links={links} folder={resource} />
 
       <div className="flex-1">
         <NavBar sections={topLevelSections} hasHomePage={hasHomePage} />
+        
         <div className="pt-8 pb-32 max-w-screen-sm lg:max-w-screen-md mx-auto">
           <components.h1>{frontMatter.title}</components.h1>
           {content}

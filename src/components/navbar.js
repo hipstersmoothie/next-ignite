@@ -46,32 +46,34 @@ export const NavBar = ({ sections, hasHomePage }) => {
   const components = useMDXComponents();
 
   return (
-    <div className="flex justify-between items-center h-16 px-6 border-b border-grey-200 mx-10">
-      {hasHomePage ? (
-        <Link href="/">
-          <components.a>Home</components.a>
-        </Link>
-      ) : (
-        <div />
-      )}
-
-      <div className="flex">
-        <Search />
-        <Link href="/docs">
-          <components.a className="pr-4">Docs</components.a>
-        </Link>
-        {sections.map((section, index) => (
-          <Link key={section} href={`/${section}`}>
-            <components.a
-              className={makeClass(
-                "capitalize",
-                index !== sections.length - 1 && "pr-4"
-              )}
-            >
-              {titleCase(section)}
-            </components.a>
+    <div className="border-b border-grey-200 mx-10">
+      <div className="h-16 px-6 max-w-screen-xl mx-auto w-full flex justify-between items-center ">
+        {hasHomePage ? (
+          <Link href="/">
+            <components.a>Home</components.a>
           </Link>
-        ))}
+        ) : (
+          <div />
+        )}
+
+        <div className="flex">
+          <Search />
+          <Link href="/docs">
+            <components.a className="pr-4">Docs</components.a>
+          </Link>
+          {sections.map((section, index) => (
+            <Link key={section} href={`/${section}`}>
+              <components.a
+                className={makeClass(
+                  "capitalize",
+                  index !== sections.length - 1 && "pr-4"
+                )}
+              >
+                {titleCase(section)}
+              </components.a>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
