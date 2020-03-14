@@ -58,7 +58,10 @@ const h3 = props => (
   <h3 className="text-gray-900 text-2xl font-normal mt-8" {...props} />
 );
 const p = props => (
-  <p className={makeClass(DEFAULT_SPACING, "text-gray-700")} {...props} />
+  <p className={makeClass(DEFAULT_SPACING, "text-gray-800")} {...props} />
+);
+const li = props => (
+  <li className={makeClass(DEFAULT_SPACING, "text-gray-800")} {...props} />
 );
 const blockquote = props => (
   <blockquote
@@ -119,5 +122,6 @@ export default {
   a,
   ul,
   ol,
+  li,
   blockquote
 };
