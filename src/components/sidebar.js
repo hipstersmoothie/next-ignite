@@ -46,6 +46,7 @@ export const Sidebar = ({ links, folder }) => {
     SidebarTitle,
     SidebarDivider,
     SidebarList,
+    Sidebar,
     ...components
   } = useMDXComponents();
 
@@ -66,7 +67,7 @@ export const Sidebar = ({ links, folder }) => {
           hr: SidebarDivider
         }}
       >
-        <div className="w-1/5 py-6 bg-gray-200 sticky top-0 max-h-screen max-w-xs overflow-scroll">
+        <Sidebar>
           {CustomSideBar ? (
             <CustomSideBar />
           ) : (
@@ -80,7 +81,7 @@ export const Sidebar = ({ links, folder }) => {
               ))}
             </SidebarList>
           )}
-        </div>
+        </Sidebar>
       </MDXProvider>
     </SidebarActiveItem.Provider>
   );

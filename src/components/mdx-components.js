@@ -5,6 +5,15 @@ import Link from "next/link";
 
 import { SidebarActiveItem } from "./sidebar";
 
+const Sidebar = ({ className, ...props }) => (
+  <div
+    className={makeClass(
+      className,
+      "w-1/5 py-6 sticky top-0 max-h-screen max-w-xs overflow-scroll"
+    )}
+    {...props}
+  />
+);
 const SidebarDivider = props => (
   <hr className="h-1 border-gray-400 my-8" {...props} />
 );
@@ -106,6 +115,7 @@ const pre = ({ className, ...props }) => (
 );
 
 export default {
+  Sidebar,
   SidebarItem,
   SidebarLink,
   SidebarTitle,
