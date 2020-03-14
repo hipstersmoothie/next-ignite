@@ -1,4 +1,5 @@
 import React from "react";
+import path from "path";
 import { useMDXComponents } from "@mdx-js/react";
 import { MDXProvider } from "@mdx-js/react";
 
@@ -6,17 +7,20 @@ import { formatPath } from "../format-path";
 
 export const SidebarActiveItem = React.createContext({
   pathname: "",
-  href: ""
+  href: "",
+  sidebarFileLocation: ""
 });
 
 export const Sidebar = ({ links, folder }) => {
+  const sidebarFileLocation = `/${folder}`;
   let CustomSideBar;
 
   try {
-    CustomSideBar = require(PAGES_DIR + `/${folder}` + "/_sidebar.mdx").default;
+    CustomSideBar = require(PAGES_DIR + sidebarFileLocation + "/_sidebar.mdx")
+      .default;
   } catch (error) {
     try {
-      CustomSideBar = require(PAGES_DIR + `/${folder}` + "/_sidebar.js")
+      CustomSideBar = require(PAGES_DIR + sidebarFileLocation + "/_sidebar.js")
         .default;
     } catch (error) {
       // TODO handle more file types
@@ -46,7 +50,12 @@ export const Sidebar = ({ links, folder }) => {
   } = useMDXComponents();
 
   return (
-    <SidebarActiveItem.Provider value={active}>
+    <SidebarActiveItem.Provider
+      value={{
+        ...active,
+        sidebarFileLocation: CustomSideBar ? sidebarFileLocation : ""
+      }}
+    >
       <MDXProvider
         components={{
           ...components,

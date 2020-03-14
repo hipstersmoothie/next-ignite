@@ -1,4 +1,5 @@
 import React from "react";
+import path from "path";
 import makeClass from "clsx";
 import Link from "next/link";
 
@@ -14,11 +15,20 @@ const SidebarItem = props => <li className="my-2" {...props} />;
 const SidebarList = props => <ul {...props} />;
 const SidebarLink = ({ href, ...props }) => {
   const active = React.useContext(SidebarActiveItem);
-  const url = active.href ? new URL(href, active.href).pathname : "";
+  let url = href;
+
+  if (active.href) {
+    const { origin } = new URL(active.href);
+    const urlPath = path.join(active.sidebarFileLocation, href);
+    const final = new URL(urlPath, origin);
+
+    url = final.pathname;
+  }
+
   const isActive = active.pathname === url;
 
   return (
-    <Link href={href}>
+    <Link href={url}>
       <a
         className={makeClass(
           "text-base font-light hover:font-normal px-6 flex",
@@ -87,7 +97,7 @@ const code = ({ className, ...props }) => (
 
 const pre = ({ className, ...props }) => (
   <pre
-    className={makeClass(className, DEFAULT_SPACING, "bg-gray-200 rounded")}  
+    className={makeClass(className, DEFAULT_SPACING, "bg-gray-200 rounded")}
     {...props}
   />
 );
