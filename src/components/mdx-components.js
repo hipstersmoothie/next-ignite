@@ -12,6 +12,7 @@ const Logo = ({ className, ...props }) => (
       "h-full focus:outline-none flex items-center h-full text-gray-800 font-normal hover:font-semibold focus:font-semibold cursor-pointer text-xl",
       className
     )}
+    {...props}
   >
     <img
       alt={`${PROJECT_NAME} Logo`}
@@ -19,6 +20,36 @@ const Logo = ({ className, ...props }) => (
       className="h-full p-3 pl-0"
     />
     {PROJECT_NAME}
+  </a>
+);
+
+const NavBarWrapper = ({ className, ...props }) => (
+  <div
+    className={makeClass("border-b border-grey-200 mx-10", className)}
+    {...props}
+  />
+);
+
+const NavBar = ({ className, ...props }) => (
+  <div
+    className={makeClass(
+      "h-16 px-6 max-w-screen-xl mx-auto w-full flex justify-between items-center",
+      className
+    )}
+    {...props}
+  />
+);
+
+const NavBarItem = ({ className, children, ...props }) => (
+  <a
+    tabIndex={0}
+    className={makeClass(
+      "h-full flex items-center px-6 hover:bg-gray-200 hover:text-blue-600 focus:bg-gray-200 focus:text-blue-600 focus:outline-none",
+      className
+    )}
+    {...props}
+  >
+    <div>{children}</div>
   </a>
 );
 
@@ -133,6 +164,9 @@ const pre = ({ className, ...props }) => (
 
 export default {
   Logo,
+  NavBarWrapper,
+  NavBar,
+  NavBarItem,
 
   Sidebar,
   SidebarItem,

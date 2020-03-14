@@ -43,38 +43,37 @@ const Search = () => {
 };
 
 export const NavBar = ({ sections, hasHomePage }) => {
-  const { Logo, ...components } = useMDXComponents();
+  const {
+    Logo,
+    NavBarWrapper,
+    NavBar,
+    NavBarItem,
+    ...components
+  } = useMDXComponents();
 
   return (
-    <div className="border-b border-grey-200 mx-10">
-      <div className="h-16 px-6 max-w-screen-xl mx-auto w-full flex justify-between items-center ">
+    <NavBarWrapper>
+      <NavBar>
         {hasHomePage ? (
           <Link href="/">
-             <Logo />
+            <Logo />
           </Link>
         ) : (
           <div />
         )}
 
-        <div className="flex">
+        <div className="flex h-full">
           <Search />
           <Link href="/docs">
-            <components.a className="pr-4">Docs</components.a>
+            <NavBarItem>Docs</NavBarItem>
           </Link>
-          {sections.map((section, index) => (
+          {sections.map(section => (
             <Link key={section} href={`/${section}`}>
-              <components.a
-                className={makeClass(
-                  "capitalize",
-                  index !== sections.length - 1 && "pr-4"
-                )}
-              >
-                {titleCase(section)}
-              </components.a>
+              <NavBarItem>{titleCase(section)}</NavBarItem>
             </Link>
           ))}
         </div>
-      </div>
-    </div>
+      </NavBar>
+    </NavBarWrapper>
   );
 };

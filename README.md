@@ -14,7 +14,7 @@ yarn dev
 ```
 
 // TODO docs for setting up blog
-// TODO document home page
+// TODO document home page template
 // TODO for more top level sections
 // TODO docuemetn javascript pages
-// TODO custom sidebar
+// TODO order top level sections
