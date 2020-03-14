@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Link from "next/link";
 import { titleCase } from "title-case";
 import makeClass from "clsx";
@@ -6,7 +6,7 @@ import { useMDXComponents } from "@mdx-js/react";
 
 import { formatPath } from "../format-path";
 // import searchIndex from "../../search.json";
-const searchIndex = []
+const searchIndex = [];
 
 const Search = () => {
   const components = useMDXComponents();
@@ -42,14 +42,18 @@ const Search = () => {
   );
 };
 
-export const NavBar = ({ sections }) => {
+export const NavBar = ({ sections, hasHomePage }) => {
   const components = useMDXComponents();
-  
+
   return (
-    <div className="flex justify-between items-center h-16 px-6">
-      <Link href="/">
-        <components.a>Home</components.a>
-      </Link>
+    <div className="flex justify-between items-center h-16 px-6 border-b border-grey-200 mx-10">
+      {hasHomePage ? (
+        <Link href="/">
+          <components.a>Home</components.a>
+        </Link>
+      ) : (
+        <div />
+      )}
 
       <div className="flex">
         <Search />

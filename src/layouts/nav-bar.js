@@ -1,23 +1,15 @@
-import React from 'react';
-import path from "path";
+import React from "react";
 
 import { NavBar } from "../components/navbar";
 import { Sidebar } from "../components/sidebar";
+import { getHasHomepage, getTopLevelSections } from "../layout-utils";
 
-// Get all pages
-const requirePage = require.context(PAGES_DIR, true, /\.mdx$/);
-const topLevelSections = Array.from(new Set(
-  requirePage
-    .keys()
-    .map(key => path.relative("./", key).split("/")[0])
-    // anything with a dot in it would be a file
-    // we only care about directories
-    .filter(key => !key.includes(".") && key !== 'docs')
-));
+const hasHomePage = getHasHomepage();
+const topLevelSections = getTopLevelSections();
 
 export default () => ({ children: content }) => (
   <div id="ignite" className="min-h-screen flex flex-col">
-    <NavBar sections={topLevelSections} />
+    <NavBar sections={topLevelSections} hasHomePage={hasHomePage} />
     {content}
   </div>
 );

@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
 import path from "path";
 import { useMDXComponents } from "@mdx-js/react";
 
+import { NavBar } from "../components/navbar";
 import { Sidebar } from "../components/sidebar";
 import makeNavBarLayout from "./nav-bar";
+import { getHasHomepage, getTopLevelSections } from "../layout-utils";
 
 const NavBarLayout = makeNavBarLayout();
 const requireFrontMatters = require.context(MDX_DATA_DIR, true, /\.json$/);
@@ -11,6 +13,10 @@ const requireFrontMatters = require.context(MDX_DATA_DIR, true, /\.json$/);
 const requirePage = require.context(PAGES_DIR, true, /\.mdx$/);
 // Get all frontMatter data
 const frontMatters = requireFrontMatters.keys().map(requireFrontMatters);
+const hasHomePage = getHasHomepage();
+const topLevelSections = getTopLevelSections();
+
+console.log({hasHomePage})
 
 export default frontMatter => ({ children: content }) => {
   const components = useMDXComponents();
@@ -22,7 +28,7 @@ export default frontMatter => ({ children: content }) => {
     .filter(key => key.startsWith(resource))
     .map(key => frontMatters.find(f => f.__resourcePath === key));
 
-  return (
+  return hasHomePage ? (
     <NavBarLayout>
       <div className="flex flex-1">
         <Sidebar links={links} folder={resource} />
@@ -33,5 +39,17 @@ export default frontMatter => ({ children: content }) => {
         </div>
       </div>
     </NavBarLayout>
+  ) : (
+    <div className="flex flex-1 min-h-screen">
+      <Sidebar links={links} folder={resource} />
+
+      <div className="flex-1">
+        <NavBar sections={topLevelSections} hasHomePage={hasHomePage} />
+        <div className="pt-8 pb-32 max-w-screen-sm lg:max-w-screen-md mx-auto">
+          <components.h1>{frontMatter.title}</components.h1>
+          {content}
+        </div>
+      </div>
+    </div>
   );
 };
