@@ -3,8 +3,8 @@ import Link from "next/link";
 import { titleCase } from "title-case";
 import { useMDXComponents } from "@mdx-js/react";
 
-import { formatPath } from "../format-path";
-import { MobileMenuContext } from "../mobile-menu-context";
+import { formatPath } from "../utils/format-path";
+import { MobileMenuContext } from "../utils/mobile-menu-context";
 import { Components } from "./mdx-components";
 
 // import searchIndex from "../../search.json";

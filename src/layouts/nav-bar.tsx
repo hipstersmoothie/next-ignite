@@ -1,8 +1,8 @@
 import React from "react";
 
 import { NavBar } from "../components/navbar";
-import { getHasHomepage, getTopLevelSections } from "../layout-utils";
-import { MobileMenuContext } from "../mobile-menu-context";
+import { getHasHomepage, getTopLevelSections } from "../utils/layout";
+import { MobileMenuContext } from "../utils/mobile-menu-context";
 
 const hasHomePage = getHasHomepage();
 const topLevelSections = getTopLevelSections();

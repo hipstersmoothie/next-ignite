@@ -1,7 +1,8 @@
 import React from "react";
-import makeNavBarLayout from "./nav-bar";
 import Link from "next/link";
-import { Page } from "../types";
+
+import makeNavBarLayout from "./nav-bar";
+import { Page } from "../utils/types";
 
 declare var PROJECT_NAME: string;
 const NavBarLayout = makeNavBarLayout();

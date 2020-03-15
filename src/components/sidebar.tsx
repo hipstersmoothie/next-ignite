@@ -4,9 +4,9 @@ import path from "path";
 import makeClass from "clsx";
 import { MDXProvider, useMDXComponents } from "@mdx-js/react";
 
-import { MobileMenuContext } from "../mobile-menu-context";
-import { formatPath } from "../format-path";
-import { Page } from "../types";
+import { MobileMenuContext } from "../utils/mobile-menu-context";
+import { formatPath } from "../utils/format-path";
+import { Page } from "../utils/types";
 import { Components } from "./mdx-components";
 
 export const SidebarActiveItem = React.createContext({

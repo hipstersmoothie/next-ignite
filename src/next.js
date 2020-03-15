@@ -3,6 +3,7 @@ const path = require("path");
 const rehypePrism = require("@mapbox/rehype-prism");
 const emoji = require("remark-emoji");
 const a11yEmoji = require("rehype-accessible-emojis");
+const { execSync } = require("child_process");
 
 const isProduction = process.env.NODE_ENV === "production";
 const pages = [];
@@ -10,6 +11,11 @@ const pages = [];
 if (isProduction) {
   fs.writeFileSync("search.json", JSON.stringify([]));
 }
+
+const getCreationDate = (file) =>
+  execSync(`git log --format=%aD ${path.join("docs/pages", file)} | tail -1`, {
+    encoding: "utf8"
+  });
 
 const withMdxEnhanced = require("next-mdx-enhanced")({
   layoutPath: path.resolve("./dist/esm/layouts"),
@@ -23,34 +29,32 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
   },
   extendFrontMatter: {
     process: (_, frontMatter) => {
-      const { __resourcePath, layout } = frontMatter;
+      let { __resourcePath, layout } = frontMatter;
+      const creationDate = getCreationDate(__resourcePath);
 
       if (!layout) {
         const defaultLayout = __resourcePath.split("/")[0];
 
         if (__resourcePath === "index.mdx") {
-          return {
-            layout: "home-page"
-          };
+          layout = "home-page";
         } else if (__resourcePath.includes("_sidebar.mdx")) {
           return {};
         } else if (defaultLayout === "blog") {
-          return {
-            layout: "nav-bar"
-          };
+          layout = "nav-bar";
         } else if (
           fs.existsSync(
             path.join(process.cwd(), `layouts/${defaultLayout}.tsx`)
           )
         ) {
-          return {
-            layout: defaultLayout
-          };
+          layout = defaultLayout;
         } else {
-          return {
-            layout: "docs"
-          };
+          layout = "docs";
         }
+      }
+
+      return {
+        layout, 
+        date: creationDate
       }
     },
     phase: "both"

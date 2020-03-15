@@ -3,11 +3,18 @@ import Link from "next/link";
 import { useMDXComponents } from "@mdx-js/react";
 import gravatar from "gravatar";
 
-import getBlogPosts from "../get-blog-posts";
+import getBlogPosts from "../utils/get-blog-posts";
 import makeNavBarLayout from "../layouts/nav-bar";
 
 const NavBarLayout = makeNavBarLayout();
 const posts = getBlogPosts();
+const dateFormat = new Intl.DateTimeFormat("default", {
+  hour: "numeric",
+  minute: "numeric",
+  year: '2-digit',
+  month: 'numeric',
+  day: 'numeric'
+});
 
 interface BlogIndexProps {
   /** The color of the header */
@@ -36,11 +43,14 @@ export default ({ color = "blue" }: BlogIndexProps) => {
                 )}
 
                 <div>
-                  <h2 className="text-2xl font-medium text-gray-800">
+                  <h2 className="text-2xl font-medium text-gray-800 leading-relaxed">
                     {page.title}
                   </h2>
                   <p className="text-gray-800 text-lg font-light">
                     {page.author}
+                  </p>
+                  <p className="text-gray-600 text-sm font-light">
+                    {dateFormat.format(new Date(page.date))}
                   </p>
                 </div>
               </a>

@@ -22,7 +22,10 @@ const blogPosts = posts
   .map(key =>
     frontMatters.find(f => f.__resourcePath === path.join("blog", key))
   )
-  .map(post => ({ ...post, __resourcePath: formatPath(post.__resourcePath) }));
+  .map(post => ({
+    ...post,
+    __resourcePath: formatPath(post.__resourcePath)
+  }));
 
 /** Get all the blog posts in the project */
 export default () => blogPosts;
