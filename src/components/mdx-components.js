@@ -72,7 +72,7 @@ const SidebarList = props => <ul {...props} />;
 const SidebarLink = ({ isActive, ...props }) => (
   <a
     className={makeClass(
-      "text-base font-light hover:font-normal px-6 flex",
+      "text-base font-light hover:font-normal px-6 flex cursor-pointer",
       isActive && "font-normal border-r-4 border-blue-600"
     )}
     {...props}

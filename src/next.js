@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 const rehypePrism = require("@mapbox/rehype-prism");
-const emoji = require('remark-emoji')
-const a11yEmoji = require('rehype-accessible-emojis')
+const emoji = require("remark-emoji");
+const a11yEmoji = require("rehype-accessible-emojis");
 
 const isProduction = process.env.NODE_ENV === "production";
 const pages = [];
@@ -28,7 +28,11 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
       if (!layout) {
         const defaultLayout = __resourcePath.split("/")[0];
 
-        if (__resourcePath.includes("_sidebar.mdx")) {
+        if (__resourcePath === "index.mdx") {
+          return {
+            layout: "home-page"
+          };
+        } else if (__resourcePath.includes("_sidebar.mdx")) {
           return {};
         } else if (defaultLayout === "blog") {
           return {
@@ -59,7 +63,7 @@ module.exports = (nextConfig = {}) =>
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
       config.plugins.push(
         new webpack.DefinePlugin({
-          PROJECT_NAME: JSON.stringify('ignite'),
+          PROJECT_NAME: JSON.stringify("ignite"),
           PAGES_DIR: JSON.stringify(path.resolve("./docs/pages")),
           MDX_DATA_DIR: JSON.stringify(path.resolve("./docs/.mdx-data"))
         })
