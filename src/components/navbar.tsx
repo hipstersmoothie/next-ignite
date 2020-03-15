@@ -79,11 +79,11 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
 
           <div className="h-full hidden lg:flex flex-1 lg:max-w-screen-md mx-auto">
             <Search />
-            <Link href="/docs">
+            <Link href={formatPath("/docs")}>
               <NavBarItem>Docs</NavBarItem>
             </Link>
             {sections.map(section => (
-              <Link key={section} href={`/${section}`}>
+              <Link key={section} href={formatPath(`/${section}`)}>
                 <NavBarItem>{titleCase(section)}</NavBarItem>
               </Link>
             ))}
@@ -93,11 +93,11 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
 
       {openMenu && (
         <div className="lg:hidden">
-          <Link href="/docs">
+          <Link href={formatPath("/docs")}>
             <NavBarItem>Docs</NavBarItem>
           </Link>
           {sections.map(section => (
-            <Link key={section} href={`/${section}`}>
+            <Link key={section} href={formatPath(`/${section}`)}>
               <NavBarItem>{titleCase(section)}</NavBarItem>
             </Link>
           ))}

@@ -1,6 +1,7 @@
 import React from "react";
 import makeClass from "clsx";
 import { MDXProviderComponents } from "@mdx-js/react";
+import { prefixURL } from 'next-prefixed';
 
 declare var PROJECT_NAME: string;
 
@@ -62,7 +63,7 @@ const Logo = ({ className, ...props }: Element<"a">) => (
   >
     <img
       alt={`${PROJECT_NAME} Logo`}
-      src="/logo.svg"
+      src={prefixURL("/logo.svg")}
       className="w-8 h-8 md:mr-3"
     />
     <span className="hidden md:block">{PROJECT_NAME}</span>

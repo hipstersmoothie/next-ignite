@@ -12398,6 +12398,11 @@ next-mdx-enhanced@^2.4.0:
     prebuild-webpack-plugin "1.1.0"
     stringify-object "^3.3.0"
 
+next-prefixed@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/next-prefixed/-/next-prefixed-0.0.9.tgz#3d020cf2a1cac8c417508d510c86950a784d2a40"
+  integrity sha512-8A66tKZEvnYEj0qF3bdm3h/QSgaBT9uYftu/aeyfpe1OE8Wwsw+MgE96u+iwjX6WOcruKm2/EPUnlPUzBFkfbA==
+
 next-tick@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"

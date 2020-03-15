@@ -3,6 +3,7 @@ const path = require("path");
 const { app } = require("command-line-application");
 const { createServer } = require("http");
 const { parse } = require("url");
+const { execSync } = require("child_process");
 const next = require("next");
 const ignite = require("ignite/next");
 
@@ -54,6 +55,8 @@ if (args._command === "dev") {
 
 if (args._command === "build") {
   // TODO add options
+  process.env.NODE_ENV = 'production';
+
   buildNext(path.resolve(path.join(process.cwd(), "docs")), ignite())
     .then(() => process.exit(0))
     .catch(err => {
@@ -70,6 +73,9 @@ if (args._command === "export") {
   })
     .then(() => {
       console.log("Export successful", 0);
+      execSync(
+        `touch ${path.resolve(path.join(process.cwd(), "docs/out/.nojekyll"))}`
+      );
     })
     .catch(err => {
       console.log(err);

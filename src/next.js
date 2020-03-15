@@ -12,15 +12,18 @@ if (isProduction) {
   fs.writeFileSync("search.json", JSON.stringify([]));
 }
 
-const getCreationDate = (file) =>
+const getCreationDate = file =>
   execSync(`git log --format=%aD ${path.join("docs/pages", file)} | tail -1`, {
     encoding: "utf8"
   });
 
-const getAuthor = (file) =>
-  execSync(`git log --format="%an || %ae" ${path.join("docs/pages", file)} | tail -1`, {
-    encoding: "utf8"
-  }).split(' || ');
+const getAuthor = file =>
+  execSync(
+    `git log --format="%an || %ae" ${path.join("docs/pages", file)} | tail -1`,
+    {
+      encoding: "utf8"
+    }
+  ).split(" || ");
 
 const withMdxEnhanced = require("next-mdx-enhanced")({
   layoutPath: path.resolve("./dist/esm/layouts"),
@@ -36,7 +39,7 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
     process: (_, frontMatter) => {
       let { __resourcePath, date, layout, ...rest } = frontMatter;
       const creationDate = getCreationDate(__resourcePath);
-      const [author, email] = getAuthor(__resourcePath)
+      const [author, email] = getAuthor(__resourcePath);
 
       if (!layout) {
         const defaultLayout = __resourcePath.split("/")[0];
@@ -46,9 +49,7 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
         } else if (__resourcePath.includes("_sidebar.mdx")) {
           return {};
         } else if (
-          fs.existsSync(
-            path.join(__dirname, `layouts/${defaultLayout}.js`)
-          )
+          fs.existsSync(path.join(__dirname, `layouts/${defaultLayout}.js`))
         ) {
           layout = defaultLayout;
         } else {
@@ -57,22 +58,34 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
       }
 
       return {
-        layout, 
+        layout,
         date: date || creationDate,
         author: rest.author || author,
         email: rest.email || email
-      }
+      };
     },
     phase: "both"
   }
 });
 
-module.exports = (nextConfig = {}) =>
-  withMdxEnhanced({
+
+
+module.exports = (nextConfig = {}) => {
+  const debug = process.env.NODE_ENV !== 'production';
+  const BASE_PATH = debug ? '' : '/next-mdx-dynamic-docs';
+
+  return withMdxEnhanced({
     ...nextConfig,
+    experimental: {
+      basePath: BASE_PATH
+    },
+    publicRuntimeConfig: {
+      assetPrefix: BASE_PATH
+    },
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
       config.plugins.push(
         new webpack.DefinePlugin({
+          BASE_PATH: JSON.stringify(BASE_PATH),
           PROJECT_NAME: JSON.stringify("ignite"),
           PAGES_DIR: JSON.stringify(path.resolve("./docs/pages")),
           MDX_DATA_DIR: JSON.stringify(path.resolve("./docs/.mdx-data"))
@@ -87,3 +100,4 @@ module.exports = (nextConfig = {}) =>
       return config;
     }
   });
+}

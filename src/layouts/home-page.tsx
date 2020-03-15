@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import makeNavBarLayout from "./nav-bar";
 import { Page } from "../utils/types";
+import { formatPath } from "../utils/format-path";
 
 declare var PROJECT_NAME: string;
 const NavBarLayout = makeNavBarLayout();
@@ -34,7 +35,7 @@ export default (frontMatter: HomePageFrontMatter) => ({
         {content}
       </div>
       <div className="w-full flex items-center justify-center bg-gray-200 p-10 border-t-2 border-gray-300">
-        <Link href="/docs">
+        <Link href={formatPath("/docs")}>
           <button
             className={`border-2 border-${color}-600 text-xl px-6 py-4 rounded text-${color}-700 focus:outline-none hover:text-white hover:bg-${color}-500 focus:text-white focus:bg-${color}-500`}
           >

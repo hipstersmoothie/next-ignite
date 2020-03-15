@@ -15,6 +15,8 @@ export const SidebarActiveItem = React.createContext({
   sidebarFileLocation: ""
 });
 
+declare var BASE_PATH: string;
+
 /** Get the custom sidebar for a folder */
 const getCustomSidebar = (sidebarFileLocation: string) => {
   try {
@@ -44,7 +46,7 @@ const SidebarItem = ({ href, children }: SidebarItemProps) => {
 
   if (active.sidebarFileLocation && active.href) {
     const { origin } = new URL(active.href);
-    const urlPath = path.join(active.sidebarFileLocation, href);
+    const urlPath = path.join(BASE_PATH, active.sidebarFileLocation, href);
     const final = new URL(urlPath, origin);
 
     url = final.pathname;
