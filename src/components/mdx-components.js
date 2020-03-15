@@ -1,7 +1,6 @@
 import React from "react";
 import path from "path";
 import makeClass from "clsx";
-import Link from "next/link";
 
 import { SidebarActiveItem } from "./sidebar";
 
@@ -68,34 +67,17 @@ const SidebarDivider = props => (
 const SidebarTitle = props => (
   <p className="text-xl font-semibold px-4 my-4" {...props} />
 );
-const SidebarItem = props => <li className="my-2" {...props} />;
+const SidebarItemWrapper = props => <li className="my-2" {...props} />;
 const SidebarList = props => <ul {...props} />;
-const SidebarLink = ({ href, ...props }) => {
-  const active = React.useContext(SidebarActiveItem);
-  let url = href;
-
-  if (active.href) {
-    const { origin } = new URL(active.href);
-    const urlPath = path.join(active.sidebarFileLocation, href);
-    const final = new URL(urlPath, origin);
-
-    url = final.pathname;
-  }
-
-  const isActive = active.pathname === url;
-
-  return (
-    <Link href={url}>
-      <a
-        className={makeClass(
-          "text-base font-light hover:font-normal px-6 flex",
-          isActive && "font-normal border-r-4 border-blue-600"
-        )}
-        {...props}
-      />
-    </Link>
-  );
-};
+const SidebarLink = ({ isActive, ...props }) => (
+  <a
+    className={makeClass(
+      "text-base font-light hover:font-normal px-6 flex",
+      isActive && "font-normal border-r-4 border-blue-600"
+    )}
+    {...props}
+  />
+);
 
 const DEFAULT_SPACING = "my-4";
 
@@ -169,7 +151,7 @@ export default {
   NavBarItem,
 
   Sidebar,
-  SidebarItem,
+  SidebarItemWrapper,
   SidebarLink,
   SidebarTitle,
   SidebarDivider,

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import path from "path";
 import { useMDXComponents } from "@mdx-js/react";
 import { MDXProvider } from "@mdx-js/react";
@@ -11,23 +12,53 @@ export const SidebarActiveItem = React.createContext({
   sidebarFileLocation: ""
 });
 
-export const Sidebar = ({ links, folder }) => {
-  const sidebarFileLocation = `/${folder}`;
-  let CustomSideBar;
-
+const getCustomSidebar = (sidebarFileLocation) => {
   try {
-    CustomSideBar = require(PAGES_DIR + sidebarFileLocation + "/_sidebar.mdx")
-      .default;
+    return require(PAGES_DIR + sidebarFileLocation + "/_sidebar.mdx").default;
   } catch (error) {
     try {
-      CustomSideBar = require(PAGES_DIR + sidebarFileLocation + "/_sidebar.js")
-        .default;
+      return require(PAGES_DIR + sidebarFileLocation + "/_sidebar.js").default;
     } catch (error) {
       // TODO handle more file types
     }
   }
+};
 
+const SidebarItem = ({ href, children }) => {
+  const active = React.useContext(SidebarActiveItem);
+  const { SidebarLink } = useMDXComponents();
+
+  let url = href;
+
+  if (active.sidebarFileLocation && active.href) {
+    const { origin } = new URL(active.href);
+    const urlPath = path.join(active.sidebarFileLocation, href);
+    const final = new URL(urlPath, origin);
+
+    url = final.pathname;
+  }
+
+  return (
+    <Link href={url}>
+      <SidebarLink isActive={active.pathname === url}>{children}</SidebarLink>
+    </Link>
+  );
+};
+
+export const Sidebar = ({ links, folder }) => {
+  const sidebarFileLocation = `/${folder}`;
+  const CustomSideBar = getCustomSidebar(sidebarFileLocation);
   const [active, setActive] = React.useState({ pathname: "", href: "" });
+
+  const {
+    SidebarItemWrapper,
+    SidebarLink,
+    SidebarTitle,
+    SidebarDivider,
+    SidebarList,
+    Sidebar,
+    ...components
+  } = useMDXComponents();
 
   React.useLayoutEffect(() => {
     const newActive = links.find(link =>
@@ -40,16 +71,6 @@ export const Sidebar = ({ links, folder }) => {
     });
   }, []);
 
-  const {
-    SidebarItem,
-    SidebarLink,
-    SidebarTitle,
-    SidebarDivider,
-    SidebarList,
-    Sidebar,
-    ...components
-  } = useMDXComponents();
-
   return (
     <SidebarActiveItem.Provider
       value={{
@@ -60,9 +81,9 @@ export const Sidebar = ({ links, folder }) => {
       <MDXProvider
         components={{
           ...components,
-          li: SidebarItem,
+          li: SidebarItemWrapper,
           ul: SidebarList,
-          a: SidebarLink,
+          a: SidebarItem,
           p: SidebarTitle,
           hr: SidebarDivider
         }}
@@ -73,11 +94,11 @@ export const Sidebar = ({ links, folder }) => {
           ) : (
             <SidebarList>
               {links.map(page => (
-                <SidebarItem key={page.__resourcePath}>
-                  <SidebarLink href={formatPath(page.__resourcePath)}>
+                <SidebarItemWrapper key={page.__resourcePath}>
+                  <SidebarItem href={formatPath(page.__resourcePath)}>
                     {page.title}
-                  </SidebarLink>
-                </SidebarItem>
+                  </SidebarItem>
+                </SidebarItemWrapper>
               ))}
             </SidebarList>
           )}
