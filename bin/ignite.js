@@ -1,9 +1,13 @@
 #!/usr/bin/env node
+const path = require("path");
 const { app } = require("command-line-application");
 const { createServer } = require("http");
 const { parse } = require("url");
 const next = require("next");
 const ignite = require("ignite/next");
+
+const buildNext = require("next/dist/build").default;
+const exportNext = require("next/dist/export").default;
 
 const args = app({
   name: "ignite",
@@ -11,7 +15,15 @@ const args = app({
   commands: [
     {
       name: "dev",
-      description: "Develop you documentation."
+      description: "Develop your documentation."
+    },
+    {
+      name: "build",
+      description: "Build your documentation."
+    },
+    {
+      name: "export",
+      description: "Export your documentation to html."
     }
   ]
 });
@@ -38,4 +50,28 @@ if (args._command === "dev") {
       console.log("> Ready on http://localhost:3000");
     });
   });
+}
+
+if (args._command === "build") {
+  // TODO add options
+  buildNext(path.resolve(path.join(process.cwd(), "docs")), ignite())
+    .then(() => process.exit(0))
+    .catch(err => {
+      console.error("");
+      console.error("> Build error occurred");
+      console.log(err);
+    });
+}
+
+if (args._command === "export") {
+  // TODO add options
+  exportNext(path.resolve(path.join(process.cwd(), "docs")), {
+    outdir: path.resolve(path.join(process.cwd(), "docs/out"))
+  })
+    .then(() => {
+      console.log("Export successful", 0);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 }

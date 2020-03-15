@@ -30,3 +30,4 @@ yarn-error.log*
 # Ignore next-mdx-enhanced cache directory
 docs/.mdx-data
 docs/.next
+docs/out

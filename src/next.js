@@ -40,9 +40,6 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 
       if (!layout) {
         const defaultLayout = __resourcePath.split("/")[0];
-        console.log({defaultLayout},  path.join(__dirname, `layouts/${defaultLayout}.js`), fs.existsSync(
-          path.join(__dirname, `layouts/${defaultLayout}.js`)
-        ))
 
         if (__resourcePath === "index.mdx") {
           layout = "home-page";
