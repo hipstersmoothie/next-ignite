@@ -52,3 +52,61 @@ export default () => {
   );
 };
 ```
+
+Once this is setup you're ready to start writing blog posts! :tada:
+
+## Blog Post Format
+
+A blog post is just another `.mdx` file, but it has a few more front-matter features.
+
+You should always include a title.
+
+```yaml
+---
+title: 'My First Blog Post'
+---
+```
+
+### author
+
+You can include an author in the blog post, otherwise this information will get pull from the commit.
+Include an email to display an avatar using gravatar.
+
+```yaml
+---
+title: 'My First Blog Post'
+author: 'Andrew Lisowski'
+email: 'lisowski54@gmail.com'
+---
+```
+
+### date
+
+Specifiy the date the post was created.
+If not supplied this information is pulled from the commit date.
+
+```yaml
+---
+date: 'Thu, 12 Mar 2020 23:00:02 -0700'
+---
+```
+
+### color
+
+A color to use as the backdrop for a post
+
+```yaml
+---
+color: 'red'
+---
+```
+
+### image
+
+Instead of a color you can display an image as the backdrop.
+
+```yaml
+---
+image: 'http://image.com/example.png'
+---
+```

@@ -17,6 +17,11 @@ const getCreationDate = (file) =>
     encoding: "utf8"
   });
 
+const getAuthor = (file) =>
+  execSync(`git log --format="%an || %ae" ${path.join("docs/pages", file)} | tail -1`, {
+    encoding: "utf8"
+  }).split(' || ');
+
 const withMdxEnhanced = require("next-mdx-enhanced")({
   layoutPath: path.resolve("./dist/esm/layouts"),
   remarkPlugins: [emoji],
@@ -29,10 +34,10 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
   },
   extendFrontMatter: {
     process: (_, frontMatter) => {
-      let { __resourcePath, date, layout } = frontMatter;
+      let { __resourcePath, date, layout, ...rest } = frontMatter;
       const creationDate = getCreationDate(__resourcePath);
+      const [author, email] = getAuthor(__resourcePath)
 
-      
       if (!layout) {
         const defaultLayout = __resourcePath.split("/")[0];
         console.log({defaultLayout},  path.join(__dirname, `layouts/${defaultLayout}.js`), fs.existsSync(
@@ -56,7 +61,9 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 
       return {
         layout, 
-        date: date || creationDate
+        date: date || creationDate,
+        author: rest.author || author,
+        email: rest.email || email
       }
     },
     phase: "both"
