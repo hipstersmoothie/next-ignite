@@ -1,3 +1,54 @@
 ---
 title: 'Creating a Blog'
 ---
+
+Adding a blog with `ignite` is super easy.
+All you have to do is start adding `.mdx` files to a folder names `pages/blog` and set up the blog index page.
+
+## Blog Index Page
+
+Create a file in your `pages/` folder named `blog.js`.
+This simplest way to get a blog index running is by using the sample compoent `ignite` provides
+
+```js
+import { BlogIndex } from "ignite";
+
+export default () => <BlogIndex />;
+```
+
+If you want more control of what this page looks like you can use the lower level functions `ignite` provides.
+
+In this file add the following to render a simple list of your blog posts:
+
+```jsx
+import Link from "next/link";
+// getBlogPosts will return the blogs in reverse creation order
+import { getBlogPosts, makeNavBarLayout } from "ignite";
+import { useMDXComponents } from "@mdx-js/react";
+
+// Make a layout with the navbar at the
+const NavBarLayout = makeNavBarLayout();
+// Get all the blog posts
+const posts = getBlogPosts();
+
+export default () => {
+  // Make sure to use the components defined for you docs!
+  const components = useMDXComponents();
+
+  return (
+    <NavBarLayout>
+      <components.h1>Blog</components.h1>
+
+      <components.ul>
+        {posts.map(page => (
+          <li key={page.__resourcePath}>
+            <Link href={page.__resourcePath}>
+              <components.a>{page.title}</components.a>
+            </Link>
+          </li>
+        ))}
+      </components.ul>
+    </NavBarLayout>
+  );
+};
+```

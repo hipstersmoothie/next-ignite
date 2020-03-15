@@ -6,6 +6,7 @@ import { Resource } from "./types";
 interface BlogPost extends Resource {
   title: string;
   author: string;
+  email?: string;
 }
 
 declare var PAGES_DIR: string;

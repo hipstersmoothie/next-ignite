@@ -9,7 +9,7 @@ const topLevelSections = getTopLevelSections();
 
 interface NavBarProps {
   /** The state of the mobile menu */
-  menuState: [boolean, (newValue: boolean) => void];
+  menuState?: [boolean, (newValue: boolean) => void];
   /** The page content */
   children: React.ReactNode;
 }

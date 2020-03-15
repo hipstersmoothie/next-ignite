@@ -73,6 +73,7 @@ const Logo = ({ className, ...props }: Element<"a">) => (
 const SearchInput = ({ className, ...props }: Element<"input">) => (
   <input
     id="search"
+    autoComplete="off"
     placeholder="Search the docs (Press '/')"
     className={makeClass(
       className,
@@ -107,7 +108,7 @@ const NavBarItem = ({ className, children, ...props }: Element<"a">) => (
   <a
     tabIndex={0}
     className={makeClass(
-      "justify-center h-full flex items-center px-6 py-4",
+      "justify-center h-full flex items-center px-6 py-4 cursor-pointer",
       "hover:bg-gray-200 hover:text-blue-600 focus:bg-gray-200 focus:text-blue-600 focus:outline-none",
       className
     )}
@@ -182,7 +183,8 @@ const h1 = ({ className, ...props }: Element<"h1">) => (
   <h1
     className={makeClass(
       className,
-      "text-gray-900 text-5xl font-semibold leading-relaced"
+      "text-5xl font-semibold leading-relaced",
+      !className || !className.includes('text-') && 'text-gray-900'
     )}
     {...props}
   />
