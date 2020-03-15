@@ -1,9 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import path from "path";
+import makeClass from "clsx";
 import { useMDXComponents } from "@mdx-js/react";
 import { MDXProvider } from "@mdx-js/react";
 
+import { MobileMenuContext } from "../mobile-menu-context";
 import { formatPath } from "../format-path";
 
 export const SidebarActiveItem = React.createContext({
@@ -46,6 +48,7 @@ const SidebarItem = ({ href, children }) => {
 };
 
 export const Sidebar = ({ links, folder }) => {
+  const [menuOpen] = React.useContext(MobileMenuContext);
   const sidebarFileLocation = `/${folder}`;
   const CustomSideBar = getCustomSidebar(sidebarFileLocation);
   const [active, setActive] = React.useState({ pathname: "", href: "" });
@@ -88,7 +91,7 @@ export const Sidebar = ({ links, folder }) => {
           hr: SidebarDivider
         }}
       >
-        <Sidebar>
+        <Sidebar className={makeClass(!menuOpen && 'hidden', 'lg:block')}>
           {CustomSideBar ? (
             <CustomSideBar />
           ) : (

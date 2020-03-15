@@ -8,7 +8,9 @@ const Logo = ({ className, ...props }) => (
   <a
     tabIndex={0}
     className={makeClass(
-      "h-full focus:outline-none flex items-center h-full text-gray-800 font-normal hover:font-semibold focus:font-semibold cursor-pointer text-xl",
+      "pl-4 pr-6 h-full focus:outline-none flex items-center h-full text-gray-800 font-normal cursor-pointer text-xl",
+      "md:pr-10 lg:w-1/5",
+      "hover:font-semibold focus:font-semibold",
       className
     )}
     {...props}
@@ -16,15 +18,28 @@ const Logo = ({ className, ...props }) => (
     <img
       alt={`${PROJECT_NAME} Logo`}
       src="/logo.svg"
-      className="h-full p-3 pl-0"
+      className="w-8 h-8 md:mr-3"
     />
-    {PROJECT_NAME}
+    <span className="hidden md:block">{PROJECT_NAME}</span>
   </a>
+);
+
+const SearchInput = ({ className, ...props }) => (
+  <input
+    id="search"
+    placeholder="Search the docs (Press '/')"
+    className={makeClass(
+      className,
+      "rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 text-gray-800 w-full",
+      "focus:bg-white focus:outline-none"
+    )}
+    {...props}
+  />
 );
 
 const NavBarWrapper = ({ className, ...props }) => (
   <div
-    className={makeClass("border-b border-grey-200 mx-10", className)}
+    className={makeClass("border-b border-grey-200 mx-3 lg:mx-0", className)}
     {...props}
   />
 );
@@ -32,7 +47,7 @@ const NavBarWrapper = ({ className, ...props }) => (
 const NavBar = ({ className, ...props }) => (
   <div
     className={makeClass(
-      "h-16 px-6 max-w-screen-xl mx-auto w-full flex justify-between items-center",
+      "h-16 max-w-screen-xl mx-auto w-full flex justify-between items-center",
       className
     )}
     {...props}
@@ -43,7 +58,8 @@ const NavBarItem = ({ className, children, ...props }) => (
   <a
     tabIndex={0}
     className={makeClass(
-      "h-full flex items-center px-6 hover:bg-gray-200 hover:text-blue-600 focus:bg-gray-200 focus:text-blue-600 focus:outline-none",
+      "justify-center h-full flex items-center px-6 py-4",
+      "hover:bg-gray-200 hover:text-blue-600 focus:bg-gray-200 focus:text-blue-600 focus:outline-none",
       className
     )}
     {...props}
@@ -56,7 +72,8 @@ const Sidebar = ({ className, ...props }) => (
   <div
     className={makeClass(
       className,
-      "w-1/5 py-6 sticky top-0 max-h-screen max-w-xs overflow-scroll"
+      "py-6 w-full",
+      "lg:w-1/5 lg:max-w-xs lg:max-h-screen lg:overflow-scroll lg:sticky lg:top-0"
     )}
     {...props}
   />
@@ -83,7 +100,7 @@ const DEFAULT_SPACING = "my-4";
 
 const h1 = props => (
   <h1
-    className="text-gray-900 text-5xl font-semibold leading-loose"
+    className="text-gray-900 text-5xl font-semibold leading-relaced"
     {...props}
   />
 );
@@ -149,6 +166,7 @@ export default {
   NavBarWrapper,
   NavBar,
   NavBarItem,
+  SearchInput,
 
   Sidebar,
   SidebarItemWrapper,
