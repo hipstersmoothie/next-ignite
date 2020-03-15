@@ -8,3 +8,9 @@ export interface Page extends Resource {
   /** Title from front-matter */
   title: string;
 }
+
+export interface BlogPost extends Page {
+  title: string;
+  author: string;
+  email?: string;
+}

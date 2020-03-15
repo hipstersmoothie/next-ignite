@@ -29,21 +29,23 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
   },
   extendFrontMatter: {
     process: (_, frontMatter) => {
-      let { __resourcePath, layout } = frontMatter;
+      let { __resourcePath, date, layout } = frontMatter;
       const creationDate = getCreationDate(__resourcePath);
 
+      
       if (!layout) {
         const defaultLayout = __resourcePath.split("/")[0];
+        console.log({defaultLayout},  path.join(__dirname, `layouts/${defaultLayout}.js`), fs.existsSync(
+          path.join(__dirname, `layouts/${defaultLayout}.js`)
+        ))
 
         if (__resourcePath === "index.mdx") {
           layout = "home-page";
         } else if (__resourcePath.includes("_sidebar.mdx")) {
           return {};
-        } else if (defaultLayout === "blog") {
-          layout = "nav-bar";
         } else if (
           fs.existsSync(
-            path.join(process.cwd(), `layouts/${defaultLayout}.tsx`)
+            path.join(__dirname, `layouts/${defaultLayout}.js`)
           )
         ) {
           layout = defaultLayout;
@@ -54,7 +56,7 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 
       return {
         layout, 
-        date: creationDate
+        date: date || creationDate
       }
     },
     phase: "both"

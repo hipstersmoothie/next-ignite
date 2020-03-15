@@ -1,13 +1,7 @@
 import path from "path";
 
 import { formatPath } from "./format-path";
-import { Resource } from "./types";
-
-interface BlogPost extends Resource {
-  title: string;
-  author: string;
-  email?: string;
-}
+import { BlogPost } from "./types";
 
 declare var PAGES_DIR: string;
 declare var MDX_DATA_DIR: string;
@@ -25,7 +19,8 @@ const blogPosts = posts
   .map(post => ({
     ...post,
     __resourcePath: formatPath(post.__resourcePath)
-  }));
+  }))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 /** Get all the blog posts in the project */
 export default () => blogPosts;
