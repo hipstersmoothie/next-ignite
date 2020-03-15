@@ -16,7 +16,7 @@ Getting setup with `ignite` require you to create a few files in additon to all 
 
 First create a folder named `docs` and structure it to resemble the following.
 
-```
+```bash
 📦docs
  ┣ 📂pages
  ┃ ┣ 📂docs
@@ -30,6 +30,14 @@ You **must have**:
 - `pages/_app.js`
 - `pages/404.js`
 - `pages/docs/intro.mdx`
+
+Add the following to your `.gitignore`.
+
+```gitignore
+.next
+.mdx-data
+search.json
+```
 
 ### `_app.tsx`
 

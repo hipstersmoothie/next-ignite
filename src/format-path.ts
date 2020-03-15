@@ -1,3 +1,3 @@
-export function formatPath(p) {
+export function formatPath(p: string) {
   return `/${p.replace(/\.mdx$/, "")}`;
 }

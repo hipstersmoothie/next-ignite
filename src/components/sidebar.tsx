@@ -2,11 +2,12 @@ import React from "react";
 import Link from "next/link";
 import path from "path";
 import makeClass from "clsx";
-import { useMDXComponents } from "@mdx-js/react";
-import { MDXProvider } from "@mdx-js/react";
+import { MDXProvider, useMDXComponents } from "@mdx-js/react";
 
 import { MobileMenuContext } from "../mobile-menu-context";
 import { formatPath } from "../format-path";
+import { Page } from "../types";
+import { Components } from "./mdx-components";
 
 export const SidebarActiveItem = React.createContext({
   pathname: "",
@@ -14,7 +15,8 @@ export const SidebarActiveItem = React.createContext({
   sidebarFileLocation: ""
 });
 
-const getCustomSidebar = (sidebarFileLocation) => {
+/** Get the custom sidebar for a folder */
+const getCustomSidebar = (sidebarFileLocation: string) => {
   try {
     return require(PAGES_DIR + sidebarFileLocation + "/_sidebar.mdx").default;
   } catch (error) {
@@ -26,9 +28,17 @@ const getCustomSidebar = (sidebarFileLocation) => {
   }
 };
 
-const SidebarItem = ({ href, children }) => {
+interface SidebarItemProps {
+  /** Where the item links to */
+  href: string;
+  /** The text of the item */
+  children: React.ReactNode;
+}
+
+/** An link to a page in the sidebar */
+const SidebarItem = ({ href, children }: SidebarItemProps) => {
   const active = React.useContext(SidebarActiveItem);
-  const { SidebarLink } = useMDXComponents();
+  const { SidebarLink } = useMDXComponents() as Components;
 
   let url = href;
 
@@ -47,7 +57,15 @@ const SidebarItem = ({ href, children }) => {
   );
 };
 
-export const Sidebar = ({ links, folder }) => {
+interface SidebarProps {
+  /** Pages the sidebar links to */
+  links: Page[];
+  /** The folder/top-level section to render */
+  folder: string;
+}
+
+/** The sidebar with link to all the pages */
+export const Sidebar = ({ links, folder }: SidebarProps) => {
   const [menuOpen] = React.useContext(MobileMenuContext);
   const sidebarFileLocation = `/${folder}`;
   const CustomSideBar = getCustomSidebar(sidebarFileLocation);
@@ -61,7 +79,7 @@ export const Sidebar = ({ links, folder }) => {
     SidebarList,
     Sidebar,
     ...components
-  } = useMDXComponents();
+  } = useMDXComponents() as Components;
 
   React.useLayoutEffect(() => {
     const newActive = links.find(link =>
@@ -91,7 +109,7 @@ export const Sidebar = ({ links, folder }) => {
           hr: SidebarDivider
         }}
       >
-        <Sidebar className={makeClass(!menuOpen && 'hidden', 'lg:block')}>
+        <Sidebar className={makeClass(!menuOpen && "hidden", "lg:block")}>
           {CustomSideBar ? (
             <CustomSideBar />
           ) : (

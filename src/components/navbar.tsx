@@ -1,23 +1,25 @@
 import React from "react";
 import Link from "next/link";
 import { titleCase } from "title-case";
-import makeClass from "clsx";
 import { useMDXComponents } from "@mdx-js/react";
 
 import { formatPath } from "../format-path";
 import { MobileMenuContext } from "../mobile-menu-context";
+import { Components } from "./mdx-components";
+
 // import searchIndex from "../../search.json";
 const searchIndex = [];
 
+/** Renders the search bar and results */
 const Search = () => {
-  const { SearchInput, ...components } = useMDXComponents();
+  const { SearchInput, ...components } = useMDXComponents() as Components;
   const [search, setSearch] = React.useState("");
   const normalizedSearch = search.toLowerCase();
   const results = searchIndex.filter(
     page =>
-      page.content?.toLowerCase().includes(search) ||
-      page.title?.toLowerCase().includes(search) ||
-      page.author?.toLowerCase().includes(search)
+      page.content?.toLowerCase().includes(normalizedSearch) ||
+      page.title?.toLowerCase().includes(normalizedSearch) ||
+      page.author?.toLowerCase().includes(normalizedSearch)
   );
 
   return (
@@ -40,15 +42,23 @@ const Search = () => {
   );
 };
 
-export const NavBar = ({ sections, hasHomePage }) => {
+interface NavBarProps {
+  /** The names of the top level sections */
+  sections: string[];
+  /** Whether the docs site has a home page */
+  hasHomePage?: boolean;
+}
+
+/** Renders the top level sections of the docs */
+export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
   const [openMenu, setOpenMenu] = React.useContext(MobileMenuContext);
   const {
     Logo,
     NavBarWrapper,
     NavBar,
     NavBarItem,
-    ...components
-  } = useMDXComponents();
+    MobileMenuButton
+  } = useMDXComponents() as Components;
 
   return (
     <>
@@ -59,33 +69,12 @@ export const NavBar = ({ sections, hasHomePage }) => {
               <Logo />
             </Link>
           ) : (
-            <div />
+            <Logo />
           )}
 
           <div className="lg:hidden w-full flex items-center">
             <Search />
-            <button
-              className="text-gray-700 px-6 hover:text-blue-600 focus:text-blue-600 focus:outline-none"
-              onClick={() => setOpenMenu(!openMenu)}
-            >
-              {openMenu ? (
-                <svg
-                  class="fill-current w-4 h-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"></path>
-                </svg>
-              ) : (
-                <svg
-                  class="fill-current w-4 h-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-                </svg>
-              )}
-            </button>
+            <MobileMenuButton open={openMenu} setOpen={setOpenMenu} />
           </div>
 
           <div className="h-full hidden lg:flex flex-1 lg:max-w-screen-md mx-auto">

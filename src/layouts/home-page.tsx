@@ -1,11 +1,22 @@
 import React from "react";
-import path from "path";
 import makeNavBarLayout from "./nav-bar";
 import Link from "next/link";
+import { Page } from "../types";
 
+declare var PROJECT_NAME: string;
 const NavBarLayout = makeNavBarLayout();
 
-export default frontMatter => ({ children: content }) => {
+interface HomePageFrontMatter extends Page {
+  /** Theme color for the home page */
+  color: string;
+  /** Tagline for the homepage */
+  tagline: string;
+}
+
+/** A layout to render a basic home page */
+export default (frontMatter: HomePageFrontMatter) => ({
+  children: content
+}: React.PropsWithChildren<{}>) => {
   const color = frontMatter.color || "blue";
 
   return (

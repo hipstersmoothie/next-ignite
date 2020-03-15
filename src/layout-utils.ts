@@ -1,5 +1,7 @@
 import path from "path";
 
+declare var PAGES_DIR: string;
+
 export const getHasHomepage = () =>
   require.context(PAGES_DIR, false, /index\.(mdx|js|jsx|ts|tsx)$/).keys()
     .length > 0;
