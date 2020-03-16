@@ -23,10 +23,6 @@ const args = app({
       description: "Build your documentation."
     },
     {
-      name: "export",
-      description: "Export your documentation to html."
-    },
-    {
       name: "deploy",
       description: "Deploy your documentation to GitHub Pages."
     }
@@ -60,21 +56,12 @@ if (args._command === "dev") {
 if (args._command === "build") {
   // TODO add options
   process.env.NODE_ENV = "production";
+  const docsDir = path.resolve(path.join(process.cwd(), "docs"));
+  const outdir = path.join(docsDir, "out");
 
-  buildNext(path.resolve(path.join(process.cwd(), "docs")), ignite())
+  buildNext(docsDir, ignite())
     .then(() => process.exit(0))
-    .catch(err => {
-      console.error("");
-      console.error("> Build error occurred");
-      console.log(err);
-    });
-}
-
-if (args._command === "export") {
-  // TODO add options
-  exportNext(path.resolve(path.join(process.cwd(), "docs")), {
-    outdir: path.resolve(path.join(process.cwd(), "docs/out"))
-  })
+    .then(() => exportNext(docsDir, { outdir }))
     .then(() => {
       console.log("Export successful", 0);
       execSync(
@@ -82,6 +69,8 @@ if (args._command === "export") {
       );
     })
     .catch(err => {
+      console.error("");
+      console.error("> Build error occurred");
       console.log(err);
     });
 }

@@ -9,7 +9,8 @@
     "build": "next build",
     "start": "next start",
     "build:lib": "ds build",
-    "ignite": "./bin/ignite.js"
+    "ignite": "./bin/ignite.js",
+    "docs:deploy": "yarn ignite build && yarn ignite deploy"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.4.0",
