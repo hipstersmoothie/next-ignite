@@ -77,7 +77,6 @@ if (args._command === "build") {
   const outdir = path.join(docsDir, "out");
 
   buildNext(docsDir, ignite(config)())
-    .then(() => process.exit(0))
     .then(() => exportNext(docsDir, { outdir }))
     .then(() => {
       console.log("Export successful", 0);
