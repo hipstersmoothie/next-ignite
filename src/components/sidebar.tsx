@@ -50,6 +50,10 @@ const SidebarItem = ({ href, children }: SidebarItemProps) => {
     const final = new URL(urlPath, origin);
 
     url = final.pathname;
+
+    if (href === "." || href === "./") {
+      url = path.join(url, "index");
+    }
   }
 
   return (
@@ -84,9 +88,15 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
   } = useMDXComponents() as Components;
 
   React.useLayoutEffect(() => {
-    const newActive = links.find(link =>
-      window.location.pathname.includes(link.__resourcePath.replace(".mdx", ""))
-    );
+    const newActive = links.find(link => {
+      const route = link.__resourcePath.replace(".mdx", "");
+
+      return (
+        window.location.pathname.includes(route) ||
+        (route.endsWith("index") &&
+          window.location.pathname.includes(route.replace("/index", "")))
+      );
+    });
 
     setActive({
       href: window.location.href,

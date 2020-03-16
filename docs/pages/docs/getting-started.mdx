@@ -20,16 +20,14 @@ First create a folder named `docs` and structure it to resemble the following.
 📦docs
  ┣ 📂pages
  ┃ ┣ 📂docs
- ┃ ┃ ┣ intro.mdx
- ┃ ┣ 404.js
+ ┃ ┃ ┣ index.mdx
  ┃ ┣ _app.js
 ```
 
 You **must have**:
 
 - `pages/_app.js`
-- `pages/404.js`
-- `pages/docs/intro.mdx`
+- `pages/docs/index.mdx`
 
 Add the following to your `.gitignore`.
 
@@ -77,41 +75,13 @@ class MyApp extends App {
 export default MyApp;
 ```
 
-### `404.js`
-
-This is where most of the magic happens :confetti_ball:.
-`useFirstPageRedirect` will determine what page to display first when routed to `https://your-app.com/docs`.
-The default will redirect this URL to `https://your-app.com/docs/intro`.
-
-```jsx
-import { useFirstPageRedirect } from "ignite";
-
-export default function Custom404(props) {
-  const page = useFirstPageRedirect();
-
-  if (page) {
-    return null;
-  }
-
-  return <div>Oops, looks like we can't find that page!</div>;
-}
-```
-
-If you want some other page to be the first page shown simply pass the name of the `.mdx` file you want to shown
-
-```js
-const page = useFirstPageRedirect('welcome');
-```
-
-Now a user would get redirected to `https://your-app.com/docs/welcome`.
-
 ## Start writing docs :tada:
 
 Now that you have all that set up you can start writing documentation!
 All you need to do is start adding `.mdx` files to `pages/docs`.
-A good one to start with is `pages/docs/intro.mdx` since this will be the first page shown to the user.
+A good one to start with is `pages/docs/index.mdx` since this will be the first page shown to the user.
 
-**`pages/docs/intro.mdx`:**
+**`pages/docs/index.mdx`:**
 
 ```mdx
 ---
