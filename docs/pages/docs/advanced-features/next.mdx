@@ -2,6 +2,16 @@
 title: 'Using Ignite as a Next.js plugin'
 ---
 
+Most of `ignite`s features can be used as a plain Next.js plugin! :tada:
+
+What you loose:
+
+- can no longer use the `ignite` CLI
+- can no longer use `.igniterc` file
+
+
+And not much else (we said it was a thin wrapper right :wink:)
+
 **`next.config.js`:**
 
 ```js
@@ -12,7 +22,7 @@ module.exports = withIgnite();
 
 ## Options
 
-You can config `ignite` directly from you `next.config.js`.
+You can config `ignite` directly from your `next.config.js`.
 This is the same configuration present in your `.igniterc`.
 When using `ignite` as a Next.js plugin you config will not be loaded.
 
