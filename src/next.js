@@ -68,11 +68,12 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
   }
 });
 
-
-
-module.exports = (nextConfig = {}) => {
-  const debug = process.env.NODE_ENV !== 'production';
-  const BASE_PATH = debug ? '' : '/next-mdx-dynamic-docs';
+// ignite config options
+// basePath - the sub-path your site is deployed to
+// name - The name of the project you are documenting
+module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
+  const debug = process.env.NODE_ENV !== "production";
+  const BASE_PATH = debug ? "" : igniteConfig.basePath;
 
   return withMdxEnhanced({
     ...nextConfig,
@@ -86,7 +87,7 @@ module.exports = (nextConfig = {}) => {
       config.plugins.push(
         new webpack.DefinePlugin({
           BASE_PATH: JSON.stringify(BASE_PATH),
-          PROJECT_NAME: JSON.stringify("ignite"),
+          PROJECT_NAME: JSON.stringify(igniteConfig.name),
           PAGES_DIR: JSON.stringify(path.resolve("./docs/pages")),
           MDX_DATA_DIR: JSON.stringify(path.resolve("./docs/.mdx-data"))
         })
@@ -100,4 +101,4 @@ module.exports = (nextConfig = {}) => {
       return config;
     }
   });
-}
+};

@@ -5,11 +5,28 @@ const { createServer } = require("http");
 const { parse } = require("url");
 const { execSync } = require("child_process");
 const next = require("next");
+const { cosmiconfigSync } = require("cosmiconfig");
 const ignite = require("ignite/next");
 
 const buildNext = require("next/dist/build").default;
 const exportNext = require("next/dist/export").default;
 
+const explorer = cosmiconfigSync("ignite");
+
+const getConfig = () => {
+  const config = explorer.search() || {};
+
+  if (!config.name) {
+    try {
+      const packageJSON = require(path.join(process.cwd(), "package.json"));
+      config.name = packageJSON.name;
+    } catch (error) {}
+  }
+
+  return config;
+};
+
+const config = getConfig()
 const args = app({
   name: "ignite",
   description: "Flexible MDX documentation generator.",
@@ -34,7 +51,7 @@ if (!args) {
 }
 
 if (args._command === "dev") {
-  const docs = next({ dev: true, dir: "docs", conf: ignite() });
+  const docs = next({ dev: true, dir: "docs", conf: ignite(config)() });
   const handle = docs.getRequestHandler();
 
   docs.prepare().then(() => {
@@ -59,7 +76,7 @@ if (args._command === "build") {
   const docsDir = path.resolve(path.join(process.cwd(), "docs"));
   const outdir = path.join(docsDir, "out");
 
-  buildNext(docsDir, ignite())
+  buildNext(docsDir, ignite(config)())
     .then(() => process.exit(0))
     .then(() => exportNext(docsDir, { outdir }))
     .then(() => {
