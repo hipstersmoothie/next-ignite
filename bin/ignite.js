@@ -25,6 +25,10 @@ const args = app({
     {
       name: "export",
       description: "Export your documentation to html."
+    },
+    {
+      name: "deploy",
+      description: "Deploy your documentation to GitHub Pages."
     }
   ]
 });
@@ -55,7 +59,7 @@ if (args._command === "dev") {
 
 if (args._command === "build") {
   // TODO add options
-  process.env.NODE_ENV = 'production';
+  process.env.NODE_ENV = "production";
 
   buildNext(path.resolve(path.join(process.cwd(), "docs")), ignite())
     .then(() => process.exit(0))
@@ -80,4 +84,16 @@ if (args._command === "export") {
     .catch(err => {
       console.log(err);
     });
+}
+
+if (args._command === "deploy") {
+  try {
+    execSync(
+      'npx push-dir --cleanup --dir=docs/out --branch=gh-pages --message="Update docs [skip ci]"'
+    );
+
+    console.log("Export successful");
+  } catch (error) {
+    console.log(err);
+  }
 }
