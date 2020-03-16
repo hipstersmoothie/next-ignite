@@ -1,3 +1,24 @@
 ---
-title: 'Adding More Top-Level Documentation Sections'
+title: 'Multiple Top-Level Sections'
 ---
+
+Many times when you're writing docs you may need different sections with a completely different sidebar.
+To accomplish this in `ignite` simply add more folders to your `pages/` folder.
+Each folder will be turned into a new top-level section in the navbar.
+The folder name is converted into a name for the navigation item.
+
+For example, to add a new top level section called "Plugin Authoring" you would create the following folder structure.
+
+```bash
+📦docs
+ ┣ 📂pages
+ ┃ ┣ 📂docs
+ ┃ ┃ ┣ intro.mdx
+ ┃ ┣ plugin-authoring
+ ┃ ┃ ┣ intro.mdx
+ ┃ ┣ 404.js
+ ┃ ┣ _app.js
+```
+
+By default the sidebar is in alphabetical order.
+To change this add a [custom sidebar](./custom-sidebar).
