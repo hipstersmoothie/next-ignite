@@ -95,7 +95,7 @@ if (args._command === "build") {
 if (args._command === "deploy") {
   try {
     execSync(
-      'npx push-dir --cleanup --dir=docs/out --branch=gh-pages --message="Update docs [skip ci]"'
+      'npx push-dir --cleanup --dir=docs/out --branch=gh-pages --message="Update docs [skip ci]" --verbose'
     );
 
     console.log("Export successful");
