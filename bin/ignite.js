@@ -14,7 +14,7 @@ const exportNext = require("next/dist/export").default;
 const explorer = cosmiconfigSync("ignite");
 
 const getConfig = () => {
-  const config = explorer.search() || {};
+  const { config = {} } = explorer.search() || {};
 
   if (!config.name) {
     try {
@@ -26,7 +26,7 @@ const getConfig = () => {
   return config;
 };
 
-const config = getConfig()
+const config = getConfig();
 const args = app({
   name: "ignite",
   description: "Flexible MDX documentation generator.",
@@ -100,6 +100,7 @@ if (args._command === "deploy") {
 
     console.log("Export successful");
   } catch (error) {
-    console.log(err);
+    console.log(error.stdout.toString());
+    console.log(error.stderr.toString());
   }
 }
