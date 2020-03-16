@@ -51,8 +51,12 @@ const SidebarItem = ({ href, children }: SidebarItemProps) => {
 
     url = final.pathname;
 
-    if (href === "." || href === "./") {
-      url = path.join(url, "index");
+    if (url.endsWith("/index")) {
+      url = url.replace("/index", "");
+    }
+
+    if (url.endsWith("/")) {
+      url = url.slice(0, -1);
     }
   }
 
