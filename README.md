@@ -14,3 +14,10 @@ yarn dev
 ```
 
 // TODO order top level sections
+// TODO headers become links
+// TODO edit on github button
+// TODO GitHub link in header
+// TODO collapsed top-level sections when > 3
+// TODO Document themeing
+// TODO document JS pages
+// TODO Pr to next-mdx-enhanced for multiple layout dirs
