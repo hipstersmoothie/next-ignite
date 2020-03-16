@@ -1,0 +1,53 @@
+---
+title: Configuration
+---
+
+For the most part you should not have to create a project specific configuration for you docs.
+If you do, the following documents all of the available options.
+
+## Configuration File
+
+`ignite` uses [cosmiconfig](https://www.npmjs.com/package/cosmiconfig) to load its configuration file.
+We support all formats that the default `cosmiconfig` configuration supports.
+
+The two most commons ways to configure `ignite` is either through a json `.igniterc` at the root of your project:
+
+```json
+{
+  "name": "My Project"
+}
+```
+
+or if you're project is in JavaScript directly in the `package.json`
+
+```json
+{
+  "name": "npm-package",
+  "ignite": {
+    "name": "My Project"
+  }
+}
+```
+
+## Options
+
+### Name
+
+The name of your project.
+This value is used in multiple places in the docs.
+
+```json
+{
+  "name": "My Project"
+}
+```
+
+### Base Path
+
+Sometimes you need to serve your docs from
+
+```json
+{
+  "name": "My Project"
+}
+```

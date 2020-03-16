@@ -1,3 +1,28 @@
 ---
 title: 'Using Ignite as a Next.js plugin'
 ---
+
+**`next.config.js`:**
+
+```js
+const withIgnite = require("ignite/next");
+
+module.exports = withIgnite();
+```
+
+## Options
+
+You can config `ignite` directly from you `next.config.js`.
+This is the same configuration present in your `.igniterc`.
+When using `ignite` as a Next.js plugin you config will not be loaded.
+
+To see the available configuration options visit the [configuration documentation](../configuration).
+
+
+```js
+const withIgnite = require("ignite/next");
+
+module.exports = withIgnite({
+  basePath: 'pages'
+});
+```
