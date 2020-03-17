@@ -42,7 +42,7 @@ export default ({ color = "blue" }: BlogIndexProps) => {
           <li key={page.__resourcePath}>
             <Link href={page.__resourcePath}>
               <a className="rounded border border-gray-300 py-8 px-10 flex items-center">
-                <Avatar email={page.email} />
+                <Avatar email={page.email} className="-ml-4 mr-4" />
 
                 <div>
                   <h2 className="text-2xl font-medium text-gray-800 leading-relaxed">

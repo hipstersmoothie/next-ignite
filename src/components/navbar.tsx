@@ -6,9 +6,10 @@ import { useMDXComponents } from "@mdx-js/react";
 import { formatPath } from "../utils/format-path";
 import { MobileMenuContext } from "../utils/mobile-menu-context";
 import { Components } from "./mdx-components";
+import { MarkdownPage } from "../utils/types";
 
 // import searchIndex from "../../search.json";
-const searchIndex = [];
+const searchIndex: MarkdownPage[] = [];
 
 /** Renders the search bar and results */
 const Search = () => {

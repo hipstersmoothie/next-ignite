@@ -265,6 +265,10 @@ const ul = ({ className, ...props }: Element<"ul">) => (
   <ul className={makeClass(className, DEFAULT_SPACING, "ul")} {...props} />
 );
 
+const hr = ({ className, ...props }: Element<"hr">) => (
+  <hr className={makeClass(className, "mx-12 border-b-2")} {...props} />
+);
+
 /** The component used to render an ol */
 const ol = ({ className, ...props }: Element<"ol">) => (
   <ol className={makeClass(className, DEFAULT_SPACING, "ol")} {...props} />
@@ -304,6 +308,7 @@ const components = {
   h1,
   h2,
   h3,
+  hr,
   p,
   inlineCode,
   code,

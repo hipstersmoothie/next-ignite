@@ -16,7 +16,7 @@ const Avatar = ({ email, className }: AvatarProps) => {
     <img
       src={gravatar.url(email)}
       className={makeClass(
-        "rounded-full w-12 -ml-4 mr-4 border-2 border-gray-200",
+        "rounded-full w-12 border-2 border-gray-200",
         className
       )}
     />

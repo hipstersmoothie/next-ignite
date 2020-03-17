@@ -16,6 +16,7 @@ export const SidebarActiveItem = React.createContext({
 });
 
 declare var BASE_PATH: string;
+declare var PAGES_DIR: string;
 
 /** Get the custom sidebar for a folder */
 const getCustomSidebar = (sidebarFileLocation: string) => {
@@ -102,10 +103,12 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
       );
     });
 
-    setActive({
-      href: window.location.href,
-      pathname: formatPath(newActive.__resourcePath)
-    });
+    if (newActive) {
+      setActive({
+        href: window.location.href,
+        pathname: formatPath(newActive.__resourcePath)
+      });
+    }
   }, []);
 
   return (

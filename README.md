@@ -18,6 +18,6 @@ yarn dev
 // TODO edit on github button
 // TODO GitHub link in header
 // TODO collapsed top-level sections when > 3
-// TODO Document themeing
+// TODO Document theming
 // TODO document JS pages
 // TODO Pr to next-mdx-enhanced for multiple layout dirs

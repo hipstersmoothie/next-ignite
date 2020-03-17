@@ -14,3 +14,9 @@ export interface BlogPost extends Page {
   author: string;
   email?: string;
 }
+
+export interface MarkdownPage extends Page {
+  title: string;
+  author: string;
+  content: string;
+}
