@@ -4,11 +4,11 @@
 
 #ignite {
   .blockquote > *:first-child {
-    margin-top: 0;
+    @apply mt-0;
   }
 
   .blockquote > *:last-child {
-    margin-bottom: 0;
+    @apply mb-0;
   }
 
   .ul li {
@@ -17,5 +17,9 @@
 
   .ol li {
     @apply list-decimal ml-6;
+  }
+
+  tbody .tr:nth-child(odd) {
+    @apply bg-gray-100;
   }
 }

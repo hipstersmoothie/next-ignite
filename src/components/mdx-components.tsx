@@ -1,7 +1,7 @@
 import React from "react";
 import makeClass from "clsx";
 import { MDXProviderComponents } from "@mdx-js/react";
-import { prefixURL } from 'next-prefixed';
+import { prefixURL } from "next-prefixed";
 
 declare var PROJECT_NAME: string;
 
@@ -54,7 +54,8 @@ const Logo = ({ className, ...props }: Element<"a">) => (
   <a
     tabIndex={0}
     className={makeClass(
-      "pl-4 pr-6 h-full focus:outline-none flex items-center h-full text-gray-800 font-normal cursor-pointer text-xl",
+      DEFAULT_TEXT_COLOR,
+      "pl-4 pr-6 h-full focus:outline-none flex items-center h-full font-normal cursor-pointer text-xl",
       "md:pr-10 lg:w-1/5",
       "hover:font-semibold focus:font-semibold",
       className
@@ -78,7 +79,8 @@ const SearchInput = ({ className, ...props }: Element<"input">) => (
     placeholder="Search the docs (Press '/')"
     className={makeClass(
       className,
-      "rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 text-gray-800 w-full",
+      DEFAULT_TEXT_COLOR,
+      "rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 w-full",
       "focus:bg-white focus:outline-none"
     )}
     {...props}
@@ -178,6 +180,7 @@ const SidebarLink = ({
 );
 
 const DEFAULT_SPACING = "my-4";
+const DEFAULT_TEXT_COLOR = "text-gray-800";
 
 /** The component used to render a h1 */
 const h1 = ({ className, ...props }: Element<"h1">) => (
@@ -185,7 +188,7 @@ const h1 = ({ className, ...props }: Element<"h1">) => (
     className={makeClass(
       className,
       "text-5xl font-semibold leading-relaced",
-      !className || !className.includes('text-') && 'text-gray-900'
+      !className || (!className.includes("text-") && "text-gray-900")
     )}
     {...props}
   />
@@ -205,7 +208,34 @@ const h2 = ({ className, ...props }: Element<"h2">) => (
 /** The component used to render a h3 */
 const h3 = ({ className, ...props }: Element<"h3">) => (
   <h3
-    className={makeClass("text-gray-900 text-2xl font-normal mt-8", className)}
+    className={makeClass(
+      "text-gray-900 text-2xl font-semibold mt-8",
+      className
+    )}
+    {...props}
+  />
+);
+
+/** The component used to render a h4 */
+const h4 = ({ className, ...props }: Element<"h4">) => (
+  <h4
+    className={makeClass("text-gray-900 text-xl font-semibold mt-8", className)}
+    {...props}
+  />
+);
+
+/** The component used to render a h5 */
+const h5 = ({ className, ...props }: Element<"h5">) => (
+  <h5
+    className={makeClass("text-gray-900 text-lg font-semibold mt-8", className)}
+    {...props}
+  />
+);
+
+/** The component used to render a h6 */
+const h6 = ({ className, ...props }: Element<"h6">) => (
+  <h6
+    className={makeClass("text-gray-900 text-md font-semibold mt-8", className)}
     {...props}
   />
 );
@@ -213,7 +243,7 @@ const h3 = ({ className, ...props }: Element<"h3">) => (
 /** The component used to render a p */
 const p = ({ className, ...props }: Element<"p">) => (
   <p
-    className={makeClass(DEFAULT_SPACING, className, "text-gray-800")}
+    className={makeClass(DEFAULT_SPACING, className, DEFAULT_TEXT_COLOR)}
     {...props}
   />
 );
@@ -221,7 +251,7 @@ const p = ({ className, ...props }: Element<"p">) => (
 /** The component used to render a li */
 const li = ({ className, ...props }: Element<"li">) => (
   <li
-    className={makeClass(DEFAULT_SPACING, className, "text-gray-800")}
+    className={makeClass(DEFAULT_SPACING, className, DEFAULT_TEXT_COLOR)}
     {...props}
   />
 );
@@ -262,16 +292,16 @@ const a = React.forwardRef(
 
 /** The component used to render an ul */
 const ul = ({ className, ...props }: Element<"ul">) => (
-  <ul className={makeClass(className, DEFAULT_SPACING, "ul")} {...props} />
+  <ul className={makeClass(className, "my-10 ul")} {...props} />
 );
 
 const hr = ({ className, ...props }: Element<"hr">) => (
-  <hr className={makeClass(className, "mx-12 border-b-2")} {...props} />
+  <hr className={makeClass(className, "m-12 border-b-2")} {...props} />
 );
 
 /** The component used to render an ol */
 const ol = ({ className, ...props }: Element<"ol">) => (
-  <ol className={makeClass(className, DEFAULT_SPACING, "ol")} {...props} />
+  <ol className={makeClass(className, "my-10 ol")} {...props} />
 );
 
 /** The component used to render an block of code */
@@ -288,6 +318,35 @@ const pre = ({ className, ...props }: Element<"pre">) => (
     className={makeClass(className, DEFAULT_SPACING, "bg-gray-200 rounded")}
     {...props}
   />
+);
+
+const table = ({ className, ...props }: Element<"table">) => (
+  <table
+    className={makeClass(className, DEFAULT_TEXT_COLOR, "w-full my-10")}
+    {...props}
+  />
+);
+
+const th = ({ className, ...props }: Element<"th">) => (
+  <th
+    className={makeClass(className, "pb-4 px-3 text-left font-semibold")}
+    {...props}
+  />
+);
+
+const td = ({ className, ...props }: Element<"td">) => (
+  <td
+    className={makeClass(className, "py-4 px-3 border-b border-t")}
+    {...props}
+  />
+);
+
+const tr = ({ className, ...props }: Element<"tr">) => (
+  <tr className={makeClass(className, "tr")} {...props} />
+);
+
+const img = ({ className, ...props }: Element<"img">) => (
+  <img title={props.alt} {...props} />
 );
 
 const components = {
@@ -308,6 +367,9 @@ const components = {
   h1,
   h2,
   h3,
+  h4,
+  h5,
+  h6,
   hr,
   p,
   inlineCode,
@@ -317,7 +379,13 @@ const components = {
   ul,
   ol,
   li,
-  blockquote
+  blockquote,
+  img,
+
+  table,
+  th,
+  tr,
+  td
 } as const;
 
 export type Components = MDXProviderComponents & typeof components;
