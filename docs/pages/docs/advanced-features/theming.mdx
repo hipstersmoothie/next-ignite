@@ -1,3 +1,98 @@
 ---
-title: 'Theming the Website'
+title: "Theming the Website"
 ---
+
+`ignite` is uses [mdx](https://github.com/mdx-js/mdx) so it's incredibly simple to customize **any** component!
+
+## Theming the Base Elements
+
+All you need to do is open up your `_app.js` and the your components to the `MDXProvider`.
+
+See the [full list of base elements](../features/markdown-components).
+
+```jsx
+import React from "react";
+import App from "next/app";
+import { MDXProvider } from "@mdx-js/react";
+import { igniteComponents } from "ignite";
+
+// Import a prismjs theme to highlight the code blocks
+// Make sure to import this first! The order matters
+import "prismjs/themes/prism.css";
+// Import the css to style the docs
+import "ignite/dist/main.css";
+
+import { Anchor } from "../components/anchor";
+import { H1 } from "../components/h1";
+
+const components = {
+  ...igniteComponents,
+  // Easily override and base HTML component
+  h1: H1,
+  a: Anchor
+};
+
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props;
+
+    return (
+      <MDXProvider components={components}>
+        <Component {...pageProps} />
+      </MDXProvider>
+    );
+  }
+}
+
+export default MyApp;
+```
+
+### Making a component
+
+When you are creating these component overrides, it is important to do this the right way.
+Two things you should consider are:
+
+1. Applying the `className` properly
+2. Spreading the rest of the props
+
+**Example `h1` Component:**
+
+```jsx
+import React from "react";
+import makeClass from "clsx";
+
+const h1 = ({ className, ...props }) => (
+  <h1
+    // Use props.className if you are using it yourself
+    className={makeClass(className, "text-red-900 mb-8")}
+    // Spread the rest of the props
+    {...props}
+  />
+);
+```
+
+## Theming the rest
+
+In addition to being able to theme all the base components, `ignite` lets you theme all the components provided by `ignite`!
+
+This includes all the components that compose:
+
+- Sidebar
+- Navigation Bar
+
+Full list of themeable `ignite` components:
+
+- `Logo`
+- `NavBarWrapper`
+- `NavBar`
+- `NavBarItem`
+- `SearchInput`
+- `MobileMenuButton`
+- `Sidebar`
+- `SidebarItemWrapper`
+- `SidebarLink`
+- `SidebarTitle`
+- `SidebarDivider`
+- `SidebarList`
+
+When overriding these components please refer to [base implementations]() for available props.

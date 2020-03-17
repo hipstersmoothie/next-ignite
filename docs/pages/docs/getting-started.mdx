@@ -2,7 +2,7 @@
 title: "Getting Started"
 ---
 
-`ignite` is distrubuted on `npm`.
+`ignite` is distributed on `npm`.
 
 ```bash
 npm i --save-dev ignite
@@ -12,7 +12,7 @@ yarn add -d ignite
 
 ## Setup
 
-Getting setup with `ignite` require you to create a few files in additon to all of your actual documentation.
+Getting setup with `ignite` require you to create a few files in addition to all of your actual documentation.
 
 First create a folder named `docs` and structure it to resemble the following.
 
@@ -57,15 +57,12 @@ import "prismjs/themes/prism.css";
 // Import the css to style the docs
 import "ignite/dist/main.css";
 
-import { Anchor } from "../components/anchor";
-import { H1 } from "../components/h1";
-
 class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
 
     return (
-      <MDXProvider components={components}>
+      <MDXProvider components={igniteComponents}>
         <Component {...pageProps} />
       </MDXProvider>
     );
@@ -112,6 +109,6 @@ Explore the documentation to find all the documentation site :candy: we include.
 
 :star: [Set up a blog](./features/blog)
 
-:star: [Multiple top-Level documenation sections](./features/multi-docs)
+:star: [Multiple top-Level documentation sections](./features/multi-docs)
 
 :star: [Use JavaScript for any page](./advanced-features/javascript-pages)

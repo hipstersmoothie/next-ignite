@@ -292,7 +292,7 @@ const a = React.forwardRef(
 
 /** The component used to render an ul */
 const ul = ({ className, ...props }: Element<"ul">) => (
-  <ul className={makeClass(className, "my-10 ul")} {...props} />
+  <ul className={makeClass(className, "my-6 ul")} {...props} />
 );
 
 const hr = ({ className, ...props }: Element<"hr">) => (
@@ -301,7 +301,7 @@ const hr = ({ className, ...props }: Element<"hr">) => (
 
 /** The component used to render an ol */
 const ol = ({ className, ...props }: Element<"ol">) => (
-  <ol className={makeClass(className, "my-10 ol")} {...props} />
+  <ol className={makeClass(className, "my-6 ol")} {...props} />
 );
 
 /** The component used to render an block of code */

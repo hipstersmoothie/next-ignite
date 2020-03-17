@@ -21,3 +21,5 @@ yarn dev
 // TODO Document theming
 // TODO document JS pages
 // TODO Pr to next-mdx-enhanced for multiple layout dirs
+// TODO scaffold command
+// TODO double search bar
