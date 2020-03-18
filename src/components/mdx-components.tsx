@@ -187,7 +187,7 @@ const h1 = ({ className, ...props }: Element<"h1">) => (
   <h1
     className={makeClass(
       className,
-      "text-5xl font-semibold leading-relaced",
+      "relative text-5xl font-semibold leading-relaced",
       !className || (!className.includes("text-") && "text-gray-900")
     )}
     {...props}
@@ -198,7 +198,7 @@ const h1 = ({ className, ...props }: Element<"h1">) => (
 const h2 = ({ className, ...props }: Element<"h2">) => (
   <h2
     className={makeClass(
-      "text-gray-900 text-3xl font-normal border-b border-gray-300 pb-4 mb-8 mt-12",
+      "relative text-gray-900 text-3xl font-normal border-b border-gray-300 pb-4 mb-8 mt-12",
       className
     )}
     {...props}
@@ -209,7 +209,7 @@ const h2 = ({ className, ...props }: Element<"h2">) => (
 const h3 = ({ className, ...props }: Element<"h3">) => (
   <h3
     className={makeClass(
-      "text-gray-900 text-2xl font-semibold mt-8",
+      "relative text-gray-900 text-2xl font-semibold mt-8",
       className
     )}
     {...props}
@@ -219,7 +219,10 @@ const h3 = ({ className, ...props }: Element<"h3">) => (
 /** The component used to render a h4 */
 const h4 = ({ className, ...props }: Element<"h4">) => (
   <h4
-    className={makeClass("text-gray-900 text-xl font-semibold mt-8", className)}
+    className={makeClass(
+      "relative text-gray-900 text-xl font-semibold mt-8",
+      className
+    )}
     {...props}
   />
 );
@@ -227,7 +230,10 @@ const h4 = ({ className, ...props }: Element<"h4">) => (
 /** The component used to render a h5 */
 const h5 = ({ className, ...props }: Element<"h5">) => (
   <h5
-    className={makeClass("text-gray-900 text-lg font-semibold mt-8", className)}
+    className={makeClass(
+      "relative text-gray-900 text-lg font-semibold mt-8",
+      className
+    )}
     {...props}
   />
 );
@@ -235,7 +241,10 @@ const h5 = ({ className, ...props }: Element<"h5">) => (
 /** The component used to render a h6 */
 const h6 = ({ className, ...props }: Element<"h6">) => (
   <h6
-    className={makeClass("text-gray-900 text-md font-semibold mt-8", className)}
+    className={makeClass(
+      "relative text-gray-900 text-md font-semibold mt-8",
+      className
+    )}
     {...props}
   />
 );
@@ -284,7 +293,12 @@ const a = React.forwardRef(
   ) => (
     <a
       ref={ref}
-      className={makeClass(className, "underline cursor-pointer text-gray-700")}
+      className={makeClass(
+        !className ||
+          (!className.includes("header-link") &&
+            "underline cursor-pointer text-gray-700"),
+        className
+      )}
       {...props}
     />
   )

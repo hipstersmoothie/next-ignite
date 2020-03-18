@@ -1,9 +1,13 @@
 const fs = require("fs");
 const path = require("path");
-const rehypePrism = require("@mapbox/rehype-prism");
-const emoji = require("remark-emoji");
-const a11yEmoji = require("rehype-accessible-emojis");
 const { execSync } = require("child_process");
+
+const rehypePrism = require("@mapbox/rehype-prism");
+const autoLink = require("rehype-autolink-headings");
+const a11yEmoji = require("rehype-accessible-emojis");
+const slug = require("rehype-slug");
+
+const emoji = require("remark-emoji");
 
 const isProduction = process.env.NODE_ENV === "production";
 const pages = [];
@@ -28,7 +32,19 @@ const getAuthor = file =>
 const withMdxEnhanced = require("next-mdx-enhanced")({
   layoutPath: path.resolve("./dist/esm/layouts"),
   remarkPlugins: [emoji],
-  rehypePlugins: [a11yEmoji, [rehypePrism, { ignoreMissing: true }]],
+  rehypePlugins: [
+    slug,
+    [
+      autoLink,
+      {
+        behavior: 'wrap',
+        properties: {
+          className: 'header-link no-underline text-gray-900" hover:underline'
+      }
+    ],
+    a11yEmoji,
+    [rehypePrism, { ignoreMissing: true }]
+  ],
   onContent: page => {
     if (isProduction) {
       pages.push(page);
