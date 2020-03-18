@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
+const parseGithubUrl = require("parse-github-url");
 
 const rehypePrism = require("@mapbox/rehype-prism");
 const autoLink = require("rehype-autolink-headings");
@@ -15,6 +16,16 @@ const pages = [];
 if (isProduction) {
   fs.writeFileSync("search.json", JSON.stringify([]));
 }
+
+const getFullGitHubUrl = url => {
+  const repo = parseGithubUrl(url);
+
+  if (repo.href.startsWith("http")) {
+    return repo.href;
+  }
+
+  return `https://github.com/${repo.repo}`;
+};
 
 const getCreationDate = file =>
   execSync(`git log --format=%aD ${path.join("docs/pages", file)} | tail -1`, {
@@ -37,9 +48,10 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
     [
       autoLink,
       {
-        behavior: 'wrap',
+        behavior: "wrap",
         properties: {
           className: 'header-link no-underline text-gray-900" hover:underline'
+        }
       }
     ],
     a11yEmoji,
@@ -104,6 +116,7 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
         new webpack.DefinePlugin({
           BASE_PATH: JSON.stringify(BASE_PATH),
           PROJECT_NAME: JSON.stringify(igniteConfig.name),
+          REPO_URL: JSON.stringify(getFullGitHubUrl(igniteConfig.repo)),
           PAGES_DIR: JSON.stringify(path.resolve("./docs/pages")),
           MDX_DATA_DIR: JSON.stringify(path.resolve("./docs/.mdx-data"))
         })

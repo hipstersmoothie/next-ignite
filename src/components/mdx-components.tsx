@@ -5,7 +5,7 @@ import { prefixURL } from "next-prefixed";
 
 declare var PROJECT_NAME: string;
 
-type Element<T extends keyof JSX.IntrinsicElements> = React.PropsWithoutRef<
+export type Element<T extends keyof JSX.IntrinsicElements> = React.PropsWithoutRef<
   JSX.IntrinsicElements[T]
 >;
 
@@ -111,13 +111,13 @@ const NavBarItem = ({ className, children, ...props }: Element<"a">) => (
   <a
     tabIndex={0}
     className={makeClass(
-      "justify-center h-full flex items-center px-6 py-4 cursor-pointer",
+      "justify-center h-full flex items-center px-6 py-4 cursor-pointer text-gray-700",
       "hover:bg-gray-200 hover:text-blue-600 focus:bg-gray-200 focus:text-blue-600 focus:outline-none",
       className
     )}
     {...props}
   >
-    <div>{children}</div>
+    <div className="flex items-center">{children}</div>
   </a>
 );
 
