@@ -16,7 +16,7 @@ export const getTopLevelSections = () => {
         .map(key => path.relative("./", key).split("/")[0])
         // anything with a dot in it would be a file
         // we only care about directories
-        .filter(key => !key.includes(".") && key !== "docs")
+        .filter(key => !key.includes("."))
     )
   );
 };

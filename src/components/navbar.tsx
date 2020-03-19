@@ -60,11 +60,11 @@ const Search = () => {
 interface NavBarProps {
   /** The names of the top level sections */
   sections: string[];
-  /** Whether the docs site has a home page */
+  /** Whether the site has a home page */
   hasHomePage?: boolean;
 }
 
-/** Renders the top level sections of the docs */
+/** Renders the top level sections of the website */
 export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
   const [openMenu, setOpenMenu] = React.useContext(MobileMenuContext);
   const {
@@ -92,11 +92,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
 
             <MobileMenuButton open={openMenu} setOpen={setOpenMenu} className="lg:hidden" />
 
-            <div className="hidden lg:flex h-full">
-              <Link href={formatPath("/docs")}>
-                <NavBarItem>Docs</NavBarItem>
-              </Link>
-              
+            <div className="hidden lg:flex h-full">              
               {sections.map(section => (
                 <Link key={section} href={formatPath(`/${section}`)}>
                   <NavBarItem>{titleCase(section)}</NavBarItem>
@@ -115,9 +111,6 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
 
       {openMenu && (
         <div className="lg:hidden">
-          <Link href={formatPath("/docs")}>
-            <NavBarItem>Docs</NavBarItem>
-          </Link>
           {sections.map(section => (
             <Link key={section} href={formatPath(`/${section}`)}>
               <NavBarItem>{titleCase(section)}</NavBarItem>

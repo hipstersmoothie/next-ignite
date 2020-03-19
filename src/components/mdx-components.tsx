@@ -77,12 +77,12 @@ const Logo = React.forwardRef(
   )
 );
 
-/** The component use to search the docs. */
+/** The component use to search the mdx. */
 const SearchInput = ({ className, ...props }: Element<"input">) => (
   <input
     id="search"
     autoComplete="off"
-    placeholder="Search the docs (Press '/')"
+    placeholder="Search (Press '/' to focus)"
     className={makeClass(
       className,
       DEFAULT_TEXT_COLOR,
