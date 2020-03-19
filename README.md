@@ -18,5 +18,4 @@ yarn dev
 // TODO collapsed top-level sections when > 3
 // TODO document JS pages
 // TODO Pr to next-mdx-enhanced for multiple layout dirs
-// TODO scaffold command
 // TODO double search bar

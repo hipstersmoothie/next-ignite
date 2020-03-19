@@ -14,6 +14,21 @@ yarn add -d ignite
 
 Getting setup with `ignite` require you to create a few files in addition to all of your actual documentation.
 
+### Quick Setup
+
+To quickly get started using `ignite` just run one of the following commands.
+This will setup a minimal docs folder so you can get straight to documenting.
+
+```bash
+# using npm
+npx ignite init
+
+# using yarn
+yarn ignite init
+```
+
+### Manual
+
 First create a folder named `docs` and structure it to resemble the following.
 
 ```bash
@@ -37,7 +52,7 @@ Add the following to your `.gitignore`.
 search.json
 ```
 
-### `_app.tsx`
+#### `_app.tsx`
 
 You need to at least do the following:
 
@@ -72,7 +87,7 @@ class MyApp extends App {
 export default MyApp;
 ```
 
-## Start writing docs :tada:
+#### Start writing docs :tada:
 
 Now that you have all that set up you can start writing documentation!
 All you need to do is start adding `.mdx` files to `pages/docs`.

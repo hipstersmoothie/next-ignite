@@ -7,6 +7,7 @@ const { execSync } = require("child_process");
 const next = require("next");
 const { cosmiconfigSync } = require("cosmiconfig");
 const ignite = require("ignite/next");
+const copy = require("copy-template-dir");
 
 const buildNext = require("next/dist/build").default;
 const exportNext = require("next/dist/export").default;
@@ -32,6 +33,10 @@ const args = app({
   description: "Flexible MDX documentation generator.",
   commands: [
     {
+      name: "init",
+      description: "Initialize an ignite-cli based docs site."
+    },
+    {
       name: "dev",
       description: "Develop your documentation."
     },
@@ -48,6 +53,19 @@ const args = app({
 
 if (!args) {
   return;
+}
+
+if (args._command === "init") {
+  const inDir = path.join(__dirname, "../template");
+  const outDir = path.join(process.cwd(), "docs");
+
+  copy(inDir, outDir, {}, (err, createdFiles) => {
+    if (err) {
+      throw err;
+    }
+
+    console.log("Initialized ignite documentation website!");
+  });
 }
 
 if (args._command === "dev") {

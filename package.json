@@ -16,6 +16,7 @@
     "@mapbox/rehype-prism": "^0.4.0",
     "clsx": "^1.1.0",
     "command-line-application": "^0.9.6",
+    "copy-template-dir": "^1.4.0",
     "cosmiconfig": "^6.0.0",
     "gravatar": "^1.8.0",
     "mdx-prism": "^0.3.1",
