@@ -5,9 +5,9 @@ import { prefixURL } from "next-prefixed";
 
 declare var PROJECT_NAME: string;
 
-export type Element<T extends keyof JSX.IntrinsicElements> = React.PropsWithoutRef<
-  JSX.IntrinsicElements[T]
->;
+export type Element<
+  T extends keyof JSX.IntrinsicElements
+> = React.PropsWithoutRef<JSX.IntrinsicElements[T]>;
 
 interface MobileMenuButtonProps {
   open: boolean;
@@ -50,25 +50,31 @@ const MobileMenuButton = ({
 );
 
 /** The logo in the navbar */
-const Logo = ({ className, ...props }: Element<"a">) => (
-  <a
-    tabIndex={0}
-    className={makeClass(
-      DEFAULT_TEXT_COLOR,
-      "pl-4 pr-6 h-full focus:outline-none flex items-center h-full font-normal cursor-pointer text-xl",
-      "md:pr-10 lg:w-1/5",
-      "hover:font-semibold focus:font-semibold",
-      className
-    )}
-    {...props}
-  >
-    <img
-      alt={`${PROJECT_NAME} Logo`}
-      src={prefixURL("/logo.svg")}
-      className="w-8 h-8 md:mr-3"
-    />
-    <span className="hidden md:block">{PROJECT_NAME}</span>
-  </a>
+const Logo = React.forwardRef(
+  (
+    { className, ...props }: Element<"a">,
+    ref: React.Ref<HTMLAnchorElement>
+  ) => (
+    <a
+      ref={ref}
+      tabIndex={0}
+      className={makeClass(
+        DEFAULT_TEXT_COLOR,
+        "pl-4 pr-6 h-full focus:outline-none flex items-center h-full font-normal cursor-pointer text-xl",
+        "md:pr-10 lg:w-1/5",
+        "hover:font-semibold focus:font-semibold",
+        className
+      )}
+      {...props}
+    >
+      <img
+        alt={`${PROJECT_NAME} Logo`}
+        src={prefixURL("/logo.svg")}
+        className="w-8 h-8 md:mr-3"
+      />
+      <span className="hidden md:block">{PROJECT_NAME}</span>
+    </a>
+  )
 );
 
 /** The component use to search the docs. */
@@ -107,18 +113,24 @@ const NavBar = ({ className, ...props }: Element<"div">) => (
 );
 
 /** The component used to render a top-level navigation item */
-const NavBarItem = ({ className, children, ...props }: Element<"a">) => (
-  <a
-    tabIndex={0}
-    className={makeClass(
-      "justify-center h-full flex items-center px-6 py-4 cursor-pointer text-gray-700",
-      "hover:bg-gray-200 hover:text-blue-600 focus:bg-gray-200 focus:text-blue-600 focus:outline-none",
-      className
-    )}
-    {...props}
-  >
-    <div className="flex items-center">{children}</div>
-  </a>
+const NavBarItem = React.forwardRef(
+  (
+    { className, children, ...props }: Element<"a">,
+    ref: React.Ref<HTMLAnchorElement>
+  ) => (
+    <a
+      ref={ref}
+      tabIndex={0}
+      className={makeClass(
+        "justify-center h-full flex items-center px-6 py-4 cursor-pointer text-gray-700",
+        "hover:bg-gray-200 hover:text-blue-600 focus:bg-gray-200 focus:text-blue-600 focus:outline-none",
+        className
+      )}
+      {...props}
+    >
+      <div className="flex items-center">{children}</div>
+    </a>
+  )
 );
 
 /** The component used to render the sidebar */
@@ -164,19 +176,21 @@ interface SidebarLinkProps {
 }
 
 /** The component used to render around a link in a sidebar item */
-const SidebarLink = ({
-  isActive,
-  className,
-  ...props
-}: Element<"a"> & SidebarLinkProps) => (
-  <a
-    className={makeClass(
-      className,
-      "text-base font-light hover:font-normal px-6 flex cursor-pointer",
-      isActive && "font-normal border-r-4 border-blue-600"
-    )}
-    {...props}
-  />
+const SidebarLink = React.forwardRef(
+  (
+    { isActive, className, ...props }: Element<"a"> & SidebarLinkProps,
+    ref: React.Ref<HTMLAnchorElement>
+  ) => (
+    <a
+      ref={ref}
+      className={makeClass(
+        className,
+        "text-base font-light hover:font-normal px-6 flex cursor-pointer",
+        isActive && "font-normal border-r-4 border-blue-600"
+      )}
+      {...props}
+    />
+  )
 );
 
 const DEFAULT_SPACING = "my-4";

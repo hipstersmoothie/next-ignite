@@ -87,30 +87,28 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
             <Logo />
           )}
 
-          <div className="lg:hidden w-full flex items-center">
+          <div className="w-full h-full flex items-center lg:flex flex-1 lg:max-w-screen-md lg:mx-auto">
             <Search />
-            <MobileMenuButton open={openMenu} setOpen={setOpenMenu} />
-          </div>
 
-          <div className="h-full hidden lg:flex flex-1 lg:max-w-screen-md mx-auto">
-            <Search />
-            <Link href={formatPath("/docs")}>
-              <NavBarItem>Docs</NavBarItem>
-            </Link>
-            
-            {sections.map(section => (
-              <Link key={section} href={formatPath(`/${section}`)}>
-                <NavBarItem>{titleCase(section)}</NavBarItem>
+            <MobileMenuButton open={openMenu} setOpen={setOpenMenu} className="lg:hidden" />
+
+            <div className="hidden lg:flex h-full">
+              <Link href={formatPath("/docs")}>
+                <NavBarItem>Docs</NavBarItem>
               </Link>
-            ))}
+              
+              {sections.map(section => (
+                <Link key={section} href={formatPath(`/${section}`)}>
+                  <NavBarItem>{titleCase(section)}</NavBarItem>
+                </Link>
+              ))}
 
-            {REPO_URL && (
-              <a href={REPO_URL} target="_blank" aria-label="Open on GitHub">
-                <NavBarItem>
+              {REPO_URL && (
+                <NavBarItem href={REPO_URL} target="_blank" aria-label="Open on GitHub">
                   <GitHubIcon />
                 </NavBarItem>
-              </a>
-            )}
+              )}
+            </div>
           </div>
         </NavBar>
       </NavBarWrapper>
@@ -126,12 +124,10 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
             </Link>
           ))}
           {REPO_URL && (
-            <a href={REPO_URL} target="_blank">
-              <NavBarItem>
-                <GitHubIcon className="mr-2" />
-                Open on GitHub
-              </NavBarItem>
-            </a>
+            <NavBarItem href={REPO_URL} target="_blank">
+              <GitHubIcon className="mr-2" />
+              Open on GitHub
+            </NavBarItem>
           )}
         </div>
       )}

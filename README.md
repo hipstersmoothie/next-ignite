@@ -14,8 +14,6 @@ yarn dev
 ```
 
 // TODO order top level sections
-// TODO edit on github button
 // TODO collapsed top-level sections when > 3
 // TODO document JS pages
 // TODO Pr to next-mdx-enhanced for multiple layout dirs
-// TODO double search bar
