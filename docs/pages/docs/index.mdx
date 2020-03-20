@@ -1,5 +1,5 @@
 ---
-title: 'Welcome'
+title: "Welcome"
 ---
 
 > Bend your docs to your will and document anything with ease.
@@ -22,3 +22,28 @@ It takes care of the boring parts of setting up a documentation website so you c
 🧸 Simple search (only work after a full production build)
 
 👮🏼‍♀️ Route based layouts
+
+## Example
+
+Working with `ignite` is super simple!
+All you need to do is start adding `.mdx` files to your docs folder!
+
+**`docs/pages/docs/new-page.mdx`:**
+
+```mdx
+---
+title: "My Page"
+---
+
+With some killer content! :tada:
+```
+
+If you don't have a defined `_sidebar.mdx` this will automatically show up on your website!
+You'll most likely create a `_sidebar.mdx` if you want to define the order of your docs in the sidebar.
+
+**`docs/pages/docs/_sidebar.mdx`:**
+
+```mdx
+- [Introduction](./)
+- [My Page](./my-page)
+```
