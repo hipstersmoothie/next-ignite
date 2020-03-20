@@ -13,8 +13,7 @@ yarn
 yarn dev
 ```
 
-// TODO order top level sections
-// TODO collapsed top-level sections when > 3
+// TODO collapsed top-level sections when > 3 on desktop
 // TODO document JS pages
 // TODO Pr to next-mdx-enhanced for multiple layout dirs
 // TODO / to focus on search

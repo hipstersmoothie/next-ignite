@@ -99,6 +99,8 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 // ignite config options
 // basePath - the sub-path your site is deployed to
 // name - The name of the project you are documenting
+// repo - The repo the documentation is for
+// order - string array of top level section order
 module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
   const BASE_PATH = debug ? "" : igniteConfig.basePath;
@@ -118,7 +120,8 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
           PROJECT_NAME: JSON.stringify(igniteConfig.name),
           REPO_URL: JSON.stringify(getFullGitHubUrl(igniteConfig.repo)),
           PAGES_DIR: JSON.stringify(path.resolve("./docs/pages")),
-          MDX_DATA_DIR: JSON.stringify(path.resolve("./docs/.mdx-data"))
+          MDX_DATA_DIR: JSON.stringify(path.resolve("./docs/.mdx-data")),
+          SECTION_ORDER: JSON.stringify(igniteConfig.order || ['docs', 'blog']),
         })
       );
 

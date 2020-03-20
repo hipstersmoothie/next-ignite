@@ -18,7 +18,7 @@ The two most commons ways to configure `ignite` is either through a json `.ignit
 }
 ```
 
-or if you're project is in JavaScript directly in the `package.json`
+or if you're project is in JavaScript, directly in the `package.json`:
 
 ```json
 {
@@ -59,6 +59,19 @@ Sometimes you need to serve your docs from
 
 ```json
 {
-  "name": "My Project"
+  "basePath": "/pages/your-project"
+}
+```
+
+### Order
+
+Control the order of the top level section in the navbar.
+Each item in the array should be a name of one of your top-level documentation folders.
+Any unordered sections will be put after your provided order in alphabetical order.
+
+```json5
+{
+  // The Default
+  "order": ["docs", "blog"] 
 }
 ```
