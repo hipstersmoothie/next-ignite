@@ -21,6 +21,25 @@ export default () => ({
 }: NavBarProps & React.PropsWithChildren<{}>) => {
   const menuState = React.useState(false);
 
+  React.useEffect(() => {
+    if (typeof document === "undefined") {
+      return;
+    }
+
+    function focusSearch(e: KeyboardEvent) {
+      if (e.key === "/") {
+        document.getElementById("search").focus();
+        e.preventDefault();
+      }
+    }
+
+    document.addEventListener("keydown", focusSearch);
+
+    return () => {
+      document.removeEventListener("keydown", focusSearch);
+    };
+  }, []);
+
   return (
     <MobileMenuContext.Provider value={props.menuState || menuState}>
       <div id="ignite" className="min-h-screen flex flex-col">
