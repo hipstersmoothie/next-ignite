@@ -1,3 +1,79 @@
 ---
-title: 'Writing Pages in JavaScript'
+title: "Writing Pages in JavaScript"
 ---
+
+Since `ignite` is just a small wrapper around Next.js you can easily break out into JavaScript or TypeScript.
+Simply change the file extension to the desired file type, rewrite the markdown to JSX, and you're done!
+
+> This is especially useful for the home page where you will probably want to
+> flex your design skills and really market your project.
+
+There are however a few considerations to make when you are doing this.
+
+## Layouts
+
+`ignite` comes with a few [different layouts](./layouts) that render your mdx files.
+When you break out into JS `ignite` can no longer automatically assign a layout to your page.
+Luckily you can easily use any of these layouts in your JS pages too!
+
+```js
+import { makeNavBarLayout } from "ignite";
+
+const NavBarLayout = makeNavBarLayout(
+  // Provide any front-matter options to the layout here
+  options
+);
+
+export default () => <NavBarLayout>My Page</NavBarLayout>;
+```
+
+## Styling
+
+To style your JS page to look just like the rest of your app you will need to use the components provided by the `MDXProvider`.
+
+Add the following usage of `useMDXComponents` to your code.
+This hooks provides all the customizable components that `ignite` uses.
+That includes everything from the base HTML components to the components that make up the sidebar and the navbar.
+
+```tsx
+import { useMDXComponents } from "@mdx-js/react";
+import { makeNavBarLayout, Components } from "ignite";
+
+const NavBarLayout = makeNavBarLayout();
+
+export default () => {
+  const components = useMDXComponents() as Components;
+
+  return (
+    <NavBarLayout>
+      <components.h1>My Page</components.h1>
+    </NavBarLayout>
+  );
+};
+```
+
+## Links
+
+Any link that you
+
+```tsx
+import Link from "next/link";
+import { makeNavBarLayout, Components, formatPath } from "ignite";
+
+const NavBarLayout = makeNavBarLayout();
+
+export default () => {
+  const components = useMDXComponents() as Components;
+
+  return (
+    <NavBarLayout>
+      <components.h1>My Page</components.h1>
+
+      {/* If serving from a basePath make sure to use formatPath! */}
+      <Link href={formatPath(`/${section}`)}>
+        <components.a>Go somewhere</components.a>
+      </Link>
+    </NavBarLayout>
+  );
+};
+```
