@@ -5,3 +5,7 @@
 .style .token.string {
   background: none;
 }
+
+* {
+  text-shadow: none !important;
+}

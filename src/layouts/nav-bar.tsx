@@ -2,6 +2,7 @@ import React from "react";
 
 import { NavBar } from "../components/navbar";
 import { getHasHomepage, getTopLevelSections } from "../utils/layout";
+import { isDarkMode } from "../utils/is-dark-mode";
 import { MobileMenuContext } from "../utils/mobile-menu-context";
 
 const hasHomePage = getHasHomepage();
@@ -42,7 +43,7 @@ export default () => ({
 
   return (
     <MobileMenuContext.Provider value={props.menuState || menuState}>
-      <div id="ignite" className="min-h-screen flex flex-col">
+      <div id="ignite" className="min-h-screen flex flex-col dark:bg-gray-1000">
         <NavBar sections={topLevelSections} hasHomePage={hasHomePage} />
         {content}
       </div>

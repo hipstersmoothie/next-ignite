@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useMDXComponents } from "@mdx-js/react";
+import makeClass from "clsx";
 
 import getBlogPosts from "../utils/get-blog-posts";
 import makeNavBarLayout from "../layouts/nav-bar";
@@ -41,14 +42,19 @@ export default ({ color = "blue" }: BlogIndexProps) => {
         {posts.map(page => (
           <li key={page.__resourcePath}>
             <Link href={page.__resourcePath}>
-              <a className="rounded border border-gray-300 py-8 px-10 flex items-center">
+              <a className={makeClass("rounded border border-gray-300 py-8 px-10 flex items-center", "dark:bg-gray-900")}>
                 <Avatar email={page.email} className="-ml-4 mr-4" />
 
                 <div>
-                  <h2 className="text-2xl font-medium text-gray-800 leading-relaxed">
+                  <h2
+                    className={makeClass(
+                      "text-2xl font-medium text-gray-800 leading-relaxed",
+                      "dark:text-gray-300"
+                    )}
+                  >
                     {page.title}
                   </h2>
-                  <p className="text-gray-800 text-lg font-light">
+                  <p className={makeClass("text-gray-800 text-lg font-light", "dark:text-gray-400")}>
                     {page.author}
                   </p>
                   <p className="text-gray-600 text-sm font-light">

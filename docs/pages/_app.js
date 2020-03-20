@@ -5,7 +5,7 @@ import { igniteComponents } from "ignite";
 
 import "prismjs/themes/prism.css";
 import "ignite/dist/main.css";
-import "../css/syntax-highlighting-overrides.css"
+import "../css/syntax-highlighting-overrides.css";
 
 class MyApp extends App {
   render() {
