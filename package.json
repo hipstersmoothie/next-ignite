@@ -1,7 +1,9 @@
 {
   "name": "next-ignite",
   "version": "0.1.1",
-  "bin": "bin/ignite.js",
+  "bin": {
+    "ignite": "bin/ignite.js"
+  },
   "module": "./dist/esm/index.js",
   "types": "./dist",
   "repository": "hipstersmoothie/next-ignite",
