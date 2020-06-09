@@ -13,6 +13,9 @@
     "build:docs": "yarn ignite build",
     "release": "auto shipit"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.4.0",
     "clsx": "^1.1.0",
