@@ -41,7 +41,7 @@ const getAuthor = file =>
   ).split(" || ");
 
 const withMdxEnhanced = require("next-mdx-enhanced")({
-  layoutPath: path.resolve("./dist/esm/layouts"),
+  layoutPath: path.resolve(path.join(__dirname, "./layouts")),
   remarkPlugins: [emoji],
   rehypePlugins: [
     slug,
