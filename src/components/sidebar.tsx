@@ -12,7 +12,7 @@ import { Components } from "./mdx-components";
 export const SidebarActiveItem = React.createContext({
   pathname: "",
   href: "",
-  sidebarFileLocation: ""
+  sidebarFileLocation: "",
 });
 
 declare var BASE_PATH: string;
@@ -63,7 +63,9 @@ const SidebarItem = ({ href, children }: SidebarItemProps) => {
 
   return (
     <Link href={url}>
-      <SidebarLink isActive={active.pathname === url}>{children}</SidebarLink>
+      <SidebarLink isActive={active.pathname.replace("/index", "") === url}>
+        {children}
+      </SidebarLink>
     </Link>
   );
 };
@@ -93,20 +95,26 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
   } = useMDXComponents() as Components;
 
   React.useLayoutEffect(() => {
-    const newActive = links.find(link => {
+    let newActive = links.find((link) => {
       const route = link.__resourcePath.replace(".mdx", "");
-
-      return (
-        window.location.pathname.includes(route) ||
-        (route.endsWith("index") &&
-          window.location.pathname.includes(route.replace("/index", "")))
-      );
+      return window.location.pathname.includes(route);
     });
+
+    if (!newActive) {
+      newActive = links.find((link) => {
+        const route = link.__resourcePath.replace(".mdx", "");
+
+        return (
+          route.endsWith("index") &&
+          window.location.pathname.includes(route.replace("/index", ""))
+        );
+      });
+    }
 
     if (newActive) {
       setActive({
         href: window.location.href,
-        pathname: formatPath(newActive.__resourcePath)
+        pathname: formatPath(newActive.__resourcePath),
       });
     }
   }, []);
@@ -115,7 +123,7 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
     <SidebarActiveItem.Provider
       value={{
         ...active,
-        sidebarFileLocation: CustomSideBar ? sidebarFileLocation : ""
+        sidebarFileLocation: CustomSideBar ? sidebarFileLocation : "",
       }}
     >
       <MDXProvider
@@ -125,7 +133,7 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
           ul: SidebarList,
           a: SidebarItem,
           p: SidebarTitle,
-          hr: SidebarDivider
+          hr: SidebarDivider,
         }}
       >
         <Sidebar className={makeClass(!menuOpen && "hidden", "lg:block")}>
@@ -133,7 +141,7 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
             <CustomSideBar />
           ) : (
             <SidebarList>
-              {links.map(page => (
+              {links.map((page) => (
                 <SidebarItemWrapper key={page.__resourcePath}>
                   <SidebarItem href={formatPath(page.__resourcePath)}>
                     {page.title}

@@ -1,4 +1,4 @@
-# next-mdx-enhanced Dynamic Documentation Example
+# next-ignite
 
 - add a blog just by adding a `blog/` folder and some mdx files in `pages/`
 - Add multiple top level docs sections just by adding more folders and mdx in `pages/`
@@ -13,6 +13,4 @@ yarn
 yarn dev
 ```
 
-// TODO collapsed top-level sections when > 3 on desktop
-// TODO Pr to next-mdx-enhanced for multiple layout dirs
-// TODO add purgecss
+<!-- TODO add purgecss -->
