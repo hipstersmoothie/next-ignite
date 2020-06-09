@@ -8,8 +8,6 @@
   "author": "Andrew Lisowski <lisowski54@gmail.com>",
   "scripts": {
     "dev": "yarn ignite dev",
-    "build": "next build",
-    "start": "next start",
     "build:lib": "ds build",
     "ignite": "./bin/ignite.js",
     "build:docs": "yarn ignite build",
