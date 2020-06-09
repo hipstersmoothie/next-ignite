@@ -18,6 +18,11 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
+  "files": [
+    "dist",
+    "bin",
+    "next.js"
+  ],
   "dependencies": {
     "@mapbox/rehype-prism": "^0.4.0",
     "clsx": "^1.1.0",
