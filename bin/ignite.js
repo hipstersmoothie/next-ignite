@@ -6,7 +6,7 @@ const { parse } = require("url");
 const { execSync } = require("child_process");
 const next = require("next");
 const { cosmiconfigSync } = require("cosmiconfig");
-const ignite = require("next-ignite/next");
+const ignite = require("../next");
 const copy = require("copy-template-dir");
 
 const buildNext = require("next/dist/build").default;
