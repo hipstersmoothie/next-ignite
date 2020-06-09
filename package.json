@@ -1,16 +1,19 @@
 {
-  "name": "ignite",
+  "name": "next-ignite",
   "version": "0.1.0",
   "bin": "bin/ignite.js",
   "module": "./dist/esm/index.js",
   "types": "./dist",
+  "repository": "hipstersmoothie/next-ignite",
+  "author": "Andrew Lisowski <lisowski54@gmail.com>",
   "scripts": {
     "dev": "yarn ignite dev",
     "build": "next build",
     "start": "next start",
     "build:lib": "ds build",
     "ignite": "./bin/ignite.js",
-    "docs:deploy": "yarn ignite build && yarn ignite deploy"
+    "build:docs": "yarn ignite build",
+    "release": "auto shipit"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.4.0",
@@ -20,7 +23,7 @@
     "cosmiconfig": "^6.0.0",
     "gravatar": "^1.8.0",
     "mdx-prism": "^0.3.1",
-    "next": "9.3.0",
+    "next": "^9.4.4",
     "next-mdx-enhanced": "^2.4.0",
     "next-prefixed": "^0.0.11",
     "parse-github-url": "^1.0.2",
@@ -35,9 +38,11 @@
     "title-case": "^3.0.2"
   },
   "devDependencies": {
+    "@auto-it/gh-pages": "^9.39.0",
     "@design-systems/cli": "^1.4.3",
     "@types/gravatar": "^1.8.1",
     "@types/mdx-js__react": "^1.5.1",
+    "auto": "^9.39.0",
     "autoprefixer": "^9.7.4",
     "ignite": "link:./",
     "postcss-import": "^12.0.1",
@@ -48,5 +53,17 @@
   "ignite": {
     "repo": "hipstersmoothie/next-mdx-dynamic-docs",
     "basePath": "/next-mdx-dynamic-docs"
+  },
+  "auto": {
+    "plugins": [
+      "npm",
+      [
+        "gh-pages",
+        {
+          "buildCommand": "npm run build:docs",
+          "dir": "./docs/out"
+        }
+      ]
+    ]
   }
 }
