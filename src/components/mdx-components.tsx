@@ -9,6 +9,8 @@ export type Element<
   T extends keyof JSX.IntrinsicElements
 > = React.PropsWithoutRef<JSX.IntrinsicElements[T]>;
 
+const storageKey = "IGNITE_PAGE_POSITION";
+
 interface MobileMenuButtonProps {
   open: boolean;
   setOpen: (newOpen: boolean) => void;
@@ -143,19 +145,27 @@ const NavBarItem = React.forwardRef(
 
 /** The component used to render the sidebar */
 const Sidebar = ({ className, ...props }: Element<"div">) => {
-  React.useEffect(() => {
-    const activeLink = document.querySelector('.sidebar-active')
+  const ref = React.useRef<HTMLDivElement>();
 
-    if (activeLink && 'scrollIntoViewIfNeeded' in activeLink) {
-      (activeLink as any).scrollIntoViewIfNeeded()
-    } else if (activeLink) {
-      activeLink.scrollIntoView()
+  React.useLayoutEffect(() => {
+    if (!ref.current) {
+      return;
     }
-  })
+
+    const position = Number(localStorage.getItem(storageKey));
+
+    if (position) {
+      ref.current.scrollTop = position;
+    }
+
+    localStorage.setItem(storageKey, 0);
+  }, []);
 
   return (
     <div
+      ref={ref}
       className={makeClass(
+        "sidebar-root",
         className,
         "py-6 w-full",
         "lg:w-1/5 lg:max-w-xs lg:max-h-screen lg:overflow-scroll lg:sticky lg:top-0"
@@ -206,7 +216,7 @@ interface SidebarLinkProps {
 /** The component used to render around a link in a sidebar item */
 const SidebarLink = React.forwardRef(
   (
-    { isActive, className, ...props }: Element<"a"> & SidebarLinkProps,
+    { isActive, className, onClick, ...props }: Element<"a"> & SidebarLinkProps,
     ref: React.Ref<HTMLAnchorElement>
   ) => (
     <a
@@ -219,6 +229,13 @@ const SidebarLink = React.forwardRef(
           : "dark:text-gray-400 dark-hover:text-gray-100 dark-hover:font-normal"
       )}
       {...props}
+      onClick={(e) => {
+        localStorage.setItem(
+          storageKey,
+          String(document.querySelector(".sidebar-root").scrollTop)
+        );
+        onClick(e);
+      }}
     />
   )
 );
