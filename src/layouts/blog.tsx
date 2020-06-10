@@ -9,7 +9,7 @@ const NavBarLayout = makeNavBarLayout();
 const dateFormat = new Intl.DateTimeFormat("en-us", {
   year: "2-digit",
   month: "numeric",
-  day: "numeric"
+  day: "numeric",
 });
 
 interface BlogPageFrontMatter extends BlogPost {
@@ -21,20 +21,25 @@ interface BlogPageFrontMatter extends BlogPost {
 
 /** A layout to render a basic home page */
 export default (frontMatter: BlogPageFrontMatter) => ({
-  children: content
+  children: content,
 }: React.PropsWithChildren<{}>) => {
   const color = frontMatter.color || "blue";
 
   return (
     <NavBarLayout>
-      <div
-        className={makeClass(
-          `bg-${color}-500`,
-          !frontMatter.image && "pt-20 pb-24"
-        )}
-      >
-        {frontMatter.image && <img alt="" src={frontMatter.image} />}
-      </div>
+      {frontMatter.image ? (
+        <div
+          className={`bg-${color}-500 bg-cover bg-no-repeat bg-center h-screen`}
+          style={{
+            maxHeight: "30vh",
+            minHeight: 315,
+            backgroundImage: frontMatter.image
+          }}
+        />
+      ) : (
+        <div className={`bg-${color}-500pt-20 pb-24`} />
+      )}
+      
       <div
         className={makeClass(
           "pt-6 pb-12 px-6 w-full max-w-screen-sm mx-auto rounded -mt-10 bg-white shadow-md text-gray-800",
