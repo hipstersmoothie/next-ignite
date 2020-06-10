@@ -1,3 +1,15 @@
+# v0.1.7 (Wed Jun 10 2020)
+
+#### ⚠️ Pushed to `master`
+
+- make sure sidebar link is in viewport ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.6 (Wed Jun 10 2020)
 
 #### ⚠️ Pushed to `master`
