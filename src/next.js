@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
 const parseGithubUrl = require("parse-github-url");
+const glob = require('fast-glob');
 
 const rehypePrism = require("@mapbox/rehype-prism");
 const autoLink = require("rehype-autolink-headings");
@@ -104,6 +105,7 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
   const BASE_PATH = debug ? "" : igniteConfig.basePath;
+  const logo = glob.sync('./docs/public/logo.*')[0]
 
   return withMdxEnhanced({
     ...nextConfig,
@@ -118,6 +120,7 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
         new webpack.DefinePlugin({
           BASE_PATH: JSON.stringify(BASE_PATH),
           PROJECT_NAME: JSON.stringify(igniteConfig.name),
+          PROJECT_LOGO: JSON.stringify(logo? path.basename(logo): 'logo.svg'),
           REPO_URL: JSON.stringify(getFullGitHubUrl(igniteConfig.repo)),
           PAGES_DIR: JSON.stringify(path.resolve("./docs/pages")),
           MDX_DATA_DIR: JSON.stringify(path.resolve("./docs/.mdx-data")),

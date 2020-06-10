@@ -71,7 +71,7 @@ const Logo = React.forwardRef(
     >
       <img
         alt={`${PROJECT_NAME} Logo`}
-        src={prefixURL("/logo.svg")}
+        src={prefixURL(PROJECT_LOGO)}
         className="w-8 h-8 md:mr-3"
       />
       <span className="hidden md:block">{PROJECT_NAME}</span>
