@@ -33,7 +33,7 @@ export default (frontMatter: BlogPageFrontMatter) => ({
           style={{
             maxHeight: "30vh",
             minHeight: 315,
-            backgroundImage: frontMatter.image
+            backgroundImage: `url(${frontMatter.image})`
           }}
         />
       ) : (
