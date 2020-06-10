@@ -142,16 +142,27 @@ const NavBarItem = React.forwardRef(
 );
 
 /** The component used to render the sidebar */
-const Sidebar = ({ className, ...props }: Element<"div">) => (
-  <div
-    className={makeClass(
-      className,
-      "py-6 w-full",
-      "lg:w-1/5 lg:max-w-xs lg:max-h-screen lg:overflow-scroll lg:sticky lg:top-0"
-    )}
-    {...props}
-  />
-);
+const Sidebar = ({ className, ...props }: Element<"div">) => {
+  React.useEffect(() => {
+    const activeLink = document.querySelector('.sidebar-active')
+
+    if (activeLink && 'scrollIntoViewIfNeeded' in activeLink) {
+    } else if (activeLink) {
+      activeLink.scrollIntoView()
+    }
+  })
+
+  return (
+    <div
+      className={makeClass(
+        className,
+        "py-6 w-full",
+        "lg:w-1/5 lg:max-w-xs lg:max-h-screen lg:overflow-scroll lg:sticky lg:top-0"
+      )}
+      {...props}
+    />
+  );
+};
 
 /** The component used to render a divider in the sidebar */
 const SidebarDivider = ({ className, ...props }: Element<"hr">) => (
@@ -203,7 +214,7 @@ const SidebarLink = React.forwardRef(
         className,
         "text-base font-light hover:font-normal px-6 flex cursor-pointer",
         isActive
-          ? "font-normal border-r-4 border-blue-600 dark:border-blue-400 dark:font-semibold dark:text-gray-100"
+          ? "sidebar-active font-normal border-r-4 border-blue-600 dark:border-blue-400 dark:font-semibold dark:text-gray-100"
           : "dark:text-gray-400 dark-hover:text-gray-100 dark-hover:font-normal"
       )}
       {...props}
@@ -354,7 +365,10 @@ const ul = ({ className, ...props }: Element<"ul">) => (
 );
 
 const hr = ({ className, ...props }: Element<"hr">) => (
-  <hr className={makeClass(className, "m-12 border-b-2", "dark:border-gray-500")} {...props} />
+  <hr
+    className={makeClass(className, "m-12 border-b-2", "dark:border-gray-500")}
+    {...props}
+  />
 );
 
 /** The component used to render an ol */
@@ -447,7 +461,7 @@ const components = {
   table,
   th,
   tr,
-  td
+  td,
 } as const;
 
 export type Components = MDXProviderComponents & typeof components;
