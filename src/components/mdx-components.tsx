@@ -147,6 +147,7 @@ const Sidebar = ({ className, ...props }: Element<"div">) => {
     const activeLink = document.querySelector('.sidebar-active')
 
     if (activeLink && 'scrollIntoViewIfNeeded' in activeLink) {
+      (activeLink as any).scrollIntoViewIfNeeded()
     } else if (activeLink) {
       activeLink.scrollIntoView()
     }
