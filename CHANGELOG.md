@@ -1,3 +1,15 @@
+# v0.1.10 (Wed Jun 10 2020)
+
+#### ⚠️ Pushed to `master`
+
+- upgrade next-mdx-enhanced ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.9 (Wed Jun 10 2020)
 
 #### ⚠️ Pushed to `master`
