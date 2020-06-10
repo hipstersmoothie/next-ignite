@@ -1,3 +1,15 @@
+# v0.1.12 (Wed Jun 10 2020)
+
+#### ⚠️ Pushed to `master`
+
+- better solution for retaining sidebar scroll position ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.11 (Wed Jun 10 2020)
 
 #### ⚠️ Pushed to `master`
