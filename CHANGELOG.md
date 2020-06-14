@@ -1,3 +1,15 @@
+# v0.1.19 (Sun Jun 14 2020)
+
+#### ⚠️ Pushed to `master`
+
+- allow for inline code block in the title of a page ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.18 (Sun Jun 14 2020)
 
 #### ⚠️ Pushed to `master`
