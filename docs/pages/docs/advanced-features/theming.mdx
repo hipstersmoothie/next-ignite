@@ -2,9 +2,59 @@
 title: "Theming the Website"
 ---
 
+`ignite` provides two ways to theme:
+
+- Customize the colors => CSS variables
+- Customize the component used to render arbitrary HTML elements => MDX 
+
+## Color Theming
+
+`ignite` is uses [tailwind](https://tailwindcss.com/) so changing the colors for you website is super simple.
+All you have to do is set some CSS variables and `ignite` will use those colors.
+
+*Available Colors:*
+
+- primary (100-900) - The primary color for your app
+- gray (100-1000) - A gray that compliments the primary color
+
+Add a `style` block to your `pages/_document.js` that sets your desired colors.
+
+```js
+import React from "react";
+import Document, { Html, Head, Main, NextScript } from "next/document";
+
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html lang="en">
+        <Head />
+        <body>
+          <style>{`
+            :root {
+              --color-primary-100: #F3E6ED;
+              --color-primary-200: #E1BFD1;
+              /* ETC */
+            }
+          `}</style>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+
+export default MyDocument;
+```
+
+If you're having trouble creating the full color ranges [try out this tool I made](https://hipstersmoothie.github.io/color-palette/).
+You can enter a `primary 500` color and it will generate a range for the primary and a complimentary gray.
+
+## Component Theming
+
 `ignite` is uses [mdx](https://github.com/mdx-js/mdx) so it's incredibly simple to customize **any** component!
 
-## Theming the Base Elements
+### Theming the Base Elements
 
 All you need to do is open up your `_app.js` and the your components to the `MDXProvider`.
 
@@ -64,14 +114,14 @@ import makeClass from "clsx";
 const h1 = ({ className, ...props }) => (
   <h1
     // Use props.className if you are using it yourself
-    className={makeClass(className, "text-red-900 mb-8")}
+    className={makeClass(className, "text-primary-900 mb-8 dark:text-primary-100")}
     // Spread the rest of the props
     {...props}
   />
 );
 ```
 
-## Theming the rest
+### Theming the rest
 
 In addition to being able to theme all the base components, `ignite` lets you theme all the components provided by `ignite`!
 

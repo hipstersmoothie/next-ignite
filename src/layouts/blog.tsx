@@ -23,7 +23,7 @@ interface BlogPageFrontMatter extends BlogPost {
 export default (frontMatter: BlogPageFrontMatter) => ({
   children: content,
 }: React.PropsWithChildren<{}>) => {
-  const color = frontMatter.color || "blue";
+  const color = frontMatter.color || "primary";
 
   return (
     <NavBarLayout>

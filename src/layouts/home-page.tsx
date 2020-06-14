@@ -20,7 +20,7 @@ interface HomePageFrontMatter extends Page {
 export default (frontMatter: HomePageFrontMatter) => ({
   children: content
 }: React.PropsWithChildren<{}>) => {
-  const color = frontMatter.color || "blue";
+  const color = frontMatter.color || "primary";
 
   return (
     <NavBarLayout>

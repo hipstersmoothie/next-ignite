@@ -25,7 +25,7 @@ const MobileMenuButton = ({
 }: MobileMenuButtonProps & Element<"button">) => (
   <button
     className={makeClass(
-      "text-gray-700 px-6 hover:text-blue-600 focus:text-blue-600 focus:outline-none",
+      "text-gray-700 px-6 hover:text-primary-600 focus:text-primary-600 focus:outline-none",
       "dark:text-gray-400",
       className
     )}
@@ -132,8 +132,8 @@ const NavBarItem = React.forwardRef(
       tabIndex={0}
       className={makeClass(
         "justify-center h-full flex items-center px-6 py-4 cursor-pointer text-gray-700",
-        "hover:bg-gray-200 hover:text-blue-600 focus:bg-gray-200 focus:text-blue-600 focus:outline-none",
-        "dark:text-gray-400 dark-hover:bg-gray-800 dark-hover:text-blue-400 dark-focus:bg-gray-800 dark-focus:text-blue-400",
+        "hover:bg-gray-200 hover:text-primary-600 focus:bg-gray-200 focus:text-primary-600 focus:outline-none",
+        "dark:text-gray-400 dark-hover:bg-gray-800 dark-hover:text-primary-400 dark-focus:bg-gray-800 dark-focus:text-primary-400",
         className
       )}
       {...props}
@@ -225,7 +225,7 @@ const SidebarLink = React.forwardRef(
         className,
         "text-base font-light hover:font-normal px-6 flex cursor-pointer",
         isActive
-          ? "sidebar-active font-normal border-r-4 border-blue-600 dark:border-blue-400 dark:font-semibold dark:text-gray-100"
+          ? "sidebar-active font-normal border-r-4 border-primary-600 dark:border-primary-400 dark:font-semibold dark:text-gray-100"
           : "dark:text-gray-400 dark-hover:text-gray-100 dark-hover:font-normal"
       )}
       {...props}
@@ -245,17 +245,18 @@ const DEFAULT_TEXT_COLOR = "text-gray-800 dark:text-gray-400";
 const HEADER_TEXT_COLOR = "text-gray-900 dark:text-gray-200";
 
 /** The component used to render a h1 */
-const h1 = ({ className, ...props }: Element<"h1">) => (
-  <h1
-    className={makeClass(
-      className,
-      "relative text-5xl font-semibold leading-relaced",
-      HEADER_TEXT_COLOR,
-      !className || (!className.includes("text-") && "text-gray-900")
-    )}
-    {...props}
-  />
-);
+const h1 = ({ className, ...props }: Element<"h1">) => {
+  return (
+    <h1
+      className={makeClass(
+        className,
+        "relative text-5xl font-semibold leading-relaced",
+        (!className || !className.includes("text-")) && HEADER_TEXT_COLOR
+      )}
+      {...props}
+    />
+  );
+};
 
 /** The component used to render a h2 */
 const h2 = ({ className, ...props }: Element<"h2">) => (
@@ -338,7 +339,7 @@ const li = ({ className, ...props }: Element<"li">) => (
 const blockquote = ({ className, ...props }: Element<"blockquote">) => (
   <blockquote
     className={makeClass(
-      "blockquote bg-gray-200 px-6 py-6 my-8 border-l-4 border-blue-500",
+      "blockquote bg-gray-200 px-6 py-6 my-8 border-l-4 border-primary-500",
       "dark:bg-gray-700",
       className
     )}
