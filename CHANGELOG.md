@@ -1,3 +1,15 @@
+# v0.1.14 (Sun Jun 14 2020)
+
+#### ⚠️ Pushed to `master`
+
+- remove theme ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.13 (Sun Jun 14 2020)
 
 #### ⚠️ Pushed to `master`
