@@ -31,7 +31,6 @@ const Search = () => {
   const { SearchInput, ...components } = useMDXComponents() as Components;
   const [search, setSearch] = React.useState("");
   const normalizedSearch = search.toLowerCase();
-  console.log(searchIndex)
   const results = searchIndex.filter(
     (page) =>
       page.content?.toLowerCase().includes(normalizedSearch) ||
