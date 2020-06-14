@@ -1,3 +1,15 @@
+# v0.1.17 (Sun Jun 14 2020)
+
+#### ⚠️ Pushed to `master`
+
+- fix search ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.16 (Sun Jun 14 2020)
 
 #### ⚠️ Pushed to `master`
