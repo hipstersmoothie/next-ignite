@@ -90,9 +90,9 @@ const SearchInput = ({ className, ...props }: Element<"input">) => (
     className={makeClass(
       className,
       DEFAULT_TEXT_COLOR,
-      "rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 w-full",
+      "placeholder-gray-500 rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 w-full",
       "focus:bg-white focus:outline-none",
-      "dark:bg-gray-700 dark:border-gray-700 dark-focus:bg-gray-600 dark-focus:text-white"
+      "dark:placeholder-gray-600 dark:bg-gray-700 dark:border-gray-700 dark-focus:bg-gray-600 dark-focus:text-white"
     )}
     {...props}
   />
@@ -167,7 +167,7 @@ const Sidebar = ({ className, ...props }: Element<"div">) => {
       className={makeClass(
         "sidebar-root",
         className,
-        "py-6 w-full",
+        "pt-6 pb-12 lg:pb-24 w-full",
         "lg:w-1/5 lg:max-w-xs lg:max-h-screen lg:overflow-scroll lg:sticky lg:top-0"
       )}
       {...props}
