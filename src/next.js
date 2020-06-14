@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
 const parseGithubUrl = require("parse-github-url");
-const glob = require('fast-glob');
+const glob = require("fast-glob");
 
 const rehypePrism = require("@mapbox/rehype-prism");
 const autoLink = require("rehype-autolink-headings");
@@ -11,14 +11,11 @@ const slug = require("rehype-slug");
 
 const emoji = require("remark-emoji");
 
-const isProduction = process.env.NODE_ENV === "production";
+const MDX_DATA_DIR = path.resolve("./docs/.mdx-data");
+const searchIndexPath = path.join(MDX_DATA_DIR, "search.json");
 const pages = [];
 
-if (isProduction) {
-  fs.writeFileSync("search.json", JSON.stringify([]));
-}
-
-const getFullGitHubUrl = url => {
+const getFullGitHubUrl = (url) => {
   const repo = parseGithubUrl(url);
 
   if (repo.href.startsWith("http")) {
@@ -28,16 +25,16 @@ const getFullGitHubUrl = url => {
   return `https://github.com/${repo.repo}`;
 };
 
-const getCreationDate = file =>
+const getCreationDate = (file) =>
   execSync(`git log --format=%aD ${path.join("docs/pages", file)} | tail -1`, {
-    encoding: "utf8"
+    encoding: "utf8",
   });
 
-const getAuthor = file =>
+const getAuthor = (file) =>
   execSync(
     `git log --format="%an || %ae" ${path.join("docs/pages", file)} | tail -1`,
     {
-      encoding: "utf8"
+      encoding: "utf8",
     }
   ).split(" || ");
 
@@ -51,17 +48,17 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
       {
         behavior: "wrap",
         properties: {
-          className: 'header-link no-underline text-gray-900" hover:underline'
-        }
-      }
+          className: 'header-link no-underline text-gray-900" hover:underline',
+        },
+      },
     ],
     a11yEmoji,
-    [rehypePrism, { ignoreMissing: true }]
+    [rehypePrism, { ignoreMissing: true }],
   ],
-  onContent: page => {
-    if (isProduction) {
+  onContent: (page) => {
+    if (process.env.NODE_ENV === "production") {
       pages.push(page);
-      fs.writeFileSync("search.json", JSON.stringify(pages));
+      fs.writeFileSync(searchIndexPath, JSON.stringify(pages));
     }
   },
   extendFrontMatter: {
@@ -90,11 +87,11 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
         layout,
         date: date || creationDate,
         author: rest.author || author,
-        email: rest.email || email
+        email: rest.email || email,
       };
     },
-    phase: "both"
-  }
+    phase: "both",
+  },
 });
 
 // ignite config options
@@ -105,26 +102,26 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
   const BASE_PATH = debug ? "" : igniteConfig.basePath;
-  const logo = glob.sync('./docs/public/logo.*')[0]
+  const logo = glob.sync("./docs/public/logo.*")[0];
 
   return withMdxEnhanced({
     ...nextConfig,
     experimental: {
-      basePath: BASE_PATH
+      basePath: BASE_PATH,
     },
     publicRuntimeConfig: {
-      assetPrefix: BASE_PATH
+      assetPrefix: BASE_PATH,
     },
     webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
       config.plugins.push(
         new webpack.DefinePlugin({
           BASE_PATH: JSON.stringify(BASE_PATH),
           PROJECT_NAME: JSON.stringify(igniteConfig.name),
-          PROJECT_LOGO: JSON.stringify(logo? path.basename(logo): 'logo.svg'),
+          PROJECT_LOGO: JSON.stringify(logo ? path.basename(logo) : "logo.svg"),
           REPO_URL: JSON.stringify(getFullGitHubUrl(igniteConfig.repo)),
           PAGES_DIR: JSON.stringify(path.resolve("./docs/pages")),
-          MDX_DATA_DIR: JSON.stringify(path.resolve("./docs/.mdx-data")),
-          SECTION_ORDER: JSON.stringify(igniteConfig.order || ['docs', 'blog']),
+          MDX_DATA_DIR: JSON.stringify(MDX_DATA_DIR),
+          SECTION_ORDER: JSON.stringify(igniteConfig.order || ["docs", "blog"]),
         })
       );
 
@@ -134,6 +131,6 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
       }
 
       return config;
-    }
+    },
   });
 };

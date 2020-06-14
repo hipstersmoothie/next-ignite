@@ -3,16 +3,16 @@ import Link from "next/link";
 import { titleCase } from "title-case";
 import { useMDXComponents } from "@mdx-js/react";
 import makeClass from "clsx";
+import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 import { formatPath } from "../utils/format-path";
 import { MobileMenuContext } from "../utils/mobile-menu-context";
+import { getSearchIndex } from "../utils/get-search-index";
 import { Components, Element } from "./mdx-components";
-import { MarkdownPage } from "../utils/types";
 
 declare var REPO_URL: string;
 
-// import searchIndex from "../../search.json";
-const searchIndex: MarkdownPage[] = [];
+const searchIndex = getSearchIndex();
 
 const GitHubIcon = ({ className, ...props }: Element<"svg">) => (
   <svg
@@ -27,30 +27,49 @@ const GitHubIcon = ({ className, ...props }: Element<"svg">) => (
 
 /** Renders the search bar and results */
 const Search = () => {
+  const scrollableArea = React.useRef<HTMLDivElement>(null);
   const { SearchInput, ...components } = useMDXComponents() as Components;
   const [search, setSearch] = React.useState("");
   const normalizedSearch = search.toLowerCase();
+  console.log(searchIndex)
   const results = searchIndex.filter(
-    page =>
+    (page) =>
       page.content?.toLowerCase().includes(normalizedSearch) ||
       page.title?.toLowerCase().includes(normalizedSearch) ||
       page.author?.toLowerCase().includes(normalizedSearch)
   );
 
+  React.useEffect(() => {
+    if (search) {
+      disablePageScroll(scrollableArea.current);
+    } else {
+      enablePageScroll(scrollableArea.current);
+    }
+  }, [search]);
+
   return (
     <div className="relative h-full flex items-center w-full lg:w-auto lg:flex-1 pr-4">
       <SearchInput
         value={search}
-        onChange={e => setSearch(e.currentTarget.value)}
+        onChange={(e) => setSearch(e.currentTarget.value)}
       />
 
       {search && (
-        <div className="absolute">
-          {results.map(result => (
-            <components.a href={formatPath(result.__resourcePath)}>
-              {result.title}
-            </components.a>
-          ))}
+        <div
+          data-scroll-lock-scrollable
+          ref={scrollableArea}
+          className="fixed inset-0 bg-gray-800 overflow-auto z-10"
+          style={{ top: 65 }}
+        >
+          <div className="max-w-xl mx-auto px-8 pt-6 pb-12 space-y-4">
+            {results.map((result) => (
+              <div>
+                <components.a href={formatPath(result.__resourcePath)}>
+                  {result.title}
+                </components.a>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
@@ -72,7 +91,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
     NavBarWrapper,
     NavBar,
     NavBarItem,
-    MobileMenuButton
+    MobileMenuButton,
   } = useMDXComponents() as Components;
 
   return (
@@ -90,17 +109,25 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
           <div className="w-full h-full flex items-center lg:flex flex-1 lg:max-w-screen-md lg:mx-auto">
             <Search />
 
-            <MobileMenuButton open={openMenu} setOpen={setOpenMenu} className="lg:hidden" />
+            <MobileMenuButton
+              open={openMenu}
+              setOpen={setOpenMenu}
+              className="lg:hidden"
+            />
 
-            <div className="hidden lg:flex h-full">              
-              {sections.map(section => (
+            <div className="hidden lg:flex h-full">
+              {sections.map((section) => (
                 <Link key={section} href={formatPath(`/${section}`)}>
                   <NavBarItem>{titleCase(section)}</NavBarItem>
                 </Link>
               ))}
 
               {REPO_URL && (
-                <NavBarItem href={REPO_URL} target="_blank" aria-label="Open on GitHub">
+                <NavBarItem
+                  href={REPO_URL}
+                  target="_blank"
+                  aria-label="Open on GitHub"
+                >
                   <GitHubIcon />
                 </NavBarItem>
               )}
@@ -111,7 +138,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
 
       {openMenu && (
         <div className="lg:hidden">
-          {sections.map(section => (
+          {sections.map((section) => (
             <Link key={section} href={formatPath(`/${section}`)}>
               <NavBarItem>{titleCase(section)}</NavBarItem>
             </Link>
