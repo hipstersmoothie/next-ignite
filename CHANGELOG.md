@@ -1,3 +1,15 @@
+# v0.1.25 (Mon Jun 15 2020)
+
+#### ⚠️ Pushed to `master`
+
+- innline code doesn't wrap ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.24 (Mon Jun 15 2020)
 
 #### ⚠️ Pushed to `master`
