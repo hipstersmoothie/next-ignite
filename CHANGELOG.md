@@ -1,3 +1,16 @@
+# v0.1.23 (Mon Jun 15 2020)
+
+#### ⚠️ Pushed to `master`
+
+- add dark mode logo ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- update config ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.22 (Mon Jun 15 2020)
 
 #### ⚠️ Pushed to `master`
