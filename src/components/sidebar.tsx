@@ -95,9 +95,14 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
   } = useMDXComponents() as Components;
 
   React.useLayoutEffect(() => {
+    const urlPath = path.relative(
+      BASE_PATH,
+      window.location.pathname,
+    );
+
     let newActive = links.find((link) => {
       const route = link.__resourcePath.replace(".mdx", "");
-      return window.location.pathname.includes(route);
+      return route === urlPath;
     });
 
     if (!newActive) {
