@@ -1,3 +1,17 @@
+# v0.1.24 (Mon Jun 15 2020)
+
+#### ⚠️ Pushed to `master`
+
+- Merge branch 'master' of https://github.com/hipstersmoothie/next-ignite ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix just code block titles ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- downgrade next ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.23 (Mon Jun 15 2020)
 
 #### ⚠️ Pushed to `master`
