@@ -22,7 +22,7 @@ interface BlogIndexProps {
   color?: string;
 }
 
-export default ({ color = "blue" }: BlogIndexProps) => {
+export default ({ color = "primary" }: BlogIndexProps) => {
   const components = useMDXComponents();
 
   return (
