@@ -27,6 +27,10 @@ function constructTitleFromMarkdown(
   components: MDXProviderComponents,
   str: string
 ) {
+  if (!str) {
+    return
+  }
+
   const children = [];
   let rest = str.replace(/\\`/g, '`');
 
