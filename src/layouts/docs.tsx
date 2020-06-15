@@ -28,7 +28,7 @@ function constructTitleFromMarkdown(
   str: string
 ) {
   const children = [];
-  let rest = str;
+  let rest = str.replace(/\\`/g, '`');
 
   while (CODE_BLOCK_REGEX.test(rest)) {
     const [, before, inCodeBlock, after] = rest.match(CODE_BLOCK_REGEX);
