@@ -1,3 +1,15 @@
+# v0.1.32 (Mon Jun 15 2020)
+
+#### ⚠️ Pushed to `master`
+
+- fix blog posts ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.31 (Mon Jun 15 2020)
 
 #### ⚠️ Pushed to `master`
