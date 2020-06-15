@@ -85,7 +85,7 @@ const Logo = React.forwardRef(
           className="w-8 h-8"
         />
       </picture>
-      <span className="hidden md:block">{PROJECT_NAME}</span>
+      <span className="hidden md:block dark:text-gray-200">{PROJECT_NAME}</span>
     </a>
   )
 );
@@ -101,7 +101,7 @@ const SearchInput = ({ className, ...props }: Element<"input">) => (
       DEFAULT_TEXT_COLOR,
       "placeholder-gray-500 rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 w-full",
       "focus:bg-white focus:outline-none",
-      "dark:placeholder-gray-600 dark:bg-gray-700 dark:border-gray-700 dark-focus:bg-gray-600 dark-focus:text-white"
+      "dark-placeholder:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-900 dark-focus:bg-gray-700 dark-focus:text-white"
     )}
     {...props}
   />
@@ -250,7 +250,7 @@ const SidebarLink = React.forwardRef(
 );
 
 const DEFAULT_SPACING = "my-4";
-const DEFAULT_TEXT_COLOR = "text-gray-800 dark:text-gray-400";
+const DEFAULT_TEXT_COLOR = "text-gray-800 dark:text-gray-300";
 const HEADER_TEXT_COLOR = "text-gray-900 dark:text-gray-200";
 
 /** The component used to render a h1 */
