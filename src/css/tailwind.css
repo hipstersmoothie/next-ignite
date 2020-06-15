@@ -22,14 +22,16 @@
   tbody .tr:nth-child(odd) {
     @apply bg-gray-100;
   }
+
+  .sidebar-root ul ul {
+    padding-left: 10px;
+  }
 }
 
-.mode-dark #ignite  {
+.mode-dark #ignite {
   @apply text-gray-400;
-
 
   tbody .tr:nth-child(odd) {
     @apply bg-gray-900;
   }
 }
-
