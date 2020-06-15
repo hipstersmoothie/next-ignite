@@ -1,3 +1,15 @@
+# v0.1.21 (Mon Jun 15 2020)
+
+#### ⚠️ Pushed to `master`
+
+- don't process title if there isn't one ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.20 (Mon Jun 15 2020)
 
 #### ⚠️ Pushed to `master`
