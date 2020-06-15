@@ -1,3 +1,15 @@
+# v0.1.30 (Mon Jun 15 2020)
+
+#### ⚠️ Pushed to `master`
+
+- fix double build ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.29 (Mon Jun 15 2020)
 
 #### ⚠️ Pushed to `master`
