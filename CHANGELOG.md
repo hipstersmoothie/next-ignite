@@ -1,3 +1,17 @@
+# v0.1.22 (Mon Jun 15 2020)
+
+#### ⚠️ Pushed to `master`
+
+- update lock file ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- remove search for now ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix bundle size except for search ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.21 (Mon Jun 15 2020)
 
 #### ⚠️ Pushed to `master`
