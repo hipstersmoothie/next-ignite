@@ -13,7 +13,7 @@ declare var PAGES: string[];
 const NavBarLayout = makeNavBarLayout();
 const CONTENT_AREA =
   "pt-8 pb-32 px-4 lg:mx-auto max-w-full md:max-w-screen-sm lg:max-w-screen-md";
-const CODE_BLOCK_REGEX = /([^`]*)`([^`]*)`(.+)/m;
+const CODE_BLOCK_REGEX = /([^`]*)`([^`]*)`(.*)/m;
 
 function constructTitleFromMarkdown(
   components: MDXProviderComponents,
