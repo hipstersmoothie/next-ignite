@@ -11,11 +11,13 @@ export default () => {
     const frontMatters = getFrontMatters();
 
     return BLOG_POSTS.map((key) =>
-      frontMatters.find((f) => f.__resourcePath === path.join("blog", key))
-    ).map((post) => ({
-      ...post,
-      __resourcePath: formatPath(post.__resourcePath),
-    }));
+      frontMatters.find((f) => f.__resourcePath === key)
+    )
+      .map((post) => ({
+        ...post,
+        __resourcePath: formatPath(post.__resourcePath),
+      }))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch (error) {
     return [];
   }
