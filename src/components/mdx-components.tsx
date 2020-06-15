@@ -455,8 +455,8 @@ const tr = ({ className, ...props }: Element<"tr">) => (
   <tr className={makeClass(className, "tr")} {...props} />
 );
 
-const img = ({ className, ...props }: Element<"img">) => (
-  <img title={props.alt} {...props} />
+const img = ({ className, src, ...props }: Element<"img">) => (
+  <img title={props.alt} srcSet={prefixURL(src)} {...props} />
 );
 
 const components = {
