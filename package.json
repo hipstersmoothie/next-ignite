@@ -60,7 +60,7 @@
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
     "tailwindcss": "^1.4.6",
-    "tailwindcss-dark-mode": "^1.1.3"
+    "tailwindcss-dark-mode": "^1.1.4"
   },
   "ignite": {
     "repo": "hipstersmoothie/next-mdx-dynamic-docs",
