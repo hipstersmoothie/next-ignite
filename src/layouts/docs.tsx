@@ -7,18 +7,10 @@ import { Sidebar } from "../components/sidebar";
 import makeNavBarLayout from "./nav-bar";
 import { Page } from "../utils/types";
 
-declare var MDX_DATA_DIR: string;
-declare var PAGES_DIR: string;
+declare var FRONT_MATTERS: Page[];
+declare var PAGES: string[];
 
 const NavBarLayout = makeNavBarLayout();
-const requireFrontMatters = require.context(MDX_DATA_DIR, true, /\.json$/);
-// Get all pages
-const requirePage = require.context(PAGES_DIR, true, /\.mdx$/);
-// Get all frontMatter data
-const frontMatters = requireFrontMatters
-  .keys()
-  .map(requireFrontMatters) as Page[];
-
 const CONTENT_AREA =
   "pt-8 pb-32 px-4 lg:mx-auto max-w-full md:max-w-screen-sm lg:max-w-screen-md";
 const CODE_BLOCK_REGEX = /([^`]*)`([^`]*)`(.+)/m;
@@ -28,11 +20,11 @@ function constructTitleFromMarkdown(
   str: string
 ) {
   if (!str) {
-    return
+    return;
   }
 
   const children = [];
-  let rest = str.replace(/\\`/g, '`');
+  let rest = str.replace(/\\`/g, "`");
 
   while (CODE_BLOCK_REGEX.test(rest)) {
     const [, before, inCodeBlock, after] = rest.match(CODE_BLOCK_REGEX);
@@ -54,11 +46,9 @@ export default (frontMatter: Page) => ({
   const components = useMDXComponents();
   const resource = frontMatter.__resourcePath.split("/")[0];
   // Find pages that match the current route
-  const links = requirePage
-    .keys()
-    .map((key) => path.relative("./", key))
+  const links = PAGES.map((key) => path.relative("./", key))
     .filter((key) => key.startsWith(resource))
-    .map((key) => frontMatters.find((f) => f.__resourcePath === key));
+    .map((key) => FRONT_MATTERS.find((f) => f.__resourcePath === key));
 
   return (
     <NavBarLayout menuState={[menuOpen, setMenuOpen]}>

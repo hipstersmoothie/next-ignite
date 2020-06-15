@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+require('dotenv').config()
+
 const path = require("path");
 const { app } = require("command-line-application");
 const { createServer } = require("http");

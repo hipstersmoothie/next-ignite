@@ -37,7 +37,7 @@ export default (frontMatter: BlogPageFrontMatter) => ({
           }}
         />
       ) : (
-        <div className={`bg-${color}-500pt-20 pb-24`} />
+        <div className={`bg-${color}-500 pt-20 pb-24`} />
       )}
       
       <div
