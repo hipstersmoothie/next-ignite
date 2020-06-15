@@ -1,3 +1,15 @@
+# v0.1.33 (Mon Jun 15 2020)
+
+#### ⚠️ Pushed to `master`
+
+- fix blog index background color ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.32 (Mon Jun 15 2020)
 
 #### ⚠️ Pushed to `master`
