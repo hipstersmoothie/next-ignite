@@ -50,6 +50,8 @@ export default (frontMatter: Page) => ({
     .filter((key) => key.startsWith(resource))
     .map((key) => FRONT_MATTERS.find((f) => f.__resourcePath === key));
 
+  console.log({ PAGES, FRONT_MATTERS, links });
+
   return (
     <NavBarLayout menuState={[menuOpen, setMenuOpen]}>
       <div className="flex flex-1 w-full max-w-screen-sm lg:max-w-screen-xl mx-auto">
@@ -57,7 +59,7 @@ export default (frontMatter: Page) => ({
 
         <main
           className={makeClass(
-            'DocSearch-content',
+            "DocSearch-content",
             CONTENT_AREA,
             "flex-1",
             "lg:block",
