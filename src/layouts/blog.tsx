@@ -40,8 +40,9 @@ export default (frontMatter: BlogPageFrontMatter) => ({
         <div className={`bg-${color}-500 pt-20 pb-24`} />
       )}
       
-      <div
+      <article
         className={makeClass(
+          "DocSearch-content",
           "pt-6 pb-12 px-6 w-full max-w-screen-sm mx-auto rounded -mt-10 bg-white shadow-md text-gray-800",
           "lg:max-w-screen-md",
           "dark:bg-gray-900"
@@ -65,7 +66,7 @@ export default (frontMatter: BlogPageFrontMatter) => ({
           </p>
         </div>
         {content}
-      </div>
+      </article>
     </NavBarLayout>
   );
 };

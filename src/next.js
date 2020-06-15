@@ -16,7 +16,6 @@ const emoji = require("remark-emoji");
 
 const PAGES_DIR = path.resolve("./docs/pages");
 const MDX_DATA_DIR = path.resolve("./docs/.mdx-data");
-const searchIndexPath = path.join(MDX_DATA_DIR, "search.json");
 const pages = [];
 
 const getFullGitHubUrl = (url) => {
@@ -111,12 +110,6 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
     a11yEmoji,
     [rehypePrism, { ignoreMissing: true }],
   ],
-  onContent: (page) => {
-    if (process.env.NODE_ENV === "production") {
-      pages.push(page);
-      fs.writeFileSync(searchIndexPath, JSON.stringify(pages));
-    }
-  },
   extendFrontMatter: {
     process: (_, frontMatter) => {
       let { __resourcePath, date, layout, ...rest } = frontMatter;

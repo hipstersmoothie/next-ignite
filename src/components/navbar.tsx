@@ -3,16 +3,12 @@ import Link from "next/link";
 import { titleCase } from "title-case";
 import { useMDXComponents } from "@mdx-js/react";
 import makeClass from "clsx";
-import { disablePageScroll, enablePageScroll } from "scroll-lock";
 
 import { formatPath } from "../utils/format-path";
 import { MobileMenuContext } from "../utils/mobile-menu-context";
-import { getSearchIndex } from "../utils/get-search-index";
 import { Components, Element } from "./mdx-components";
 
 declare var REPO_URL: string;
-
-const searchIndex = getSearchIndex();
 
 const GitHubIcon = ({ className, ...props }: Element<"svg">) => (
   <svg
@@ -27,50 +23,11 @@ const GitHubIcon = ({ className, ...props }: Element<"svg">) => (
 
 /** Renders the search bar and results */
 const Search = () => {
-  const scrollableArea = React.useRef<HTMLDivElement>(null);
-  const { SearchInput, ...components } = useMDXComponents() as Components;
-  const [search, setSearch] = React.useState("");
-  const normalizedSearch = search.toLowerCase();
-  const results = searchIndex.filter(
-    (page) =>
-      page.content?.toLowerCase().includes(normalizedSearch) ||
-      page.title?.toLowerCase().includes(normalizedSearch) ||
-      page.author?.toLowerCase().includes(normalizedSearch)
-  );
-
-  React.useEffect(() => {
-    if (search) {
-      disablePageScroll(scrollableArea.current);
-    } else {
-      enablePageScroll(scrollableArea.current);
-    }
-  }, [search]);
+  const { SearchInput } = useMDXComponents() as Components;
 
   return (
-    <div className="relative h-full flex items-center w-full lg:w-auto lg:flex-1 pr-4">
-      <SearchInput
-        value={search}
-        onChange={(e) => setSearch(e.currentTarget.value)}
-      />
-
-      {search && (
-        <div
-          data-scroll-lock-scrollable
-          ref={scrollableArea}
-          className="fixed inset-0 bg-gray-800 overflow-auto z-10"
-          style={{ top: 65 }}
-        >
-          <div className="max-w-xl mx-auto px-8 pt-6 pb-12 space-y-4">
-            {results.map((result) => (
-              <div>
-                <components.a href={formatPath(result.__resourcePath)}>
-                  {result.title}
-                </components.a>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+    <div className="relative h-full flex items-center w-full lg:w-auto lg:flex-1 mr-4">
+      <SearchInput />
     </div>
   );
 };

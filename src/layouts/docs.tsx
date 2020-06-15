@@ -55,8 +55,9 @@ export default (frontMatter: Page) => ({
       <div className="flex flex-1 w-full max-w-screen-sm lg:max-w-screen-xl mx-auto">
         <Sidebar links={links} folder={resource} />
 
-        <div
+        <main
           className={makeClass(
+            'DocSearch-content',
             CONTENT_AREA,
             "flex-1",
             "lg:block",
@@ -67,7 +68,7 @@ export default (frontMatter: Page) => ({
             {constructTitleFromMarkdown(components, frontMatter.title)}
           </components.h1>
           {content}
-        </div>
+        </main>
       </div>
     </NavBarLayout>
   );
