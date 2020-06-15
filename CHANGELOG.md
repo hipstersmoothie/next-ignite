@@ -1,3 +1,16 @@
+# v0.1.31 (Mon Jun 15 2020)
+
+#### ⚠️ Pushed to `master`
+
+- fix nested sidebar list indent ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix active link matcher ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.30 (Mon Jun 15 2020)
 
 #### ⚠️ Pushed to `master`
