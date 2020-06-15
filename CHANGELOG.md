@@ -1,3 +1,15 @@
+# v0.1.20 (Mon Jun 15 2020)
+
+#### ⚠️ Pushed to `master`
+
+- un-escape backticks in title ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.19 (Sun Jun 14 2020)
 
 #### ⚠️ Pushed to `master`
