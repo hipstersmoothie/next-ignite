@@ -64,7 +64,7 @@
   },
   "ignite": {
     "repo": "hipstersmoothie/next-mdx-dynamic-docs",
-    "basePath": "/next-mdx-dynamic-docs"
+    "basePath": "/next-ignite"
   },
   "auto": {
     "plugins": [
