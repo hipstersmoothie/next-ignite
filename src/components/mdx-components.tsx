@@ -4,6 +4,8 @@ import { MDXProviderComponents } from "@mdx-js/react";
 import { prefixURL } from "next-prefixed";
 
 declare var PROJECT_NAME: string;
+declare var PROJECT_LOGO: string;
+declare var PROJECT_LOGO_DARK: string;
 
 export type Element<
   T extends keyof JSX.IntrinsicElements
@@ -71,11 +73,18 @@ const Logo = React.forwardRef(
       )}
       {...props}
     >
-      <img
-        alt={`${PROJECT_NAME} Logo`}
-        src={prefixURL(PROJECT_LOGO)}
-        className="w-8 h-8 md:mr-3"
-      />
+      <picture className="md:mr-3">
+        <source
+          srcSet={prefixURL(PROJECT_LOGO_DARK)}
+          media="(prefers-color-scheme: dark)"
+          className="w-8 h-8"
+        />
+        <img
+          src={prefixURL(PROJECT_LOGO)}
+          alt={`${PROJECT_NAME} Logo`}
+          className="w-8 h-8"
+        />
+      </picture>
       <span className="hidden md:block">{PROJECT_NAME}</span>
     </a>
   )
@@ -158,7 +167,7 @@ const Sidebar = ({ className, ...props }: Element<"div">) => {
       ref.current.scrollTop = position;
     }
 
-    localStorage.setItem(storageKey, 0);
+    localStorage.setItem(storageKey, "0");
   }, []);
 
   return (
@@ -250,7 +259,7 @@ const h1 = ({ className, ...props }: Element<"h1">) => {
     <h1
       className={makeClass(
         className,
-        'lvl1',
+        "lvl1",
         "relative text-5xl font-semibold leading-relaced",
         (!className || !className.includes("text-")) && HEADER_TEXT_COLOR
       )}
@@ -263,7 +272,7 @@ const h1 = ({ className, ...props }: Element<"h1">) => {
 const h2 = ({ className, ...props }: Element<"h2">) => (
   <h2
     className={makeClass(
-      'lvl2',
+      "lvl2",
       "relative text-3xl font-normal border-b border-gray-300 pb-4 mb-8 mt-12",
       "dark:border-gray-700",
       HEADER_TEXT_COLOR,
@@ -277,7 +286,7 @@ const h2 = ({ className, ...props }: Element<"h2">) => (
 const h3 = ({ className, ...props }: Element<"h3">) => (
   <h3
     className={makeClass(
-      'lvl3',
+      "lvl3",
       "relative text-2xl font-semibold mt-8",
       HEADER_TEXT_COLOR,
       className
@@ -290,7 +299,7 @@ const h3 = ({ className, ...props }: Element<"h3">) => (
 const h4 = ({ className, ...props }: Element<"h4">) => (
   <h4
     className={makeClass(
-      'lvl4',
+      "lvl4",
       "relative text-xl font-semibold mt-8",
       HEADER_TEXT_COLOR,
       className
@@ -303,7 +312,7 @@ const h4 = ({ className, ...props }: Element<"h4">) => (
 const h5 = ({ className, ...props }: Element<"h5">) => (
   <h5
     className={makeClass(
-      'lvl5',
+      "lvl5",
       "relative text-lg font-semibold mt-8",
       HEADER_TEXT_COLOR,
       className
@@ -316,7 +325,7 @@ const h5 = ({ className, ...props }: Element<"h5">) => (
 const h6 = ({ className, ...props }: Element<"h6">) => (
   <h6
     className={makeClass(
-      'lvl6',
+      "lvl6",
       "relative text-md font-semibold mt-8",
       HEADER_TEXT_COLOR,
       className

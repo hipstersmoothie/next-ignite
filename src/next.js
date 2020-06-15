@@ -152,6 +152,7 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
   const BASE_PATH = debug ? "" : igniteConfig.basePath;
   const logo = glob.sync("./docs/public/logo.*")[0];
+  const darkLogo = glob.sync("./docs/public/logo-dark.*")[0];
 
   return withBundleAnalyzer(
     withMdxEnhanced({
@@ -172,6 +173,9 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
             PROJECT_NAME: JSON.stringify(igniteConfig.name),
             PROJECT_LOGO: JSON.stringify(
               logo ? path.basename(logo) : "logo.svg"
+            ),
+            PROJECT_LOGO_DARK: JSON.stringify(
+              darkLogo ? path.basename(darkLogo) : "logo.svg"
             ),
             REPO_URL: JSON.stringify(getFullGitHubUrl(igniteConfig.repo)),
             PAGES_DIR: JSON.stringify(PAGES_DIR),
