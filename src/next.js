@@ -185,7 +185,7 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
             BLOG_POSTS: JSON.stringify(
               getBlogPosts().map((p) => path.relative(PAGES_DIR, p))
             ),
-            FRONT_MATTERS: JSON.stringify(getFrontMatters()),
+            MDX_DATA_DIR: JSON.stringify(MDX_DATA_DIR),
             HAS_HOMEPAGE: JSON.stringify(getHasHomepage()),
             TOP_LEVEL_SECTIONS: JSON.stringify(
               getTopLevelSections(igniteConfig.order)
