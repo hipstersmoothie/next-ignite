@@ -4,6 +4,7 @@ import Head from "next/head";
 import { NavBar } from "../components/navbar";
 import { MobileMenuContext } from "../utils/mobile-menu-context";
 import { formatPath } from "../utils/format-path";
+import { useDarkMode } from "../utils/is-dark-mode";
 
 declare const FAVICON: string;
 declare const FAVICON_DARK: string;
@@ -43,21 +44,16 @@ export default () => ({
     };
   }, []);
 
+  const isDark = useDarkMode();
+
   return (
     <MobileMenuContext.Provider value={props.menuState || menuState}>
       <Head>
         <link
           rel="shortcut icon"
-          media="(prefers-color-scheme:light)"
-          href={formatPath(FAVICON)}
+          media="(prefers-color-scheme:dark)"
+          href={formatPath(isDark ? FAVICON_DARK : FAVICON)}
         />
-        {FAVICON_DARK && (
-          <link
-            rel="shortcut icon"
-            media="(prefers-color-scheme:dark)"
-            href={formatPath(FAVICON_DARK)}
-          />
-        )}
       </Head>
 
       <div id="ignite" className="min-h-screen flex flex-col dark:bg-gray-1000">
