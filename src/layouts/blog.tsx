@@ -1,5 +1,6 @@
 import React from "react";
 import makeClass from "clsx";
+import Head from "next/head";
 
 import makeNavBarLayout from "./nav-bar";
 import { BlogPost } from "../utils/types";
@@ -27,6 +28,10 @@ export default (frontMatter: BlogPageFrontMatter) => ({
 
   return (
     <NavBarLayout>
+      <Head>
+        <title>{frontMatter.title}</title>
+      </Head>
+
       {frontMatter.image ? (
         <div
           className={`bg-${color}-500 bg-cover bg-no-repeat bg-center h-screen`}
