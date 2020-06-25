@@ -3234,6 +3234,11 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@react-hook/passive-layout-effect@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@react-hook/passive-layout-effect/-/passive-layout-effect-1.2.0.tgz#1232f0b08f9bfd9f87a2898a3ae50d5f7731d806"
+  integrity sha512-obGcMHoeiG/qp9djzlxwvlsAzL4a+JFaxTLvJv8GykipmS/TEkfvdcpu6orE1ZL4dAT7OpoGwHDc/LGJbkZzXQ==
+
 "@royriojas/get-exports-from-file@https://github.com/hipstersmoothie/get-exports-from-file#all":
   version "1.3.0"
   resolved "https://github.com/hipstersmoothie/get-exports-from-file#2674835dac0cb1a9821956020d00db22ef9efae0"

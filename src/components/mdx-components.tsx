@@ -2,6 +2,7 @@ import React from "react";
 import makeClass from "clsx";
 import { MDXProviderComponents } from "@mdx-js/react";
 import { prefixURL } from "next-prefixed";
+import useLayoutEffect from '@react-hook/passive-layout-effect'
 
 declare var PROJECT_NAME: string;
 declare var PROJECT_LOGO: string;
@@ -156,7 +157,7 @@ const NavBarItem = React.forwardRef(
 const Sidebar = ({ className, ...props }: Element<"div">) => {
   const ref = React.useRef<HTMLDivElement>();
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (!ref.current) {
       return;
     }
