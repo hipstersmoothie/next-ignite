@@ -1,3 +1,15 @@
+# v0.2.0 (Thu Jun 25 2020)
+
+#### 🚀 Enhancement
+
+- Add page titles + favicon [#2](https://github.com/hipstersmoothie/next-ignite/pull/2) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.1.33 (Mon Jun 15 2020)
 
 #### ⚠️ Pushed to `master`
