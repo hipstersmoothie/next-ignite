@@ -4,7 +4,7 @@ import Head from "next/head";
 import path from "path";
 import makeClass from "clsx";
 import { MDXProvider, useMDXComponents } from "@mdx-js/react";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 import { MobileMenuContext } from "../utils/mobile-menu-context";
 import { formatPath } from "../utils/format-path";
@@ -57,7 +57,7 @@ const useActive = (links: Page[]) => {
     title: newActive.title || PROJECT_NAME,
     pathname: formatPath(newActive.__resourcePath),
   };
-}
+};
 
 interface SidebarItemProps {
   /** Where the item links to */
@@ -108,7 +108,7 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
   const sidebarFileLocation = `/${folder}`;
   const CustomSideBar = getCustomSidebar(sidebarFileLocation);
   const active = useActive(links);
-  
+
   const {
     SidebarItemWrapper,
     SidebarLink,
@@ -137,7 +137,7 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
         }}
       >
         <Head>
-          <title>{active.title}</title>
+          <title>{active.title.replace(/\\`/g, "`")}</title>
         </Head>
         <Sidebar className={makeClass(!menuOpen && "hidden", "lg:block")}>
           {CustomSideBar ? (
@@ -158,5 +158,3 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
     </SidebarActiveItem.Provider>
   );
 };
-
-

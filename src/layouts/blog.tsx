@@ -29,7 +29,7 @@ export default (frontMatter: BlogPageFrontMatter) => ({
   return (
     <NavBarLayout>
       <Head>
-        <title>{frontMatter.title}</title>
+        <title>{frontMatter.title.replace(/\\`/g, "`")}</title>
       </Head>
 
       {frontMatter.image ? (
