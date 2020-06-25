@@ -16,7 +16,6 @@ export const SidebarActiveItem = React.createContext({
   sidebarFileLocation: "",
 });
 
-declare var PROJECT_NAME: string;
 declare var BASE_PATH: string;
 declare var PAGES_DIR: string;
 
@@ -74,8 +73,6 @@ const SidebarItem = ({ href, children }: SidebarItemProps) => {
   const urlPath = path.join(BASE_PATH, active.sidebarFileLocation, href);
 
   let url = href;
-
-  console.log({url, urlPath})
 
   if (active.sidebarFileLocation) {
     url = urlPath;
