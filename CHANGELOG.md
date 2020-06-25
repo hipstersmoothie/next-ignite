@@ -1,3 +1,15 @@
+# v0.2.2 (Thu Jun 25 2020)
+
+#### ⚠️ Pushed to `master`
+
+- load favicon/logo from the public dir ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.1 (Thu Jun 25 2020)
 
 #### ⚠️ Pushed to `master`
