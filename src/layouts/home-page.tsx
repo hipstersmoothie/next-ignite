@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import makeClass from "clsx";
+import Head from "next/head";
 
 import makeNavBarLayout from "./nav-bar";
 import { Page } from "../utils/types";
@@ -24,6 +25,9 @@ export default (frontMatter: HomePageFrontMatter) => ({
 
   return (
     <NavBarLayout>
+      <Head>
+        <title>{PROJECT_NAME}</title>
+      </Head>
       <div
         className={makeClass(
           `bg-${color}-500 pt-20 pb-24`,

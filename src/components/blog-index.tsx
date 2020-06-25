@@ -1,11 +1,14 @@
 import React from "react";
 import Link from "next/link";
+import Head from "next/head";
 import { useMDXComponents } from "@mdx-js/react";
 import makeClass from "clsx";
 
 import getBlogPosts from "../utils/get-blog-posts";
 import makeNavBarLayout from "../layouts/nav-bar";
 import Avatar from "./avatar";
+
+declare var PROJECT_NAME: string;
 
 const NavBarLayout = makeNavBarLayout();
 const posts = getBlogPosts();
@@ -14,7 +17,7 @@ const dateFormat = new Intl.DateTimeFormat("default", {
   minute: "numeric",
   year: "2-digit",
   month: "numeric",
-  day: "numeric"
+  day: "numeric",
 });
 
 interface BlogIndexProps {
@@ -27,6 +30,10 @@ export default ({ color = "primary" }: BlogIndexProps) => {
 
   return (
     <NavBarLayout>
+      <Head>
+        <title>{PROJECT_NAME} Blog</title>
+      </Head>
+
       <div className={`bg-${color}-600 flex items-center justify-center p-16`}>
         <components.h1 className="text-white">Blog</components.h1>
       </div>
@@ -36,13 +43,18 @@ export default ({ color = "primary" }: BlogIndexProps) => {
         style={{
           display: "grid",
           gridGap: "1.5rem",
-          gridTemplateColumns: "repeat(auto-fit, minmax(350px,1fr))"
+          gridTemplateColumns: "repeat(auto-fit, minmax(350px,1fr))",
         }}
       >
-        {posts.map(page => (
+        {posts.map((page) => (
           <li key={page.__resourcePath}>
             <Link href={page.__resourcePath}>
-              <a className={makeClass("rounded border border-gray-300 py-8 px-10 flex items-center", "dark:bg-gray-900")}>
+              <a
+                className={makeClass(
+                  "rounded border border-gray-300 py-8 px-10 flex items-center",
+                  "dark:bg-gray-900"
+                )}
+              >
                 <Avatar email={page.email} className="-ml-4 mr-4" />
 
                 <div>
@@ -54,7 +66,12 @@ export default ({ color = "primary" }: BlogIndexProps) => {
                   >
                     {page.title}
                   </h2>
-                  <p className={makeClass("text-gray-800 text-lg font-light", "dark:text-gray-400")}>
+                  <p
+                    className={makeClass(
+                      "text-gray-800 text-lg font-light",
+                      "dark:text-gray-400"
+                    )}
+                  >
                     {page.author}
                   </p>
                   <p className="text-gray-600 text-sm font-light">

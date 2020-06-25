@@ -143,6 +143,8 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
   },
 });
 
+const publicDir = "./docs/public/";
+
 // ignite config options
 // basePath - the sub-path your site is deployed to
 // name - The name of the project you are documenting
@@ -151,8 +153,9 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
   const BASE_PATH = debug ? "" : igniteConfig.basePath;
-  const logo = glob.sync("./docs/public/logo.*")[0];
-  const darkLogo = glob.sync("./docs/public/logo-dark.*")[0];
+  const favicon = glob.sync(path.join(publicDir, "favicon.*"))[0];
+  const logo = glob.sync(path.join(publicDir, "logo.*"))[0];
+  const darkLogo = glob.sync(path.join(publicDir, "logo-dark.*"))[0];
 
   return withBundleAnalyzer(
     withMdxEnhanced({
@@ -171,6 +174,7 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
           new webpack.DefinePlugin({
             BASE_PATH: JSON.stringify(BASE_PATH),
             PROJECT_NAME: JSON.stringify(igniteConfig.name),
+            FAVICON: JSON.stringify(favicon ? path.basename(favicon) : ""),
             PROJECT_LOGO: JSON.stringify(
               logo ? path.basename(logo) : "logo.svg"
             ),
