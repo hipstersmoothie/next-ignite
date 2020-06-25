@@ -153,9 +153,9 @@ const publicDir = "./docs/public/";
 module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
   const BASE_PATH = debug ? "" : igniteConfig.basePath;
-  const favicon = glob.sync(path.join(publicDir, "favicon.*"))[0];
-  const logo = glob.sync(path.join(publicDir, "logo.*"))[0];
-  const darkLogo = glob.sync(path.join(publicDir, "logo-dark.*"))[0];
+  const favicon = glob.sync(path.join(publicDir, "**/favicon.*"))[0];
+  const logo = glob.sync(path.join(publicDir, "**/logo.*"))[0];
+  const darkLogo = glob.sync(path.join(publicDir, "**/logo-dark.*"))[0];
 
   return withBundleAnalyzer(
     withMdxEnhanced({
@@ -174,12 +174,12 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
           new webpack.DefinePlugin({
             BASE_PATH: JSON.stringify(BASE_PATH),
             PROJECT_NAME: JSON.stringify(igniteConfig.name),
-            FAVICON: JSON.stringify(favicon ? path.basename(favicon) : ""),
+            FAVICON: JSON.stringify(favicon ? path.relative(publicDir, favicon) : ""),
             PROJECT_LOGO: JSON.stringify(
-              logo ? path.basename(logo) : "logo.svg"
+              logo ? path.relative(publicDir, logo) : "logo.svg"
             ),
             PROJECT_LOGO_DARK: JSON.stringify(
-              darkLogo ? path.basename(darkLogo) : "logo.svg"
+              darkLogo ? path.relative(publicDir, darkLogo) : "logo.svg"
             ),
             REPO_URL: JSON.stringify(getFullGitHubUrl(igniteConfig.repo)),
             PAGES_DIR: JSON.stringify(PAGES_DIR),

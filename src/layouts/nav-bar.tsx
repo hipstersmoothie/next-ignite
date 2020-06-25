@@ -46,7 +46,7 @@ export default () => ({
   return (
     <MobileMenuContext.Provider value={props.menuState || menuState}>
       <Head>
-        <link rel="shortcut icon" href={formatPath(path.join('images', FAVICON))} />
+        <link rel="shortcut icon" href={formatPath(FAVICON)} />
       </Head>
 
       <div id="ignite" className="min-h-screen flex flex-col dark:bg-gray-1000">
