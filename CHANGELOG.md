@@ -1,3 +1,15 @@
+# v0.2.3 (Thu Jun 25 2020)
+
+#### ⚠️ Pushed to `master`
+
+- fallback to PROJECT_NAME in title for index pages ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.2 (Thu Jun 25 2020)
 
 #### ⚠️ Pushed to `master`
