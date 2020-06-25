@@ -154,6 +154,7 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
   const BASE_PATH = debug ? "" : igniteConfig.basePath;
   const favicon = glob.sync(path.join(publicDir, "**/favicon.*"))[0];
+  const faviconDark = glob.sync(path.join(publicDir, "**/favicon-dark.*"))[0];
   const logo = glob.sync(path.join(publicDir, "**/logo.*"))[0];
   const darkLogo = glob.sync(path.join(publicDir, "**/logo-dark.*"))[0];
 
@@ -174,7 +175,12 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
           new webpack.DefinePlugin({
             BASE_PATH: JSON.stringify(BASE_PATH),
             PROJECT_NAME: JSON.stringify(igniteConfig.name),
-            FAVICON: JSON.stringify(favicon ? path.relative(publicDir, favicon) : ""),
+            FAVICON: JSON.stringify(
+              favicon ? path.relative(publicDir, favicon) : ""
+            ),
+            FAVICON_DARK: JSON.stringify(
+              faviconDark ? path.relative(publicDir, faviconDark) : ""
+            ),
             PROJECT_LOGO: JSON.stringify(
               logo ? path.relative(publicDir, logo) : "logo.svg"
             ),

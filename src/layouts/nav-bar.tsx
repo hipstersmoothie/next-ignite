@@ -6,6 +6,7 @@ import { MobileMenuContext } from "../utils/mobile-menu-context";
 import { formatPath } from "../utils/format-path";
 
 declare const FAVICON: string;
+declare const FAVICON_DARK: string;
 declare const HAS_HOMEPAGE: boolean;
 declare const TOP_LEVEL_SECTIONS: string[];
 
@@ -45,7 +46,18 @@ export default () => ({
   return (
     <MobileMenuContext.Provider value={props.menuState || menuState}>
       <Head>
-        <link rel="shortcut icon" href={formatPath(FAVICON)} />
+        <link
+          rel="shortcut icon"
+          media="(prefers-color-scheme:light)"
+          href={formatPath(FAVICON)}
+        />
+        {FAVICON_DARK && (
+          <link
+            rel="shortcut icon"
+            media="(prefers-color-scheme:dark)"
+            href={formatPath(FAVICON_DARK)}
+          />
+        )}
       </Head>
 
       <div id="ignite" className="min-h-screen flex flex-col dark:bg-gray-1000">
