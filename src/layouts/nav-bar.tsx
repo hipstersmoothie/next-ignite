@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import path from 'path';
 
 import { NavBar } from "../components/navbar";
 import { MobileMenuContext } from "../utils/mobile-menu-context";

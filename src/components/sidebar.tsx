@@ -16,6 +16,7 @@ export const SidebarActiveItem = React.createContext({
   sidebarFileLocation: "",
 });
 
+declare var PROJECT_NAME: string;
 declare var BASE_PATH: string;
 declare var PAGES_DIR: string;
 
@@ -53,8 +54,7 @@ const useActive = (links: Page[]) => {
   }
 
   return {
-    title: newActive.title,
-    // href: window.location.href,
+    title: newActive.title || PROJECT_NAME,
     pathname: formatPath(newActive.__resourcePath),
   };
 }
