@@ -1,3 +1,15 @@
+# v0.2.4 (Thu Jun 25 2020)
+
+#### ⚠️ Pushed to `master`
+
+- remove backtick escape in page title ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.3 (Thu Jun 25 2020)
 
 #### ⚠️ Pushed to `master`
