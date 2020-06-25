@@ -1,8 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import Head from "next/head";
 import path from "path";
 import makeClass from "clsx";
 import { MDXProvider, useMDXComponents } from "@mdx-js/react";
+import { useRouter } from 'next/router'
 
 import { MobileMenuContext } from "../utils/mobile-menu-context";
 import { formatPath } from "../utils/format-path";
@@ -11,10 +13,10 @@ import { Components } from "./mdx-components";
 
 export const SidebarActiveItem = React.createContext({
   pathname: "",
-  href: "",
   sidebarFileLocation: "",
 });
 
+declare var PROJECT_NAME: string;
 declare var BASE_PATH: string;
 declare var PAGES_DIR: string;
 
@@ -31,6 +33,33 @@ const getCustomSidebar = (sidebarFileLocation: string) => {
   }
 };
 
+const useActive = (links: Page[]) => {
+  const router = useRouter();
+  const urlPath = path.relative(BASE_PATH, router.pathname);
+
+  let newActive = links.find((link) => {
+    const route = link.__resourcePath.replace(".mdx", "");
+    return route === urlPath;
+  });
+
+  if (!newActive) {
+    newActive = links.find((link) => {
+      const route = link.__resourcePath.replace(".mdx", "");
+
+      return (
+        route.endsWith("index") &&
+        router.pathname.includes(route.replace("/index", ""))
+      );
+    });
+  }
+
+  return {
+    title: newActive.title,
+    // href: window.location.href,
+    pathname: formatPath(newActive.__resourcePath),
+  };
+}
+
 interface SidebarItemProps {
   /** Where the item links to */
   href: string;
@@ -42,15 +71,14 @@ interface SidebarItemProps {
 const SidebarItem = ({ href, children }: SidebarItemProps) => {
   const active = React.useContext(SidebarActiveItem);
   const { SidebarLink } = useMDXComponents() as Components;
+  const urlPath = path.join(BASE_PATH, active.sidebarFileLocation, href);
 
   let url = href;
 
-  if (active.sidebarFileLocation && active.href) {
-    const { origin } = new URL(active.href);
-    const urlPath = path.join(BASE_PATH, active.sidebarFileLocation, href);
-    const final = new URL(urlPath, origin);
+  console.log({url, urlPath})
 
-    url = final.pathname;
+  if (active.sidebarFileLocation) {
+    url = urlPath;
 
     if (url.endsWith("/index")) {
       url = url.replace("/index", "");
@@ -82,8 +110,8 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
   const [menuOpen] = React.useContext(MobileMenuContext);
   const sidebarFileLocation = `/${folder}`;
   const CustomSideBar = getCustomSidebar(sidebarFileLocation);
-  const [active, setActive] = React.useState({ pathname: "", href: "" });
-
+  const active = useActive(links);
+  
   const {
     SidebarItemWrapper,
     SidebarLink,
@@ -93,36 +121,6 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
     Sidebar,
     ...components
   } = useMDXComponents() as Components;
-
-  React.useLayoutEffect(() => {
-    const urlPath = path.relative(
-      BASE_PATH,
-      window.location.pathname,
-    );
-
-    let newActive = links.find((link) => {
-      const route = link.__resourcePath.replace(".mdx", "");
-      return route === urlPath;
-    });
-
-    if (!newActive) {
-      newActive = links.find((link) => {
-        const route = link.__resourcePath.replace(".mdx", "");
-
-        return (
-          route.endsWith("index") &&
-          window.location.pathname.includes(route.replace("/index", ""))
-        );
-      });
-    }
-
-    if (newActive) {
-      setActive({
-        href: window.location.href,
-        pathname: formatPath(newActive.__resourcePath),
-      });
-    }
-  }, []);
 
   return (
     <SidebarActiveItem.Provider
@@ -141,6 +139,9 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
           hr: SidebarDivider,
         }}
       >
+        <Head>
+          <title>{active.title}</title>
+        </Head>
         <Sidebar className={makeClass(!menuOpen && "hidden", "lg:block")}>
           {CustomSideBar ? (
             <CustomSideBar />
@@ -160,3 +161,5 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
     </SidebarActiveItem.Provider>
   );
 };
+
+

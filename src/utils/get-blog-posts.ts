@@ -1,5 +1,3 @@
-import path from "path";
-
 import { formatPath } from "./format-path";
 import getFrontMatters from "./get-front-matters";
 
