@@ -1,3 +1,15 @@
+# v0.2.6 (Thu Jun 25 2020)
+
+#### ⚠️ Pushed to `master`
+
+- manually switch favicon when dark mode switches ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.5 (Thu Jun 25 2020)
 
 #### ⚠️ Pushed to `master`
