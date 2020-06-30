@@ -36,8 +36,9 @@ const getCustomSidebar = (sidebarFileLocation: string) => {
 const useActive = (links: Page[]) => {
   const router = useRouter();
   // We are resolving against the __resourcePath which will
-  // be relative from the base `docs` folder  
-  const urlPath = path.relative('/', router.pathname);
+  // be relative from the base `docs` folder
+  const urlPath = path.relative("/", router.pathname);
+  console.log({ router, urlPath, links });
 
   let newActive = links.find((link) => {
     const route = link.__resourcePath.replace(".mdx", "");
