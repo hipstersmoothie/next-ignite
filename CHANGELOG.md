@@ -1,3 +1,15 @@
+# v0.2.7 (Tue Jun 30 2020)
+
+#### 🐛 Bug Fix
+
+- fix "open link in new tab" [#3](https://github.com/hipstersmoothie/next-ignite/pull/3) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.6 (Thu Jun 25 2020)
 
 #### ⚠️ Pushed to `master`
