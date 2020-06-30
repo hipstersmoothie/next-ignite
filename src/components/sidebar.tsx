@@ -17,6 +17,7 @@ export const SidebarActiveItem = React.createContext({
 });
 
 declare var PROJECT_NAME: string;
+declare var BASE_PATH: string;
 declare var PAGES_DIR: string;
 
 /** Get the custom sidebar for a folder */
@@ -36,7 +37,10 @@ const useActive = (links: Page[]) => {
   const router = useRouter();
   // We are resolving against the __resourcePath which will
   // be relative from the base `docs` folder
-  const urlPath = path.relative("/", router.pathname);
+  const urlPath = path.relative(
+    process.env.NEXT_PHASE === "phase-production-build" ? "/" : BASE_PATH,
+    router.pathname
+  );
   console.log({ router, urlPath, links });
 
   let newActive = links.find((link) => {
@@ -72,7 +76,7 @@ interface SidebarItemProps {
 const SidebarItem = ({ href, children }: SidebarItemProps) => {
   const active = React.useContext(SidebarActiveItem);
   const { SidebarLink } = useMDXComponents() as Components;
-  const urlPath = path.join(active.sidebarFileLocation, href);
+  const urlPath = path.join(BASE_PATH, active.sidebarFileLocation, href);
 
   let url = href;
 
