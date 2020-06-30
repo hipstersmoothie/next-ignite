@@ -87,7 +87,7 @@ const SidebarItem = ({ href, children }: SidebarItemProps) => {
   }
 
   return (
-    <Link href={url}>
+    <Link passHref href={url}>
       <SidebarLink isActive={active.pathname.replace("/index", "") === url}>
         {children}
       </SidebarLink>
