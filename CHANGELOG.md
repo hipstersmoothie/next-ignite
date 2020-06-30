@@ -1,3 +1,18 @@
+# v0.2.14 (Tue Jun 30 2020)
+
+#### ⚠️ Pushed to `master`
+
+- remove debug info ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- working ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Revert "waffling" ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- waffling ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.13 (Tue Jun 30 2020)
 
 #### ⚠️ Pushed to `master`
