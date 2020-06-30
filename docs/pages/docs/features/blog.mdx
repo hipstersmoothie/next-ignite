@@ -42,7 +42,7 @@ export default () => {
       <components.ul>
         {posts.map(page => (
           <li key={page.__resourcePath}>
-            <Link href={page.__resourcePath}>
+            <Link passHref href={page.__resourcePath}>
               <components.a>{page.title}</components.a>
             </Link>
           </li>

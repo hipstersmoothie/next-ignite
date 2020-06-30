@@ -70,7 +70,7 @@ export default () => {
       <components.h1>My Page</components.h1>
 
       {/* If serving from a basePath make sure to use formatPath! */}
-      <Link href={formatPath(`/${section}`)}>
+      <Link passHref href={formatPath(`/${section}`)}>
         <components.a>Go somewhere</components.a>
       </Link>
     </NavBarLayout>

@@ -55,7 +55,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
       <NavBarWrapper>
         <NavBar>
           {hasHomePage ? (
-            <Link href="/">
+            <Link passHref href="/">
               <Logo />
             </Link>
           ) : (
@@ -73,7 +73,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
 
             <div className="hidden lg:flex h-full">
               {sections.map((section) => (
-                <Link key={section} href={formatPath(`/${section}`)}>
+                <Link passHref key={section} href={formatPath(`/${section}`)}>
                   <NavBarItem>{titleCase(section)}</NavBarItem>
                 </Link>
               ))}
@@ -95,7 +95,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
       {openMenu && (
         <div className="lg:hidden">
           {sections.map((section) => (
-            <Link key={section} href={formatPath(`/${section}`)}>
+            <Link passHref key={section} href={formatPath(`/${section}`)}>
               <NavBarItem>{titleCase(section)}</NavBarItem>
             </Link>
           ))}

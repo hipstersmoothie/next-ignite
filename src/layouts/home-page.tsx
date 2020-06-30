@@ -61,15 +61,15 @@ export default (frontMatter: HomePageFrontMatter) => ({
         )}
       >
         <Link href={formatPath("/docs")}>
-          <button
+          <a
             className={makeClass(
               `border-2 border-${color}-600 text-xl px-6 py-4 rounded text-${color}-700`,
               `focus:outline-none hover:text-white hover:bg-${color}-500 focus:text-white focus:bg-${color}-500`,
-              `dark:border-${color}-400 dark:bg-${color}-200`
+              `dark:border-${color}-400 dark:bg-${color}-200 dark-hover:bg-${color}-400`
             )}
           >
             Get Started
-          </button>
+          </a>
         </Link>
       </div>
     </NavBarLayout>
