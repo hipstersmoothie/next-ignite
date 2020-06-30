@@ -43,8 +43,6 @@ const useActive = (links: Page[]) => {
       ? path.relative("/", router.pathname)
       : path.relative(BASE_PATH, router.pathname);
 
-  console.log({ router, urlPath, links });
-
   let newActive = links.find((link) => {
     const route = link.__resourcePath.replace(".mdx", "");
     return route === urlPath;
