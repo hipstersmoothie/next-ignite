@@ -173,7 +173,7 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
       ) => {
         config.plugins.push(
           new webpack.DefinePlugin({
-            BASE_PATH: JSON.stringify(BASE_PATH),
+            BASE_PATH: JSON.stringify(debug ? "/" : igniteConfig.basePath || "/"),
             PROJECT_NAME: JSON.stringify(igniteConfig.name),
             FAVICON: JSON.stringify(
               favicon ? path.relative(publicDir, favicon) : ""
