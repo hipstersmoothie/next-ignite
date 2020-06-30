@@ -64,7 +64,7 @@
     "tailwindcss-dark-mode": "^1.1.4"
   },
   "ignite": {
-    "repo": "hipstersmoothie/next-mdx-dynamic-docs",
+    "repo": "hipstersmoothie/next-ignite",
     "basePath": "/next-ignite"
   },
   "auto": {
