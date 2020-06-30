@@ -35,7 +35,7 @@ const getCustomSidebar = (sidebarFileLocation: string) => {
 
 const useActive = (links: Page[]) => {
   const router = useRouter();
-  const urlPath = path.relative(BASE_PATH || '/', router.pathname);
+  const urlPath = path.relative(BASE_PATH, router.pathname);
 
   let newActive = links.find((link) => {
     const route = link.__resourcePath.replace(".mdx", "");
