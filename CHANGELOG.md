@@ -1,3 +1,15 @@
+# v0.2.9 (Tue Jun 30 2020)
+
+#### 🐛 Bug Fix
+
+- fix open in new tab during build [#5](https://github.com/hipstersmoothie/next-ignite/pull/5) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.8 (Tue Jun 30 2020)
 
 #### 🐛 Bug Fix
