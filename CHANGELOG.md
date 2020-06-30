@@ -1,3 +1,15 @@
+# v0.2.11 (Tue Jun 30 2020)
+
+#### ⚠️ Pushed to `master`
+
+- add debug info ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.10 (Tue Jun 30 2020)
 
 #### 🐛 Bug Fix
