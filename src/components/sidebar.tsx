@@ -37,10 +37,12 @@ const useActive = (links: Page[]) => {
   const router = useRouter();
   // We are resolving against the __resourcePath which will
   // be relative from the base `docs` folder
-  const urlPath = path.relative(
-    process.env.NEXT_PHASE === "phase-production-build" ? "/" : BASE_PATH,
-    router.pathname
-  );
+  const urlPath =
+    process.env.NEXT_PHASE === "phase-production-build" ||
+    !router.pathname.includes(BASE_PATH)
+      ? path.relative("/", router.pathname)
+      : path.relative(BASE_PATH, router.pathname);
+
   console.log({ router, urlPath, links });
 
   let newActive = links.find((link) => {
