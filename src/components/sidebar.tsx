@@ -41,6 +41,7 @@ const useActive = (links: Page[]) => {
     process.env.NEXT_PHASE === "phase-production-build" ? "/" : BASE_PATH,
     router.pathname
   );
+  console.log({ router, urlPath, links });
 
   let newActive = links.find((link) => {
     const route = link.__resourcePath.replace(".mdx", "");
