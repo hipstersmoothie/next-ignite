@@ -1,3 +1,15 @@
+# v0.2.17 (Fri Jul 03 2020)
+
+#### ⚠️ Pushed to `master`
+
+- fix navbar spacing for search input ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.16 (Fri Jul 03 2020)
 
 #### ⚠️ Pushed to `master`
