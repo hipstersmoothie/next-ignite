@@ -367,7 +367,7 @@ const blockquote = ({ className, ...props }: Element<"blockquote">) => (
 const inlineCode = ({ className, ...props }: Element<"code">) => (
   <code
     className={makeClass(
-      "text-gray-600 bg-gray-200 rounded whitespace-no-wrap",
+      "text-gray-700 bg-gray-200 rounded whitespace-no-wrap",
       "dark:bg-gray-700 dark:text-gray-300",
       className
     )}

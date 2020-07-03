@@ -26,6 +26,34 @@
   .sidebar-root ul ul {
     padding-left: 10px;
   }
+
+  .lvl1 code {
+    font-size: calc(3rem * 0.93);
+  }
+
+  .lvl2 code {
+    font-size: calc(1.875rem * 0.93);
+  }
+
+  .lvl3 code {
+    font-size: calc(1.5rem * 0.93);
+  }
+
+  .lvl4 code {
+    font-size: calc(1.25rem * 0.93);
+  }
+
+  .lvl5 code {
+    font-size: calc(1.125rem * 0.93);
+  }
+
+  .lvl6 code {
+    font-size: calc(1rem * 0.93);
+  }
+
+  p > code {
+    font-size: 0.9rem;
+  }
 }
 
 .mode-dark #ignite {
