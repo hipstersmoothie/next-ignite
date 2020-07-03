@@ -261,7 +261,7 @@ const h1 = ({ className, ...props }: Element<"h1">) => {
       className={makeClass(
         className,
         "lvl1",
-        "relative text-5xl font-semibold leading-relaced",
+        "relative text-5xl font-semibold leading-relaced mb-8",
         (!className || !className.includes("text-")) && HEADER_TEXT_COLOR
       )}
       {...props}
