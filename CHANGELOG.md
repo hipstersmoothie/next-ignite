@@ -1,3 +1,16 @@
+# v0.2.16 (Fri Jul 03 2020)
+
+#### ⚠️ Pushed to `master`
+
+- fix wide tables on mobile ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- only whitespace-nowrap when inlineCode is in table ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.15 (Fri Jul 03 2020)
 
 #### ⚠️ Pushed to `master`
