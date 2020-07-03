@@ -1,3 +1,16 @@
+# v0.2.15 (Fri Jul 03 2020)
+
+#### ⚠️ Pushed to `master`
+
+- give top level header more bottom margin ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- make inlineCode match surrounding text ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.14 (Tue Jun 30 2020)
 
 #### ⚠️ Pushed to `master`
