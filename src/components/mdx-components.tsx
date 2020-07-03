@@ -2,7 +2,7 @@ import React from "react";
 import makeClass from "clsx";
 import { MDXProviderComponents } from "@mdx-js/react";
 import { prefixURL } from "next-prefixed";
-import useLayoutEffect from '@react-hook/passive-layout-effect'
+import useLayoutEffect from "@react-hook/passive-layout-effect";
 
 declare var PROJECT_NAME: string;
 declare var PROJECT_LOGO: string;
@@ -428,10 +428,12 @@ const pre = ({ className, ...props }: Element<"pre">) => (
 );
 
 const table = ({ className, ...props }: Element<"table">) => (
-  <table
-    className={makeClass(className, DEFAULT_TEXT_COLOR, "w-full my-10")}
-    {...props}
-  />
+  <div className="overflow-auto">
+    <table
+      className={makeClass(className, DEFAULT_TEXT_COLOR, "w-full my-10")}
+      {...props}
+    />
+  </div>
 );
 
 const th = ({ className, ...props }: Element<"th">) => (
