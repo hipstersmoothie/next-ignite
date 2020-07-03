@@ -66,7 +66,7 @@ const Logo = React.forwardRef(
       tabIndex={0}
       className={makeClass(
         DEFAULT_TEXT_COLOR,
-        "pl-4 pr-6 h-full focus:outline-none flex items-center h-full font-normal cursor-pointer text-xl",
+        "px-6 h-full focus:outline-none flex items-center h-full font-normal cursor-pointer text-xl",
         "md:pr-10 lg:w-1/5",
         "hover:font-semibold focus:font-semibold",
         "dark-hover:font-semibold dark-focus:font-semibold dark-hover:bg-gray-800 dark-focus:bg-gray-800",
@@ -112,7 +112,7 @@ const SearchInput = ({ className, ...props }: Element<"input">) => (
 const NavBarWrapper = ({ className, ...props }: Element<"div">) => (
   <div
     className={makeClass(
-      "border-b border-grey-200 mx-3 lg:mx-0",
+      "border-b border-grey-200 lg:mx-0",
       "dark:border-gray-900",
       className
     )}

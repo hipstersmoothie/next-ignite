@@ -26,7 +26,7 @@ const Search = () => {
   const { SearchInput } = useMDXComponents() as Components;
 
   return (
-    <div className="relative h-full flex items-center w-full lg:w-auto lg:flex-1 mr-4">
+    <div className="relative h-full flex items-center w-full lg:w-auto lg:flex-1 lg:mr-4">
       <SearchInput />
     </div>
   );
