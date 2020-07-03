@@ -54,6 +54,10 @@
   p > code {
     font-size: 0.9rem;
   }
+
+  table code {
+    @apply whitespace-no-wrap;
+  }
 }
 
 .mode-dark #ignite {
