@@ -1,3 +1,15 @@
+# v0.3.3 (Sat Jul 04 2020)
+
+#### 🐛 Bug Fix
+
+- fix prod BASE_PATH [#10](https://github.com/hipstersmoothie/next-ignite/pull/10) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.3.2 (Sat Jul 04 2020)
 
 #### 🐛 Bug Fix
