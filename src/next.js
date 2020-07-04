@@ -146,13 +146,18 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 const publicDir = "./docs/public/";
 
 // ignite config options
-// basePath - the sub-path your site is deployed to
+// url - the url your site is deployed to
 // name - The name of the project you are documenting
 // repo - The repo the documentation is for
 // order - string array of top level section order
 module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
-  const BASE_PATH = debug ? "" : igniteConfig.basePath;
+  const { pathname, ...rest } = new URL(igniteConfig.url);
+  const BASE_PATH = debug
+    ? ""
+    : pathname.endsWith("/")
+    ? pathname.slice(0, -1)
+    : pathname;
   const favicon = glob.sync(path.join(publicDir, "**/favicon.*"))[0];
   const faviconDark = glob.sync(path.join(publicDir, "**/favicon-dark.*"))[0];
   const logo = glob.sync(path.join(publicDir, "**/logo.*"))[0];
@@ -173,7 +178,9 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
       ) => {
         config.plugins.push(
           new webpack.DefinePlugin({
-            BASE_PATH: JSON.stringify(debug ? "/" : igniteConfig.basePath || "/"),
+            BASE_PATH: JSON.stringify(
+              debug ? "/" : igniteConfig.basePath || "/"
+            ),
             PROJECT_NAME: JSON.stringify(igniteConfig.name),
             FAVICON: JSON.stringify(
               favicon ? path.relative(publicDir, favicon) : ""
