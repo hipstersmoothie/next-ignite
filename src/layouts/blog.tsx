@@ -47,7 +47,7 @@ export default (frontMatter: BlogPageFrontMatter) => ({
       
       <article
         className={makeClass(
-          "DocSearch-content",
+          "DocSearch-content blog-post",
           "pt-6 pb-12 px-6 w-full max-w-screen-sm mx-auto rounded -mt-10 bg-white shadow-md text-gray-800",
           "lg:max-w-screen-md",
           "dark:bg-gray-900"
