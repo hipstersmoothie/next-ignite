@@ -1,3 +1,15 @@
+# v0.3.0 (Sat Jul 04 2020)
+
+#### 🚀 Enhancement
+
+- sitemap + change basePath to url [#7](https://github.com/hipstersmoothie/next-ignite/pull/7) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.2.17 (Fri Jul 03 2020)
 
 #### ⚠️ Pushed to `master`
