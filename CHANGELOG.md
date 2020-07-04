@@ -1,3 +1,15 @@
+# v0.3.1 (Sat Jul 04 2020)
+
+#### 🐛 Bug Fix
+
+- add lvl0 for docsearch [#8](https://github.com/hipstersmoothie/next-ignite/pull/8) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.3.0 (Sat Jul 04 2020)
 
 #### 🚀 Enhancement
