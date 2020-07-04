@@ -1,3 +1,15 @@
+# v0.3.2 (Sat Jul 04 2020)
+
+#### 🐛 Bug Fix
+
+- add blog post class [#9](https://github.com/hipstersmoothie/next-ignite/pull/9) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.3.1 (Sat Jul 04 2020)
 
 #### 🐛 Bug Fix
