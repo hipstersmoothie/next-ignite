@@ -7,27 +7,13 @@ const { createServer } = require("http");
 const { parse } = require("url");
 const { execSync } = require("child_process");
 const next = require("next");
-const { cosmiconfigSync } = require("cosmiconfig");
-const ignite = require("../next");
 const copy = require("copy-template-dir");
+const ignite = require("../next");
+const { getConfig } = require('../dist/cjs/utils/get-config')
+const { buildSitemap } = require('../dist/cjs/utils/sitemap')
 
 const buildNext = require("next/dist/build").default;
 const exportNext = require("next/dist/export").default;
-
-const explorer = cosmiconfigSync("ignite");
-
-const getConfig = () => {
-  const { config = {} } = explorer.search() || {};
-
-  if (!config.name) {
-    try {
-      const packageJSON = require(path.join(process.cwd(), "package.json"));
-      config.name = packageJSON.name;
-    } catch (error) {}
-  }
-
-  return config;
-};
 
 const config = getConfig();
 const args = app({
@@ -103,6 +89,7 @@ if (args._command === "build") {
       execSync(
         `touch ${path.resolve(path.join(process.cwd(), "docs/out/.nojekyll"))}`
       );
+      buildSitemap();
     })
     .catch(err => {
       console.error("");
