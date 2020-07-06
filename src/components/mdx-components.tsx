@@ -201,7 +201,7 @@ const SidebarDivider = ({ className, ...props }: Element<'hr'>) => (
 const SidebarTitle = ({ className, ...props }: Element<'p'>) => (
   <p
     className={makeClass(
-      'lvl0 text-xs uppercase tracking-wider font-semibold px-6 text-gray-500',
+      'lvl0 text-sm uppercase tracking-wider font-semibold px-6 text-gray-500',
       'dark:text-gray-200 dark:text-gray-600',
       DEFAULT_SPACING,
       className
