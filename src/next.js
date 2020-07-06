@@ -166,6 +166,7 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 });
 
 const publicDir = "./docs/public/";
+const DEFAULT_LOGO = "https://hipstersmoothie.github.io/next-ignite/logo.svg";
 
 // ignite config options
 // url - the url your site is deployed to
@@ -211,10 +212,10 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
               faviconDark ? path.relative(publicDir, faviconDark) : ""
             ),
             PROJECT_LOGO: JSON.stringify(
-              logo ? path.relative(publicDir, logo) : "logo.svg"
+              logo ? path.relative(publicDir, logo) : DEFAULT_LOGO
             ),
             PROJECT_LOGO_DARK: JSON.stringify(
-              darkLogo ? path.relative(publicDir, darkLogo) : "logo.svg"
+              darkLogo ? path.relative(publicDir, darkLogo) : DEFAULT_LOGO
             ),
             REPO_URL: JSON.stringify(getFullGitHubUrl(igniteConfig.repo)),
             PAGES_DIR: JSON.stringify(PAGES_DIR),
