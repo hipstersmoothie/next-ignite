@@ -32,18 +32,36 @@ const getFullGitHubUrl = (url) => {
   return `https://github.com/${repo.repo}`;
 };
 
-const getCreationDate = (file) =>
-  execSync(`git log --format=%aD ${path.join("docs/pages", file)} | tail -1`, {
-    encoding: "utf8",
-  });
+const getCreationDate = (file) => {
+  try {
+    return execSync(
+      `git log --format=%aD ${path.join("docs/pages", file)} | tail -1`,
+      {
+        encoding: "utf8",
+        stdio: ["pipe", "ignore", "ignore"],
+      }
+    );
+  } catch (error) {
+    return "";
+  }
+};
 
-const getAuthor = (file) =>
-  execSync(
-    `git log --format="%an || %ae" ${path.join("docs/pages", file)} | tail -1`,
-    {
-      encoding: "utf8",
-    }
-  ).split(" || ");
+const getAuthor = (file) => {
+  try {
+    return execSync(
+      `git log --format="%an || %ae" ${path.join(
+        "docs/pages",
+        file
+      )} | tail -1`,
+      {
+        encoding: "utf8",
+        stdio: ["pipe", "ignore", "ignore"],
+      }
+    ).split(" || ");
+  } catch (error) {
+    return ["", ""];
+  }
+};
 
 const getHasHomepage = () =>
   Boolean(glob.sync(path.join(PAGES_DIR, "index.+(mdx|js|jsx|ts|tsx)")).length);
