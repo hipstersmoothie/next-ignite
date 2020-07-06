@@ -152,7 +152,9 @@ const publicDir = "./docs/public/";
 // order - string array of top level section order
 module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
-  const { pathname, ...rest } = new URL(igniteConfig.url);
+  const { pathname, ...rest } = igniteConfig.url
+    ? new URL(igniteConfig.url)
+    : { pathname: "/" };
   const BASE_PATH = debug
     ? ""
     : pathname.endsWith("/")
