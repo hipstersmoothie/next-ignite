@@ -1,10 +1,10 @@
 import React from "react";
 import App from "next/app";
 import { MDXProvider } from "@mdx-js/react";
-import { igniteComponents } from "ignite";
+import { igniteComponents } from "next-ignite";
 
 import "prismjs/themes/prism.css";
-import "ignite/dist/main.css";
+import "next-ignite/dist/main.css";
 
 class MyApp extends App {
   render() {
