@@ -21,7 +21,8 @@
   "files": [
     "dist",
     "bin",
-    "next.js"
+    "next.js",
+    "template"
   ],
   "dependencies": {
     "@mapbox/rehype-prism": "^0.4.0",
