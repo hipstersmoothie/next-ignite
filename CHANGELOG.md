@@ -1,3 +1,15 @@
+# v0.3.7 (Mon Jul 06 2020)
+
+#### ⚠️ Pushed to `master`
+
+- Update README.md ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.3.6 (Mon Jul 06 2020)
 
 #### ⚠️ Pushed to `master`
