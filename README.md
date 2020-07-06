@@ -10,6 +10,7 @@
 
 ```bash
 yarn
+yarn build:lib
 yarn dev
 ```
 
