@@ -21,6 +21,10 @@ const pages = [];
 const getFullGitHubUrl = (url) => {
   const repo = parseGithubUrl(url);
 
+  if (!repo) {
+    return "https://hipstersmoothie.github.io/next-ignite/docs/configuration#repo";
+  }
+
   if (repo.href.startsWith("http")) {
     return repo.href;
   }
