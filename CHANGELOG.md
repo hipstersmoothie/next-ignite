@@ -1,3 +1,15 @@
+# v0.3.5 (Mon Jul 06 2020)
+
+#### ⚠️ Pushed to `master`
+
+- handle when no URL is set ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.3.4 (Mon Jul 06 2020)
 
 #### ⚠️ Pushed to `master`
