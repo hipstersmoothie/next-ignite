@@ -1,3 +1,19 @@
+# v0.3.6 (Mon Jul 06 2020)
+
+#### ⚠️ Pushed to `master`
+
+- add default logo ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- print correct dev url ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- handle uninitialized git repos ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix init template ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- handle if no repo set ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.3.5 (Mon Jul 06 2020)
 
 #### ⚠️ Pushed to `master`
