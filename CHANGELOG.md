@@ -1,3 +1,16 @@
+# v0.4.0 (Tue Jul 07 2020)
+
+#### 🚀 Enhancement
+
+- Styling changes for dark mode and other enhancements [#11](https://github.com/hipstersmoothie/next-ignite/pull/11) (kelly_harrop@intuit.com [@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 2
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- Kelly Harrop ([@kharrop](https://github.com/kharrop))
+
+---
+
 # v0.3.7 (Mon Jul 06 2020)
 
 #### ⚠️ Pushed to `master`
