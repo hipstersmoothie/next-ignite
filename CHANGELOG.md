@@ -1,3 +1,16 @@
+# v0.4.1 (Wed Jul 08 2020)
+
+#### ⚠️ Pushed to `master`
+
+- add prettier ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- save page scroll position ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.4.0 (Tue Jul 07 2020)
 
 #### 🚀 Enhancement
