@@ -46,7 +46,7 @@ export default (frontMatter: Page) => ({
   const components = useMDXComponents();
   const resource = frontMatter.__resourcePath.split("/")[0];
   // Find pages that match the current route
-  const frontMatters = getFrontMatters()
+  const frontMatters = getFrontMatters();
   const links = PAGES.map((key) => path.relative("./", key))
     .filter((key) => key.startsWith(resource))
     .map((key) => frontMatters.find((f) => f.__resourcePath === key));

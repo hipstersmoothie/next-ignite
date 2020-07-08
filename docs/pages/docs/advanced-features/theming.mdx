@@ -5,14 +5,14 @@ title: "Theming the Website"
 `ignite` provides two ways to theme:
 
 - Customize the colors => CSS variables
-- Customize the component used to render arbitrary HTML elements => MDX 
+- Customize the component used to render arbitrary HTML elements => MDX
 
 ## Color Theming
 
 `ignite` is uses [tailwind](https://tailwindcss.com/) so changing the colors for you website is super simple.
 All you have to do is set some CSS variables and `ignite` will use those colors.
 
-*Available Colors:*
+_Available Colors:_
 
 - primary (100-900) - The primary color for your app
 - gray (100-1000) - A gray that compliments the primary color
@@ -79,7 +79,7 @@ const components = {
   ...igniteComponents,
   // Easily override and base HTML component
   h1: H1,
-  a: Anchor
+  a: Anchor,
 };
 
 class MyApp extends App {
@@ -114,7 +114,10 @@ import makeClass from "clsx";
 const h1 = ({ className, ...props }) => (
   <h1
     // Use props.className if you are using it yourself
-    className={makeClass(className, "text-primary-900 mb-8 dark:text-primary-100")}
+    className={makeClass(
+      className,
+      "text-primary-900 mb-8 dark:text-primary-100"
+    )}
     // Spread the rest of the props
     {...props}
   />

@@ -38,13 +38,13 @@ export default (frontMatter: BlogPageFrontMatter) => ({
           style={{
             maxHeight: "30vh",
             minHeight: 315,
-            backgroundImage: `url(${frontMatter.image})`
+            backgroundImage: `url(${frontMatter.image})`,
           }}
         />
       ) : (
         <div className={`bg-${color}-500 pt-20 pb-24`} />
       )}
-      
+
       <article
         className={makeClass(
           "DocSearch-content blog-post",

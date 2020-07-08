@@ -1,11 +1,11 @@
-import React from 'react';
-import Link from 'next/link';
-import makeClass from 'clsx';
-import Head from 'next/head';
+import React from "react";
+import Link from "next/link";
+import makeClass from "clsx";
+import Head from "next/head";
 
-import makeNavBarLayout from './nav-bar';
-import { Page } from '../utils/types';
-import { formatPath } from '../utils/format-path';
+import makeNavBarLayout from "./nav-bar";
+import { Page } from "../utils/types";
+import { formatPath } from "../utils/format-path";
 
 declare var PROJECT_NAME: string;
 const NavBarLayout = makeNavBarLayout();
@@ -23,7 +23,7 @@ interface HomePageFrontMatter extends Page {
 export default (frontMatter: HomePageFrontMatter) => ({
   children: content,
 }: React.PropsWithChildren<{}>) => {
-  const color = frontMatter.color || 'primary';
+  const color = frontMatter.color || "primary";
 
   return (
     <NavBarLayout>
@@ -36,8 +36,8 @@ export default (frontMatter: HomePageFrontMatter) => ({
           `dark:bg-${color}-700`
         )}
       >
-        <div className='max-w-screen-sm lg:max-w-screen-md mx-auto text-center text-white'>
-          <h1 className='text-6xl'>{frontMatter.title || PROJECT_NAME}</h1>
+        <div className="max-w-screen-sm lg:max-w-screen-md mx-auto text-center text-white">
+          <h1 className="text-6xl">{frontMatter.title || PROJECT_NAME}</h1>
           <h2
             className={makeClass(
               `text-2xl font-light text-${color}-100`,
@@ -46,22 +46,22 @@ export default (frontMatter: HomePageFrontMatter) => ({
           >
             {frontMatter.tagline}
           </h2>
-          <Link href={formatPath('/docs')}>
+          <Link href={formatPath("/docs")}>
             <a
               className={makeClass(
                 `px-6 py-4 rounded text-${color}-700 font-medium bg-white inline-flex my-12`,
                 `focus:outline-none, hover:shadow-xl`
               )}
             >
-              {frontMatter.cta || 'Get started'}
+              {frontMatter.cta || "Get started"}
             </a>
           </Link>
         </div>
       </div>
       <div
         className={makeClass(
-          'flex-1 pt-8 pb-32 px-6 max-w-screen-sm mx-auto',
-          'lg:max-w-screen-md'
+          "flex-1 pt-8 pb-32 px-6 max-w-screen-sm mx-auto",
+          "lg:max-w-screen-md"
         )}
       >
         {content}

@@ -1,5 +1,5 @@
 ---
-title: 'Creating a Blog'
+title: "Creating a Blog"
 ---
 
 Adding a blog with `ignite` is super easy.
@@ -40,7 +40,7 @@ export default () => {
       <components.h1>Blog</components.h1>
 
       <components.ul>
-        {posts.map(page => (
+        {posts.map((page) => (
           <li key={page.__resourcePath}>
             <Link passHref href={page.__resourcePath}>
               <components.a>{page.title}</components.a>
@@ -63,8 +63,9 @@ You should always include a title.
 
 ```yaml
 ---
-title: 'My First Blog Post'
+title: "My First Blog Post"
 ---
+
 ```
 
 ### author
@@ -74,10 +75,11 @@ Include an email to display an avatar using gravatar.
 
 ```yaml
 ---
-title: 'My First Blog Post'
-author: 'Andrew Lisowski'
-email: 'lisowski54@gmail.com'
+title: "My First Blog Post"
+author: "Andrew Lisowski"
+email: "lisowski54@gmail.com"
 ---
+
 ```
 
 ### date
@@ -87,8 +89,9 @@ If not supplied this information is pulled from the commit date.
 
 ```yaml
 ---
-date: 'Thu, 12 Mar 2020 23:00:02 -0700'
+date: "Thu, 12 Mar 2020 23:00:02 -0700"
 ---
+
 ```
 
 ### color
@@ -97,8 +100,9 @@ A color to use as the backdrop for a post
 
 ```yaml
 ---
-color: 'red'
+color: "red"
 ---
+
 ```
 
 ### image
@@ -107,6 +111,7 @@ Instead of a color you can display an image as the backdrop.
 
 ```yaml
 ---
-image: 'http://image.com/example.png'
+image: "http://image.com/example.png"
 ---
+
 ```

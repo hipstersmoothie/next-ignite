@@ -34,9 +34,9 @@
 
   addDarkMode();
 
-  const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const darkModeMediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-  darkModeMediaQuery.addListener(e => {
+  darkModeMediaQuery.addListener((e) => {
     addDarkMode();
   });
 })();

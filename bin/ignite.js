@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-require('dotenv').config()
+require("dotenv").config();
 
 const path = require("path");
 const { app } = require("command-line-application");
@@ -9,8 +9,8 @@ const { execSync } = require("child_process");
 const next = require("next");
 const copy = require("copy-template-dir");
 const ignite = require("../next");
-const { getConfig } = require('../dist/cjs/utils/get-config')
-const { buildSitemap } = require('../dist/cjs/utils/sitemap')
+const { getConfig } = require("../dist/cjs/utils/get-config");
+const { buildSitemap } = require("../dist/cjs/utils/sitemap");
 
 const buildNext = require("next/dist/build").default;
 const exportNext = require("next/dist/export").default;
@@ -22,21 +22,21 @@ const args = app({
   commands: [
     {
       name: "init",
-      description: "Initialize an ignite-cli based docs site."
+      description: "Initialize an ignite-cli based docs site.",
     },
     {
       name: "dev",
-      description: "Develop your documentation."
+      description: "Develop your documentation.",
     },
     {
       name: "build",
-      description: "Build your documentation."
+      description: "Build your documentation.",
     },
     {
       name: "deploy",
-      description: "Deploy your documentation to GitHub Pages."
-    }
-  ]
+      description: "Deploy your documentation to GitHub Pages.",
+    },
+  ],
 });
 
 if (!args) {
@@ -66,7 +66,7 @@ if (args._command === "dev") {
       // This tells it to parse the query portion of the URL.
       const parsedUrl = parse(req.url, true);
       handle(req, res, parsedUrl);
-    }).listen(3000, err => {
+    }).listen(3000, (err) => {
       if (err) {
         throw err;
       }
@@ -91,7 +91,7 @@ if (args._command === "build") {
       );
       buildSitemap();
     })
-    .catch(err => {
+    .catch((err) => {
       console.error("");
       console.error("> Build error occurred");
       console.log(err);
