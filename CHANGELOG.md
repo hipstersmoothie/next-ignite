@@ -1,3 +1,15 @@
+# v0.4.2 (Thu Jul 30 2020)
+
+#### 🐛 Bug Fix
+
+- add space between sidebar heading sections [#14](https://github.com/hipstersmoothie/next-ignite/pull/14) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.4.1 (Wed Jul 08 2020)
 
 #### ⚠️ Pushed to `master`
