@@ -27,6 +27,10 @@
     padding-left: 10px;
   }
 
+  .sidebar-root ul + p {
+    @apply mt-8;
+  }
+
   .lvl1 code {
     font-size: calc(3rem * 0.93);
   }
