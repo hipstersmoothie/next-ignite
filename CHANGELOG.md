@@ -1,3 +1,15 @@
+# v0.5.0 (Wed Aug 05 2020)
+
+#### 🚀 Enhancement
+
+- add purgecss [#17](https://github.com/hipstersmoothie/next-ignite/pull/17) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.4.2 (Thu Jul 30 2020)
 
 #### 🐛 Bug Fix
