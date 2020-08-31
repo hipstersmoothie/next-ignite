@@ -1,7 +1,6 @@
 const { colors } = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  purge: false,
   plugins: [require("tailwindcss-dark-mode")()],
   theme: {
     extend: {

@@ -3,7 +3,6 @@ const path = require("path");
 const { execSync } = require("child_process");
 const parseGithubUrl = require("parse-github-url");
 const glob = require("fast-glob");
-const withPurgeCss = require("next-purgecss");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -15,7 +14,6 @@ const slug = require("rehype-slug");
 
 const emoji = require("remark-emoji");
 
-const DOCS_DIR = path.resolve("./docs");
 const PAGES_DIR = path.resolve("./docs/pages");
 const MDX_DATA_DIR = path.resolve("./docs/.mdx-data");
 const pages = [];
@@ -190,71 +188,58 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   const logo = glob.sync(path.join(publicDir, "**/logo.*"))[0];
   const darkLogo = glob.sync(path.join(publicDir, "**/logo-dark.*"))[0];
 
-  return withPurgeCss(
-    withBundleAnalyzer(
-      withMdxEnhanced({
-        ...nextConfig,
-        purgeCssEnabled: ({ dev }) => !dev,
-        purgeCssPaths: [
-          path.relative(
-            path.join(process.cwd(), "docs"),
-            path.join(DOCS_DIR, "**/*")
-          ),
-          path.relative(
-            path.join(process.cwd(), "docs"),
-            path.join(__dirname, "**/*")
-          ),
-        ],
-        experimental: {
-          basePath: BASE_PATH,
-        },
-        publicRuntimeConfig: {
-          assetPrefix: BASE_PATH,
-        },
-        webpack: (
-          config,
-          { buildId, dev, isServer, defaultLoaders, webpack }
-        ) => {
-          config.plugins.push(
-            new webpack.DefinePlugin({
-              BASE_PATH: JSON.stringify(debug ? "/" : BASE_PATH || "/"),
-              PROJECT_NAME: JSON.stringify(igniteConfig.name),
-              FAVICON: JSON.stringify(
-                favicon ? path.relative(publicDir, favicon) : ""
-              ),
-              FAVICON_DARK: JSON.stringify(
-                faviconDark ? path.relative(publicDir, faviconDark) : ""
-              ),
-              PROJECT_LOGO: JSON.stringify(
-                logo ? path.relative(publicDir, logo) : DEFAULT_LOGO
-              ),
-              PROJECT_LOGO_DARK: JSON.stringify(
-                darkLogo ? path.relative(publicDir, darkLogo) : DEFAULT_LOGO
-              ),
-              REPO_URL: JSON.stringify(getFullGitHubUrl(igniteConfig.repo)),
-              PAGES_DIR: JSON.stringify(PAGES_DIR),
-              PAGES: JSON.stringify(
-                getPages().map((p) => path.relative(PAGES_DIR, p))
-              ),
-              BLOG_POSTS: JSON.stringify(
-                getBlogPosts().map((p) => path.relative(PAGES_DIR, p))
-              ),
-              MDX_DATA_DIR: JSON.stringify(MDX_DATA_DIR),
-              HAS_HOMEPAGE: JSON.stringify(getHasHomepage()),
-              TOP_LEVEL_SECTIONS: JSON.stringify(
-                getTopLevelSections(igniteConfig.order)
-              ),
-            })
-          );
+  return withBundleAnalyzer(
+    withMdxEnhanced({
+      ...nextConfig,
+      experimental: {
+        basePath: BASE_PATH,
+      },
+      publicRuntimeConfig: {
+        assetPrefix: BASE_PATH,
+      },
+      webpack: (
+        config,
+        { buildId, dev, isServer, defaultLoaders, webpack }
+      ) => {
+        config.plugins.push(
+          new webpack.DefinePlugin({
+            BASE_PATH: JSON.stringify(debug ? "/" : BASE_PATH || "/"),
+            PROJECT_NAME: JSON.stringify(igniteConfig.name),
+            FAVICON: JSON.stringify(
+              favicon ? path.relative(publicDir, favicon) : ""
+            ),
+            FAVICON_DARK: JSON.stringify(
+              faviconDark ? path.relative(publicDir, faviconDark) : ""
+            ),
+            PROJECT_LOGO: JSON.stringify(
+              logo ? path.relative(publicDir, logo) : DEFAULT_LOGO
+            ),
+            PROJECT_LOGO_DARK: JSON.stringify(
+              darkLogo ? path.relative(publicDir, darkLogo) : DEFAULT_LOGO
+            ),
+            REPO_URL: JSON.stringify(getFullGitHubUrl(igniteConfig.repo)),
+            PAGES_DIR: JSON.stringify(PAGES_DIR),
+            PAGES: JSON.stringify(
+              getPages().map((p) => path.relative(PAGES_DIR, p))
+            ),
+            BLOG_POSTS: JSON.stringify(
+              getBlogPosts().map((p) => path.relative(PAGES_DIR, p))
+            ),
+            MDX_DATA_DIR: JSON.stringify(MDX_DATA_DIR),
+            HAS_HOMEPAGE: JSON.stringify(getHasHomepage()),
+            TOP_LEVEL_SECTIONS: JSON.stringify(
+              getTopLevelSections(igniteConfig.order)
+            ),
+          })
+        );
 
-          // Don't clobber previous plugins' webpack functions
-          if (typeof nextConfig.webpack === "function") {
-            return nextConfig.webpack(config, options);
-          }
+        // Don't clobber previous plugins' webpack functions
+        if (typeof nextConfig.webpack === "function") {
+          return nextConfig.webpack(config, options);
+        }
 
-          return config;
-        },
-      })
-    )
+        return config;
+      },
+    })
   );
 };
