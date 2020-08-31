@@ -3,12 +3,11 @@ import Link from "next/link";
 import makeClass from "clsx";
 import Head from "next/head";
 
-import makeNavBarLayout from "./nav-bar";
+import NavBarLayout from "./nav-bar";
 import { Page } from "../utils/types";
 import { formatPath } from "../utils/format-path";
 
 declare var PROJECT_NAME: string;
-const NavBarLayout = makeNavBarLayout();
 
 interface HomePageFrontMatter extends Page {
   /** Theme color for the home page */
@@ -20,9 +19,10 @@ interface HomePageFrontMatter extends Page {
 }
 
 /** A layout to render a basic home page */
-export default (frontMatter: HomePageFrontMatter) => ({
+const HomePageLayout = ({
   children: content,
-}: React.PropsWithChildren<{}>) => {
+  frontMatter,
+}: React.PropsWithChildren<{ frontMatter: HomePageFrontMatter }>) => {
   const color = frontMatter.color || "primary";
 
   return (
@@ -69,3 +69,5 @@ export default (frontMatter: HomePageFrontMatter) => ({
     </NavBarLayout>
   );
 };
+
+export default HomePageLayout;

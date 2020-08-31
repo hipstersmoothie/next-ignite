@@ -5,12 +5,11 @@ import { useMDXComponents } from "@mdx-js/react";
 import makeClass from "clsx";
 
 import getBlogPosts from "../utils/get-blog-posts";
-import makeNavBarLayout from "../layouts/nav-bar";
+import NavBarLayout from "../layouts/nav-bar";
 import Avatar from "./avatar";
 
 declare var PROJECT_NAME: string;
 
-const NavBarLayout = makeNavBarLayout();
 const posts = getBlogPosts();
 const dateFormat = new Intl.DateTimeFormat("default", {
   hour: "numeric",

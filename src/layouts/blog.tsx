@@ -2,11 +2,10 @@ import React from "react";
 import makeClass from "clsx";
 import Head from "next/head";
 
-import makeNavBarLayout from "./nav-bar";
+import NavBarLayout from "./nav-bar";
 import { BlogPost } from "../utils/types";
 import Avatar from "../components/avatar";
 
-const NavBarLayout = makeNavBarLayout();
 const dateFormat = new Intl.DateTimeFormat("en-us", {
   year: "2-digit",
   month: "numeric",
@@ -21,9 +20,10 @@ interface BlogPageFrontMatter extends BlogPost {
 }
 
 /** A layout to render a basic home page */
-export default (frontMatter: BlogPageFrontMatter) => ({
+const BlogLayout = ({
   children: content,
-}: React.PropsWithChildren<{}>) => {
+  frontMatter,
+}: React.PropsWithChildren<{ frontMatter: BlogPageFrontMatter }>) => {
   const color = frontMatter.color || "primary";
 
   return (
@@ -75,3 +75,5 @@ export default (frontMatter: BlogPageFrontMatter) => ({
     </NavBarLayout>
   );
 };
+
+export default BlogLayout;
