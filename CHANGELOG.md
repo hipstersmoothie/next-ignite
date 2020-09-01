@@ -1,3 +1,19 @@
+# v0.6.0 (Tue Sep 01 2020)
+
+#### 🚀 Enhancement
+
+- upgrade next-mdx-enhanced. fix it all [#20](https://github.com/hipstersmoothie/next-ignite/pull/20) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### 🐛 Bug Fix
+
+- Revert "add purgecss" [#18](https://github.com/hipstersmoothie/next-ignite/pull/18) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.5.0 (Wed Aug 05 2020)
 
 #### 🚀 Enhancement
