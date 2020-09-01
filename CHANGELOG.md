@@ -1,3 +1,15 @@
+# v0.6.3 (Tue Sep 01 2020)
+
+#### ⚠️ Pushed to `master`
+
+- clean up some formatPaths - not needed with new next.js ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.6.2 (Tue Sep 01 2020)
 
 #### 🐛 Bug Fix
