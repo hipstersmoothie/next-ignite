@@ -1,3 +1,15 @@
+# v0.6.2 (Tue Sep 01 2020)
+
+#### 🐛 Bug Fix
+
+- base path no longer experimental [#22](https://github.com/hipstersmoothie/next-ignite/pull/22) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.6.1 (Tue Sep 01 2020)
 
 #### 🐛 Bug Fix
