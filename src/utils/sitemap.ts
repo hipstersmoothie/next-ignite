@@ -7,7 +7,10 @@ const buildDir = path.join(process.cwd(), "docs/out");
 
 export const buildSitemap = () =>
   sitemap({
-    baseUrl: config.url && config.url.endsWith("/") ? config.url.slice(0, -1) : config.url,
+    baseUrl:
+      config.url && config.url.endsWith("/")
+        ? config.url.slice(0, -1)
+        : config.url,
     pagesDirectory: buildDir,
     targetDirectory: buildDir,
     ignoreIndexFiles: true,

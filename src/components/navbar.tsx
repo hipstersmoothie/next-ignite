@@ -4,9 +4,9 @@ import { titleCase } from "title-case";
 import { useMDXComponents } from "@mdx-js/react";
 import makeClass from "clsx";
 
-import { formatPath } from "../utils/format-path";
 import { MobileMenuContext } from "../utils/mobile-menu-context";
 import { Components, Element } from "./mdx-components";
+import { postFixHTML } from "../utils/format-path";
 
 declare var REPO_URL: string;
 
@@ -73,7 +73,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
 
             <div className="hidden lg:flex h-full">
               {sections.map((section) => (
-                <Link passHref key={section} href={`/${section}`}>
+                <Link passHref key={section} href={postFixHTML(`/${section}`)}>
                   <NavBarItem>{titleCase(section)}</NavBarItem>
                 </Link>
               ))}
@@ -95,7 +95,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
       {openMenu && (
         <div className="lg:hidden">
           {sections.map((section) => (
-            <Link passHref key={section} href={formatPath(`/${section}`)}>
+            <Link passHref key={section} href={postFixHTML(`/${section}`)}>
               <NavBarItem>{titleCase(section)}</NavBarItem>
             </Link>
           ))}

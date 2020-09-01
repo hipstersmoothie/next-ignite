@@ -7,6 +7,7 @@ import makeClass from "clsx";
 import getBlogPosts from "../utils/get-blog-posts";
 import NavBarLayout from "../layouts/nav-bar";
 import Avatar from "./avatar";
+import { postFixHTML } from "../utils/format-path";
 
 declare var PROJECT_NAME: string;
 
@@ -47,7 +48,7 @@ export default ({ color = "primary" }: BlogIndexProps) => {
       >
         {posts.map((page) => (
           <li key={page.__resourcePath}>
-            <Link href={page.__resourcePath}>
+            <Link href={postFixHTML(page.__resourcePath)}>
               <a
                 className={makeClass(
                   "rounded border border-gray-300 py-8 px-10 flex items-center",

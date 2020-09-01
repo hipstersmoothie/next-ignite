@@ -7,7 +7,7 @@ import { MDXProvider, useMDXComponents } from "@mdx-js/react";
 import { useRouter } from "next/router";
 
 import { MobileMenuContext } from "../utils/mobile-menu-context";
-import { formatPath } from "../utils/format-path";
+import { formatPath, postFixHTML } from "../utils/format-path";
 import { Page } from "../utils/types";
 import { Components } from "./mdx-components";
 
@@ -93,7 +93,7 @@ const SidebarItem = ({ href, children }: SidebarItemProps) => {
   }
 
   return (
-    <Link passHref href={url}>
+    <Link passHref href={postFixHTML(url)}>
       <SidebarLink
         isActive={active.pathname.replace("/index", "") === formatPath(url)}
       >

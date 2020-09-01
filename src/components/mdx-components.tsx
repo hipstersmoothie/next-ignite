@@ -5,6 +5,7 @@ import Link from "next/link";
 import { MDXProviderComponents } from "@mdx-js/react";
 import { prefixURL } from "next-prefixed";
 import useLayoutEffect from "@react-hook/passive-layout-effect";
+import { postFixHTML } from "../utils/format-path";
 
 declare var PROJECT_NAME: string;
 declare var PROJECT_LOGO: string;
@@ -415,7 +416,7 @@ const a = React.forwardRef(
     }
 
     return (
-      <Link passHref href={href}>
+      <Link passHref href={postFixHTML(href)}>
         <a
           ref={ref}
           className={makeClass(

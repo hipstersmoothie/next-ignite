@@ -173,6 +173,7 @@ const DEFAULT_LOGO = "https://hipstersmoothie.github.io/next-ignite/logo.svg";
 // name - The name of the project you are documenting
 // repo - The repo the documentation is for
 // order - string array of top level section order
+// htmlUrls - Add .html to the end of each URL
 module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
   const { pathname, ...rest } = igniteConfig.url
@@ -202,6 +203,9 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
         config.plugins.push(
           new webpack.DefinePlugin({
             BASE_PATH: JSON.stringify(debug ? "/" : BASE_PATH || "/"),
+            STATIC_HTML_URLS: JSON.stringify(
+              debug ? "" : igniteConfig.htmlUrls || ""
+            ),
             PROJECT_NAME: JSON.stringify(igniteConfig.name),
             FAVICON: JSON.stringify(
               favicon ? path.relative(publicDir, favicon) : ""
