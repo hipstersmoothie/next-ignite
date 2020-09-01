@@ -1,3 +1,15 @@
+# v0.6.6 (Tue Sep 01 2020)
+
+#### ⚠️ Pushed to `master`
+
+- fix home page url ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.6.5 (Tue Sep 01 2020)
 
 #### ⚠️ Pushed to `master`
