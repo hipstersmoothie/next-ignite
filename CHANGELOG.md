@@ -1,3 +1,16 @@
+# v0.6.5 (Tue Sep 01 2020)
+
+#### ⚠️ Pushed to `master`
+
+- add feature to add .html to end of urls ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix linking to other mdx documents ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.6.4 (Tue Sep 01 2020)
 
 #### ⚠️ Pushed to `master`
