@@ -191,9 +191,7 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
   return withBundleAnalyzer(
     withMdxEnhanced({
       ...nextConfig,
-      experimental: {
-        basePath: BASE_PATH,
-      },
+      basePath: BASE_PATH,
       publicRuntimeConfig: {
         assetPrefix: BASE_PATH,
       },
