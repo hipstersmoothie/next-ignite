@@ -1,5 +1,7 @@
 import React from "react";
 import makeClass from "clsx";
+import Link from "next/link";
+
 import { MDXProviderComponents } from "@mdx-js/react";
 import { prefixURL } from "next-prefixed";
 import useLayoutEffect from "@react-hook/passive-layout-effect";
@@ -395,19 +397,37 @@ const inlineCode = ({ className, ...props }: Element<"code">) => (
 /** The component used to render an anchor */
 const a = React.forwardRef(
   (
-    { className = "", ...props }: Element<"a">,
+    { className = "", href, ...props }: Element<"a">,
     ref: React.Ref<HTMLAnchorElement>
-  ) => (
-    <a
-      ref={ref}
-      className={makeClass(
-        !className.includes("header-link") &&
-          `underline cursor-pointer ${DEFAULT_TEXT_COLOR}`,
-        className
-      )}
-      {...props}
-    />
-  )
+  ) => {
+    if (href.startsWith("http")) {
+      return (
+        <a
+          ref={ref}
+          className={makeClass(
+            `underline cursor-pointer ${DEFAULT_TEXT_COLOR}`,
+            className
+          )}
+          href={href}
+          {...props}
+        />
+      );
+    }
+
+    return (
+      <Link passHref href={href}>
+        <a
+          ref={ref}
+          className={makeClass(
+            !className.includes("header-link") &&
+              `underline cursor-pointer ${DEFAULT_TEXT_COLOR}`,
+            className
+          )}
+          {...props}
+        />
+      </Link>
+    );
+  }
 );
 
 /** The component used to render an ul */
