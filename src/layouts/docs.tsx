@@ -4,13 +4,12 @@ import { useMDXComponents, MDXProviderComponents } from "@mdx-js/react";
 import makeClass from "clsx";
 
 import { Sidebar } from "../components/sidebar";
-import makeNavBarLayout from "./nav-bar";
+import NavBarLayout from "./nav-bar";
 import { Page } from "../utils/types";
 import getFrontMatters from "../utils/get-front-matters";
 
 declare var PAGES: string[];
 
-const NavBarLayout = makeNavBarLayout();
 const CONTENT_AREA =
   "pt-8 pb-32 px-4 lg:mx-auto max-w-full md:max-w-screen-sm lg:max-w-screen-md";
 const CODE_BLOCK_REGEX = /([^`]*)`([^`]*)`(.*)/m;
@@ -39,9 +38,10 @@ function constructTitleFromMarkdown(
   return <div>{children}</div>;
 }
 
-export default (frontMatter: Page) => ({
+const DocsLayout = ({
   children: content,
-}: React.PropsWithChildren<{}>) => {
+  frontMatter,
+}: React.PropsWithChildren<{ frontMatter: Page }>) => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const components = useMDXComponents();
   const resource = frontMatter.__resourcePath.split("/")[0];
@@ -74,3 +74,5 @@ export default (frontMatter: Page) => ({
     </NavBarLayout>
   );
 };
+
+export default DocsLayout;

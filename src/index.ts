@@ -1,7 +1,7 @@
-export { default as makeBlogLayout } from "./layouts/blog";
-export { default as makeDocsLayout } from "./layouts/docs";
-export { default as makeHomePageLayout } from "./layouts/home-page";
-export { default as makeNavBarLayout } from "./layouts/nav-bar";
+export { default as BlogLayout } from "./layouts/blog";
+export { default as DocsLayout } from "./layouts/docs";
+export { default as HomePageLayout } from "./layouts/home-page";
+export { default as NavBarLayout } from "./layouts/nav-bar";
 
 export { default as igniteComponents } from "./components/mdx-components";
 export * from "./components/mdx-components";

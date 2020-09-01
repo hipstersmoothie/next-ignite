@@ -19,7 +19,7 @@ interface NavBarProps {
 }
 
 /** Make a  basic navbar page layout */
-export default () => ({
+const NavBarLayout = ({
   children: content,
   ...props
 }: NavBarProps & React.PropsWithChildren<{}>) => {
@@ -63,3 +63,5 @@ export default () => ({
     </MobileMenuContext.Provider>
   );
 };
+
+export default NavBarLayout;
