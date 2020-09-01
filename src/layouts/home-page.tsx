@@ -5,7 +5,6 @@ import Head from "next/head";
 
 import NavBarLayout from "./nav-bar";
 import { Page } from "../utils/types";
-import { formatPath } from "../utils/format-path";
 
 declare var PROJECT_NAME: string;
 
@@ -46,7 +45,7 @@ const HomePageLayout = ({
           >
             {frontMatter.tagline}
           </h2>
-          <Link href={formatPath("/docs")}>
+          <Link href="/docs">
             <a
               className={makeClass(
                 `px-6 py-4 rounded text-${color}-700 font-medium bg-white inline-flex my-12`,

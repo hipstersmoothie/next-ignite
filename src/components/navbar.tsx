@@ -73,7 +73,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
 
             <div className="hidden lg:flex h-full">
               {sections.map((section) => (
-                <Link passHref key={section} href={formatPath(`/${section}`)}>
+                <Link passHref key={section} href={`/${section}`}>
                   <NavBarItem>{titleCase(section)}</NavBarItem>
                 </Link>
               ))}

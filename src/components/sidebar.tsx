@@ -94,7 +94,9 @@ const SidebarItem = ({ href, children }: SidebarItemProps) => {
 
   return (
     <Link passHref href={url}>
-      <SidebarLink isActive={active.pathname.replace("/index", "") === url}>
+      <SidebarLink
+        isActive={active.pathname.replace("/index", "") === formatPath(url)}
+      >
         {children}
       </SidebarLink>
     </Link>
@@ -152,7 +154,7 @@ export const Sidebar = ({ links, folder }: SidebarProps) => {
             <SidebarList>
               {links.map((page) => (
                 <SidebarItemWrapper key={page.__resourcePath}>
-                  <SidebarItem href={formatPath(page.__resourcePath)}>
+                  <SidebarItem href={page.__resourcePath}>
                     {page.title}
                   </SidebarItem>
                 </SidebarItemWrapper>

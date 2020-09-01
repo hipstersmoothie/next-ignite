@@ -58,7 +58,7 @@ Any link that you
 
 ```tsx
 import Link from "next/link";
-import { makeNavBarLayout, Components, formatPath } from "ignite";
+import { makeNavBarLayout, Components } from "ignite";
 
 const NavBarLayout = makeNavBarLayout();
 
@@ -69,8 +69,7 @@ export default () => {
     <NavBarLayout>
       <components.h1>My Page</components.h1>
 
-      {/* If serving from a basePath make sure to use formatPath! */}
-      <Link passHref href={formatPath(`/${section}`)}>
+      <Link passHref href={`/${section}`}>
         <components.a>Go somewhere</components.a>
       </Link>
     </NavBarLayout>
