@@ -76,7 +76,7 @@ interface SidebarItemProps {
 const SidebarItem = ({ href, children }: SidebarItemProps) => {
   const active = React.useContext(SidebarActiveItem);
   const { SidebarLink } = useMDXComponents() as Components;
-  const urlPath = path.join(BASE_PATH, active.sidebarFileLocation, href);
+  const urlPath = path.join(active.sidebarFileLocation, href);
 
   let url = href;
 
