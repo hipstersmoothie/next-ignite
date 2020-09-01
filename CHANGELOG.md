@@ -1,3 +1,15 @@
+# v0.6.4 (Tue Sep 01 2020)
+
+#### ⚠️ Pushed to `master`
+
+- fix sidebar links ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.6.3 (Tue Sep 01 2020)
 
 #### ⚠️ Pushed to `master`
