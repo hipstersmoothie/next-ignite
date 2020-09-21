@@ -1,3 +1,16 @@
+# v0.6.7 (Mon Sep 21 2020)
+
+#### ⚠️ Pushed to `master`
+
+- upgrade next version ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- :pray: ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.6.6 (Tue Sep 01 2020)
 
 #### ⚠️ Pushed to `master`
