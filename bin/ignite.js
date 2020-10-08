@@ -22,10 +22,6 @@ function getNextConfig() {
   } catch (error) {}
 }
 
-const igniteConfig = getConfig();
-const nextConfig = getNextConfig();
-const config =
-  igniteConfig && !nextConfig ? ignite(igniteConfig)() : nextConfig;
 const args = app({
   name: "ignite",
   description: "Flexible MDX documentation generator.",
@@ -52,6 +48,15 @@ const args = app({
 if (!args) {
   return;
 }
+
+if (args._command === "build") {
+  process.env.NODE_ENV = "production";
+}
+
+const igniteConfig = getConfig();
+const nextConfig = getNextConfig();
+const config =
+  igniteConfig && !nextConfig ? ignite(igniteConfig)() : nextConfig;
 
 if (args._command === "init") {
   const inDir = path.join(__dirname, "../template");
@@ -87,8 +92,6 @@ if (args._command === "dev") {
 }
 
 if (args._command === "build") {
-  // TODO add options
-  process.env.NODE_ENV = "production";
   const docsDir = path.resolve(path.join(process.cwd(), "docs"));
   const outdir = path.join(docsDir, "out");
 
