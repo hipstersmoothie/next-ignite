@@ -15,7 +15,17 @@ const { buildSitemap } = require("../dist/cjs/utils/sitemap");
 const buildNext = require("next/dist/build").default;
 const exportNext = require("next/dist/export").default;
 
-const config = getConfig();
+function getNextConfig() {
+  try {
+    const nextConfig = path.join(process.cwd(), "docs/next.config.js");
+    return require(nextConfig);
+  } catch (error) {}
+}
+
+const igniteConfig = getConfig();
+const nextConfig = getNextConfig();
+const config =
+  igniteConfig && !nextConfig ? ignite(igniteConfig)() : nextConfig;
 const args = app({
   name: "ignite",
   description: "Flexible MDX documentation generator.",
@@ -57,7 +67,7 @@ if (args._command === "init") {
 }
 
 if (args._command === "dev") {
-  const docs = next({ dev: true, dir: "docs", conf: ignite(config)() });
+  const docs = next({ dev: true, dir: "docs", conf: config });
   const handle = docs.getRequestHandler();
 
   docs.prepare().then(() => {
@@ -82,7 +92,7 @@ if (args._command === "build") {
   const docsDir = path.resolve(path.join(process.cwd(), "docs"));
   const outdir = path.join(docsDir, "out");
 
-  buildNext(docsDir, ignite(config)())
+  buildNext(docsDir, config)
     .then(() => exportNext(docsDir, { outdir }))
     .then(() => {
       console.log("Export successful", 0);
