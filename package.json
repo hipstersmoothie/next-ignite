@@ -20,6 +20,7 @@
   },
   "files": [
     "dist",
+    "src",
     "bin",
     "next.js",
     "template"
