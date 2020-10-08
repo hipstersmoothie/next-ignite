@@ -1,3 +1,15 @@
+# v0.7.0 (Thu Oct 08 2020)
+
+#### 🚀 Enhancement
+
+- apply next.config.js if it's found [#25](https://github.com/hipstersmoothie/next-ignite/pull/25) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.6.7 (Mon Sep 21 2020)
 
 #### ⚠️ Pushed to `master`
