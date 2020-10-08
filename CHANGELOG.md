@@ -1,3 +1,15 @@
+# v0.7.1 (Thu Oct 08 2020)
+
+#### 🐛 Bug Fix
+
+- set NODE_ENV before loading next.config.js [#26](https://github.com/hipstersmoothie/next-ignite/pull/26) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.0 (Thu Oct 08 2020)
 
 #### 🚀 Enhancement
