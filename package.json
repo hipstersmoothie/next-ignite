@@ -26,6 +26,7 @@
     "template"
   ],
   "dependencies": {
+    "@babel/helper-call-delegate": "^7.12.1",
     "@mapbox/rehype-prism": "^0.4.0",
     "@next/bundle-analyzer": "^9.4.0",
     "@react-hook/passive-layout-effect": "^1.2.0",
@@ -37,7 +38,7 @@
     "fast-glob": "^3.2.2",
     "gravatar": "^1.8.0",
     "mdx-prism": "^0.3.1",
-    "next": "^9.5.3",
+    "next": "^9.5.5",
     "next-mdx-enhanced": "^4.0.0",
     "next-prefixed": "^0.0.11",
     "nextjs-sitemap-generator": "^1.0.0",
@@ -55,7 +56,7 @@
   },
   "devDependencies": {
     "@auto-it/gh-pages": "^9.39.0",
-    "@design-systems/cli": "^1.4.3",
+    "@design-systems/cli": "^2.7.3",
     "@types/gravatar": "^1.8.1",
     "@types/mdx-js__react": "^1.5.1",
     "auto": "^9.39.0",
