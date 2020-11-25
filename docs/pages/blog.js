@@ -1,3 +1,5 @@
 import { BlogIndex } from "ignite";
 
-export default () => <BlogIndex />;
+const Blog = () => <BlogIndex />;
+
+export default Blog;

@@ -24,7 +24,9 @@ const NavBarLayout = makeNavBarLayout(
   options
 );
 
-export default () => <NavBarLayout>My Page</NavBarLayout>;
+const MyPage = () => <NavBarLayout>My Page</NavBarLayout>;
+
+export default MyPage;
 ```
 
 ## Styling
@@ -41,7 +43,7 @@ import { makeNavBarLayout, Components } from "ignite";
 
 const NavBarLayout = makeNavBarLayout();
 
-export default () => {
+const MyPage = () => {
   const components = useMDXComponents() as Components;
 
   return (
@@ -50,6 +52,8 @@ export default () => {
     </NavBarLayout>
   );
 };
+
+export default MyPage;
 ```
 
 ## Links
@@ -62,7 +66,7 @@ import { makeNavBarLayout, Components } from "ignite";
 
 const NavBarLayout = makeNavBarLayout();
 
-export default () => {
+const MyPage = () => {
   const components = useMDXComponents() as Components;
 
   return (
@@ -75,4 +79,6 @@ export default () => {
     </NavBarLayout>
   );
 };
+
+export default MyPage;
 ```

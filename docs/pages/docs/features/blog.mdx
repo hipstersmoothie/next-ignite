@@ -13,7 +13,9 @@ This simplest way to get a blog index running is by using the sample component `
 ```js
 import { BlogIndex } from "ignite";
 
-export default () => <BlogIndex />;
+const Blog = () => <BlogIndex />;
+
+export default Blog;
 ```
 
 If you want more control of what this page looks like you can use the lower level functions `ignite` provides.
@@ -31,7 +33,7 @@ const NavBarLayout = makeNavBarLayout();
 // Get all the blog posts
 const posts = getBlogPosts();
 
-export default () => {
+const Blog = () => {
   // Make sure to use the components defined for you docs!
   const components = useMDXComponents();
 
@@ -51,6 +53,8 @@ export default () => {
     </NavBarLayout>
   );
 };
+
+export default Blog;
 ```
 
 Once this is setup you're ready to start writing blog posts! :tada:

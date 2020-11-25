@@ -4,7 +4,7 @@ declare var MDX_DATA_DIR: string;
 const requireFrontMatters = require.context(MDX_DATA_DIR, true, /\.json$/);
 
 /** Get all the blog posts in the project */
-export default () => {
+const getFrontMatters = () => {
   try {
     return requireFrontMatters
       .keys()
@@ -13,3 +13,5 @@ export default () => {
     return [];
   }
 };
+
+export default getFrontMatters;
