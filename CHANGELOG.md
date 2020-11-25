@@ -1,3 +1,15 @@
+# v0.7.3 (Wed Nov 25 2020)
+
+#### ⚠️ Pushed to `master`
+
+- refactor unnamed default exports ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.2 (Wed Nov 25 2020)
 
 #### ⚠️ Pushed to `master`
