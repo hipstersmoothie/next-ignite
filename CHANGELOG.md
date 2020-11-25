@@ -1,3 +1,19 @@
+# v0.7.2 (Wed Nov 25 2020)
+
+#### ⚠️ Pushed to `master`
+
+- fix blog post index links ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### 🔩 Dependency Updates
+
+- fix build issue [#28](https://github.com/hipstersmoothie/next-ignite/pull/28) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.1 (Thu Oct 08 2020)
 
 #### 🐛 Bug Fix
