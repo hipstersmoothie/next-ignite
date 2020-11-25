@@ -1,4 +1,3 @@
-import { formatPath } from "./format-path";
 import getFrontMatters from "./get-front-matters";
 
 declare var BLOG_POSTS: string[];
@@ -10,12 +9,7 @@ export default () => {
 
     return BLOG_POSTS.map((key) =>
       frontMatters.find((f) => f.__resourcePath === key)
-    )
-      .map((post) => ({
-        ...post,
-        __resourcePath: formatPath(post.__resourcePath),
-      }))
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch (error) {
     return [];
   }
