@@ -1,3 +1,15 @@
+# v0.7.4 (Wed Nov 25 2020)
+
+#### ⚠️ Pushed to `master`
+
+- remove mdx from blog post paths ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.3 (Wed Nov 25 2020)
 
 #### ⚠️ Pushed to `master`
