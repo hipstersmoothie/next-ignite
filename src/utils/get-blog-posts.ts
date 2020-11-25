@@ -12,6 +12,10 @@ const getBlogPosts = () => {
       frontMatters.find((f) => f.__resourcePath === key)
     )
       .filter((post): post is MarkdownPage => Boolean(post))
+      .map((post) => ({
+        ...post,
+        __resourcePath: post.__resourcePath.replace(/\.mdx$/, ""),
+      }))
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch (error) {
     return [];
