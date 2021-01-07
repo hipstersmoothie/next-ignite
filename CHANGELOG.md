@@ -1,3 +1,15 @@
+# v0.7.7 (Thu Jan 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- add main for cjs ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.6 (Thu Jan 07 2021)
 
 #### ⚠️ Pushed to `master`
