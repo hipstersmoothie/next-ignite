@@ -1,3 +1,15 @@
+# v0.7.5 (Thu Jan 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- forward refs to search input ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.4 (Wed Nov 25 2020)
 
 #### ⚠️ Pushed to `master`
