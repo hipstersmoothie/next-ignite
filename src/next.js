@@ -232,6 +232,7 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
             TOP_LEVEL_SECTIONS: JSON.stringify(
               getTopLevelSections(igniteConfig.order)
             ),
+            DOCS_URL: JSON.stringify(igniteConfig.url),
           })
         );
 
