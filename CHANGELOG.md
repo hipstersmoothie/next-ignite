@@ -1,3 +1,15 @@
+# v0.7.6 (Thu Jan 07 2021)
+
+#### ⚠️ Pushed to `master`
+
+- expose docs url ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.5 (Thu Jan 07 2021)
 
 #### ⚠️ Pushed to `master`
