@@ -96,20 +96,26 @@ const Logo = React.forwardRef(
 );
 
 /** The component used to search the mdx. */
-const SearchInput = ({ className, ...props }: Element<"input">) => (
-  <input
-    id="search"
-    autoComplete="off"
-    placeholder='Search (Press "/" to focus)'
-    className={makeClass(
-      className,
-      DEFAULT_TEXT_COLOR,
-      "placeholder-gray-500 rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 w-full",
-      "focus:bg-white focus:outline-none",
-      "dark-placeholder:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-900 dark-focus:bg-gray-1000 dark-focus:border-gray-800 dark-focus:text-white"
-    )}
-    {...props}
-  />
+const SearchInput = React.forwardRef(
+  (
+    { className, ...props }: Element<"input">,
+    ref: React.Ref<HTMLInputElement>
+  ) => (
+    <input
+      ref={ref}
+      id="search"
+      autoComplete="off"
+      placeholder='Search (Press "/" to focus)'
+      className={makeClass(
+        className,
+        DEFAULT_TEXT_COLOR,
+        "placeholder-gray-500 rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 w-full",
+        "focus:bg-white focus:outline-none",
+        "dark-placeholder:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-900 dark-focus:bg-gray-1000 dark-focus:border-gray-800 dark-focus:text-white"
+      )}
+      {...props}
+    />
+  )
 );
 
 /** The component used to render the wrapper around the navbar */
