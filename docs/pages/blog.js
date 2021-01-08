@@ -1,4 +1,4 @@
-import { BlogIndex } from "ignite";
+import { BlogIndex } from "next-ignite";
 
 const Blog = () => <BlogIndex />;
 

@@ -11,7 +11,7 @@ Create a file in your `pages/` folder named `blog.js`.
 This simplest way to get a blog index running is by using the sample component `ignite` provides
 
 ```js
-import { BlogIndex } from "ignite";
+import { BlogIndex } from "next-ignite";
 
 const Blog = () => <BlogIndex />;
 
@@ -25,7 +25,7 @@ In this file add the following to render a simple list of your blog posts:
 ```jsx
 import Link from "next/link";
 // getBlogPosts will return the blogs in reverse creation order
-import { getBlogPosts, makeNavBarLayout } from "ignite";
+import { getBlogPosts, makeNavBarLayout } from "next-ignite";
 import { useMDXComponents } from "@mdx-js/react";
 
 // Make a layout with the navbar at the

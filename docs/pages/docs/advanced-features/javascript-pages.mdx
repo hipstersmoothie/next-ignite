@@ -17,7 +17,7 @@ When you break out into JS `ignite` can no longer automatically assign a layout 
 Luckily you can easily use any of these layouts in your JS pages too!
 
 ```js
-import { makeNavBarLayout } from "ignite";
+import { makeNavBarLayout } from "next-ignite";
 
 const NavBarLayout = makeNavBarLayout(
   // Provide any front-matter options to the layout here
@@ -39,7 +39,7 @@ That includes everything from the base HTML components to the components that ma
 
 ```tsx
 import { useMDXComponents } from "@mdx-js/react";
-import { makeNavBarLayout, Components } from "ignite";
+import { makeNavBarLayout, Components } from "next-ignite";
 
 const NavBarLayout = makeNavBarLayout();
 
@@ -62,7 +62,7 @@ Any link that you
 
 ```tsx
 import Link from "next/link";
-import { makeNavBarLayout, Components } from "ignite";
+import { makeNavBarLayout, Components } from "next-ignite";
 
 const NavBarLayout = makeNavBarLayout();
 
