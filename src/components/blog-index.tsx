@@ -9,8 +9,6 @@ import NavBarLayout from "../layouts/nav-bar";
 import Avatar from "./avatar";
 import { postFixHTML } from "../utils/format-path";
 
-declare var PROJECT_NAME: string;
-
 const posts = getBlogPosts();
 const dateFormat = new Intl.DateTimeFormat("default", {
   hour: "numeric",
@@ -31,7 +29,7 @@ export default ({ color = "primary" }: BlogIndexProps) => {
   return (
     <NavBarLayout>
       <Head>
-        <title>{PROJECT_NAME} Blog</title>
+        <title>{process.env.PROJECT_NAME} Blog</title>
       </Head>
 
       <div className={`bg-${color}-600 flex items-center justify-center p-16`}>

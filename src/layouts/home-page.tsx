@@ -7,8 +7,6 @@ import NavBarLayout from "./nav-bar";
 import { Page } from "../utils/types";
 import { postFixHTML } from "../utils/format-path";
 
-declare var PROJECT_NAME: string;
-
 interface HomePageFrontMatter extends Page {
   /** Theme color for the home page */
   color: string;
@@ -28,7 +26,7 @@ const HomePageLayout = ({
   return (
     <NavBarLayout>
       <Head>
-        <title>{PROJECT_NAME}</title>
+        <title>{process.env.PROJECT_NAME}</title>
       </Head>
       <div
         className={makeClass(
@@ -37,7 +35,7 @@ const HomePageLayout = ({
         )}
       >
         <div className="max-w-screen-sm lg:max-w-screen-md mx-auto text-center text-white">
-          <h1 className="text-6xl">{frontMatter.title || PROJECT_NAME}</h1>
+          <h1 className="text-6xl">{frontMatter.title || process.env.PROJECT_NAME}</h1>
           <h2
             className={makeClass(
               `text-2xl font-light text-${color}-100`,

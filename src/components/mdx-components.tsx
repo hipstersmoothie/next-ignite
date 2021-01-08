@@ -7,9 +7,6 @@ import { prefixURL } from "next-prefixed";
 import useLayoutEffect from "@react-hook/passive-layout-effect";
 import { postFixHTML } from "../utils/format-path";
 
-declare var PROJECT_NAME: string;
-declare var PROJECT_LOGO: string;
-declare var PROJECT_LOGO_DARK: string;
 
 export type Element<
   T extends keyof JSX.IntrinsicElements
@@ -78,18 +75,18 @@ const Logo = React.forwardRef(
     >
       <picture className="md:mr-3">
         <source
-          srcSet={prefixURL(PROJECT_LOGO_DARK)}
+          srcSet={prefixURL(process.env.PROJECT_LOGO_DARK)}
           media="(prefers-color-scheme: dark)"
           className="w-8 h-8"
         />
         <img
-          src={prefixURL(PROJECT_LOGO)}
-          alt={`${PROJECT_NAME} Logo`}
+          src={prefixURL(process.env.PROJECT_LOGO)}
+          alt={`${process.env.PROJECT_NAME} Logo`}
           className="w-8 h-8"
         />
       </picture>
       <span className="hidden uppercase font-semibold tracking-widest text-sm md:block dark:text-gray-200">
-        {PROJECT_NAME}
+        {process.env.PROJECT_NAME}
       </span>
     </a>
   )

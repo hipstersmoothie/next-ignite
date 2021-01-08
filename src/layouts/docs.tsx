@@ -8,8 +8,6 @@ import NavBarLayout from "./nav-bar";
 import { Page } from "../utils/types";
 import getFrontMatters from "../utils/get-front-matters";
 
-declare var PAGES: string[];
-
 const CONTENT_AREA =
   "pt-8 pb-32 px-4 lg:mx-auto max-w-full md:max-w-screen-sm lg:max-w-screen-md";
 const CODE_BLOCK_REGEX = /([^`]*)`([^`]*)`(.*)/m;
@@ -47,7 +45,8 @@ const DocsLayout = ({
   const resource = frontMatter.__resourcePath.split("/")[0];
   // Find pages that match the current route
   const frontMatters = getFrontMatters();
-  const links = PAGES.map((key) => path.relative("./", key))
+  const links = ((process.env.PAGES as any) as string[])
+    .map((key) => path.relative("./", key))
     .filter((key) => key.startsWith(resource))
     .map((key) => frontMatters.find((f) => f.__resourcePath === key));
 

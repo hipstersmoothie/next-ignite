@@ -8,8 +8,6 @@ import { MobileMenuContext } from "../utils/mobile-menu-context";
 import { Components, Element } from "./mdx-components";
 import { postFixHTML } from "../utils/format-path";
 
-declare var REPO_URL: string;
-
 const GitHubIcon = ({ className, ...props }: Element<"svg">) => (
   <svg
     className={makeClass("fill-current w-5 h-5", className)}
@@ -78,9 +76,9 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
                 </Link>
               ))}
 
-              {REPO_URL && (
+              {process.env.REPO_URL && (
                 <NavBarItem
-                  href={REPO_URL}
+                  href={process.env.REPO_URL}
                   target="_blank"
                   aria-label="Open on GitHub"
                 >
@@ -99,8 +97,8 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
               <NavBarItem>{titleCase(section)}</NavBarItem>
             </Link>
           ))}
-          {REPO_URL && (
-            <NavBarItem href={REPO_URL} target="_blank">
+          {process.env.REPO_URL && (
+            <NavBarItem href={process.env.REPO_URL} target="_blank">
               <GitHubIcon className="mr-2" />
               Open on GitHub
             </NavBarItem>

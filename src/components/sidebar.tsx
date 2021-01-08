@@ -16,17 +16,14 @@ export const SidebarActiveItem = React.createContext({
   sidebarFileLocation: "",
 });
 
-declare var PROJECT_NAME: string;
-declare var BASE_PATH: string;
-declare var PAGES_DIR: string;
 
 /** Get the custom sidebar for a folder */
 const getCustomSidebar = (sidebarFileLocation: string) => {
   try {
-    return require(PAGES_DIR + sidebarFileLocation + "/_sidebar.mdx").default;
+    return require(process.env.PAGES_DIR + sidebarFileLocation + "/_sidebar.mdx").default;
   } catch (error) {
     try {
-      return require(PAGES_DIR + sidebarFileLocation + "/_sidebar.js").default;
+      return require(process.env.PAGES_DIR + sidebarFileLocation + "/_sidebar.js").default;
     } catch (error) {
       // TODO handle more file types
     }
@@ -39,9 +36,9 @@ const useActive = (links: Page[]) => {
   // be relative from the base `docs` folder
   const urlPath =
     process.env.NEXT_PHASE === "phase-production-build" ||
-    !router.pathname.includes(BASE_PATH)
+    !router.pathname.includes(process.env.BASE_PATH)
       ? path.relative("/", router.pathname)
-      : path.relative(BASE_PATH, router.pathname);
+      : path.relative(process.env.BASE_PATH, router.pathname);
 
   let newActive = links.find((link) => {
     const route = link.__resourcePath.replace(".mdx", "");
@@ -60,7 +57,7 @@ const useActive = (links: Page[]) => {
   }
 
   return {
-    title: newActive.title || PROJECT_NAME,
+    title: newActive.title || process.env.PROJECT_NAME,
     pathname: formatPath(newActive.__resourcePath),
   };
 };

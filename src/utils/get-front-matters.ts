@@ -1,7 +1,14 @@
 import { MarkdownPage } from "./types";
 
-declare var MDX_DATA_DIR: string;
-const requireFrontMatters = require.context(MDX_DATA_DIR, true, /\.json$/);
+let requireFrontMatters;
+
+try {
+  requireFrontMatters = require.context(
+    process.env.MDX_DATA_DIR,
+    true,
+    /\.json$/
+  );
+} catch (error) {}
 
 /** Get all the blog posts in the project */
 const getFrontMatters = () => {
