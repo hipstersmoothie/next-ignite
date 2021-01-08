@@ -1,3 +1,15 @@
+# v0.7.9 (Fri Jan 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- use nextConfig.env + process.env to expose varaiable + main now works ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.8 (Fri Jan 08 2021)
 
 #### ⚠️ Pushed to `master`
