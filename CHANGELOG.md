@@ -1,3 +1,15 @@
+# v0.7.8 (Fri Jan 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- correct import name to next-ignite ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.7 (Thu Jan 07 2021)
 
 #### ⚠️ Pushed to `master`
