@@ -1,9 +1,10 @@
 import path from "path";
 import { cosmiconfigSync } from "cosmiconfig";
+import { IgniteConfig } from "./types";
 
 const explorer = cosmiconfigSync("ignite");
 
-export const getConfig = () => {
+export const getConfig = (): IgniteConfig => {
   const { config = {} } = explorer.search() || {};
 
   if (!config.name) {

@@ -1,24 +1,28 @@
-const fs = require("fs");
-const path = require("path");
-const { execSync } = require("child_process");
-const parseGithubUrl = require("parse-github-url");
-const glob = require("fast-glob");
+import fs from "fs";
+import path from "path";
+import { execSync } from "child_process";
+import parseGithubUrl from "parse-github-url";
+import glob from "fast-glob";
+import rehypePrism from "@mapbox/rehype-prism";
+import autoLink from "rehype-autolink-headings";
+import a11yEmoji from "rehype-accessible-emojis";
+import slug from "rehype-slug";
+import emoji from "remark-emoji";
+import {
+  getTopLevelSections,
+  getHasHomepage,
+  getPages,
+  getBlogPosts,
+  PAGES_DIR,
+  MDX_DATA_DIR,
+} from "./utils/docs-data";
+import { IgniteConfig } from "./utils/types";
+
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
-const rehypePrism = require("@mapbox/rehype-prism");
-const autoLink = require("rehype-autolink-headings");
-const a11yEmoji = require("rehype-accessible-emojis");
-const slug = require("rehype-slug");
-
-const emoji = require("remark-emoji");
-
-const PAGES_DIR = path.resolve("./docs/pages");
-const MDX_DATA_DIR = path.resolve("./docs/.mdx-data");
-const pages = [];
-
-const getFullGitHubUrl = (url) => {
+const getFullGitHubUrl = (url: string) => {
   const repo = parseGithubUrl(url);
 
   if (!repo) {
@@ -32,7 +36,7 @@ const getFullGitHubUrl = (url) => {
   return `https://github.com/${repo.repo}`;
 };
 
-const getCreationDate = (file) => {
+const getCreationDate = (file: string) => {
   try {
     return execSync(
       `git log --format=%aD ${path.join("docs/pages", file)} | tail -1`,
@@ -46,7 +50,7 @@ const getCreationDate = (file) => {
   }
 };
 
-const getAuthor = (file) => {
+const getAuthor = (file: string) => {
   try {
     return execSync(
       `git log --format="%an || %ae" ${path.join(
@@ -61,58 +65,6 @@ const getAuthor = (file) => {
   } catch (error) {
     return ["", ""];
   }
-};
-
-const getHasHomepage = () =>
-  Boolean(glob.sync(path.join(PAGES_DIR, "index.+(mdx|js|jsx|ts|tsx)")).length);
-
-const getPages = () => glob.sync(path.join(PAGES_DIR, "/**/*.mdx"));
-const getBlogPosts = () => glob.sync(path.join(PAGES_DIR, "blog", "/**/*.mdx"));
-
-const getTopLevelSections = (order = ["docs", "blog"]) => {
-  const requirePage = getPages();
-
-  return Array.from(
-    new Set(
-      requirePage
-        .map((key) => path.relative(PAGES_DIR, key))
-        // anything with a dot in it would be a file
-        // we only care about directories
-        .filter((key) => key.includes("/"))
-        .map((key) => key.split("/")[0])
-        .sort((a, b) => {
-          if (!order.includes(a) && !order.includes(b)) {
-            return a.localeCompare(b);
-          }
-
-          if (!order.includes(a)) {
-            return 1;
-          }
-
-          if (!order.includes(b)) {
-            return -1;
-          }
-
-          return order.indexOf(a) - order.indexOf(b);
-        })
-    )
-  );
-};
-
-const getFrontMatters = () => {
-  const frontMatters = glob.sync(path.join(MDX_DATA_DIR, "*.json"));
-
-  return frontMatters.map((m) => {
-    const data = JSON.parse(fs.readFileSync(m));
-
-    return {
-      __resourcePath: data.__resourcePath,
-      date: data.date,
-      title: data.title,
-      author: data.author,
-      email: data.email,
-    };
-  });
 };
 
 const withMdxEnhanced = require("next-mdx-enhanced")({
@@ -174,9 +126,9 @@ const DEFAULT_LOGO = "https://hipstersmoothie.github.io/next-ignite/logo.svg";
 // repo - The repo the documentation is for
 // order - string array of top level section order
 // htmlUrls - Add .html to the end of each URL
-module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
+module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
-  const { pathname, ...rest } = igniteConfig.url
+  const { pathname } = igniteConfig.url
     ? new URL(igniteConfig.url)
     : { pathname: "/" };
   const BASE_PATH = debug
@@ -191,7 +143,11 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
 
   const env = {
     BASE_PATH: debug ? "/" : BASE_PATH || "/",
-    STATIC_HTML_URLS: debug ? "" : igniteConfig.htmlUrls || "",
+    STATIC_HTML_URLS: debug
+      ? ""
+      : igniteConfig.htmlUrls === true
+      ? "true" || undefined
+      : "",
     PROJECT_NAME: igniteConfig.name,
     FAVICON: favicon ? path.relative(publicDir, favicon) : "",
     FAVICON_DARK: faviconDark ? path.relative(publicDir, faviconDark) : "",
@@ -200,19 +156,21 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
       ? path.relative(publicDir, darkLogo)
       : DEFAULT_LOGO,
     REPO_URL: getFullGitHubUrl(igniteConfig.repo),
-    PAGES_DIR: PAGES_DIR,
-    MDX_DATA_DIR: MDX_DATA_DIR,
+    PAGES_DIR,
+    MDX_DATA_DIR,
     DOCS_URL: igniteConfig.url,
-    HAS_HOMEPAGE: getHasHomepage() ? true : undefined,
+    HAS_HOMEPAGE: getHasHomepage() ? "true" : undefined,
     TOP_LEVEL_SECTIONS: JSON.stringify(getTopLevelSections(igniteConfig.order)),
-    BLOG_POSTS: JSON.stringify(getBlogPosts().map((p) => path.relative(PAGES_DIR, p))),
+    BLOG_POSTS: JSON.stringify(
+      getBlogPosts().map((p) => path.relative(PAGES_DIR, p))
+    ),
     PAGES: JSON.stringify(getPages().map((p) => path.relative(PAGES_DIR, p))),
   };
 
   process.env = {
     ...process.env,
-    ...env
-  }
+    ...env,
+  };
 
   return withBundleAnalyzer(
     withMdxEnhanced({

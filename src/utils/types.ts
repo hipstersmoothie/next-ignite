@@ -21,3 +21,16 @@ export interface MarkdownPage extends Page {
   email?: string;
   content: string;
 }
+
+export interface IgniteConfig {
+  /** The name to use for the docs */
+  name?: string;
+  /** The repo the docs are for */
+  repo?: string;
+  /** The url the docs will be deployed to */
+  url?: string;
+  /** Produce links with .html URLs */
+  htmlUrls?: boolean;
+  /** The order of the nav items */
+  order?: string[];
+}
