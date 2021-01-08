@@ -64,9 +64,11 @@ const DocsLayout = ({
             menuOpen && "hidden"
           )}
         >
-          <components.h1>
-            {constructTitleFromMarkdown(components, frontMatter.title)}
-          </components.h1>
+          {frontMatter.title && (
+            <components.h1>
+              {constructTitleFromMarkdown(components, frontMatter.title)}
+            </components.h1>
+          )}
           {content}
         </main>
       </div>
