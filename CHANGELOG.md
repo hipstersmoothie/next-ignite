@@ -1,3 +1,15 @@
+# v0.7.11 (Fri Jan 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- only render front matter title if it exists ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.10 (Fri Jan 08 2021)
 
 #### ⚠️ Pushed to `master`
