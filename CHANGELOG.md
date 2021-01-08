@@ -1,3 +1,15 @@
+# v0.7.10 (Fri Jan 08 2021)
+
+#### ⚠️ Pushed to `master`
+
+- stringify and parse json structure to fix server/client rendering ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.9 (Fri Jan 08 2021)
 
 #### ⚠️ Pushed to `master`
