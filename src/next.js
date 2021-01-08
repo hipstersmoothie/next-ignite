@@ -201,12 +201,12 @@ module.exports = (igniteConfig = {}) => (nextConfig = {}) => {
       : DEFAULT_LOGO,
     REPO_URL: getFullGitHubUrl(igniteConfig.repo),
     PAGES_DIR: PAGES_DIR,
-    PAGES: getPages().map((p) => path.relative(PAGES_DIR, p)),
-    BLOG_POSTS: getBlogPosts().map((p) => path.relative(PAGES_DIR, p)),
     MDX_DATA_DIR: MDX_DATA_DIR,
-    HAS_HOMEPAGE: getHasHomepage(),
-    TOP_LEVEL_SECTIONS: getTopLevelSections(igniteConfig.order),
     DOCS_URL: igniteConfig.url,
+    HAS_HOMEPAGE: getHasHomepage() ? true : undefined,
+    TOP_LEVEL_SECTIONS: JSON.stringify(getTopLevelSections(igniteConfig.order)),
+    BLOG_POSTS: JSON.stringify(getBlogPosts().map((p) => path.relative(PAGES_DIR, p))),
+    PAGES: JSON.stringify(getPages().map((p) => path.relative(PAGES_DIR, p))),
   };
 
   process.env = {

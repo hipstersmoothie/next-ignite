@@ -1,21 +1,17 @@
 import { MarkdownPage } from "./types";
 
-let requireFrontMatters;
+let frontMatters: MarkdownPage[] = [];
 
 try {
-  requireFrontMatters = require.context(
-    process.env.MDX_DATA_DIR,
-    true,
-    /\.json$/
-  );
-} catch (error) {}
+  const context = require.context(process.env.MDX_DATA_DIR, true, /\.json$/);
+  frontMatters = context.keys().map(context) as MarkdownPage[];
+} catch (error) {
+}
 
 /** Get all the blog posts in the project */
 const getFrontMatters = () => {
   try {
-    return requireFrontMatters
-      .keys()
-      .map(requireFrontMatters) as MarkdownPage[];
+    return frontMatters;
   } catch (error) {
     return [];
   }

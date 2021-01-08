@@ -45,7 +45,7 @@ const DocsLayout = ({
   const resource = frontMatter.__resourcePath.split("/")[0];
   // Find pages that match the current route
   const frontMatters = getFrontMatters();
-  const links = ((process.env.PAGES as any) as string[])
+  const links = (JSON.parse(process.env.PAGES) as string[])
     .map((key) => path.relative("./", key))
     .filter((key) => key.startsWith(resource))
     .map((key) => frontMatters.find((f) => f.__resourcePath === key));

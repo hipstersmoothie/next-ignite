@@ -6,7 +6,7 @@ const getBlogPosts = () => {
   try {
     const frontMatters = getFrontMatters();
 
-    return (process.env.BLOG_POSTS as any as string[])
+    return (JSON.parse(process.env.BLOG_POSTS) as string[])
       .map((key) => frontMatters.find((f) => f.__resourcePath === key))
       .filter((post): post is MarkdownPage => Boolean(post))
       .map((post) => ({

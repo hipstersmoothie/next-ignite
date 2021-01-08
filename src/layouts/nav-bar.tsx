@@ -55,7 +55,7 @@ const NavBarLayout = ({
 
       <div id="ignite" className="min-h-screen flex flex-col dark:bg-gray-1000">
         <NavBar
-          sections={process.env.TOP_LEVEL_SECTIONS as any}
+          sections={JSON.parse(process.env.TOP_LEVEL_SECTIONS)}
           hasHomePage={process.env.HAS_HOMEPAGE as any}
         />
         {content}
