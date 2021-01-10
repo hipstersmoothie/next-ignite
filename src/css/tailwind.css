@@ -60,14 +60,16 @@
   }
 
   table code {
-    @apply whitespace-no-wrap;
+    @apply whitespace-nowrap;
   }
 }
 
-.mode-dark #ignite {
-  @apply text-gray-400;
+@media (prefers-color-scheme: dark) {
+  #ignite {
+    @apply text-gray-400;
 
-  tbody .tr:nth-child(odd) {
-    @apply bg-gray-900;
+    tbody .tr:nth-child(odd) {
+      @apply bg-gray-900;
+    }
   }
 }

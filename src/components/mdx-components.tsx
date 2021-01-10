@@ -67,7 +67,7 @@ const Logo = React.forwardRef(
       tabIndex={0}
       className={makeClass(
         DEFAULT_TEXT_COLOR,
-        "px-6 h-full focus:outline-none flex items-center font-normal cursor-pointer text-xl",
+        "px-6 h-full focus:outline-none focus-visible:ring ring-inset rounded flex items-center font-normal cursor-pointer text-xl",
         "md:pr-10 lg:w-1/5",
         className
       )}
@@ -149,7 +149,7 @@ const NavBarItem = React.forwardRef(
       tabIndex={0}
       className={makeClass(
         "justify-center h-full flex items-center px-6 py-4 cursor-pointer text-gray-700",
-        "hover:bg-gray-200 hover:text-primary-600 focus:bg-gray-200 focus:text-primary-600 focus:outline-none",
+        "hover:bg-gray-200 hover:text-primary-600 focus:bg-gray-200 focus:text-primary-600 focus:outline-none focus-visible:ring ring-inset",
         "dark:text-gray-400 dark-hover:bg-gray-900 dark-hover:text-white dark-focus:bg-gray-1000 dark-focus:text-white",
         className
       )}
@@ -251,9 +251,9 @@ const SidebarLink = React.forwardRef(
       ref={ref}
       className={makeClass(
         className,
-        "text-base font-light hover:font-normal px-6 flex cursor-pointer",
+        "text-base font-light hover:font-normal px-6 flex cursor-pointer focus:outline-none focus-visible:ring ring-inset rounded",
         isActive
-          ? "sidebar-active font-normal border-r-4 border-primary-600 dark:border-primary-400 dark:font-semibold dark:text-gray-100"
+          ? "sidebar-active font-normal border-r-4 border-primary-600 dark:border-primary-400 dark:font-semibold dark:text-gray-100 rounded-r-none"
           : "dark:text-gray-400 dark-hover:text-gray-100 dark-hover:font-normal"
       )}
       {...props}
@@ -423,6 +423,7 @@ const a = React.forwardRef(
         <a
           ref={ref}
           className={makeClass(
+            "focus-visible:ring ring-offset-2 focus:outline-none rounded",
             !className.includes("header-link") &&
               `underline cursor-pointer ${DEFAULT_TEXT_COLOR}`,
             className

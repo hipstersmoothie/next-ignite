@@ -1,7 +1,7 @@
 const { colors } = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  plugins: [require("tailwindcss-dark-mode")()],
+  darkMode: "media",
   theme: {
     extend: {
       colors: {
@@ -33,10 +33,8 @@ module.exports = {
     },
   },
   variants: {
-    placeholderColor: ["dark-placeholder"],
-    backgroundColor: ["hover", "focus", "dark", "dark-focus", "dark-hover"],
-    fontWeight: ["hover", "focus", "dark", "dark-hover", "dark-focus"],
-    borderColor: ["hover", "focus", "dark", "dark-focus", "dark-hover"],
-    textColor: ["hover", "focus", "dark", "dark-focus", "dark-hover"],
+    extend: {
+      ringWidth: ["focus-visible"],
+    },
   },
 };

@@ -31,6 +31,7 @@
     "@mapbox/rehype-prism": "^0.4.0",
     "@next/bundle-analyzer": "^9.4.0",
     "@react-hook/passive-layout-effect": "^1.2.0",
+    "@tailwindcss/postcss7-compat": "^2.0.2",
     "clsx": "^1.1.0",
     "command-line-application": "^0.9.6",
     "copy-template-dir": "^1.4.0",
@@ -39,7 +40,7 @@
     "fast-glob": "^3.2.2",
     "gravatar": "^1.8.0",
     "mdx-prism": "^0.3.1",
-    "next": "^9.5.5",
+    "next": "^10.0.5",
     "next-mdx-enhanced": "^4.0.0",
     "next-prefixed": "^0.0.11",
     "nextjs-sitemap-generator": "^1.0.0",
@@ -53,6 +54,7 @@
     "rehype-slug": "^3.0.0",
     "remark-emoji": "^2.0.2",
     "scroll-lock": "^2.1.4",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "title-case": "^3.0.2"
   },
   "devDependencies": {
@@ -65,9 +67,7 @@
     "next-ignite": "link:./",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
-    "prettier": "^2.0.5",
-    "tailwindcss": "^1.4.6",
-    "tailwindcss-dark-mode": "^1.1.4"
+    "prettier": "^2.0.5"
   },
   "ignite": {
     "repo": "hipstersmoothie/next-ignite",
