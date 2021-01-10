@@ -8,6 +8,8 @@ import autoLink from "rehype-autolink-headings";
 import a11yEmoji from "rehype-accessible-emojis";
 import slug from "rehype-slug";
 import emoji from "remark-emoji";
+import PurgeCSSPlugin from "purgecss-webpack-plugin";
+
 import {
   getTopLevelSections,
   getHasHomepage,
@@ -15,6 +17,7 @@ import {
   getBlogPosts,
   PAGES_DIR,
   MDX_DATA_DIR,
+  DOCS_DIR,
 } from "./utils/docs-data";
 import { IgniteConfig } from "./utils/types";
 
@@ -180,6 +183,23 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
         assetPrefix: BASE_PATH,
       },
       env,
+      webpack: (config, { webpack }) => {
+        config.plugins.push(
+          new PurgeCSSPlugin({
+            paths: glob.sync([
+              path.join(__dirname, "./components/*.js"),
+              path.join(__dirname, "./layouts/*.js"),
+              path.join(DOCS_DIR, "./**/*.{js,jsx,ts,tsx,mdx}"),
+            ]),
+            safelist: {
+              standard: [/^.bg-/, /^.text-/],
+              greedy: [/dark:bg-/, /dark:text-/],
+            }
+          })
+        );
+
+        return config;
+      },
     })
   );
 };
