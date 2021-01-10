@@ -1,3 +1,15 @@
+# v0.7.14 (Sun Jan 10 2021)
+
+#### ⚠️ Pushed to `master`
+
+- add skip-nav button ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.13 (Sun Jan 10 2021)
 
 #### ⚠️ Pushed to `master`
