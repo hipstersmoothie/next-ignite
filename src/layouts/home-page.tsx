@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import makeClass from "clsx";
 import Head from "next/head";
+import { SkipNavContent } from "@reach/skip-nav";
 
 import NavBarLayout from "./nav-bar";
 import { Page } from "../utils/types";
@@ -28,6 +29,8 @@ const HomePageLayout = ({
       <Head>
         <title>{process.env.PROJECT_NAME}</title>
       </Head>
+
+      <SkipNavContent />
       <div
         className={makeClass(
           `bg-${color}-500 pt-16 pb-16`,

@@ -2,6 +2,7 @@ import React from "react";
 import path from "path";
 import { useMDXComponents, MDXProviderComponents } from "@mdx-js/react";
 import makeClass from "clsx";
+import { SkipNavContent } from "@reach/skip-nav";
 
 import { Sidebar } from "../components/sidebar";
 import NavBarLayout from "./nav-bar";
@@ -55,6 +56,7 @@ const DocsLayout = ({
       <div className="flex flex-1 w-full max-w-screen-sm lg:max-w-screen-xl mx-auto">
         <Sidebar links={links} folder={resource} />
 
+        <SkipNavContent />
         <main
           className={makeClass(
             "DocSearch-content",

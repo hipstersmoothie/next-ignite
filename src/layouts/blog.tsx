@@ -1,6 +1,7 @@
 import React from "react";
 import makeClass from "clsx";
 import Head from "next/head";
+import { SkipNavContent } from "@reach/skip-nav";
 
 import NavBarLayout from "./nav-bar";
 import { BlogPost } from "../utils/types";
@@ -32,6 +33,7 @@ const BlogLayout = ({
         <title>{frontMatter.title.replace(/\\`/g, "`")}</title>
       </Head>
 
+      <SkipNavContent />
       {frontMatter.image ? (
         <div
           className={`bg-${color}-500 bg-cover bg-no-repeat bg-center h-screen`}

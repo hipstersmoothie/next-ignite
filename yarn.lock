@@ -2652,6 +2652,23 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
+"@reach/skip-nav@^0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@reach/skip-nav/-/skip-nav-0.12.1.tgz#082b7f22b8ab50e6bff6297137c13d0ad5a4bb64"
+  integrity sha512-LlnkUaVSQpo9grWbOHKC4Tc6ppwV7uiL+KhQ8388AB7sCbxL6zFo6WlZVNNHW5ahzQR86b3tQE9stf9rX2aJHw==
+  dependencies:
+    "@reach/utils" "0.12.1"
+    tslib "^2.0.0"
+
+"@reach/utils@0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@reach/utils/-/utils-0.12.1.tgz#02b9c15ba5cddf23e16f2d2ca77aef98a9702607"
+  integrity sha512-5uH4OgO+GupAzZuf3b6Wv/9uC6NdMBlxS6FSKD6YqSxP4QJ0vjD34RVon6N/RMRORacCLyD/aaZIA7283YgeOg==
+  dependencies:
+    "@types/warning" "^3.0.0"
+    tslib "^2.0.0"
+    warning "^4.0.3"
+
 "@react-hook/passive-layout-effect@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@react-hook/passive-layout-effect/-/passive-layout-effect-1.2.0.tgz#1232f0b08f9bfd9f87a2898a3ae50d5f7731d806"
@@ -3853,6 +3870,11 @@
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/@types/url-parse/-/url-parse-1.4.3.tgz#fba49d90f834951cb000a674efee3d6f20968329"
   integrity sha512-4kHAkbV/OfW2kb5BLVUuUMoumB3CP8rHqlw48aHvFy5tf9ER0AfOonBlX29l/DD68G70DmyhRlSYfQPSYpC5Vw==
+
+"@types/warning@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@types/warning/-/warning-3.0.0.tgz#0d2501268ad8f9962b740d387c4654f5f8e23e52"
+  integrity sha1-DSUBJorY+ZYrdA04fEZU9fjiPlI=
 
 "@types/webpack-env@^1.15.2":
   version "1.15.3"

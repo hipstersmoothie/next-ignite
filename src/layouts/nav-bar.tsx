@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import { SkipNavLink } from "@reach/skip-nav";
 
 import { NavBar } from "../components/navbar";
 import { MobileMenuContext } from "../utils/mobile-menu-context";
@@ -52,6 +53,8 @@ const NavBarLayout = ({
           )}
         />
       </Head>
+
+      <SkipNavLink />
 
       <div id="ignite" className="min-h-screen flex flex-col dark:bg-gray-1000">
         <NavBar

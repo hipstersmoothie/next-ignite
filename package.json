@@ -30,6 +30,7 @@
     "@babel/helper-call-delegate": "^7.12.1",
     "@mapbox/rehype-prism": "^0.4.0",
     "@next/bundle-analyzer": "^9.4.0",
+    "@reach/skip-nav": "^0.12.1",
     "@react-hook/passive-layout-effect": "^1.2.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "clsx": "^1.1.0",
