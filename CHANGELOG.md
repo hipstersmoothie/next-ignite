@@ -1,3 +1,15 @@
+# v0.7.13 (Sun Jan 10 2021)
+
+#### ⚠️ Pushed to `master`
+
+- upgrade tailwind and improve focus styling ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.12 (Fri Jan 08 2021)
 
 #### ⚠️ Pushed to `master`
