@@ -278,7 +278,13 @@ const SearchInput = React.forwardRef(
                     className="search-result pb-4 cursor-pointer"
                     aria-selected={isSelected}
                   >
-                    <a href={formatPath(item.url)}>
+                    <a
+                      href={formatPath(item.url)}
+                      onClick={() => {
+                        showResultsSet(false);
+                        searchSet("");
+                      }}
+                    >
                       <div className="border-b border-gray-400 pb-2 text-gray-800 dark:text-gray-300 dark:border-gray-600">
                         {item.path[0]}
                       </div>
