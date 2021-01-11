@@ -5,6 +5,7 @@ import mergeRefs from "react-merge-refs";
 import { useRouter } from "next/router";
 import useClickOutside from "use-click-outside";
 import join from "url-join";
+import { useDebouncedCallback } from "use-debounce";
 
 import { MDXProviderComponents } from "@mdx-js/react";
 import { prefixURL } from "next-prefixed";
@@ -106,6 +107,10 @@ const MatchHighlight = ({ children, term }: MatchHighlightProps) => {
     let content = [];
     const termRegex = new RegExp(term, "i");
 
+    if (!term) {
+      return remaining;
+    }
+
     while (remaining.match(termRegex)) {
       const start = remaining.toLowerCase().indexOf(term.toLowerCase());
       const end = start + term.length;
@@ -135,48 +140,49 @@ const SearchInput = React.forwardRef(
     ref: React.Ref<HTMLInputElement>
   ) => {
     const router = useRouter();
-    const [search, searchSet] = React.useState("");
-    const [showResults, showResultsSet] = React.useState(false);
-    const [hasInteracted, hasInteractedSet] = React.useState(false);
-    const [current, currentSet] = React.useState(0);
+
     const data = React.useRef([]);
     const innerRef = React.useRef<HTMLDivElement>();
+    const [current, currentSet] = React.useState(0);
+    const [hasInteracted, hasInteractedSet] = React.useState(false);
+    const [term, termSet] = React.useState("");
+    const [search, searchSet] = React.useState("");
+    const [showResults, showResultsSet] = React.useState(false);
+    const debouncedSearchSet = useDebouncedCallback(() => {
+      showResultsSet(Boolean(term));
+      searchSet(term);
+    }, 200);
 
     const normalizedSearch = search.toLowerCase();
-    const matchingResults = data.current
-      .filter((result) => {
-        const matchedPath = result.path[result.path.length - 1]
-          .toLowerCase()
-          .includes(normalizedSearch);
-        const matchedContent = result.content
-          .toLowerCase()
-          .includes(normalizedSearch);
-
-        return matchedPath || matchedContent;
-      })
-      .sort((a, b) => {
-        const getWeight = (n) => {
-          const contentMatch = n.content
+    const matchingResults = React.useMemo(() => {
+      return data.current
+        .filter((result) => {
+          const matchedPath = result.path[result.path.length - 1]
             .toLowerCase()
-            .includes(normalizedSearch)
-            ? 1
-            : 0;
-          const pathMatch = n.path.filter((p) =>
-            p.toLowerCase().includes(normalizedSearch)
-          ).length;
+            .includes(normalizedSearch);
+          const matchedContent = result.content
+            .toLowerCase()
+            .includes(normalizedSearch);
 
-          return contentMatch + pathMatch;
-        };
+          return matchedPath || matchedContent;
+        })
+        .sort((a, b) => {
+          const getWeight = (n) => {
+            const contentMatch = n.content
+              .toLowerCase()
+              .includes(normalizedSearch)
+              ? 1
+              : 0;
+            const pathMatch = n.path.filter((p) =>
+              p.toLowerCase().includes(normalizedSearch)
+            ).length;
 
-        console.log({
-          a,
-          aw: getWeight(a),
-          b,
-          bw: getWeight(b),
+            return contentMatch + pathMatch;
+          };
+
+          return getWeight(b) - getWeight(a);
         });
-
-        return getWeight(b) - getWeight(a);
-      });
+    }, [search]);
 
     useClickOutside(innerRef, () => showResultsSet(false));
 
@@ -239,15 +245,15 @@ const SearchInput = React.forwardRef(
             "focus:bg-white focus:outline-none",
             "dark-placeholder:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-900 dark:focus:bg-gray-1000 dark:focus:border-gray-800 dark:focus:text-white"
           )}
-          value={search}
+          defaultValue={term}
           onChange={(e) => {
-            searchSet(e.target.value);
-            showResultsSet(Boolean(e.target.value));
+            termSet(e.target.value);
+            debouncedSearchSet.callback();
           }}
           {...props}
         />
 
-        {showResults && (
+        {showResults && search && (
           <div
             role="list-box"
             className={makeClass(

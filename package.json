@@ -62,7 +62,8 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "title-case": "^3.0.2",
     "url-join": "^4.0.1",
-    "use-click-outside": "^2.0.0"
+    "use-click-outside": "^2.0.0",
+    "use-debounce": "^5.2.0"
   },
   "devDependencies": {
     "@auto-it/gh-pages": "^9.39.0",
