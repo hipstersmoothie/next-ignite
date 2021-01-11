@@ -1,7 +1,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+/* purgecss start ignore */
 @import "@reach/skip-nav/styles";
+/* purgecss end ignore */
 
 #ignite {
   .blockquote > *:first-child {
