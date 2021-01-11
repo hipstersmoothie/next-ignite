@@ -37,7 +37,7 @@ export default ({ color = "primary" }: BlogIndexProps) => {
       </div>
 
       <ul
-        className="px-4 mt-8 mb-12 lg:max-w-screen-xl lg:mx-auto w-full lg:mt-16"
+        className="px-4 mt-8 mb-12 lg:max-w-6xl lg:mx-auto w-full lg:mt-16"
         style={{
           display: "grid",
           gridGap: "1.5rem",

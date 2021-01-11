@@ -31,3 +31,4 @@ yarn-error.log*
 docs/.mdx-data
 docs/.next
 docs/out
+docs/public/search-index.json

@@ -60,8 +60,16 @@
     font-size: 0.9rem;
   }
 
+  h1 > code {
+    font-size: 2rem;
+  }
+
   table code {
     @apply whitespace-nowrap;
+  }
+
+  .search-result:hover .search-content {
+    @apply bg-gray-100;
   }
 }
 
@@ -71,6 +79,10 @@
 
     tbody .tr:nth-child(odd) {
       @apply bg-gray-900;
+    }
+
+    .search-result:hover .search-content {
+      @apply bg-gray-800;
     }
   }
 }

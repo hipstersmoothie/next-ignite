@@ -59,7 +59,7 @@ const BlogLayout = ({
           <Avatar email={frontMatter.email} className="-mt-12 mb-4" />
           <h1
             className={makeClass(
-              "text-3xl font-light mb-4",
+              "lvl1 text-3xl font-light mb-4",
               "dark:text-gray-200"
             )}
           >

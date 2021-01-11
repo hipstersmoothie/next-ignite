@@ -33,6 +33,7 @@
     "@reach/skip-nav": "^0.12.1",
     "@react-hook/passive-layout-effect": "^1.2.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
+    "cheerio": "^1.0.0-rc.5",
     "clsx": "^1.1.0",
     "command-line-application": "^0.9.6",
     "copy-template-dir": "^1.4.0",
@@ -50,6 +51,7 @@
     "push-dir": "^0.4.1",
     "react": "16.13.0",
     "react-dom": "16.13.0",
+    "react-merge-refs": "^1.1.0",
     "rehype": "^9.0.1",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-autolink-headings": "^3.0.0",
@@ -57,7 +59,8 @@
     "remark-emoji": "^2.0.2",
     "scroll-lock": "^2.1.4",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
-    "title-case": "^3.0.2"
+    "title-case": "^3.0.2",
+    "use-click-outside": "^2.0.0"
   },
   "devDependencies": {
     "@auto-it/gh-pages": "^9.39.0",

@@ -56,7 +56,7 @@ const NavBarLayout = ({
 
       <SkipNavLink />
 
-      <div id="ignite" className="min-h-screen flex flex-col dark:bg-gray-1000">
+      <div id="ignite" className="min-h-screen flex flex-col bg-white dark:bg-gray-1000">
         <NavBar
           sections={JSON.parse(process.env.TOP_LEVEL_SECTIONS)}
           hasHomePage={process.env.HAS_HOMEPAGE as any}

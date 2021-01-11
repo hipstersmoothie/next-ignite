@@ -1,12 +1,14 @@
 import React from "react";
 import makeClass from "clsx";
 import Link from "next/link";
+import mergeRefs from "react-merge-refs";
+import { useRouter } from "next/router";
+import useClickOutside from "use-click-outside";
 
 import { MDXProviderComponents } from "@mdx-js/react";
 import { prefixURL } from "next-prefixed";
 import useLayoutEffect from "@react-hook/passive-layout-effect";
-import { postFixHTML } from "../utils/format-path";
-
+import { postFixHTML, formatPath } from "../utils/format-path";
 
 export type Element<
   T extends keyof JSX.IntrinsicElements
@@ -68,7 +70,7 @@ const Logo = React.forwardRef(
       className={makeClass(
         DEFAULT_TEXT_COLOR,
         "px-6 h-full focus:outline-none focus-visible:ring ring-inset rounded flex items-center font-normal cursor-pointer text-xl",
-        "md:pr-10 lg:w-1/5",
+        "md:pr-10 lg:w-60 xl:w-72",
         className
       )}
       {...props}
@@ -92,35 +94,244 @@ const Logo = React.forwardRef(
   )
 );
 
+interface MatchHighlightProps {
+  children: string;
+  term: string;
+}
+
+const MatchHighlight = ({ children, term }: MatchHighlightProps) => {
+  const highlighted = React.useMemo(() => {
+    let remaining = children;
+    let content = [];
+    const termRegex = new RegExp(term, "i");
+
+    while (remaining.match(termRegex)) {
+      const start = remaining.toLowerCase().indexOf(term.toLowerCase());
+      const end = start + term.length;
+
+      content.push(remaining.slice(0, start));
+      content.push(
+        <span className="text-primary-500 bg-gray-200 dark:text-primary-300 dark:bg-gray-700">
+          {remaining.slice(start, end)}
+        </span>
+      );
+
+      remaining = remaining.slice(end);
+    }
+
+    content.push(remaining);
+
+    return content;
+  }, [children, term]);
+
+  return <>{highlighted}</>;
+};
+
 /** The component used to search the mdx. */
 const SearchInput = React.forwardRef(
   (
     { className, ...props }: Element<"input">,
     ref: React.Ref<HTMLInputElement>
-  ) => (
-    <input
-      ref={ref}
-      id="search"
-      autoComplete="off"
-      placeholder='Search (Press "/" to focus)'
-      className={makeClass(
-        className,
-        DEFAULT_TEXT_COLOR,
-        "placeholder-gray-500 rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 w-full",
-        "focus:bg-white focus:outline-none",
-        "dark-placeholder:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-900 dark-focus:bg-gray-1000 dark-focus:border-gray-800 dark-focus:text-white"
-      )}
-      {...props}
-    />
-  )
+  ) => {
+    const router = useRouter();
+    const [search, searchSet] = React.useState("");
+    const [showResults, showResultsSet] = React.useState(false);
+    const [hasInteracted, hasInteractedSet] = React.useState(false);
+    const [current, currentSet] = React.useState(0);
+    const data = React.useRef([]);
+    const innerRef = React.useRef<HTMLDivElement>();
+
+    const normalizedSearch = search.toLowerCase();
+    const matchingResults = data.current
+      .filter((result) => {
+        const matchedPath = result.path[result.path.length - 1]
+          .toLowerCase()
+          .includes(normalizedSearch);
+        const matchedContent = result.content
+          .toLowerCase()
+          .includes(normalizedSearch);
+
+        return matchedPath || matchedContent;
+      })
+      .sort((a, b) => {
+        const getWeight = (n) => {
+          const contentMatch = n.content
+            .toLowerCase()
+            .includes(normalizedSearch)
+            ? 1
+            : 0;
+          const pathMatch = n.path.filter((p) =>
+            p.toLowerCase().includes(normalizedSearch)
+          ).length;
+
+          return contentMatch + pathMatch;
+        };
+
+        console.log({
+          a,
+          aw: getWeight(a),
+          b,
+          bw: getWeight(b),
+        });
+
+        return getWeight(b) - getWeight(a);
+      });
+
+    useClickOutside(innerRef, () => showResultsSet(false));
+
+    React.useEffect(() => {
+      fetch("/search-index.json")
+        .then((res) => res.text())
+        .then((text) => (data.current = JSON.parse(text)));
+    }, []);
+
+    React.useEffect(() => {
+      const el = document.querySelector<HTMLDivElement>("[aria-selected=true");
+
+      if (el) {
+        el.scrollIntoView({ block: "nearest" });
+      }
+    }, [current]);
+
+    return (
+      <div
+        ref={mergeRefs([ref, innerRef])}
+        className="w-full relative"
+        onKeyDown={(e) => {
+          if (e.key === "Escape") {
+            showResultsSet(false);
+          }
+
+          if (e.key === "Tab" || e.key === "Enter") {
+            if (search && showResults) {
+              router.push(formatPath(matchingResults[current].url));
+              e.preventDefault();
+            }
+
+            showResultsSet(false);
+          }
+
+          if (e.key === "ArrowDown") {
+            currentSet(Math.min(matchingResults.length - 1, current + 1));
+            hasInteractedSet(true);
+            e.preventDefault();
+          }
+
+          if (e.key === "ArrowUp") {
+            currentSet(Math.max(0, current - 1));
+            hasInteractedSet(true);
+            e.preventDefault();
+          }
+        }}
+      >
+        <input
+          id="search"
+          autoComplete="off"
+          placeholder='Search (Press "/" to focus)'
+          className={makeClass(
+            className,
+            DEFAULT_TEXT_COLOR,
+            "placeholder-gray-500 rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 w-full",
+            "focus:bg-white focus:outline-none",
+            "dark-placeholder:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-900 dark:focus:bg-gray-1000 dark:focus:border-gray-800 dark:focus:text-white"
+          )}
+          value={search}
+          onChange={(e) => {
+            searchSet(e.target.value);
+            showResultsSet(Boolean(e.target.value));
+          }}
+          {...props}
+        />
+
+        {showResults && (
+          <div
+            role="list-box"
+            className={makeClass(
+              "bg-white rounded pt-6 px-4 mt-1 border border-gray-200 shadow-lg overflow-auto top-full left-0 right-0 absolute z-10",
+              "dark:bg-gray-1000 dark:border-gray-800"
+            )}
+            style={{
+              maxHeight: "80vh",
+            }}
+            onMouseOver={() => hasInteractedSet(true)}
+          >
+            {matchingResults.length ? (
+              matchingResults.map((item, index) => {
+                const contentIndex = item.content
+                  .toLowerCase()
+                  .indexOf(normalizedSearch);
+                const contentStart = Math.max(0, contentIndex - 40);
+                const contentEnd = Math.min(
+                  item.content.length,
+                  contentIndex + search.length + 40
+                );
+                const isSelected =
+                  (index === 0 && !hasInteracted) || index === current;
+
+                return (
+                  <div
+                    role="option"
+                    className="search-result pb-4 cursor-pointer"
+                    aria-selected={isSelected}
+                  >
+                    <a href={formatPath(item.url)}>
+                      <div className="border-b border-gray-400 pb-2 text-gray-800 dark:text-gray-300 dark:border-gray-600">
+                        {item.path[0]}
+                      </div>
+
+                      <div className="flex py-2 text-sm">
+                        <div className="w-1/3 font-medium	border-r border-gray-400 px-3 py-2 text-gray-600 dark:text-gray-400">
+                          <MatchHighlight term={search}>
+                            {item.path[1]}
+                          </MatchHighlight>
+                        </div>
+
+                        <div
+                          className={makeClass(
+                            "search-content w-2/3 px-3 py-2 text-gray-900 dark:text-gray-400",
+                            isSelected && "bg-gray-100 dark:bg-gray-800"
+                          )}
+                        >
+                          <div className="font-bold">
+                            <MatchHighlight term={search}>
+                              {item.path.slice(2).join(" > ") || item.path[1]}
+                            </MatchHighlight>
+                          </div>
+
+                          {contentIndex !== -1 && (
+                            <div className="mt-2 text-gray-700 dark:text-gray-400">
+                              {contentStart !== 0 && "…"}
+                              <MatchHighlight term={search}>
+                                {item.content.slice(contentStart, contentEnd)}
+                              </MatchHighlight>
+                              {contentEnd !== item.content.length && "…"}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                );
+              })
+            ) : (
+              <div className="pb-6 text-center">
+                No match results for search{" "}
+                <span className="font-semibold">"{search}"</span>!
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
 );
 
 /** The component used to render the wrapper around the navbar */
 const NavBarWrapper = ({ className, ...props }: Element<"div">) => (
   <div
     className={makeClass(
-      "border-b border-grey-200 lg:mx-0",
-      "dark:border-gray-900",
+      "sticky top-0 z-40 border-b border-gray-200 lg:mx-0 bg-white dark:bg-gray-1000",
+      "dark:border-gray-800",
       className
     )}
     {...props}
@@ -131,7 +342,7 @@ const NavBarWrapper = ({ className, ...props }: Element<"div">) => (
 const NavBar = ({ className, ...props }: Element<"div">) => (
   <div
     className={makeClass(
-      "h-16 max-w-screen-xl mx-auto w-full flex justify-between items-center",
+      "h-16 max-w-6xl mx-auto w-full flex justify-between items-center",
       className
     )}
     {...props}
@@ -150,7 +361,7 @@ const NavBarItem = React.forwardRef(
       className={makeClass(
         "justify-center h-full flex items-center px-6 py-4 cursor-pointer text-gray-700",
         "hover:bg-gray-200 hover:text-primary-600 focus:bg-gray-200 focus:text-primary-600 focus:outline-none focus-visible:ring ring-inset",
-        "dark:text-gray-400 dark-hover:bg-gray-900 dark-hover:text-white dark-focus:bg-gray-1000 dark-focus:text-white",
+        "dark:text-gray-400 dark:hover:bg-gray-900 dark:hover:text-white dark:focus:bg-gray-1000 dark:focus:text-white",
         className
       )}
       {...props}
@@ -161,7 +372,7 @@ const NavBarItem = React.forwardRef(
 );
 
 /** The component used to render the sidebar */
-const Sidebar = ({ className, ...props }: Element<"div">) => {
+const Sidebar = ({ className, children, ...props }: Element<"div">) => {
   const ref = React.useRef<HTMLDivElement>();
 
   useLayoutEffect(() => {
@@ -195,11 +406,21 @@ const Sidebar = ({ className, ...props }: Element<"div">) => {
       className={makeClass(
         "sidebar-root",
         className,
-        "pt-6 pb-12 lg:pb-24 w-full",
-        "lg:w-1/5 lg:max-w-xs lg:max-h-screen lg:overflow-y-auto lg:sticky lg:top-0"
+        "w-full h-auto",
+        "lg:w-60 xl:w-72 lg:static pl-6"
       )}
       {...props}
-    />
+    >
+      <div className="lg:sticky lg:top-16">
+        <div className="hidden lg:block h-12 pointer-events-none absolute inset-x-0 z-10 bg-gradient-to-b from-white mr-2.5 dark:from-gray-1000" />
+        <div
+          className="lg:max-h-screen lg:overflow-y-auto border-box"
+          style={{ height: "calc(100vh - 4rem)" }}
+        >
+          <div className="pb-12 pt-8 pr-4 lg:pb-16">{children}</div>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -219,8 +440,8 @@ const SidebarDivider = ({ className, ...props }: Element<"hr">) => (
 const SidebarTitle = ({ className, ...props }: Element<"p">) => (
   <p
     className={makeClass(
-      "lvl0 text-xs uppercase tracking-wider font-semibold px-6 text-gray-500",
-      "dark:text-gray-600",
+      "lvl0 text-xs uppercase tracking-wider font-semibold text-gray-900",
+      "dark:text-gray-300",
       DEFAULT_SPACING,
       className
     )}
@@ -251,10 +472,10 @@ const SidebarLink = React.forwardRef(
       ref={ref}
       className={makeClass(
         className,
-        "text-base font-light hover:font-normal px-6 flex cursor-pointer focus:outline-none focus-visible:ring ring-inset rounded",
+        "text-gray-500 text-base font-light hover:font-normal pr-6 flex cursor-pointer focus:outline-none focus-visible:ring ring-inset rounded",
         isActive
-          ? "sidebar-active font-normal border-r-4 border-primary-600 dark:border-primary-400 dark:font-semibold dark:text-gray-100 rounded-r-none"
-          : "dark:text-gray-400 dark-hover:text-gray-100 dark-hover:font-normal"
+          ? "sidebar-active text-gray-700 font-normal border-r-4 border-primary-600 dark:border-primary-400 dark:font-semibold dark:text-gray-100 rounded-r-none"
+          : "dark:text-gray-400 dark:hover:text-gray-100 dark:hover:font-normal"
       )}
       {...props}
       onClick={(e) => {
@@ -283,7 +504,7 @@ const h1 = ({ className, ...props }: Element<"h1">) => {
       className={makeClass(
         className,
         "lvl1",
-        "relative text-5xl font-semibold leading-relaced mb-8",
+        "relative text-4xl font-semibold mb-4 md:mb-8",
         (!className || !className.includes("text-")) && HEADER_TEXT_COLOR
       )}
       {...props}
@@ -296,7 +517,7 @@ const h2 = ({ className, ...props }: Element<"h2">) => (
   <h2
     className={makeClass(
       "lvl2",
-      "relative text-3xl font-normal border-b border-gray-300 pb-4 mb-8 mt-12",
+      "relative text-3xl font-normal border-b border-gray-300 pb-4 mb-4 md:mb-8 mt-12",
       "dark:border-gray-700",
       HEADER_TEXT_COLOR,
       className

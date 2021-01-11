@@ -12,6 +12,7 @@ const ignite = require("../next");
 const { getConfig } = require("../dist/cjs/utils/get-config");
 const { buildSitemap } = require("../dist/cjs/utils/sitemap");
 const { getTopLevelSections } = require("../dist/cjs/utils/docs-data");
+const { buildSearchIndex } = require("../dist/cjs/utils/build-search-index");
 
 const buildNext = require("next/dist/build").default;
 const exportNext = require("next/dist/export").default;
@@ -75,7 +76,7 @@ if (args._command === "init") {
 if (args._command === "dev") {
   const docs = next({ dev: true, dir: "docs", conf: config });
   const handle = docs.getRequestHandler();
-  const sections = getTopLevelSections(config.order)
+  const sections = getTopLevelSections(config.order);
 
   docs.prepare().then(() => {
     createServer((req, res) => {
@@ -89,6 +90,7 @@ if (args._command === "dev") {
       }
 
       console.log(`> Ready on http://localhost:3000/${sections[0]}`);
+      buildSearchIndex('public');
     });
   });
 }
@@ -99,6 +101,7 @@ if (args._command === "build") {
 
   buildNext(docsDir, config)
     .then(() => exportNext(docsDir, { outdir }))
+    .then(() => buildSearchIndex())
     .then(() => {
       console.log("Export successful", 0);
       execSync(
