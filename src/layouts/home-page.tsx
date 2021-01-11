@@ -33,15 +33,15 @@ const HomePageLayout = ({
       <SkipNavContent />
       <div
         className={makeClass(
-          `bg-${color}-500 pt-16 pb-16`,
+          `bg-${color}-500 py-16 px-4`,
           `dark:bg-${color}-700`
         )}
       >
         <div className="max-w-screen-sm lg:max-w-screen-md mx-auto text-center text-white">
-          <h1 className="text-6xl">{frontMatter.title || process.env.PROJECT_NAME}</h1>
+          <h1 className="text-5xl lg:text-6xl mb-6">{frontMatter.title || process.env.PROJECT_NAME}</h1>
           <h2
             className={makeClass(
-              `text-2xl font-light text-${color}-100`,
+              `text-xl lg:text-2xl font-light text-${color}-100`,
               `dark:text-${color}-200`
             )}
           >
@@ -50,7 +50,7 @@ const HomePageLayout = ({
           <Link href={postFixHTML("/docs")}>
             <a
               className={makeClass(
-                `px-6 py-4 rounded text-${color}-700 font-medium bg-white inline-flex my-12`,
+                `px-6 py-4 rounded text-${color}-700 font-medium bg-white inline-flex mt-8 lg:mt-12`,
                 `focus:outline-none, hover:shadow-xl`
               )}
             >
@@ -61,7 +61,7 @@ const HomePageLayout = ({
       </div>
       <div
         className={makeClass(
-          "flex-1 pt-8 pb-32 px-6 max-w-screen-sm mx-auto",
+          "flex-1 pt-8 pb-20 lg:pb-32 px-6 max-w-screen-sm mx-auto",
           "lg:max-w-screen-md"
         )}
       >
