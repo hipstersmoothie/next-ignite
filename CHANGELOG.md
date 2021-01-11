@@ -1,3 +1,16 @@
+# v0.8.2 (Mon Jan 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- add tailwind extractor for purgecss ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix deployed search-index.json ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.1 (Mon Jan 11 2021)
 
 #### ⚠️ Pushed to `master`
