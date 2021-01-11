@@ -35,6 +35,12 @@
     @apply mt-8;
   }
 
+  @media (min-width: 1024px) {
+    .sidebar-items {
+      height: calc(100vh - 4rem)
+    }
+  }
+
   .lvl1 code {
     font-size: calc(3rem * 0.93);
   }

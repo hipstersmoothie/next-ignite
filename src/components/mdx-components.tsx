@@ -431,18 +431,17 @@ const Sidebar = ({ className, children, ...props }: Element<"div">) => {
       className={makeClass(
         "sidebar-root",
         className,
-        "w-full h-auto",
-        "lg:w-60 xl:w-72 lg:static pl-6"
+        "w-full h-auto lg:w-auto",
+        "lg:static"
       )}
       {...props}
     >
-      <div className="lg:sticky lg:top-16">
+      <div className="px-6 lg:pr-4 lg:sticky lg:top-16 w-full lg:w-60 xl:w-72">
         <div className="hidden lg:block h-12 pointer-events-none absolute inset-x-0 z-10 bg-gradient-to-b from-white mr-2.5 dark:from-gray-1000" />
         <div
-          className="lg:max-h-screen lg:overflow-y-auto border-box"
-          style={{ height: "calc(100vh - 4rem)" }}
+          className="sidebar-items lg:max-h-screen lg:overflow-y-auto border-box"
         >
-          <div className="pb-12 pt-8 pr-4 lg:pb-16">{children}</div>
+          <div className="pb-12 pt-8 lg:pb-16">{children}</div>
         </div>
       </div>
     </div>
