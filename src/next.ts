@@ -89,6 +89,7 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 // order - string array of top level section order
 // htmlUrls - Add .html to the end of each URL
 module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
+  const debug = process.env.NODE_ENV !== "production";
   const env = getEnv(igniteConfig);
 
   process.env = {
@@ -99,7 +100,7 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
   return withBundleAnalyzer(
     withMdxEnhanced({
       ...nextConfig,
-      basePath: env.BASE_PATH,
+      basePath: debug? '' : env.BASE_PATH,
       publicRuntimeConfig: {
         assetPrefix: env.BASE_PATH,
       },
