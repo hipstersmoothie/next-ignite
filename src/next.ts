@@ -100,12 +100,29 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
   return withBundleAnalyzer(
     withMdxEnhanced({
       ...nextConfig,
-      basePath: debug? '' : env.BASE_PATH,
+      basePath: debug ? "" : env.BASE_PATH,
       publicRuntimeConfig: {
         assetPrefix: env.BASE_PATH,
       },
       env,
       webpack: (config) => {
+        function tailwindExtractor(content) {
+          // Capture as liberally as possible, including things like `h-(screen-1.5)`
+          const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [];
+          const broadMatchesWithoutTrailingSlash = broadMatches.map((match) =>
+            match.trimEnd("\\")
+          );
+
+          // Capture classes within other delimiters like .block(class="w-1/2") in Pug
+          const innerMatches =
+            content.match(/[^<>"'`\s.(){}[\]#=%]*[^<>"'`\s.(){}[\]#=%:]/g) ||
+            [];
+
+          return broadMatches
+            .concat(broadMatchesWithoutTrailingSlash)
+            .concat(innerMatches);
+        }
+
         config.plugins.push(
           new PurgeCSSPlugin({
             paths: glob.sync([
@@ -117,6 +134,7 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
               standard: [/^.bg-/, /^.text-/],
               greedy: [/dark:bg-/, /dark:text-/],
             },
+            defaultExtractor: (content) => [...tailwindExtractor(content)],
           })
         );
 
