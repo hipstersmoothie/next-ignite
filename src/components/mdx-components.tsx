@@ -141,6 +141,7 @@ const SearchInput = React.forwardRef(
   ) => {
     const router = useRouter();
 
+    let lastLvl0: string | undefined;
     const data = React.useRef([]);
     const innerRef = React.useRef<HTMLDivElement>();
     const [current, currentSet] = React.useState(0);
@@ -277,6 +278,9 @@ const SearchInput = React.forwardRef(
                 );
                 const isSelected =
                   (index === 0 && !hasInteracted) || index === current;
+                const isGrouped = lastLvl0 === item.path[0];
+
+                lastLvl0 = item.path[0];
 
                 return (
                   <div
@@ -291,7 +295,12 @@ const SearchInput = React.forwardRef(
                         searchSet("");
                       }}
                     >
-                      <div className="border-b border-gray-400 pb-2 text-gray-800 dark:text-gray-300 dark:border-gray-600">
+                      <div
+                        className={makeClass(
+                          "border-b border-gray-400 pb-2 text-gray-800 dark:text-gray-300 dark:border-gray-600",
+                          isGrouped && "hidden"
+                        )}
+                      >
                         {item.path[0]}
                       </div>
 
