@@ -25,7 +25,6 @@
     if (checkDarkMode()) {
       document.documentElement.classList.add("mode-dark");
       document.documentElement.classList.add("bg-gray-1000");
-      addCss("https://www.unpkg.com/prismjs@1.19.0/themes/prism-tomorrow.css");
     } else {
       document.documentElement.classList.remove("mode-dark");
       document.documentElement.classList.remove("bg-gray-1000");
