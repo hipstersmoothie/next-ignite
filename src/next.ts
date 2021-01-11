@@ -131,7 +131,7 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
               path.join(DOCS_DIR, "./**/*.{js,jsx,ts,tsx,mdx}"),
             ]),
             safelist: {
-              standard: [/^.bg-/, /^.text-/],
+              standard: [/^bg-/, /.text-/],
               greedy: [/dark:bg-/, /dark:text-/],
             },
             defaultExtractor: (content) => [...tailwindExtractor(content)],
