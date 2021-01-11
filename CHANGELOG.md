@@ -1,3 +1,15 @@
+# v0.8.4 (Mon Jan 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- closes results when user clicks an item ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.3 (Mon Jan 11 2021)
 
 #### ⚠️ Pushed to `master`
