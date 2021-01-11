@@ -1,6 +1,5 @@
 import path from "path";
 
-
 export function formatPath(p: string) {
   return path.join(process.env.BASE_PATH, `/${p.replace(/\.mdx$/, "")}`);
 }

@@ -52,14 +52,14 @@ const BlogLayout = ({
           "DocSearch-content blog-post",
           "pt-6 pb-12 px-6 w-full max-w-screen-sm mx-auto rounded -mt-10 bg-white shadow-md text-gray-800",
           "lg:max-w-screen-md",
-          "dark:bg-gray-900"
+          "dark:bg-gray-900 border dark:border-gray-500"
         )}
       >
         <div className="max-w-screen-sm lg:max-w-screen-md mx-auto text-center flex flex-col items-center">
           <Avatar email={frontMatter.email} className="-mt-12 mb-4" />
           <h1
             className={makeClass(
-              "text-3xl font-light mb-4",
+              "lvl1 text-3xl font-light mb-4",
               "dark:text-gray-200"
             )}
           >

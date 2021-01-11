@@ -33,11 +33,13 @@ export default ({ color = "primary" }: BlogIndexProps) => {
       </Head>
 
       <div className={`bg-${color}-600 flex items-center justify-center p-16`}>
-        <components.h1 className="text-white">Blog</components.h1>
+        <components.h1 className="text-white" style={{ marginBottom: 0 }}>
+          Blog
+        </components.h1>
       </div>
 
       <ul
-        className="px-4 mt-8 mb-12 lg:max-w-screen-xl lg:mx-auto w-full lg:mt-16"
+        className="px-4 mt-8 mb-12 lg:max-w-6xl lg:mx-auto w-full lg:mt-16"
         style={{
           display: "grid",
           gridGap: "1.5rem",
@@ -49,7 +51,7 @@ export default ({ color = "primary" }: BlogIndexProps) => {
             <Link href={postFixHTML(page.__resourcePath)}>
               <a
                 className={makeClass(
-                  "rounded border border-gray-300 py-8 px-10 flex items-center focus:outline-none focus-visible:ring",
+                  "rounded border border-gray-500 py-8 px-10 flex items-center focus:outline-none focus-visible:ring",
                   "dark:bg-gray-900"
                 )}
               >

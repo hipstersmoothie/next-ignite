@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import glob from "fast-glob";
 
+export const DOCS_DIR = path.resolve("./docs");
 export const PAGES_DIR = path.resolve("./docs/pages");
 export const MDX_DATA_DIR = path.resolve("./docs/.mdx-data");
 

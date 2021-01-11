@@ -9,8 +9,6 @@ import NavBarLayout from "./nav-bar";
 import { Page } from "../utils/types";
 import getFrontMatters from "../utils/get-front-matters";
 
-const CONTENT_AREA =
-  "pt-8 pb-32 px-4 lg:mx-auto max-w-full md:max-w-screen-sm lg:max-w-screen-md";
 const CODE_BLOCK_REGEX = /([^`]*)`([^`]*)`(.*)/m;
 
 function constructTitleFromMarkdown(
@@ -53,26 +51,28 @@ const DocsLayout = ({
 
   return (
     <NavBarLayout menuState={[menuOpen, setMenuOpen]}>
-      <div className="flex flex-1 w-full max-w-screen-sm lg:max-w-screen-xl mx-auto">
-        <Sidebar links={links} folder={resource} />
+      <div className="flex-1 w-full lg:max-w-6xl mx-auto">
+        <div className="flex">
+          <Sidebar links={links} folder={resource} />
 
-        <SkipNavContent />
-        <main
-          className={makeClass(
-            "DocSearch-content",
-            CONTENT_AREA,
-            "flex-1",
-            "lg:block",
-            menuOpen && "hidden"
-          )}
-        >
-          {frontMatter.title && (
-            <components.h1>
-              {constructTitleFromMarkdown(components, frontMatter.title)}
-            </components.h1>
-          )}
-          {content}
-        </main>
+          <SkipNavContent />
+          <main
+            className={makeClass(
+              "DocSearch-content",
+              "pt-8 pb-20 lg:pb-16 px-4 sm:px-6 xl:px-12 lg:mx-auto w-full",
+              "flex-1",
+              "lg:block",
+              menuOpen && "hidden"
+            )}
+          >
+            {frontMatter.title && (
+              <components.h1>
+                {constructTitleFromMarkdown(components, frontMatter.title)}
+              </components.h1>
+            )}
+            {content}
+          </main>
+        </div>
       </div>
     </NavBarLayout>
   );

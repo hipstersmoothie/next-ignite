@@ -24,7 +24,7 @@ const Search = () => {
   const { SearchInput } = useMDXComponents() as Components;
 
   return (
-    <div className="relative h-full flex items-center w-full lg:w-auto lg:flex-1 lg:mr-4 px-4">
+    <div className="relative h-full flex items-center w-full lg:w-auto lg:flex-1 lg:mr-4 lg:pr-4">
       <SearchInput />
     </div>
   );
@@ -60,7 +60,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
             <Logo />
           )}
 
-          <div className="w-full h-full flex items-center lg:flex flex-1 lg:max-w-screen-md lg:mx-auto">
+          <div className="w-full h-full flex items-center lg:flex flex-1 lg:pl-12 lg:pr-6 lg:mx-auto">
             <Search />
 
             <MobileMenuButton
