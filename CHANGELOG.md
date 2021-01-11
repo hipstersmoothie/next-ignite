@@ -1,3 +1,34 @@
+# v0.8.0 (Mon Jan 11 2021)
+
+### Release Notes
+
+_From #32_
+
+This release has a bunch of new features and a refreshed design.
+
+**New Features:**
+
+- Purge unused CSS
+- RSS feed for blog
+- Built-in search
+
+**Dependency Updates:**
+
+- Tailwind 2.0
+- Next 10.0
+
+---
+
+#### 🚀 Enhancement
+
+- Design + Tech ReFresh [#32](https://github.com/hipstersmoothie/next-ignite/pull/32) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.7.14 (Sun Jan 10 2021)
 
 #### ⚠️ Pushed to `master`
