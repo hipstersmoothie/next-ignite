@@ -1,3 +1,15 @@
+# v0.8.3 (Mon Jan 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- turn off autocomplete on search input ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.2 (Mon Jan 11 2021)
 
 #### ⚠️ Pushed to `master`
