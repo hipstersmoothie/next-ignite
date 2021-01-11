@@ -1,3 +1,15 @@
+# v0.8.6 (Mon Jan 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix color inclusing ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.5 (Mon Jan 11 2021)
 
 #### ⚠️ Pushed to `master`
