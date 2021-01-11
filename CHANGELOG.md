@@ -1,3 +1,15 @@
+# v0.8.1 (Mon Jan 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix `dev` command ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.0 (Mon Jan 11 2021)
 
 ### Release Notes
