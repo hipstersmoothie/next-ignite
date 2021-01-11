@@ -701,7 +701,7 @@ const pre = ({ className, ...props }: Element<"pre">) => (
 const table = ({ className, ...props }: Element<"table">) => (
   <div className="overflow-auto">
     <table
-      className={makeClass(className, DEFAULT_TEXT_COLOR, "w-full my-10")}
+      className={makeClass(className, DEFAULT_TEXT_COLOR, "w-full my-6")}
       {...props}
     />
   </div>
@@ -718,7 +718,7 @@ const td = ({ className, ...props }: Element<"td">) => (
   <td
     className={makeClass(
       className,
-      "py-4 px-3 border-b border-t",
+      "py-2 px-3 border-b border-t",
       "dark:border-gray-800"
     )}
     {...props}
