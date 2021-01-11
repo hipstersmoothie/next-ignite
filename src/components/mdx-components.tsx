@@ -4,6 +4,7 @@ import Link from "next/link";
 import mergeRefs from "react-merge-refs";
 import { useRouter } from "next/router";
 import useClickOutside from "use-click-outside";
+import join from 'url-join';
 
 import { MDXProviderComponents } from "@mdx-js/react";
 import { prefixURL } from "next-prefixed";
@@ -180,7 +181,7 @@ const SearchInput = React.forwardRef(
     useClickOutside(innerRef, () => showResultsSet(false));
 
     React.useEffect(() => {
-      fetch("/search-index.json")
+      fetch(join(process.env.BASE_PATH, "search-index.json"))
         .then((res) => res.text())
         .then((text) => (data.current = JSON.parse(text)));
     }, []);
