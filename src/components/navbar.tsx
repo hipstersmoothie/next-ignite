@@ -60,7 +60,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
             <Logo />
           )}
 
-          <div className="w-full h-full flex items-center lg:flex flex-1 lg:px-12 lg:mx-auto">
+          <div className="w-full h-full flex items-center lg:flex flex-1 lg:pl-12 lg:pr-6 lg:mx-auto">
             <Search />
 
             <MobileMenuButton

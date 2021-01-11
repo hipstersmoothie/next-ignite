@@ -33,7 +33,9 @@ export default ({ color = "primary" }: BlogIndexProps) => {
       </Head>
 
       <div className={`bg-${color}-600 flex items-center justify-center p-16`}>
-        <components.h1 className="text-white">Blog</components.h1>
+        <components.h1 className="text-white" style={{ marginBottom: 0 }}>
+          Blog
+        </components.h1>
       </div>
 
       <ul
