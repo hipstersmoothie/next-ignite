@@ -1,3 +1,15 @@
+# v0.8.9 (Mon Jan 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- group search results by lvl0 heading ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.8 (Mon Jan 11 2021)
 
 #### ⚠️ Pushed to `master`
