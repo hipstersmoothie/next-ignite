@@ -123,20 +123,22 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
             .concat(innerMatches);
         }
 
-        config.plugins.push(
-          new PurgeCSSPlugin({
-            paths: glob.sync([
-              path.join(__dirname, "./components/*.js"),
-              path.join(__dirname, "./layouts/*.js"),
-              path.join(DOCS_DIR, "./**/*.{js,jsx,ts,tsx,mdx}"),
-            ]),
-            safelist: {
-              standard: [/^bg-/, /.text-/],
-              greedy: [/dark:bg-/, /dark:text-/],
-            },
-            defaultExtractor: (content) => [...tailwindExtractor(content)],
-          })
-        );
+        if (!debug) {
+          config.plugins.push(
+            new PurgeCSSPlugin({
+              paths: glob.sync([
+                path.join(__dirname, "./components/*.js"),
+                path.join(__dirname, "./layouts/*.js"),
+                path.join(DOCS_DIR, "./**/*.{js,jsx,ts,tsx,mdx}"),
+              ]),
+              safelist: {
+                standard: [/^bg-/, /.text-/],
+                greedy: [/dark:bg-/, /dark:text-/],
+              },
+              defaultExtractor: (content) => [...tailwindExtractor(content)],
+            })
+          );
+        }
 
         return config;
       },
