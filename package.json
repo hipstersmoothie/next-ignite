@@ -40,6 +40,7 @@
     "cosmiconfig": "^6.0.0",
     "dotenv": "^8.2.0",
     "fast-glob": "^3.2.2",
+    "feed": "^4.2.1",
     "gravatar": "^1.8.0",
     "mdx-prism": "^0.3.1",
     "next": "^10.0.5",
@@ -60,6 +61,7 @@
     "scroll-lock": "^2.1.4",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "title-case": "^3.0.2",
+    "url-join": "^4.0.1",
     "use-click-outside": "^2.0.0"
   },
   "devDependencies": {
@@ -67,6 +69,7 @@
     "@design-systems/cli": "^2.7.3",
     "@types/gravatar": "^1.8.1",
     "@types/mdx-js__react": "^1.5.1",
+    "@types/url-join": "^4.0.0",
     "auto": "^9.39.0",
     "autoprefixer": "^9.7.4",
     "next-ignite": "link:./",

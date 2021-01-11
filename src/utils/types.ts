@@ -13,6 +13,7 @@ export interface BlogPost extends Page {
   title: string;
   author: string;
   email?: string;
+  image?: string;
 }
 
 export interface MarkdownPage extends Page {

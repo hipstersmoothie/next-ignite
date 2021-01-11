@@ -51,7 +51,7 @@ export default ({ color = "primary" }: BlogIndexProps) => {
             <Link href={postFixHTML(page.__resourcePath)}>
               <a
                 className={makeClass(
-                  "rounded border border-gray-300 py-8 px-10 flex items-center focus:outline-none focus-visible:ring",
+                  "rounded border border-gray-500 py-8 px-10 flex items-center focus:outline-none focus-visible:ring",
                   "dark:bg-gray-900"
                 )}
               >
