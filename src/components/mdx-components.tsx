@@ -4,7 +4,7 @@ import Link from "next/link";
 import mergeRefs from "react-merge-refs";
 import { useRouter } from "next/router";
 import useClickOutside from "use-click-outside";
-import join from 'url-join';
+import join from "url-join";
 
 import { MDXProviderComponents } from "@mdx-js/react";
 import { prefixURL } from "next-prefixed";
@@ -228,6 +228,9 @@ const SearchInput = React.forwardRef(
         <input
           id="search"
           autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck="false"
           placeholder='Search (Press "/" to focus)'
           className={makeClass(
             className,
