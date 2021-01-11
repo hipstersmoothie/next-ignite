@@ -1,3 +1,16 @@
+# v0.8.10 (Mon Jan 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- improve home page mobile ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix sidebar mobile rendering and small items ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.9 (Mon Jan 11 2021)
 
 #### ⚠️ Pushed to `master`
