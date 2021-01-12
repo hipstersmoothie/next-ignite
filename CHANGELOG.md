@@ -1,3 +1,15 @@
+# v0.8.12 (Tue Jan 12 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix logo link href ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.11 (Tue Jan 12 2021)
 
 #### ⚠️ Pushed to `master`
