@@ -1,15 +1,12 @@
 import fs from "fs";
 import path from "path";
 import { execSync } from "child_process";
-import glob from "fast-glob";
 import rehypePrism from "@mapbox/rehype-prism";
 import autoLink from "rehype-autolink-headings";
 import a11yEmoji from "rehype-accessible-emojis";
 import slug from "rehype-slug";
 import emoji from "remark-emoji";
-import PurgeCSSPlugin from "purgecss-webpack-plugin";
 
-import { DOCS_DIR } from "./utils/docs-data";
 import { getEnv } from "./utils/get-env";
 import { IgniteConfig } from "./utils/types";
 import { getAuthor } from "./utils/get-author";
@@ -110,43 +107,6 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
         assetPrefix: basePath,
       },
       env,
-      webpack: (config) => {
-        function tailwindExtractor(content) {
-          // Capture as liberally as possible, including things like `h-(screen-1.5)`
-          const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [];
-          const broadMatchesWithoutTrailingSlash = broadMatches.map((match) =>
-            match.trimEnd("\\")
-          );
-
-          // Capture classes within other delimiters like .block(class="w-1/2") in Pug
-          const innerMatches =
-            content.match(/[^<>"'`\s.(){}[\]#=%]*[^<>"'`\s.(){}[\]#=%:]/g) ||
-            [];
-
-          return broadMatches
-            .concat(broadMatchesWithoutTrailingSlash)
-            .concat(innerMatches);
-        }
-
-        if (!debug) {
-          config.plugins.push(
-            new PurgeCSSPlugin({
-              paths: glob.sync([
-                path.join(__dirname, "./components/*.js"),
-                path.join(__dirname, "./layouts/*.js"),
-                path.join(DOCS_DIR, "./**/*.{js,jsx,ts,tsx,mdx}"),
-              ]),
-              safelist: {
-                standard: [/^bg-/, /.text-/],
-                greedy: [/dark:bg-/, /dark:text-/],
-              },
-              defaultExtractor: (content) => [...tailwindExtractor(content)],
-            })
-          );
-        }
-
-        return config;
-      },
     })
   );
 };
