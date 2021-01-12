@@ -1,3 +1,16 @@
+# v0.8.13 (Tue Jan 12 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix building docs for root ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix search-index build w/inconsistent headings, no lvls ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.12 (Tue Jan 12 2021)
 
 #### ⚠️ Pushed to `master`
