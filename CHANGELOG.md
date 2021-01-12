@@ -1,3 +1,17 @@
+# v0.8.11 (Tue Jan 12 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix search result links ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix logo link when using html URLs ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- only purge-css in production ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.10 (Mon Jan 11 2021)
 
 #### ⚠️ Pushed to `master`
