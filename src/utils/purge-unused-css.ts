@@ -35,10 +35,6 @@ export const purgeUnusedCss = async (config: IgniteConfig) => {
       }),
       // Purge the output css
       css: glob.sync(path.join(DOCS_DIR, "out/_next/static/css/**/*.css")),
-      safelist: {
-        standard: [/^bg-/, /.text-/],
-        greedy: [/dark:bg-/, /dark:text-/],
-      },
       defaultExtractor: (content) => [...tailwindExtractor(content)],
     });
 
