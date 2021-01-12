@@ -1,3 +1,15 @@
+# v0.8.14 (Tue Jan 12 2021)
+
+#### 🐛 Bug Fix
+
+- purge after next build so any 3rd party components are taken into account [#33](https://github.com/hipstersmoothie/next-ignite/pull/33) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.13 (Tue Jan 12 2021)
 
 #### ⚠️ Pushed to `master`
