@@ -8,8 +8,7 @@ import { DOCS_DIR } from "./docs-data";
 
 const getContentBeforeNextHeading = (
   $: ReturnType<typeof cheerio.load>,
-  node: NodeWithChildren,
-  lvl: number
+  node: NodeWithChildren
 ) => {
   const next = $(node).nextAll().toArray();
   let content = "";
@@ -17,11 +16,7 @@ const getContentBeforeNextHeading = (
   for (let index = 0; index < next.length; index++) {
     const element = next[index];
 
-    if (
-      $(element).hasClass(`lvl${lvl}`) ||
-      $(element).hasClass(`lvl${lvl + 1}`) ||
-      $(element).hasClass(`lvl${lvl - 1}`)
-    ) {
+    if ($(element).hasClass(`[class^="lvl"]`)) {
       break;
     }
 
@@ -46,7 +41,7 @@ const getHeadingsBeforeNextHeading = (
       break;
     }
 
-    if ($(element).hasClass(`lvl${lvl + 1}`)) {
+    if ($(element).hasClass(`[class^="lvl"]`)) {
       titles.push(element);
     }
   }
@@ -74,7 +69,7 @@ const getPage = (page: string) => {
       url: `${relative(DOCS_DIR, page)
         .replace("out/", "")
         .replace(".html", "")}${node.attribs.id ? `#${node.attribs.id}` : ""}`,
-      content: getContentBeforeNextHeading($, searchNode, lvl),
+      content: getContentBeforeNextHeading($, searchNode),
     };
 
     return [
@@ -86,7 +81,15 @@ const getPage = (page: string) => {
     ];
   };
 
-  return buildTree([lvl0], $(".lvl1")[0]);
+  const firstLvl = [1, 2, 3, 4, 5, 6]
+    .map((lvl) => $(`.lvl${lvl}`)[0])
+    .find(Boolean);
+
+  if (!firstLvl) {
+    return;
+  }
+
+  return buildTree([lvl0], firstLvl);
 };
 
 export const buildSearchIndex = (dest = "out") => {
@@ -101,7 +104,7 @@ export const buildSearchIndex = (dest = "out") => {
 
     fs.writeFileSync(
       join(DOCS_DIR, dest, "search-index.json"),
-      JSON.stringify(pagesToIndex.map(getPage).flat(), null, 2)
+      JSON.stringify(pagesToIndex.map(getPage).flat().filter(Boolean), null, 2)
     );
   });
 };
