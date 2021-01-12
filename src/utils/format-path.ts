@@ -5,5 +5,13 @@ export function formatPath(p: string) {
 }
 
 export function postFixHTML(p: string) {
-  return process.env.STATIC_HTML_URLS ? `${p}.html` : p;
+  if (!process.env.STATIC_HTML_URLS) {
+    return p
+  }
+
+  if (path.basename(p).includes('#')) {
+    return p.replace('#', '.html#')
+  }
+
+  return  `${p}.html`;
 }

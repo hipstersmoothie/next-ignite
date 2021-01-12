@@ -212,7 +212,7 @@ const SearchInput = React.forwardRef(
 
           if (e.key === "Tab" || e.key === "Enter") {
             if (search && showResults) {
-              router.push(formatPath(matchingResults[current].url));
+              router.push(formatPath(postFixHTML(matchingResults[current].url)));
               e.preventDefault();
             }
 
@@ -289,7 +289,7 @@ const SearchInput = React.forwardRef(
                     aria-selected={isSelected}
                   >
                     <a
-                      href={formatPath(item.url)}
+                      href={formatPath(postFixHTML(item.url))}
                       onClick={() => {
                         showResultsSet(false);
                         searchSet("");
