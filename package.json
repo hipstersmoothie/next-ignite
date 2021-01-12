@@ -1,6 +1,6 @@
 {
   "name": "next-ignite",
-  "version": "0.8.12",
+  "version": "0.8.13",
   "bin": {
     "ignite": "bin/ignite.js"
   },
