@@ -34,4 +34,6 @@ export interface IgniteConfig {
   htmlUrls?: boolean;
   /** The order of the nav items */
   order?: string[];
+  /** Whether to purge unused CSS from static build */
+  purge?: boolean;
 }

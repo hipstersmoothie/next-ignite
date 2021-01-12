@@ -14,6 +14,7 @@ const { buildSitemap } = require("../dist/cjs/utils/sitemap");
 const { getTopLevelSections } = require("../dist/cjs/utils/docs-data");
 const { buildSearchIndex } = require("../dist/cjs/utils/build-search-index");
 const { buildRssFeed, test } = require("../dist/cjs/utils/build-rss-feed");
+const { purgeUnusedCss } = require("../dist/cjs/utils/purge-unused-css");
 
 const buildNext = require("next/dist/build").default;
 const exportNext = require("next/dist/export").default;
@@ -110,6 +111,7 @@ if (args._command === "build") {
       );
       buildSitemap();
       buildRssFeed(igniteConfig);
+      purgeUnusedCss(igniteConfig);
     })
     .catch((err) => {
       console.error("");
