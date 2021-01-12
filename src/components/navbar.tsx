@@ -6,7 +6,7 @@ import makeClass from "clsx";
 
 import { MobileMenuContext } from "../utils/mobile-menu-context";
 import { Components, Element } from "./mdx-components";
-import { formatPath, postFixHTML } from "../utils/format-path";
+import { postFixHTML } from "../utils/format-path";
 
 const GitHubIcon = ({ className, ...props }: Element<"svg">) => (
   <svg
@@ -53,7 +53,7 @@ export const NavBar = ({ sections, hasHomePage }: NavBarProps) => {
       <NavBarWrapper>
         <NavBar>
           {hasHomePage ? (
-            <Link passHref href={formatPath(postFixHTML("/index"))}>
+            <Link passHref href={postFixHTML("/index")}>
               <Logo />
             </Link>
           ) : (
