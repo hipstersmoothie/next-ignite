@@ -1,6 +1,8 @@
 import PurgeCSS from "purgecss";
 import glob from "fast-glob";
 import path from "path";
+import fs from "fs";
+import prettyBytes from "pretty-bytes";
 
 import { IgniteConfig } from "./types";
 import { DOCS_DIR } from "./docs-data";
@@ -21,9 +23,11 @@ function tailwindExtractor(content: string) {
     .concat(innerMatches);
 }
 
+const logBytes = (str: string) => prettyBytes(Buffer.byteLength(str, "utf8"));
+
 export const purgeUnusedCss = async (config: IgniteConfig) => {
   if (config.purge !== false) {
-    await new PurgeCSS().purge({
+    const results = await new PurgeCSS().purge({
       // Scan the out dir for any className usage
       content: glob.sync(path.join(DOCS_DIR, "out/**/*"), {
         // Exclude all css from usage gathering
@@ -36,6 +40,23 @@ export const purgeUnusedCss = async (config: IgniteConfig) => {
         greedy: [/dark:bg-/, /dark:text-/],
       },
       defaultExtractor: (content) => [...tailwindExtractor(content)],
+    });
+
+    if (!results.length) {
+      return;
+    }
+
+    console.log("PurgeCSS Results:");
+
+    results.map((result) => {
+      if (result.file) {
+        const before = fs.readFileSync(result.file, "utf-8");
+
+        console.log(
+          `${result.file}: ${logBytes(before)} => ${logBytes(result.css)}`
+        );
+        fs.writeFileSync(result.file, result.css);
+      }
     });
   }
 };
