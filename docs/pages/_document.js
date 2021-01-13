@@ -19,6 +19,23 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                var disqus_config = function () {
+                  this.page.url = document.location.origin;
+                  this.page.identifier = document.location.pathname;
+                };
+
+                (function() {
+                  var d = document, s = d.createElement("script");
+                  s.src = "https://ignite-2.disqus.com/embed.js";
+                  s.setAttribute("data-timestamp", + new Date());
+                  (d.head || d.body).appendChild(s);
+                })();
+              `,
+            }}
+          />
         </body>
       </Html>
     );

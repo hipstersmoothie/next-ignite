@@ -50,7 +50,7 @@ const BlogLayout = ({
       <article
         className={makeClass(
           "DocSearch-content blog-post",
-          "pt-6 pb-12 px-6 mx-4 rounded-xl -mt-10 mb-16 lg:mb-28 bg-white shadow-md text-gray-800",
+          "pt-6 pb-12 px-6 mx-4 rounded-xl -mt-10 mb-16 bg-white shadow-md text-gray-800",
           "lg:max-w-screen-md lg:mx-auto lg:w-full",
           "dark:bg-gray-900 border dark:border-gray-500"
         )}
@@ -67,13 +67,18 @@ const BlogLayout = ({
           </h1>
           <p className="mb-6">
             <span className="dark:text-gray-300">{frontMatter.author}</span>{" "}
-            <time className="text-gray-600 dark:text-gray-500" dateTime={frontMatter.date}>
+            <time
+              className="text-gray-600 dark:text-gray-500"
+              dateTime={frontMatter.date}
+            >
               on {dateFormat.format(new Date(frontMatter.date))}
             </time>
           </p>
         </div>
         {content}
       </article>
+
+      <div id="disqus_thread" className="px-6 lg:max-w-screen-md lg:mx-auto w-full mb-16 lg:mb-28" />
     </NavBarLayout>
   );
 };

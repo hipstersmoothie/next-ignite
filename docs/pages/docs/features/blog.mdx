@@ -119,3 +119,46 @@ image: "http://image.com/example.png"
 ---
 
 ```
+
+## Comments
+
+To add comments to your blog [first sign for any plan with disqus](https://disqus.com/) and then add the following to your `_document.js`.
+
+```js
+import React from "react";
+import Document, { Html, Head, Main, NextScript } from "next/document";
+
+class MyDocument extends Document {
+  render() {
+    return (
+      <Html lang="en">
+        <Head />
+
+        <body>
+          <Main />
+          <NextScript />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                var disqus_config = function () {
+                  this.page.url = document.location.origin;
+                  this.page.identifier = document.location.pathname;
+                };
+
+                (function() {
+                  var d = document, s = d.createElement("script");
+                  s.src = YOUR_DISQUS_URL;
+                  s.setAttribute("data-timestamp", + new Date());
+                  (d.head || d.body).appendChild(s);
+                })();
+              `,
+            }}
+          />
+        </body>
+      </Html>
+    );
+  }
+}
+
+export default MyDocument;
+```
