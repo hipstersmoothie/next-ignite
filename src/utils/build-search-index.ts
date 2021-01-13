@@ -16,7 +16,7 @@ const getContentBeforeNextHeading = (
   for (let index = 0; index < next.length; index++) {
     const element = next[index];
 
-    if ($(element).hasClass(`[class^="lvl"]`)) {
+    if ($(element).attr('class').includes('lvl')) {
       break;
     }
 
@@ -41,7 +41,7 @@ const getHeadingsBeforeNextHeading = (
       break;
     }
 
-    if ($(element).hasClass(`[class^="lvl"]`)) {
+    if ($(element).attr('class').includes('lvl')) {
       titles.push(element);
     }
   }
