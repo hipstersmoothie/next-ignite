@@ -1,0 +1,4125 @@
+[
+  {
+    "path": [
+      "Welcome",
+      "Welcome"
+    ],
+    "url": "docs",
+    "content": "\nBend your docs to your will and document anything with ease.\nignite is a command line application (CLI) for creating super flexible documentation website in MDX and react.\nIt takes care of the boring parts of setting up a documentation website so you can get straight to writing amazing docs!\nignite is a thin wrapper around Next.js and next-mdx-enhanced."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Welcome",
+      "Features"
+    ],
+    "url": "docs#features",
+    "content": "\n🏗 Add multiple top level docs sections just by adding more folders and mdx in pages/\n🎯 Add a blog just by adding a blog/ folder and some mdx files in pages/\n💅🏼 Overwrite any HTML element and render the site how you want to\n📖 Home Page (Break out into JS easy as hell)\n🧸 Simple search (only work after a full production build)\n👮🏼‍♀️ Route based layouts"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Welcome",
+      "Example"
+    ],
+    "url": "docs#example",
+    "content": "\nWorking with ignite is super simple!\nAll you need to do is start adding .mdx files to your docs folder!\ndocs/pages/docs/new-page.mdx:\n---\ntitle: \"My Page\"\n---\n\nWith some killer content! :tada:\n\nIf you don't have a defined _sidebar.mdx this will automatically show up on your website!\nYou'll most likely create a _sidebar.mdx if you want to define the order of your docs in the sidebar.\ndocs/pages/docs/_sidebar.mdx:\n- [Introduction](./)\n- [My Page](./my-page)\n"
+  },
+  {
+    "path": [
+      "Blog",
+      "My First Blog Post"
+    ],
+    "url": "blog/first",
+    "content": "\nAenean faucibus dui at arcu dignissim, eu maximus neque consectetur.\nCras urna nisi, lobortis ut ultrices facilisis, luctus ut magna.\nFusce sit amet porttitor velit. Nullam eu placerat dui.\nIn hac habitasse platea dictumst.\nDonec in diam quis nibh posuere porttitor a ut ipsum.\nFusce eu consectetur turpis.\nNulla accumsan ipsum a ipsum consectetur luctus.\nSome killer content."
+  },
+  {
+    "path": [
+      "Blog",
+      "My Second Blog Post"
+    ],
+    "url": "blog/second",
+    "content": "\nSome better content. Explore more text inside of a blog post."
+  },
+  {
+    "path": [
+      "Blog",
+      "My Second Blog Post",
+      "Heading 2"
+    ],
+    "url": "blog/second#heading-2",
+    "content": "\nSome content."
+  },
+  {
+    "path": [
+      "Blog",
+      "My Second Blog Post",
+      "Heading 2",
+      "Heading 2.1"
+    ],
+    "url": "blog/second#heading-21",
+    "content": "\nMore."
+  },
+  {
+    "path": [
+      "Blog",
+      "My Second Blog Post",
+      "Heading 2",
+      "Heading 2.1",
+      "Heading 3"
+    ],
+    "url": "blog/second#heading-3",
+    "content": "\nHere"
+  },
+  {
+    "path": [
+      "Blog",
+      "My Second Blog Post",
+      "Heading 2.1"
+    ],
+    "url": "blog/second#heading-21",
+    "content": "\nMore."
+  },
+  {
+    "path": [
+      "Blog",
+      "My Second Blog Post",
+      "Heading 3"
+    ],
+    "url": "blog/second#heading-3",
+    "content": "\nHere"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI"
+    ],
+    "url": "docs/cli",
+    "content": "\nThe fastest way to start using ignite is through the command line interface (CLI) it ships with.\nThe CLI basically just wraps Next.js's CLI and adds some defaults."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "Commands"
+    ],
+    "url": "docs/cli#commands",
+    "content": ""
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "Commands",
+      "Init"
+    ],
+    "url": "docs/cli#init",
+    "content": "\nInitialize an ignite-cli based docs site.\nyarn init\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "Commands",
+      "dev"
+    ],
+    "url": "docs/cli#dev",
+    "content": "\nStart the development server.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "Commands",
+      "build"
+    ],
+    "url": "docs/cli#build",
+    "content": "\nBuild the website into static HTML files.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "Commands",
+      "deploy"
+    ],
+    "url": "docs/cli#deploy",
+    "content": "\nDeploy your static HTML files to GitHub pages.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "Init"
+    ],
+    "url": "docs/cli#init",
+    "content": "\nInitialize an ignite-cli based docs site.\nyarn init\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "Init",
+      "dev"
+    ],
+    "url": "docs/cli#dev",
+    "content": "\nStart the development server.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "Init",
+      "build"
+    ],
+    "url": "docs/cli#build",
+    "content": "\nBuild the website into static HTML files.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "Init",
+      "deploy"
+    ],
+    "url": "docs/cli#deploy",
+    "content": "\nDeploy your static HTML files to GitHub pages.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "dev"
+    ],
+    "url": "docs/cli#dev",
+    "content": "\nStart the development server.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "dev",
+      "build"
+    ],
+    "url": "docs/cli#build",
+    "content": "\nBuild the website into static HTML files.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "dev",
+      "deploy"
+    ],
+    "url": "docs/cli#deploy",
+    "content": "\nDeploy your static HTML files to GitHub pages.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "build"
+    ],
+    "url": "docs/cli#build",
+    "content": "\nBuild the website into static HTML files.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "build",
+      "deploy"
+    ],
+    "url": "docs/cli#deploy",
+    "content": "\nDeploy your static HTML files to GitHub pages.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Using the ignite CLI",
+      "deploy"
+    ],
+    "url": "docs/cli#deploy",
+    "content": "\nDeploy your static HTML files to GitHub pages.\nyarn dev\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration"
+    ],
+    "url": "docs/configuration",
+    "content": "\nFor the most part you should not have to create a project specific configuration for you docs.\nIf you do, the following documents all of the available options."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Configuration File"
+    ],
+    "url": "docs/configuration#configuration-file",
+    "content": "\nignite uses cosmiconfig to load its configuration file.\nWe support all formats that the default cosmiconfig configuration supports.\nThe two most commons ways to configure ignite is either through a json .igniterc at the root of your project:\n{\n  \"name\": \"My Project\"\n}\n\nor if you're project is in JavaScript, directly in the package.json:\n{\n  \"name\": \"npm-package\",\n  \"ignite\": {\n    \"name\": \"My Project\"\n  }\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options"
+    ],
+    "url": "docs/configuration#options",
+    "content": ""
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "Repo"
+    ],
+    "url": "docs/configuration#repo",
+    "content": "\nThe repo that contains your project.\nThis can be a short slug if on public GitHub.\n{\n  \"repo\": \"hipstersmoothie/my-repo\"\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "Name"
+    ],
+    "url": "docs/configuration#name",
+    "content": "\nThe name of your project.\nThis value is used in multiple places in the docs.\n{\n  \"name\": \"My Project\"\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "URL"
+    ],
+    "url": "docs/configuration#url",
+    "content": "\nThe url you will be deploying to.\n{\n  \"basePath\": \"https://my.com/pages/your-project\"\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "Order"
+    ],
+    "url": "docs/configuration#order",
+    "content": "\nControl the order of the top level section in the navbar.\nEach item in the array should be a name of one of your top-level documentation folders.\nAny unordered sections will be put after your provided order in alphabetical order.\n{\n  // The Default\n  \"order\": [\"docs\", \"blog\"],\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "HTML Urls"
+    ],
+    "url": "docs/configuration#html-urls",
+    "content": "\nAdd .html to the end of each internal URL.\n{\n  \"htmlUrls\": true,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS"
+    ],
+    "url": "docs/configuration#purgecss",
+    "content": "\nBy default next-ignite will purge CSS it doesn't use.\nYou can turn off this behavior:\n{\n  \"purge\": false,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files"
+    ],
+    "url": "docs/configuration#files",
+    "content": ""
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Options",
+      "PurgeCSS",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo"
+    ],
+    "url": "docs/configuration#repo",
+    "content": "\nThe repo that contains your project.\nThis can be a short slug if on public GitHub.\n{\n  \"repo\": \"hipstersmoothie/my-repo\"\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "Name"
+    ],
+    "url": "docs/configuration#name",
+    "content": "\nThe name of your project.\nThis value is used in multiple places in the docs.\n{\n  \"name\": \"My Project\"\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "URL"
+    ],
+    "url": "docs/configuration#url",
+    "content": "\nThe url you will be deploying to.\n{\n  \"basePath\": \"https://my.com/pages/your-project\"\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "Order"
+    ],
+    "url": "docs/configuration#order",
+    "content": "\nControl the order of the top level section in the navbar.\nEach item in the array should be a name of one of your top-level documentation folders.\nAny unordered sections will be put after your provided order in alphabetical order.\n{\n  // The Default\n  \"order\": [\"docs\", \"blog\"],\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "HTML Urls"
+    ],
+    "url": "docs/configuration#html-urls",
+    "content": "\nAdd .html to the end of each internal URL.\n{\n  \"htmlUrls\": true,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS"
+    ],
+    "url": "docs/configuration#purgecss",
+    "content": "\nBy default next-ignite will purge CSS it doesn't use.\nYou can turn off this behavior:\n{\n  \"purge\": false,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files"
+    ],
+    "url": "docs/configuration#files",
+    "content": ""
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Repo",
+      "PurgeCSS",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name"
+    ],
+    "url": "docs/configuration#name",
+    "content": "\nThe name of your project.\nThis value is used in multiple places in the docs.\n{\n  \"name\": \"My Project\"\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "URL"
+    ],
+    "url": "docs/configuration#url",
+    "content": "\nThe url you will be deploying to.\n{\n  \"basePath\": \"https://my.com/pages/your-project\"\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "Order"
+    ],
+    "url": "docs/configuration#order",
+    "content": "\nControl the order of the top level section in the navbar.\nEach item in the array should be a name of one of your top-level documentation folders.\nAny unordered sections will be put after your provided order in alphabetical order.\n{\n  // The Default\n  \"order\": [\"docs\", \"blog\"],\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "HTML Urls"
+    ],
+    "url": "docs/configuration#html-urls",
+    "content": "\nAdd .html to the end of each internal URL.\n{\n  \"htmlUrls\": true,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS"
+    ],
+    "url": "docs/configuration#purgecss",
+    "content": "\nBy default next-ignite will purge CSS it doesn't use.\nYou can turn off this behavior:\n{\n  \"purge\": false,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files"
+    ],
+    "url": "docs/configuration#files",
+    "content": ""
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Name",
+      "PurgeCSS",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL"
+    ],
+    "url": "docs/configuration#url",
+    "content": "\nThe url you will be deploying to.\n{\n  \"basePath\": \"https://my.com/pages/your-project\"\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "Order"
+    ],
+    "url": "docs/configuration#order",
+    "content": "\nControl the order of the top level section in the navbar.\nEach item in the array should be a name of one of your top-level documentation folders.\nAny unordered sections will be put after your provided order in alphabetical order.\n{\n  // The Default\n  \"order\": [\"docs\", \"blog\"],\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "HTML Urls"
+    ],
+    "url": "docs/configuration#html-urls",
+    "content": "\nAdd .html to the end of each internal URL.\n{\n  \"htmlUrls\": true,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS"
+    ],
+    "url": "docs/configuration#purgecss",
+    "content": "\nBy default next-ignite will purge CSS it doesn't use.\nYou can turn off this behavior:\n{\n  \"purge\": false,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files"
+    ],
+    "url": "docs/configuration#files",
+    "content": ""
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "URL",
+      "PurgeCSS",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order"
+    ],
+    "url": "docs/configuration#order",
+    "content": "\nControl the order of the top level section in the navbar.\nEach item in the array should be a name of one of your top-level documentation folders.\nAny unordered sections will be put after your provided order in alphabetical order.\n{\n  // The Default\n  \"order\": [\"docs\", \"blog\"],\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "HTML Urls"
+    ],
+    "url": "docs/configuration#html-urls",
+    "content": "\nAdd .html to the end of each internal URL.\n{\n  \"htmlUrls\": true,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS"
+    ],
+    "url": "docs/configuration#purgecss",
+    "content": "\nBy default next-ignite will purge CSS it doesn't use.\nYou can turn off this behavior:\n{\n  \"purge\": false,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files"
+    ],
+    "url": "docs/configuration#files",
+    "content": ""
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Order",
+      "PurgeCSS",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls"
+    ],
+    "url": "docs/configuration#html-urls",
+    "content": "\nAdd .html to the end of each internal URL.\n{\n  \"htmlUrls\": true,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS"
+    ],
+    "url": "docs/configuration#purgecss",
+    "content": "\nBy default next-ignite will purge CSS it doesn't use.\nYou can turn off this behavior:\n{\n  \"purge\": false,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files"
+    ],
+    "url": "docs/configuration#files",
+    "content": ""
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "Files",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/logo-dark.png",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/images/favicon.*",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "HTML Urls",
+      "PurgeCSS",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "PurgeCSS"
+    ],
+    "url": "docs/configuration#purgecss",
+    "content": "\nBy default next-ignite will purge CSS it doesn't use.\nYou can turn off this behavior:\n{\n  \"purge\": false,\n}\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "Files"
+    ],
+    "url": "docs/configuration#files",
+    "content": ""
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "docs/public/logo.png"
+    ],
+    "url": "docs/configuration#docspubliclogopng",
+    "content": "\nThe logo for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "docs/public/logo-dark.png"
+    ],
+    "url": "docs/configuration#docspubliclogo-darkpng",
+    "content": "\nThe logo for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "docs/public/images/favicon.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon",
+    "content": "\nThe favicon for your project."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Configuration",
+      "docs/public/images/favicon-dark.*"
+    ],
+    "url": "docs/configuration#docspublicimagesfavicon-dark",
+    "content": "\nThe favicon for your project when the OS is in dark mode."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started"
+    ],
+    "url": "docs/getting-started",
+    "content": "\nignite is distributed on npm.\nnpm i --save-dev ignite\n# or\nyarn add -d ignite\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup"
+    ],
+    "url": "docs/getting-started#setup",
+    "content": "\nGetting setup with ignite require you to create a few files in addition to all of your actual documentation."
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "Quick"
+    ],
+    "url": "docs/getting-started#quick",
+    "content": "\nTo quickly get started using ignite just run one of the following commands.\nThis will setup a minimal docs folder so you can get straight to documenting.\n# using npm\nnpx ignite init\n\n# using yarn\nyarn ignite init\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "Manual"
+    ],
+    "url": "docs/getting-started#manual",
+    "content": "\nFirst create a folder named docs and structure it to resemble the following.\n📦docs\n ┣ 📂pages\n ┃ ┣ 📂docs\n ┃ ┃ ┣ index.mdx\n ┃ ┣ _app.js\n\nYou must have:\npages/_app.jspages/docs/index.mdx\nAdd the following to your .gitignore.\n.next\n.mdx-data\ndocs/public/search-index.json\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "Manual",
+      "_app.tsx"
+    ],
+    "url": "docs/getting-started#_apptsx",
+    "content": "\nYou need to at least do the following:\nImport MDXProvider, igniteComponents, and combine the at the root of the appImport ignite's cssImport a prismjs theme to style the code block\nimport React from \"react\";\nimport App from \"next/app\";\nimport { MDXProvider } from \"@mdx-js/react\";\nimport { igniteComponents } from \"next-ignite\";\n\n// Import a prismjs theme to highlight the code blocks\n// Make sure to import this first! The order matters\nimport \"prismjs/themes/prism.css\";\n// Import the css to style the docs\nimport \"ignite/dist/main.css\";\n\nclass MyApp extends App {\n  render() {\n    const { Component, pageProps } = this.props;\n\n    return (\n      <MDXProvider components={igniteComponents}>\n        <Component {...pageProps} />\n      </MDXProvider>\n    );\n  }\n}\n\nexport default MyApp;\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "Manual",
+      "Start writing docs 🎉"
+    ],
+    "url": "docs/getting-started#start-writing-docs-",
+    "content": "\nNow that you have all that set up you can start writing documentation!\nAll you need to do is start adding .mdx files to pages/docs.\nA good one to start with is pages/docs/index.mdx since this will be the first page shown to the user.\npages/docs/index.mdx:\n---\ntitle: \"My Introduction\"\n---\n\nThe start of my amazing documentation.\n\nNow start up the development server:\nyarn ignite dev\n\nOnce it's done loading you should see that that your documentation has loaded and ignite automatically created a sidebar for you! 😲"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "Manual",
+      "Start writing docs 🎉",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "Manual",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "_app.tsx"
+    ],
+    "url": "docs/getting-started#_apptsx",
+    "content": "\nYou need to at least do the following:\nImport MDXProvider, igniteComponents, and combine the at the root of the appImport ignite's cssImport a prismjs theme to style the code block\nimport React from \"react\";\nimport App from \"next/app\";\nimport { MDXProvider } from \"@mdx-js/react\";\nimport { igniteComponents } from \"next-ignite\";\n\n// Import a prismjs theme to highlight the code blocks\n// Make sure to import this first! The order matters\nimport \"prismjs/themes/prism.css\";\n// Import the css to style the docs\nimport \"ignite/dist/main.css\";\n\nclass MyApp extends App {\n  render() {\n    const { Component, pageProps } = this.props;\n\n    return (\n      <MDXProvider components={igniteComponents}>\n        <Component {...pageProps} />\n      </MDXProvider>\n    );\n  }\n}\n\nexport default MyApp;\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "_app.tsx",
+      "Start writing docs 🎉"
+    ],
+    "url": "docs/getting-started#start-writing-docs-",
+    "content": "\nNow that you have all that set up you can start writing documentation!\nAll you need to do is start adding .mdx files to pages/docs.\nA good one to start with is pages/docs/index.mdx since this will be the first page shown to the user.\npages/docs/index.mdx:\n---\ntitle: \"My Introduction\"\n---\n\nThe start of my amazing documentation.\n\nNow start up the development server:\nyarn ignite dev\n\nOnce it's done loading you should see that that your documentation has loaded and ignite automatically created a sidebar for you! 😲"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "_app.tsx",
+      "Start writing docs 🎉",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "_app.tsx",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "Start writing docs 🎉"
+    ],
+    "url": "docs/getting-started#start-writing-docs-",
+    "content": "\nNow that you have all that set up you can start writing documentation!\nAll you need to do is start adding .mdx files to pages/docs.\nA good one to start with is pages/docs/index.mdx since this will be the first page shown to the user.\npages/docs/index.mdx:\n---\ntitle: \"My Introduction\"\n---\n\nThe start of my amazing documentation.\n\nNow start up the development server:\nyarn ignite dev\n\nOnce it's done loading you should see that that your documentation has loaded and ignite automatically created a sidebar for you! 😲"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Setup",
+      "Start writing docs 🎉",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick"
+    ],
+    "url": "docs/getting-started#quick",
+    "content": "\nTo quickly get started using ignite just run one of the following commands.\nThis will setup a minimal docs folder so you can get straight to documenting.\n# using npm\nnpx ignite init\n\n# using yarn\nyarn ignite init\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick",
+      "Manual"
+    ],
+    "url": "docs/getting-started#manual",
+    "content": "\nFirst create a folder named docs and structure it to resemble the following.\n📦docs\n ┣ 📂pages\n ┃ ┣ 📂docs\n ┃ ┃ ┣ index.mdx\n ┃ ┣ _app.js\n\nYou must have:\npages/_app.jspages/docs/index.mdx\nAdd the following to your .gitignore.\n.next\n.mdx-data\ndocs/public/search-index.json\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick",
+      "Manual",
+      "_app.tsx"
+    ],
+    "url": "docs/getting-started#_apptsx",
+    "content": "\nYou need to at least do the following:\nImport MDXProvider, igniteComponents, and combine the at the root of the appImport ignite's cssImport a prismjs theme to style the code block\nimport React from \"react\";\nimport App from \"next/app\";\nimport { MDXProvider } from \"@mdx-js/react\";\nimport { igniteComponents } from \"next-ignite\";\n\n// Import a prismjs theme to highlight the code blocks\n// Make sure to import this first! The order matters\nimport \"prismjs/themes/prism.css\";\n// Import the css to style the docs\nimport \"ignite/dist/main.css\";\n\nclass MyApp extends App {\n  render() {\n    const { Component, pageProps } = this.props;\n\n    return (\n      <MDXProvider components={igniteComponents}>\n        <Component {...pageProps} />\n      </MDXProvider>\n    );\n  }\n}\n\nexport default MyApp;\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick",
+      "Manual",
+      "Start writing docs 🎉"
+    ],
+    "url": "docs/getting-started#start-writing-docs-",
+    "content": "\nNow that you have all that set up you can start writing documentation!\nAll you need to do is start adding .mdx files to pages/docs.\nA good one to start with is pages/docs/index.mdx since this will be the first page shown to the user.\npages/docs/index.mdx:\n---\ntitle: \"My Introduction\"\n---\n\nThe start of my amazing documentation.\n\nNow start up the development server:\nyarn ignite dev\n\nOnce it's done loading you should see that that your documentation has loaded and ignite automatically created a sidebar for you! 😲"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick",
+      "Manual",
+      "Start writing docs 🎉",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick",
+      "Manual",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick",
+      "_app.tsx"
+    ],
+    "url": "docs/getting-started#_apptsx",
+    "content": "\nYou need to at least do the following:\nImport MDXProvider, igniteComponents, and combine the at the root of the appImport ignite's cssImport a prismjs theme to style the code block\nimport React from \"react\";\nimport App from \"next/app\";\nimport { MDXProvider } from \"@mdx-js/react\";\nimport { igniteComponents } from \"next-ignite\";\n\n// Import a prismjs theme to highlight the code blocks\n// Make sure to import this first! The order matters\nimport \"prismjs/themes/prism.css\";\n// Import the css to style the docs\nimport \"ignite/dist/main.css\";\n\nclass MyApp extends App {\n  render() {\n    const { Component, pageProps } = this.props;\n\n    return (\n      <MDXProvider components={igniteComponents}>\n        <Component {...pageProps} />\n      </MDXProvider>\n    );\n  }\n}\n\nexport default MyApp;\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick",
+      "_app.tsx",
+      "Start writing docs 🎉"
+    ],
+    "url": "docs/getting-started#start-writing-docs-",
+    "content": "\nNow that you have all that set up you can start writing documentation!\nAll you need to do is start adding .mdx files to pages/docs.\nA good one to start with is pages/docs/index.mdx since this will be the first page shown to the user.\npages/docs/index.mdx:\n---\ntitle: \"My Introduction\"\n---\n\nThe start of my amazing documentation.\n\nNow start up the development server:\nyarn ignite dev\n\nOnce it's done loading you should see that that your documentation has loaded and ignite automatically created a sidebar for you! 😲"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick",
+      "_app.tsx",
+      "Start writing docs 🎉",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick",
+      "_app.tsx",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick",
+      "Start writing docs 🎉"
+    ],
+    "url": "docs/getting-started#start-writing-docs-",
+    "content": "\nNow that you have all that set up you can start writing documentation!\nAll you need to do is start adding .mdx files to pages/docs.\nA good one to start with is pages/docs/index.mdx since this will be the first page shown to the user.\npages/docs/index.mdx:\n---\ntitle: \"My Introduction\"\n---\n\nThe start of my amazing documentation.\n\nNow start up the development server:\nyarn ignite dev\n\nOnce it's done loading you should see that that your documentation has loaded and ignite automatically created a sidebar for you! 😲"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Quick",
+      "Start writing docs 🎉",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Manual"
+    ],
+    "url": "docs/getting-started#manual",
+    "content": "\nFirst create a folder named docs and structure it to resemble the following.\n📦docs\n ┣ 📂pages\n ┃ ┣ 📂docs\n ┃ ┃ ┣ index.mdx\n ┃ ┣ _app.js\n\nYou must have:\npages/_app.jspages/docs/index.mdx\nAdd the following to your .gitignore.\n.next\n.mdx-data\ndocs/public/search-index.json\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Manual",
+      "_app.tsx"
+    ],
+    "url": "docs/getting-started#_apptsx",
+    "content": "\nYou need to at least do the following:\nImport MDXProvider, igniteComponents, and combine the at the root of the appImport ignite's cssImport a prismjs theme to style the code block\nimport React from \"react\";\nimport App from \"next/app\";\nimport { MDXProvider } from \"@mdx-js/react\";\nimport { igniteComponents } from \"next-ignite\";\n\n// Import a prismjs theme to highlight the code blocks\n// Make sure to import this first! The order matters\nimport \"prismjs/themes/prism.css\";\n// Import the css to style the docs\nimport \"ignite/dist/main.css\";\n\nclass MyApp extends App {\n  render() {\n    const { Component, pageProps } = this.props;\n\n    return (\n      <MDXProvider components={igniteComponents}>\n        <Component {...pageProps} />\n      </MDXProvider>\n    );\n  }\n}\n\nexport default MyApp;\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Manual",
+      "_app.tsx",
+      "Start writing docs 🎉"
+    ],
+    "url": "docs/getting-started#start-writing-docs-",
+    "content": "\nNow that you have all that set up you can start writing documentation!\nAll you need to do is start adding .mdx files to pages/docs.\nA good one to start with is pages/docs/index.mdx since this will be the first page shown to the user.\npages/docs/index.mdx:\n---\ntitle: \"My Introduction\"\n---\n\nThe start of my amazing documentation.\n\nNow start up the development server:\nyarn ignite dev\n\nOnce it's done loading you should see that that your documentation has loaded and ignite automatically created a sidebar for you! 😲"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Manual",
+      "_app.tsx",
+      "Start writing docs 🎉",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Manual",
+      "_app.tsx",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Manual",
+      "Start writing docs 🎉"
+    ],
+    "url": "docs/getting-started#start-writing-docs-",
+    "content": "\nNow that you have all that set up you can start writing documentation!\nAll you need to do is start adding .mdx files to pages/docs.\nA good one to start with is pages/docs/index.mdx since this will be the first page shown to the user.\npages/docs/index.mdx:\n---\ntitle: \"My Introduction\"\n---\n\nThe start of my amazing documentation.\n\nNow start up the development server:\nyarn ignite dev\n\nOnce it's done loading you should see that that your documentation has loaded and ignite automatically created a sidebar for you! 😲"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Manual",
+      "Start writing docs 🎉",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "_app.tsx"
+    ],
+    "url": "docs/getting-started#_apptsx",
+    "content": "\nYou need to at least do the following:\nImport MDXProvider, igniteComponents, and combine the at the root of the appImport ignite's cssImport a prismjs theme to style the code block\nimport React from \"react\";\nimport App from \"next/app\";\nimport { MDXProvider } from \"@mdx-js/react\";\nimport { igniteComponents } from \"next-ignite\";\n\n// Import a prismjs theme to highlight the code blocks\n// Make sure to import this first! The order matters\nimport \"prismjs/themes/prism.css\";\n// Import the css to style the docs\nimport \"ignite/dist/main.css\";\n\nclass MyApp extends App {\n  render() {\n    const { Component, pageProps } = this.props;\n\n    return (\n      <MDXProvider components={igniteComponents}>\n        <Component {...pageProps} />\n      </MDXProvider>\n    );\n  }\n}\n\nexport default MyApp;\n"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "_app.tsx",
+      "Start writing docs 🎉"
+    ],
+    "url": "docs/getting-started#start-writing-docs-",
+    "content": "\nNow that you have all that set up you can start writing documentation!\nAll you need to do is start adding .mdx files to pages/docs.\nA good one to start with is pages/docs/index.mdx since this will be the first page shown to the user.\npages/docs/index.mdx:\n---\ntitle: \"My Introduction\"\n---\n\nThe start of my amazing documentation.\n\nNow start up the development server:\nyarn ignite dev\n\nOnce it's done loading you should see that that your documentation has loaded and ignite automatically created a sidebar for you! 😲"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "_app.tsx",
+      "Start writing docs 🎉",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Start writing docs 🎉"
+    ],
+    "url": "docs/getting-started#start-writing-docs-",
+    "content": "\nNow that you have all that set up you can start writing documentation!\nAll you need to do is start adding .mdx files to pages/docs.\nA good one to start with is pages/docs/index.mdx since this will be the first page shown to the user.\npages/docs/index.mdx:\n---\ntitle: \"My Introduction\"\n---\n\nThe start of my amazing documentation.\n\nNow start up the development server:\nyarn ignite dev\n\nOnce it's done loading you should see that that your documentation has loaded and ignite automatically created a sidebar for you! 😲"
+  },
+  {
+    "path": [
+      "Welcome",
+      "Getting Started",
+      "Explore More Features"
+    ],
+    "url": "docs/getting-started#explore-more-features",
+    "content": "\nignite tries to be as flexible as possible, so many parts are customizable.\nExplore the documentation to find all the documentation site 🍬 we include.\nHighlights:\n⭐ Customize the sidebar\n⭐ Home/Cover Page\n⭐ Set up a blog\n⭐ Multiple top-Level documentation sections\n⭐ Use JavaScript for any page"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Writing Pages in JavaScript"
+    ],
+    "url": "docs/advanced-features/javascript-pages",
+    "content": "\nSince ignite is just a small wrapper around Next.js you can easily break out into JavaScript or TypeScript.\nSimply change the file extension to the desired file type, rewrite the markdown to JSX, and you're done!\nThis is especially useful for the home page where you will probably want to\nflex your design skills and really market your project.\nThere are however a few considerations to make when you are doing this."
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Writing Pages in JavaScript",
+      "Layouts"
+    ],
+    "url": "docs/advanced-features/javascript-pages#layouts",
+    "content": "\nignite comes with a few different layouts that render your mdx files.\nWhen you break out into JS ignite can no longer automatically assign a layout to your page.\nLuckily you can easily use any of these layouts in your JS pages too!\nimport { makeNavBarLayout } from \"next-ignite\";\n\nconst NavBarLayout = makeNavBarLayout(\n  // Provide any front-matter options to the layout here\n  options\n);\n\nconst MyPage = () => <NavBarLayout>My Page</NavBarLayout>;\n\nexport default MyPage;\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Writing Pages in JavaScript",
+      "Styling"
+    ],
+    "url": "docs/advanced-features/javascript-pages#styling",
+    "content": "\nTo style your JS page to look just like the rest of your app you will need to use the components provided by the MDXProvider.\nAdd the following usage of useMDXComponents to your code.\nThis hooks provides all the customizable components that ignite uses.\nThat includes everything from the base HTML components to the components that make up the sidebar and the navbar.\nimport { useMDXComponents } from \"@mdx-js/react\";\nimport { makeNavBarLayout, Components } from \"next-ignite\";\n\nconst NavBarLayout = makeNavBarLayout();\n\nconst MyPage = () => {\n  const components = useMDXComponents() as Components;\n\n  return (\n    <NavBarLayout>\n      <components.h1>My Page</components.h1>\n    </NavBarLayout>\n  );\n};\n\nexport default MyPage;\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Writing Pages in JavaScript",
+      "Links"
+    ],
+    "url": "docs/advanced-features/javascript-pages#links",
+    "content": "\nAny link that you\nimport Link from \"next/link\";\nimport { makeNavBarLayout, Components } from \"next-ignite\";\n\nconst NavBarLayout = makeNavBarLayout();\n\nconst MyPage = () => {\n  const components = useMDXComponents() as Components;\n\n  return (\n    <NavBarLayout>\n      <components.h1>My Page</components.h1>\n\n      <Link passHref href={`/${section}`}>\n        <components.a>Go somewhere</components.a>\n      </Link>\n    </NavBarLayout>\n  );\n};\n\nexport default MyPage;\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts"
+    ],
+    "url": "docs/advanced-features/layouts",
+    "content": "\nignite comes with a few default layouts.\nFor any of the pages these layouts are automatically assigned.\nIf you wanted to you could use any layout for any page by specifying it in the front-matter for that page.\n---\ntitle: \"My Page\"\nlayout: \"docs\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "Layouts"
+    ],
+    "url": "docs/advanced-features/layouts#layouts",
+    "content": "\nThe following are all the default layouts included with ignite."
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "Layouts",
+      "nav-bar"
+    ],
+    "url": "docs/advanced-features/layouts#nav-bar",
+    "content": "\nRenders the page with a NavBar above it.\n---\nlayout: \"nav-bar\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "Layouts",
+      "docs"
+    ],
+    "url": "docs/advanced-features/layouts#docs",
+    "content": "\nRenders the page with a NavBar above it and the sidebar for the folder.\n---\nlayout: \"docs\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "Layouts",
+      "blog"
+    ],
+    "url": "docs/advanced-features/layouts#blog",
+    "content": "\nRenders the page with a NavBar and a special blog post header.\n---\nlayout: \"blog\"\n---\n\n\nRead about the options this layout supports"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "Layouts",
+      "home-page"
+    ],
+    "url": "docs/advanced-features/layouts#home-page",
+    "content": "\nRenders the page with a NavBar and a special home page header.\n---\nlayout: \"blog\"\n---\n\n\nRead about the options this layout supports"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "Layouts",
+      "TODO Adding Your Own Layouts"
+    ],
+    "url": "docs/advanced-features/layouts#todo-adding-your-own-layouts",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "Layouts",
+      "TODO Automatic Layout Matching"
+    ],
+    "url": "docs/advanced-features/layouts#todo-automatic-layout-matching",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "nav-bar"
+    ],
+    "url": "docs/advanced-features/layouts#nav-bar",
+    "content": "\nRenders the page with a NavBar above it.\n---\nlayout: \"nav-bar\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "nav-bar",
+      "docs"
+    ],
+    "url": "docs/advanced-features/layouts#docs",
+    "content": "\nRenders the page with a NavBar above it and the sidebar for the folder.\n---\nlayout: \"docs\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "nav-bar",
+      "blog"
+    ],
+    "url": "docs/advanced-features/layouts#blog",
+    "content": "\nRenders the page with a NavBar and a special blog post header.\n---\nlayout: \"blog\"\n---\n\n\nRead about the options this layout supports"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "nav-bar",
+      "home-page"
+    ],
+    "url": "docs/advanced-features/layouts#home-page",
+    "content": "\nRenders the page with a NavBar and a special home page header.\n---\nlayout: \"blog\"\n---\n\n\nRead about the options this layout supports"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "nav-bar",
+      "TODO Adding Your Own Layouts"
+    ],
+    "url": "docs/advanced-features/layouts#todo-adding-your-own-layouts",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "nav-bar",
+      "TODO Automatic Layout Matching"
+    ],
+    "url": "docs/advanced-features/layouts#todo-automatic-layout-matching",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "docs"
+    ],
+    "url": "docs/advanced-features/layouts#docs",
+    "content": "\nRenders the page with a NavBar above it and the sidebar for the folder.\n---\nlayout: \"docs\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "docs",
+      "blog"
+    ],
+    "url": "docs/advanced-features/layouts#blog",
+    "content": "\nRenders the page with a NavBar and a special blog post header.\n---\nlayout: \"blog\"\n---\n\n\nRead about the options this layout supports"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "docs",
+      "home-page"
+    ],
+    "url": "docs/advanced-features/layouts#home-page",
+    "content": "\nRenders the page with a NavBar and a special home page header.\n---\nlayout: \"blog\"\n---\n\n\nRead about the options this layout supports"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "docs",
+      "TODO Adding Your Own Layouts"
+    ],
+    "url": "docs/advanced-features/layouts#todo-adding-your-own-layouts",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "docs",
+      "TODO Automatic Layout Matching"
+    ],
+    "url": "docs/advanced-features/layouts#todo-automatic-layout-matching",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "blog"
+    ],
+    "url": "docs/advanced-features/layouts#blog",
+    "content": "\nRenders the page with a NavBar and a special blog post header.\n---\nlayout: \"blog\"\n---\n\n\nRead about the options this layout supports"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "blog",
+      "home-page"
+    ],
+    "url": "docs/advanced-features/layouts#home-page",
+    "content": "\nRenders the page with a NavBar and a special home page header.\n---\nlayout: \"blog\"\n---\n\n\nRead about the options this layout supports"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "blog",
+      "TODO Adding Your Own Layouts"
+    ],
+    "url": "docs/advanced-features/layouts#todo-adding-your-own-layouts",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "blog",
+      "TODO Automatic Layout Matching"
+    ],
+    "url": "docs/advanced-features/layouts#todo-automatic-layout-matching",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "home-page"
+    ],
+    "url": "docs/advanced-features/layouts#home-page",
+    "content": "\nRenders the page with a NavBar and a special home page header.\n---\nlayout: \"blog\"\n---\n\n\nRead about the options this layout supports"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "home-page",
+      "TODO Adding Your Own Layouts"
+    ],
+    "url": "docs/advanced-features/layouts#todo-adding-your-own-layouts",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "home-page",
+      "TODO Automatic Layout Matching"
+    ],
+    "url": "docs/advanced-features/layouts#todo-automatic-layout-matching",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "TODO Adding Your Own Layouts"
+    ],
+    "url": "docs/advanced-features/layouts#todo-adding-your-own-layouts",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "TODO Adding Your Own Layouts",
+      "TODO Automatic Layout Matching"
+    ],
+    "url": "docs/advanced-features/layouts#todo-automatic-layout-matching",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Layouts",
+      "TODO Automatic Layout Matching"
+    ],
+    "url": "docs/advanced-features/layouts#todo-automatic-layout-matching",
+    "content": ""
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Ignite as a Next.js plugin"
+    ],
+    "url": "docs/advanced-features/next",
+    "content": "\nMost of ignites features can be used as a plain Next.js plugin! 🎉\nWhat you loose:\ncan no longer use .igniterc file\nAnd not much else (we said it was a thin wrapper right 😉)\nnext.config.js:\nconst withIgnite = require(\"next-ignite/next\")({\n  // your ignite options\n});\n\nmodule.exports = withIgnite();\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Using Ignite as a Next.js plugin",
+      "Options"
+    ],
+    "url": "docs/advanced-features/next#options",
+    "content": "\nYou can config ignite directly from your next.config.js.\nThis is the same configuration present in your .igniterc.\nWhen using ignite as a Next.js plugin you config will not be loaded.\nTo see the available configuration options visit the configuration documentation.\nconst withIgnite = require(\"next-ignite/next\")({\n  basePath: \"pages\",\n});\n\nmodule.exports = withIgnite();\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website"
+    ],
+    "url": "docs/advanced-features/theming",
+    "content": "\nignite provides two ways to theme:\nCustomize the colors => CSS variablesCustomize the component used to render arbitrary HTML elements => MDX"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website",
+      "Color Theming"
+    ],
+    "url": "docs/advanced-features/theming#color-theming",
+    "content": "\nignite is uses tailwind so changing the colors for you website is super simple.\nAll you have to do is set some CSS variables and ignite will use those colors.\nAvailable Colors:\nprimary (100-900) - The primary color for your appgray (100-1000) - A gray that compliments the primary color\nAdd a style block to your pages/_document.js that sets your desired colors.\nimport React from \"react\";\nimport Document, { Html, Head, Main, NextScript } from \"next/document\";\n\nclass MyDocument extends Document {\n  render() {\n    return (\n      <Html lang=\"en\">\n        <Head />\n        <body>\n          <style>{`\n            :root {\n              --color-primary-100: #F3E6ED;\n              --color-primary-200: #E1BFD1;\n              /* ETC */\n            }\n          `}</style>\n          <Main />\n          <NextScript />\n        </body>\n      </Html>\n    );\n  }\n}\n\nexport default MyDocument;\n\nIf you're having trouble creating the full color ranges try out this tool I made.\nYou can enter a primary 500 color and it will generate a range for the primary and a complimentary gray."
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website",
+      "Component Theming"
+    ],
+    "url": "docs/advanced-features/theming#component-theming",
+    "content": "\nignite is uses mdx so it's incredibly simple to customize any component!"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website",
+      "Component Theming",
+      "Theming the Base Elements"
+    ],
+    "url": "docs/advanced-features/theming#theming-the-base-elements",
+    "content": "\nAll you need to do is open up your _app.js and the your components to the MDXProvider.\nSee the full list of base elements.\nimport React from \"react\";\nimport App from \"next/app\";\nimport { MDXProvider } from \"@mdx-js/react\";\nimport { igniteComponents } from \"next-ignite\";\n\n// Import a prismjs theme to highlight the code blocks\n// Make sure to import this first! The order matters\nimport \"prismjs/themes/prism.css\";\n// Import the css to style the docs\nimport \"ignite/dist/main.css\";\n\nimport { Anchor } from \"../components/anchor\";\nimport { H1 } from \"../components/h1\";\n\nconst components = {\n  ...igniteComponents,\n  // Easily override and base HTML component\n  h1: H1,\n  a: Anchor,\n};\n\nclass MyApp extends App {\n  render() {\n    const { Component, pageProps } = this.props;\n\n    return (\n      <MDXProvider components={components}>\n        <Component {...pageProps} />\n      </MDXProvider>\n    );\n  }\n}\n\nexport default MyApp;\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website",
+      "Component Theming",
+      "Making a component"
+    ],
+    "url": "docs/advanced-features/theming#making-a-component",
+    "content": "\nWhen you are creating these component overrides, it is important to do this the right way.\nTwo things you should consider are:\nApplying the className properlySpreading the rest of the props\nExample h1 Component:\nimport React from \"react\";\nimport makeClass from \"clsx\";\n\nconst h1 = ({ className, ...props }) => (\n  <h1\n    // Use props.className if you are using it yourself\n    className={makeClass(\n      className,\n      \"text-primary-900 mb-8 dark:text-primary-100\"\n    )}\n    // Spread the rest of the props\n    {...props}\n  />\n);\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website",
+      "Component Theming",
+      "Theming the rest"
+    ],
+    "url": "docs/advanced-features/theming#theming-the-rest",
+    "content": "\nIn addition to being able to theme all the base components, ignite lets you theme all the components provided by ignite!\nThis includes all the components that compose:\nSidebarNavigation Bar\nFull list of themeable ignite components:\nLogoNavBarWrapperNavBarNavBarItemSearchInputMobileMenuButtonSidebarSidebarItemWrapperSidebarLinkSidebarTitleSidebarDividerSidebarList\nWhen overriding these components please refer to base implementations for available props."
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website",
+      "Theming the Base Elements"
+    ],
+    "url": "docs/advanced-features/theming#theming-the-base-elements",
+    "content": "\nAll you need to do is open up your _app.js and the your components to the MDXProvider.\nSee the full list of base elements.\nimport React from \"react\";\nimport App from \"next/app\";\nimport { MDXProvider } from \"@mdx-js/react\";\nimport { igniteComponents } from \"next-ignite\";\n\n// Import a prismjs theme to highlight the code blocks\n// Make sure to import this first! The order matters\nimport \"prismjs/themes/prism.css\";\n// Import the css to style the docs\nimport \"ignite/dist/main.css\";\n\nimport { Anchor } from \"../components/anchor\";\nimport { H1 } from \"../components/h1\";\n\nconst components = {\n  ...igniteComponents,\n  // Easily override and base HTML component\n  h1: H1,\n  a: Anchor,\n};\n\nclass MyApp extends App {\n  render() {\n    const { Component, pageProps } = this.props;\n\n    return (\n      <MDXProvider components={components}>\n        <Component {...pageProps} />\n      </MDXProvider>\n    );\n  }\n}\n\nexport default MyApp;\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website",
+      "Theming the Base Elements",
+      "Making a component"
+    ],
+    "url": "docs/advanced-features/theming#making-a-component",
+    "content": "\nWhen you are creating these component overrides, it is important to do this the right way.\nTwo things you should consider are:\nApplying the className properlySpreading the rest of the props\nExample h1 Component:\nimport React from \"react\";\nimport makeClass from \"clsx\";\n\nconst h1 = ({ className, ...props }) => (\n  <h1\n    // Use props.className if you are using it yourself\n    className={makeClass(\n      className,\n      \"text-primary-900 mb-8 dark:text-primary-100\"\n    )}\n    // Spread the rest of the props\n    {...props}\n  />\n);\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website",
+      "Theming the Base Elements",
+      "Theming the rest"
+    ],
+    "url": "docs/advanced-features/theming#theming-the-rest",
+    "content": "\nIn addition to being able to theme all the base components, ignite lets you theme all the components provided by ignite!\nThis includes all the components that compose:\nSidebarNavigation Bar\nFull list of themeable ignite components:\nLogoNavBarWrapperNavBarNavBarItemSearchInputMobileMenuButtonSidebarSidebarItemWrapperSidebarLinkSidebarTitleSidebarDividerSidebarList\nWhen overriding these components please refer to base implementations for available props."
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website",
+      "Making a component"
+    ],
+    "url": "docs/advanced-features/theming#making-a-component",
+    "content": "\nWhen you are creating these component overrides, it is important to do this the right way.\nTwo things you should consider are:\nApplying the className properlySpreading the rest of the props\nExample h1 Component:\nimport React from \"react\";\nimport makeClass from \"clsx\";\n\nconst h1 = ({ className, ...props }) => (\n  <h1\n    // Use props.className if you are using it yourself\n    className={makeClass(\n      className,\n      \"text-primary-900 mb-8 dark:text-primary-100\"\n    )}\n    // Spread the rest of the props\n    {...props}\n  />\n);\n"
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website",
+      "Making a component",
+      "Theming the rest"
+    ],
+    "url": "docs/advanced-features/theming#theming-the-rest",
+    "content": "\nIn addition to being able to theme all the base components, ignite lets you theme all the components provided by ignite!\nThis includes all the components that compose:\nSidebarNavigation Bar\nFull list of themeable ignite components:\nLogoNavBarWrapperNavBarNavBarItemSearchInputMobileMenuButtonSidebarSidebarItemWrapperSidebarLinkSidebarTitleSidebarDividerSidebarList\nWhen overriding these components please refer to base implementations for available props."
+  },
+  {
+    "path": [
+      "Advanced Features",
+      "Theming the Website",
+      "Theming the rest"
+    ],
+    "url": "docs/advanced-features/theming#theming-the-rest",
+    "content": "\nIn addition to being able to theme all the base components, ignite lets you theme all the components provided by ignite!\nThis includes all the components that compose:\nSidebarNavigation Bar\nFull list of themeable ignite components:\nLogoNavBarWrapperNavBarNavBarItemSearchInputMobileMenuButtonSidebarSidebarItemWrapperSidebarLinkSidebarTitleSidebarDividerSidebarList\nWhen overriding these components please refer to base implementations for available props."
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog"
+    ],
+    "url": "docs/features/blog",
+    "content": "\nAdding a blog with ignite is super easy.\nAll you have to do is start adding .mdx files to a folder names pages/blog and set up the blog index page."
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "Blog Index Page"
+    ],
+    "url": "docs/features/blog#blog-index-page",
+    "content": "\nCreate a file in your pages/ folder named blog.js.\nThis simplest way to get a blog index running is by using the sample component ignite provides\nimport { BlogIndex } from \"next-ignite\";\n\nconst Blog = () => <BlogIndex />;\n\nexport default Blog;\n\nIf you want more control of what this page looks like you can use the lower level functions ignite provides.\nIn this file add the following to render a simple list of your blog posts:\nimport Link from \"next/link\";\n// getBlogPosts will return the blogs in reverse creation order\nimport { getBlogPosts, makeNavBarLayout } from \"next-ignite\";\nimport { useMDXComponents } from \"@mdx-js/react\";\n\n// Make a layout with the navbar at the\nconst NavBarLayout = makeNavBarLayout();\n// Get all the blog posts\nconst posts = getBlogPosts();\n\nconst Blog = () => {\n  // Make sure to use the components defined for you docs!\n  const components = useMDXComponents();\n\n  return (\n    <NavBarLayout>\n      <components.h1>Blog</components.h1>\n\n      <components.ul>\n        {posts.map((page) => (\n          <li key={page.__resourcePath}>\n            <Link passHref href={page.__resourcePath}>\n              <components.a>{page.title}</components.a>\n            </Link>\n          </li>\n        ))}\n      </components.ul>\n    </NavBarLayout>\n  );\n};\n\nexport default Blog;\n\nOnce this is setup you're ready to start writing blog posts! 🎉"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "Blog Post Format"
+    ],
+    "url": "docs/features/blog#blog-post-format",
+    "content": "\nA blog post is just another .mdx file, but it has a few more front-matter features.\nYou should always include a title.\n---\ntitle: \"My First Blog Post\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "Blog Post Format",
+      "author"
+    ],
+    "url": "docs/features/blog#author",
+    "content": "\nYou can include an author in the blog post, otherwise this information will get pull from the commit.\nInclude an email to display an avatar using gravatar.\n---\ntitle: \"My First Blog Post\"\nauthor: \"Andrew Lisowski\"\nemail: \"lisowski54@gmail.com\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "Blog Post Format",
+      "date"
+    ],
+    "url": "docs/features/blog#date",
+    "content": "\nSpecify the date the post was created.\nIf not supplied this information is pulled from the commit date.\n---\ndate: \"Thu, 12 Mar 2020 23:00:02 -0700\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "Blog Post Format",
+      "color"
+    ],
+    "url": "docs/features/blog#color",
+    "content": "\nA color to use as the backdrop for a post\n---\ncolor: \"red\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "Blog Post Format",
+      "image"
+    ],
+    "url": "docs/features/blog#image",
+    "content": "\nInstead of a color you can display an image as the backdrop.\n---\nimage: \"http://image.com/example.png\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "Blog Post Format",
+      "image",
+      "Comments"
+    ],
+    "url": "docs/features/blog#comments",
+    "content": "\nTo add comments to your blog first sign for any plan with disqus and then add the following to your _document.js.\nimport React from \"react\";\nimport Document, { Html, Head, Main, NextScript } from \"next/document\";\n\nclass MyDocument extends Document {\n  render() {\n    return (\n      <Html lang=\"en\">\n        <Head />\n\n        <body>\n          <Main />\n          <NextScript />\n          <script\n            dangerouslySetInnerHTML={{\n              __html: `\n                var disqus_config = function () {\n                  this.page.url = document.location.origin;\n                  this.page.identifier = document.location.pathname;\n                };\n\n                (function() {\n                  var d = document, s = d.createElement(\"script\");\n                  s.src = YOUR_DISQUS_URL;\n                  s.setAttribute(\"data-timestamp\", + new Date());\n                  (d.head || d.body).appendChild(s);\n                })();\n              `,\n            }}\n          />\n        </body>\n      </Html>\n    );\n  }\n}\n\nexport default MyDocument;\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "author"
+    ],
+    "url": "docs/features/blog#author",
+    "content": "\nYou can include an author in the blog post, otherwise this information will get pull from the commit.\nInclude an email to display an avatar using gravatar.\n---\ntitle: \"My First Blog Post\"\nauthor: \"Andrew Lisowski\"\nemail: \"lisowski54@gmail.com\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "author",
+      "date"
+    ],
+    "url": "docs/features/blog#date",
+    "content": "\nSpecify the date the post was created.\nIf not supplied this information is pulled from the commit date.\n---\ndate: \"Thu, 12 Mar 2020 23:00:02 -0700\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "author",
+      "color"
+    ],
+    "url": "docs/features/blog#color",
+    "content": "\nA color to use as the backdrop for a post\n---\ncolor: \"red\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "author",
+      "image"
+    ],
+    "url": "docs/features/blog#image",
+    "content": "\nInstead of a color you can display an image as the backdrop.\n---\nimage: \"http://image.com/example.png\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "author",
+      "image",
+      "Comments"
+    ],
+    "url": "docs/features/blog#comments",
+    "content": "\nTo add comments to your blog first sign for any plan with disqus and then add the following to your _document.js.\nimport React from \"react\";\nimport Document, { Html, Head, Main, NextScript } from \"next/document\";\n\nclass MyDocument extends Document {\n  render() {\n    return (\n      <Html lang=\"en\">\n        <Head />\n\n        <body>\n          <Main />\n          <NextScript />\n          <script\n            dangerouslySetInnerHTML={{\n              __html: `\n                var disqus_config = function () {\n                  this.page.url = document.location.origin;\n                  this.page.identifier = document.location.pathname;\n                };\n\n                (function() {\n                  var d = document, s = d.createElement(\"script\");\n                  s.src = YOUR_DISQUS_URL;\n                  s.setAttribute(\"data-timestamp\", + new Date());\n                  (d.head || d.body).appendChild(s);\n                })();\n              `,\n            }}\n          />\n        </body>\n      </Html>\n    );\n  }\n}\n\nexport default MyDocument;\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "date"
+    ],
+    "url": "docs/features/blog#date",
+    "content": "\nSpecify the date the post was created.\nIf not supplied this information is pulled from the commit date.\n---\ndate: \"Thu, 12 Mar 2020 23:00:02 -0700\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "date",
+      "color"
+    ],
+    "url": "docs/features/blog#color",
+    "content": "\nA color to use as the backdrop for a post\n---\ncolor: \"red\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "date",
+      "image"
+    ],
+    "url": "docs/features/blog#image",
+    "content": "\nInstead of a color you can display an image as the backdrop.\n---\nimage: \"http://image.com/example.png\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "date",
+      "image",
+      "Comments"
+    ],
+    "url": "docs/features/blog#comments",
+    "content": "\nTo add comments to your blog first sign for any plan with disqus and then add the following to your _document.js.\nimport React from \"react\";\nimport Document, { Html, Head, Main, NextScript } from \"next/document\";\n\nclass MyDocument extends Document {\n  render() {\n    return (\n      <Html lang=\"en\">\n        <Head />\n\n        <body>\n          <Main />\n          <NextScript />\n          <script\n            dangerouslySetInnerHTML={{\n              __html: `\n                var disqus_config = function () {\n                  this.page.url = document.location.origin;\n                  this.page.identifier = document.location.pathname;\n                };\n\n                (function() {\n                  var d = document, s = d.createElement(\"script\");\n                  s.src = YOUR_DISQUS_URL;\n                  s.setAttribute(\"data-timestamp\", + new Date());\n                  (d.head || d.body).appendChild(s);\n                })();\n              `,\n            }}\n          />\n        </body>\n      </Html>\n    );\n  }\n}\n\nexport default MyDocument;\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "color"
+    ],
+    "url": "docs/features/blog#color",
+    "content": "\nA color to use as the backdrop for a post\n---\ncolor: \"red\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "color",
+      "image"
+    ],
+    "url": "docs/features/blog#image",
+    "content": "\nInstead of a color you can display an image as the backdrop.\n---\nimage: \"http://image.com/example.png\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "color",
+      "image",
+      "Comments"
+    ],
+    "url": "docs/features/blog#comments",
+    "content": "\nTo add comments to your blog first sign for any plan with disqus and then add the following to your _document.js.\nimport React from \"react\";\nimport Document, { Html, Head, Main, NextScript } from \"next/document\";\n\nclass MyDocument extends Document {\n  render() {\n    return (\n      <Html lang=\"en\">\n        <Head />\n\n        <body>\n          <Main />\n          <NextScript />\n          <script\n            dangerouslySetInnerHTML={{\n              __html: `\n                var disqus_config = function () {\n                  this.page.url = document.location.origin;\n                  this.page.identifier = document.location.pathname;\n                };\n\n                (function() {\n                  var d = document, s = d.createElement(\"script\");\n                  s.src = YOUR_DISQUS_URL;\n                  s.setAttribute(\"data-timestamp\", + new Date());\n                  (d.head || d.body).appendChild(s);\n                })();\n              `,\n            }}\n          />\n        </body>\n      </Html>\n    );\n  }\n}\n\nexport default MyDocument;\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "image"
+    ],
+    "url": "docs/features/blog#image",
+    "content": "\nInstead of a color you can display an image as the backdrop.\n---\nimage: \"http://image.com/example.png\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Creating a Blog",
+      "Comments"
+    ],
+    "url": "docs/features/blog#comments",
+    "content": "\nTo add comments to your blog first sign for any plan with disqus and then add the following to your _document.js.\nimport React from \"react\";\nimport Document, { Html, Head, Main, NextScript } from \"next/document\";\n\nclass MyDocument extends Document {\n  render() {\n    return (\n      <Html lang=\"en\">\n        <Head />\n\n        <body>\n          <Main />\n          <NextScript />\n          <script\n            dangerouslySetInnerHTML={{\n              __html: `\n                var disqus_config = function () {\n                  this.page.url = document.location.origin;\n                  this.page.identifier = document.location.pathname;\n                };\n\n                (function() {\n                  var d = document, s = d.createElement(\"script\");\n                  s.src = YOUR_DISQUS_URL;\n                  s.setAttribute(\"data-timestamp\", + new Date());\n                  (d.head || d.body).appendChild(s);\n                })();\n              `,\n            }}\n          />\n        </body>\n      </Html>\n    );\n  }\n}\n\nexport default MyDocument;\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Customizing the Sidebar"
+    ],
+    "url": "docs/features/custom-sidebar",
+    "content": "\nWhile it's cool you don't have to configure a Sidebar, you'll probably quickly find that you want some order.\nLuckily ignite makes this super easy.\nAll you have to do is create a file _sidebar.md inside pages/docs and start organizing you docs.\nThis can be as simple as a list of links:\n<!-- The following could link to \".\"\", \"./\" or \"./index\" -->\n\n- [Introduction](.)\n- [Getting Started](./getting-started)\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Customizing the Sidebar",
+      "Titles"
+    ],
+    "url": "docs/features/custom-sidebar#titles",
+    "content": "\nYou can add a title between groups of links\nWelcome\n\n- [Introduction](.)\n- [Getting Started](./getting-started)\n\nFeatures\n\n- [Custom Sidebar](./features/custom-sidebar)\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Customizing the Sidebar",
+      "Dividers"
+    ],
+    "url": "docs/features/custom-sidebar#dividers",
+    "content": "\nSeparate sections of the sidebar even further.\nWelcome\n\n- [Introduction](.)\n- [Getting Started](./getting-started)\n\n---\n\nFeatures\n\n- [Custom Sidebar](./features/custom-sidebar)\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Adding a Home Page"
+    ],
+    "url": "docs/features/home-page",
+    "content": "\nA home/cover page is useful to give a quick overview of the thing you're documenting.\nThis is a great way to market your project.\nDetailed technical documentation is great, but it's helpful to also include a higher level intro that sells new users.\nWith ignite all you have to do to achieve this is create and index.mdx in your page folder.\nIf mdx isn't enough to write this page just make it a JavaScript or TypeScript file.\nYou'll be able to fully control what your home page looks like! :partying_face:\nRead more about fully JavaScript pages."
+  },
+  {
+    "path": [
+      "Features",
+      "Adding a Home Page",
+      "MDX Features"
+    ],
+    "url": "docs/features/home-page#mdx-features",
+    "content": "\nIf you write your home page using mdx there are a few options you can use to customize the home-page layout."
+  },
+  {
+    "path": [
+      "Features",
+      "Adding a Home Page",
+      "MDX Features",
+      "Title"
+    ],
+    "url": "docs/features/home-page#title",
+    "content": "\nThe layout for the home page template will display the title of your project by default.\nTo override this specify a different title in the front-matter.\n---\ntitle: \"Some other title\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Adding a Home Page",
+      "MDX Features",
+      "Tagline"
+    ],
+    "url": "docs/features/home-page#tagline",
+    "content": "\nTo display a tagline below the name of you project use the tagline property in the front-matter.\n---\ntagline: \"The most flexible documenting website you've ever used\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Adding a Home Page",
+      "MDX Features",
+      "Color"
+    ],
+    "url": "docs/features/home-page#color",
+    "content": "\nChange the color of the main here and the Getting Started button\n---\ncolor: \"red\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Adding a Home Page",
+      "Title"
+    ],
+    "url": "docs/features/home-page#title",
+    "content": "\nThe layout for the home page template will display the title of your project by default.\nTo override this specify a different title in the front-matter.\n---\ntitle: \"Some other title\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Adding a Home Page",
+      "Title",
+      "Tagline"
+    ],
+    "url": "docs/features/home-page#tagline",
+    "content": "\nTo display a tagline below the name of you project use the tagline property in the front-matter.\n---\ntagline: \"The most flexible documenting website you've ever used\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Adding a Home Page",
+      "Title",
+      "Color"
+    ],
+    "url": "docs/features/home-page#color",
+    "content": "\nChange the color of the main here and the Getting Started button\n---\ncolor: \"red\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Adding a Home Page",
+      "Tagline"
+    ],
+    "url": "docs/features/home-page#tagline",
+    "content": "\nTo display a tagline below the name of you project use the tagline property in the front-matter.\n---\ntagline: \"The most flexible documenting website you've ever used\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Adding a Home Page",
+      "Tagline",
+      "Color"
+    ],
+    "url": "docs/features/home-page#color",
+    "content": "\nChange the color of the main here and the Getting Started button\n---\ncolor: \"red\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Adding a Home Page",
+      "Color"
+    ],
+    "url": "docs/features/home-page#color",
+    "content": "\nChange the color of the main here and the Getting Started button\n---\ncolor: \"red\"\n---\n\n"
+  },
+  {
+    "path": [
+      "Features",
+      "Included Markdown Components"
+    ],
+    "url": "docs/features/markdown-components",
+    "content": "\nignite styles all of the default markdown components. Read how to customize.\nTagSyntaxh1#h2##h3###h4####h5#####h6######pa<https://mdxjs.com> or [MDX](https://mdxjs.com)em_emphasis_strong**strong**delete~~strikethrough~~inlineCode`inlineCode`pre(Only used when theming)code```code```blockquote>img![alt](https://mdx-logo.now.sh)ul-olOrdered 1.liListhr--- or ***tabletheadTabletbodyTabletrTabletd/thTable\n\nSee Example RenderingHeading Level 1 (abcde)Heading Level 2 (abcde)Heading Level 3 (abcde)Heading Level 4 (abcde)Heading Level 5 (abcde)Heading Level 6 (abcde)This is a paragraph of texta linkEmphasized textStrong textStrikethrough textinline code# A block of code\nA block quoteAn ExampleOf an unorderedListAn ExampleOf an orderedListTitleDescriptionsfoobar"
+  },
+  {
+    "path": [
+      "Features",
+      "Multiple Top-Level Sections"
+    ],
+    "url": "docs/features/multi-docs",
+    "content": "\nMany times when you're writing docs you may need different sections with a completely different sidebar.\nTo accomplish this in ignite simply add more folders to your pages/ folder.\nEach folder will be turned into a new top-level section in the navbar.\nThe folder name is converted into a name for the navigation item.\nFor example, to add a new top level section called \"Plugin Authoring\" you would create the following folder structure.\n📦docs\n ┣ 📂pages\n ┃ ┣ 📂docs\n ┃ ┃ ┣ index.mdx\n ┃ ┣ 📂plugin-authoring\n ┃ ┃ ┣ index.mdx\n ┃ ┣ 404.js\n ┃ ┣ _app.js\n\nBy default the sidebar is in alphabetical order.\nTo change this add a custom sidebar."
+  }
+]
