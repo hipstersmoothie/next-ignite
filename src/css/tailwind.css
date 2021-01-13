@@ -81,7 +81,7 @@
   }
 
   .lvl6 code {
-    font-size: calc(theme("fontSize.md") * 0.93);
+    font-size: calc(theme("fontSize.base") * 0.93);
   }
 
   p > code {
