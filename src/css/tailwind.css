@@ -7,6 +7,10 @@
 /* purgecss end ignore */
 
 #ignite {
+  .blog-description *:not(code) {
+    color: theme("colors.gray.100") !important;
+  }
+  
   .blockquote > *:first-child {
     @apply mt-0;
   }

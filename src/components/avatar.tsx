@@ -5,9 +5,10 @@ import makeClass from "clsx";
 interface AvatarProps {
   email?: string;
   className?: string;
+  width?: string;
 }
 
-const Avatar = ({ email, className }: AvatarProps) => {
+const Avatar = ({ email, className, width }: AvatarProps) => {
   if (!email) {
     return null;
   }
@@ -16,8 +17,9 @@ const Avatar = ({ email, className }: AvatarProps) => {
     <img
       src={gravatar.url(email)}
       className={makeClass(
-        "rounded-full w-12 border-2 border-gray-200",
+        "rounded-full border-2 border-gray-200",
         "dark:border-gray-900",
+        width || "w-12",
         className
       )}
     />
