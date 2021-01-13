@@ -1,3 +1,23 @@
+# v0.8.16 (Wed Jan 13 2021)
+
+#### ⚠️ Pushed to `master`
+
+- isomorphic getFrontMatters ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- add disqus docs ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- layout better with few posts ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix avatar load jump ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- shadows in light mode ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- remove randomization ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- light mode for blog ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- improved blog index ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- blog descriptions ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.15 (Wed Jan 13 2021)
 
 #### ⚠️ Pushed to `master`
