@@ -39,7 +39,7 @@ const SmallCard = ({ page }) => {
   return (
     <div
       className={makeClass(
-        "small-blog-card h-full rounded-xl overflow-hidden border border-gray-400 flex flex-col",
+        "small-blog-card h-full rounded-xl overflow-hidden border shadow-md flex flex-col",
         "hover:bg-gray-100",
         "dark:border-gray-600 dark:hover:bg-gray-900"
       )}
@@ -98,7 +98,7 @@ const BigCard = ({ page }) => {
   return (
     <div
       className={makeClass(
-        "big-blog-card rounded-xl overflow-hidden border border-gray-400 flex flex-col relative h-96",
+        "big-blog-card rounded-xl overflow-hidden border shadow-md flex flex-col relative h-96",
         "dark:border-gray-600"
       )}
       style={{
