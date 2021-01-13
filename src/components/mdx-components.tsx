@@ -660,6 +660,7 @@ const a = React.forwardRef(
           ref={ref}
           className={makeClass(
             `underline cursor-pointer ${DEFAULT_TEXT_COLOR}`,
+            "focus:outline-none focus-visible:ring",
             className
           )}
           href={href}

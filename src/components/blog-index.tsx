@@ -28,20 +28,36 @@ const dateFormat = new Intl.DateTimeFormat("default", {
   day: "numeric",
 });
 
-const SmallCard = ({ page }) => {
+const MarkdownPreview = ({ page }) => {
   const components = useMDXComponents();
 
   return (
+    <Markdown
+      className="blog-description"
+      options={{
+        overrides: {
+          ...components,
+          code: components.inlineCode,
+        } as any,
+      }}
+    >
+      {page.description}
+    </Markdown>
+  );
+};
+
+const SmallCard = ({ page }) => {
+  return (
     <div
       className={makeClass(
-        "h-full rounded-xl overflow-hidden border border-gray-400 flex flex-col",
-        "focus:outline-none focus-visible:ring",
-        "dark:border-gray-600"
+        "small-blog-card h-full rounded-xl overflow-hidden border border-gray-400 flex flex-col",
+        "hover:bg-gray-100",
+        "dark:border-gray-600 dark:hover:bg-gray-900"
       )}
     >
       <div className={"h-full py-8 px-10 flex items-start"}>
         <div className="self-stretch  flex flex-col justify-between">
-          <div className="flex-1 relative flex flex-col">
+          <div className="flex-1 relative flex flex-col  max-h-48">
             <h2
               className={makeClass(
                 "text-2xl font-medium text-gray-800 leading-relaxed mb-1",
@@ -53,23 +69,13 @@ const SmallCard = ({ page }) => {
             {page.description && (
               <p
                 className={makeClass(
-                  "text-xl text-gray-800 mb-3 font-light leading-8 overflow-hidden flex-1 max-h-24",
+                  "text-xl text-gray-800 font-light leading-8 overflow-hidden flex-1",
                   "dark:text-gray-300"
                 )}
                 style={{ minHeight: "3rem" }}
               >
-                <Markdown
-                  style={{ margin: 0 }}
-                  options={{
-                    overrides: {
-                      ...components,
-                      code: components.inlineCode,
-                    } as any,
-                  }}
-                >
-                  {page.description}
-                </Markdown>
-                <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-white dark:from-gray-1000" />
+                <MarkdownPreview page={page} />
+                <div className="content-fade absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-white dark:from-gray-1000" />
               </p>
             )}
           </div>
@@ -100,20 +106,17 @@ const SmallCard = ({ page }) => {
 };
 
 const BigCard = ({ page }) => {
-  const components = useMDXComponents();
-
   return (
-    <a
+    <div
       className={makeClass(
-        "rounded-xl overflow-hidden border border-gray-400 flex flex-col relative h-96",
-        "focus:outline-none focus-visible:ring",
+        "big-blog-card rounded-xl overflow-hidden border border-gray-400 flex flex-col relative h-96",
         "dark:border-gray-600"
       )}
       style={{
         backgroundImage: `url(${page.image})`,
       }}
     >
-      <div className="absolute inset-0 h-full bg-gradient-to-t from-gray-1000 via-gray-800 to-transparent opacity-75" />
+      <div className="content-fade absolute inset-0 h-full bg-gradient-to-t from-gray-1000 via-gray-800 to-transparent opacity-75" />
 
       <div className={"h-full py-8 px-10 flex items-start z-10"}>
         <div className="self-stretch  flex flex-col justify-between">
@@ -131,26 +134,13 @@ const BigCard = ({ page }) => {
             </h2>
 
             {page.description && (
-              <p
-                className="blog-description text-xl text-gray-300 text-white font-light leading-8 overflow-hidden max-h-24"
-                style={{ color: "white" }}
-              >
-                <Markdown
-                  style={{ margin: 0 }}
-                  options={{
-                    overrides: {
-                      ...components,
-                      code: components.inlineCode,
-                    } as any,
-                  }}
-                >
-                  {page.description}
-                </Markdown>
+              <p className="text-xl text-gray-300 text-white font-light leading-8 overflow-hidden max-h-24">
+                <MarkdownPreview page={page} />
               </p>
             )}
           </div>
 
-          <div className="text-gray-200 dark:text-gray-400 text-lg font-light flex items-center mt-6">
+          <div className="text-gray-200 text-lg font-light flex items-center mt-6">
             {page.email && (
               <Avatar email={page.email} className="mr-3" width="w-10" />
             )}
@@ -166,7 +156,7 @@ const BigCard = ({ page }) => {
           </div>
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 
@@ -184,7 +174,9 @@ export default ({ color = "primary" }: BlogIndexProps) => {
         <title>{process.env.PROJECT_NAME} Blog</title>
       </Head>
 
-      <div className={`bg-${color}-300 dark:bg-${color}-600 flex items-center justify-center h-48`}>
+      <div
+        className={`bg-${color}-600 flex items-center justify-center h-48`}
+      >
         <components.h1 className="text-white" style={{ marginBottom: 0 }}>
           Blog
         </components.h1>
@@ -214,7 +206,7 @@ export default ({ color = "primary" }: BlogIndexProps) => {
               )}
             >
               <Link href={postFixHTML(page.__resourcePath)}>
-                <a className="h-full w-full">
+                <a className="h-full w-full focus:outline-none focus-visible:ring block rounded-xl">
                   {isBigCard ? (
                     <BigCard page={page} />
                   ) : (

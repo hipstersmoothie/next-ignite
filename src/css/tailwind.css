@@ -7,10 +7,23 @@
 /* purgecss end ignore */
 
 #ignite {
-  .blog-description *:not(code) {
+  .small-blog-card:hover .content-fade {
+    @apply from-gray-100 dark:from-gray-900;
+  }
+
+  .big-blog-card:hover .content-fade {
+    @apply from-gray-900 via-gray-700 to-gray-600;
+  }
+
+  .blog-description {
+    margin: 0;
+  }
+
+  .big-blog-card .blog-description,
+  .big-blog-card .blog-description *:not(code) {
     color: theme("colors.gray.100") !important;
   }
-  
+
   .blockquote > *:first-child {
     @apply mt-0;
   }
@@ -49,7 +62,6 @@
     font-size: calc(theme("fontSize.3xl") * 0.93);
   }
 
-
   @screen lg {
     .lvl1 code {
       font-size: calc(theme("fontSize.4xl") * 0.93);
@@ -75,9 +87,9 @@
       font-size: calc(theme("fontSize.2xl") * 0.93);
     }
   }
-  
+
   .lvl4 code {
-    font-size: calc(1.theme("fontSize.xl") * 0.93);
+    font-size: calc(1theme ("fontSize.xl") * 0.93);
   }
 
   .lvl5 code {
