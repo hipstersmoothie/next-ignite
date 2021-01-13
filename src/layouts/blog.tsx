@@ -8,7 +8,7 @@ import { BlogPost } from "../utils/types";
 import Avatar from "../components/avatar";
 
 const dateFormat = new Intl.DateTimeFormat("en-us", {
-  year: "2-digit",
+  year: "numeric",
   month: "short",
   day: "numeric",
 });

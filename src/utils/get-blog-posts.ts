@@ -1,5 +1,5 @@
 import getFrontMatters from "./get-front-matters";
-import { MarkdownPage } from "./types";
+import { BlogPost } from "./types";
 
 /** Get all the blog posts in the project */
 const getBlogPosts = () => {
@@ -8,7 +8,7 @@ const getBlogPosts = () => {
 
     return (JSON.parse(process.env.BLOG_POSTS) as string[])
       .map((key) => frontMatters.find((f) => f.__resourcePath === key))
-      .filter((post): post is MarkdownPage => Boolean(post))
+      .filter((post): post is BlogPost => Boolean(post))
       .map((post) => ({
         ...post,
         __resourcePath: post.__resourcePath.replace(/\.mdx$/, ""),

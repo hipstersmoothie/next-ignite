@@ -47,8 +47,8 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
     [rehypePrism, { ignoreMissing: true }],
   ],
   extendFrontMatter: {
-    process: (_, frontMatter) => {
-      let { __resourcePath, date, layout, ...rest } = frontMatter;
+    process: (mdx: string, frontMatter) => {
+      let { __resourcePath, date, layout, description, ...rest } = frontMatter;
       const creationDate = getCreationDate(__resourcePath);
       const [author, email] = getAuthor(__resourcePath);
 
@@ -68,8 +68,20 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
         }
       }
 
+      if (!description && layout === "blog") {
+        const [, firstParagraph] =
+          mdx.match(/---\n\n^([^#].+?)(?=^$)/sm) ||
+          mdx.match(/\n\n^([^#].+?)(?=^$)/sm) ||
+          [];
+
+        if (firstParagraph) {
+          description = firstParagraph;
+        }
+      }
+
       return {
         layout,
+        description,
         date: date || creationDate,
         author: rest.author || author,
         email: rest.email || email,

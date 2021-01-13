@@ -11,6 +11,7 @@ export interface Page extends Resource {
 
 export interface BlogPost extends Page {
   title: string;
+  description?: string;
   author: string;
   email?: string;
   image?: string;

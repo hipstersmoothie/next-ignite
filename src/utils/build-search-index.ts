@@ -16,7 +16,7 @@ const getContentBeforeNextHeading = (
   for (let index = 0; index < next.length; index++) {
     const element = next[index];
 
-    if ($(element).attr('class').includes('lvl')) {
+    if ($(element).attr('class')?.includes('lvl')) {
       break;
     }
 
@@ -36,12 +36,13 @@ const getHeadingsBeforeNextHeading = (
 
   for (let index = 0; index < next.length; index++) {
     const element = next[index];
+    const $el = $(element)
 
-    if ($(element).hasClass(`lvl${lvl}`)) {
+    if ($el.hasClass(`lvl${lvl}`)) {
       break;
     }
 
-    if ($(element).attr('class').includes('lvl')) {
+    if ($el.attr('class')?.includes('lvl')) {
       titles.push(element);
     }
   }

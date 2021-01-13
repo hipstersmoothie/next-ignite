@@ -59,26 +59,41 @@ export default ({ color = "primary" }: BlogIndexProps) => {
                 <div>
                   <h2
                     className={makeClass(
-                      "text-2xl font-medium text-gray-800 leading-relaxed mb-2",
-                      "dark:text-gray-300"
+                      "text-2xl font-medium text-gray-800 leading-relaxed mb-1",
+                      "dark:text-gray-100"
                     )}
                   >
                     {page.title}
                   </h2>
-                  <p
-                    className={makeClass(
-                      "text-gray-800 text-lg font-light",
-                      "dark:text-gray-400"
+                  {page.description && (
+                    <p
+                      className={makeClass(
+                        "text-xl text-gray-800 mb-3 font-light",
+                        "dark:text-gray-300"
+                      )}
+                    >
+                      {page.description}
+                    </p>
+                  )}
+                  <p>
+                    {page.author && (
+                      <span
+                        className={makeClass(
+                          "text-gray-800 text-lg font-light",
+                          "dark:text-gray-400"
+                        )}
+                      >
+                        {page.author}{" on "}
+                      </span>
                     )}
-                  >
-                    {page.author}
+                    <time
+                      className="text-gray-600 dark:text-gray-500 font-light"
+                      dateTime={page.date}
+                    >
+                      {page.author && " on "}
+                      {dateFormat.format(new Date(page.date))}
+                    </time>
                   </p>
-                  <time
-                    className="text-gray-600 dark:text-gray-500 font-light"
-                    dateTime={page.date}
-                  >
-                    {dateFormat.format(new Date(page.date))}
-                  </time>
                 </div>
               </a>
             </Link>

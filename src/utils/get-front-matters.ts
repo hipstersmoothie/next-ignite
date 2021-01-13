@@ -1,10 +1,10 @@
-import { MarkdownPage } from "./types";
+import { BlogPost, MarkdownPage } from "./types";
 
-let frontMatters: MarkdownPage[] = [];
+let frontMatters: (MarkdownPage | BlogPost)[] = [];
 
 try {
   const context = require.context(process.env.MDX_DATA_DIR, true, /\.json$/);
-  frontMatters = context.keys().map(context) as MarkdownPage[];
+  frontMatters = context.keys().map(context) as (MarkdownPage | BlogPost)[];
 } catch (error) {
 }
 
