@@ -18,7 +18,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const getCreationDate = (file: string) => {
   try {
     return execSync(
-      `git log --format=%aD ${path.join("docs/pages", file)} | tail -1`,
+      `git log --diff-filter=A --follow --format=%aD -- ${path.join("docs/pages", file)} | tail -1`,
       {
         encoding: "utf8",
         stdio: ["pipe", "ignore", "ignore"],
