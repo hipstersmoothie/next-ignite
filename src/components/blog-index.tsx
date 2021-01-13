@@ -56,7 +56,7 @@ const SmallCard = ({ page }) => {
               {page.title}
             </h2>
             {page.description && (
-              <p
+              <div
                 className={makeClass(
                   "text-xl text-gray-800 font-light leading-8 overflow-hidden flex-1",
                   "dark:text-gray-300"
@@ -65,7 +65,7 @@ const SmallCard = ({ page }) => {
               >
                 <MarkdownPreview page={page} />
                 <div className="content-fade absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-white dark:from-gray-1000" />
-              </p>
+              </div>
             )}
           </div>
 
@@ -123,9 +123,9 @@ const BigCard = ({ page }) => {
             </h2>
 
             {page.description && (
-              <p className="text-xl text-gray-300 text-white font-light leading-8 overflow-hidden max-h-24">
+              <div className="text-xl text-gray-300 text-white font-light leading-8 overflow-hidden max-h-24">
                 <MarkdownPreview page={page} />
-              </p>
+              </div>
             )}
           </div>
 
