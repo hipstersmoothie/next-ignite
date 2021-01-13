@@ -118,7 +118,10 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
       publicRuntimeConfig: {
         assetPrefix: basePath,
       },
-      env,
+      env: {
+        ...env,
+        browser: "true"
+      },
     })
   );
 };

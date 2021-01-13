@@ -131,7 +131,7 @@ const BigCard = ({ page }) => {
 
           <div className="text-gray-200 text-lg font-light flex items-center mt-6">
             {page.email && (
-              <Avatar email={page.email} className="mr-3" width="w-10" />
+              <Avatar email={page.email} className="mr-3" size="w-10" />
             )}
 
             <div className="flex flex-col">
@@ -176,11 +176,6 @@ export default ({ color = "primary" }: BlogIndexProps) => {
           posts.length >= 3 && "lg:grid-cols-3",
           "lg:max-w-6xl lg:mx-auto lg:mt-16"
         )}
-        style={
-          {
-            // gridTemplateColumns: "repeat(auto-fit, minmax(350px,1fr))",
-          }
-        }
       >
         {posts.map((page, index) => {
           const isBigCard = page.image && index === 0;
