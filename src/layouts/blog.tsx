@@ -9,7 +9,7 @@ import Avatar from "../components/avatar";
 
 const dateFormat = new Intl.DateTimeFormat("en-us", {
   year: "2-digit",
-  month: "numeric",
+  month: "short",
   day: "numeric",
 });
 
@@ -44,22 +44,22 @@ const BlogLayout = ({
           }}
         />
       ) : (
-        <div className={`bg-${color}-500 pt-20 pb-24`} />
+        <div className={`bg-${color}-600 h-48`} />
       )}
 
       <article
         className={makeClass(
           "DocSearch-content blog-post",
-          "pt-6 pb-12 px-6 w-full max-w-screen-sm mx-auto rounded -mt-10 bg-white shadow-md text-gray-800",
-          "lg:max-w-screen-md",
+          "pt-6 pb-12 px-6 mx-4 rounded-xl -mt-10 mb-16 lg:mb-28 bg-white shadow-md text-gray-800",
+          "lg:max-w-screen-md lg:mx-auto lg:w-full",
           "dark:bg-gray-900 border dark:border-gray-500"
         )}
       >
-        <div className="max-w-screen-sm lg:max-w-screen-md mx-auto text-center flex flex-col items-center">
+        <div className="mx-auto text-center flex flex-col items-center">
           <Avatar email={frontMatter.email} className="-mt-12 mb-4" />
           <h1
             className={makeClass(
-              "lvl1 text-3xl font-light mb-4",
+              "lvl1 text-3xl font-light mb-2 lg:mb-4",
               "dark:text-gray-200"
             )}
           >
@@ -67,9 +67,9 @@ const BlogLayout = ({
           </h1>
           <p className="mb-6">
             <span className="dark:text-gray-300">{frontMatter.author}</span>{" "}
-            <span className="text-gray-600">
+            <time className="text-gray-600 dark:text-gray-500" dateTime={frontMatter.date}>
               on {dateFormat.format(new Date(frontMatter.date))}
-            </span>
+            </time>
           </p>
         </div>
         {content}

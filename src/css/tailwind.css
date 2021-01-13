@@ -35,34 +35,53 @@
     @apply mt-8;
   }
 
-  @media (min-width: 1024px) {
+  @screen lg {
     .sidebar-items {
-      height: calc(100vh - 4rem)
+      height: calc(100vh - 4rem);
     }
   }
 
   .lvl1 code {
-    font-size: calc(3rem * 0.93);
+    font-size: calc(theme("fontSize.3xl") * 0.93);
+  }
+
+
+  @screen lg {
+    .lvl1 code {
+      font-size: calc(theme("fontSize.4xl") * 0.93);
+    }
   }
 
   .lvl2 code {
-    font-size: calc(1.875rem * 0.93);
+    font-size: calc(theme("fontSize.2xl") * 0.93);
+  }
+
+  @screen lg {
+    .lvl2 code {
+      font-size: calc(theme("fontSize.3xl") * 0.93);
+    }
   }
 
   .lvl3 code {
-    font-size: calc(1.5rem * 0.93);
+    font-size: calc(theme("fontSize.xl") * 0.93);
   }
 
+  @screen lg {
+    .lvl3 code {
+      font-size: calc(theme("fontSize.2xl") * 0.93);
+    }
+  }
+  
   .lvl4 code {
-    font-size: calc(1.25rem * 0.93);
+    font-size: calc(1.theme("fontSize.xl") * 0.93);
   }
 
   .lvl5 code {
-    font-size: calc(1.125rem * 0.93);
+    font-size: calc(theme("fontSize.lg") * 0.93);
   }
 
   .lvl6 code {
-    font-size: calc(1rem * 0.93);
+    font-size: calc(theme("fontSize.md") * 0.93);
   }
 
   p > code {

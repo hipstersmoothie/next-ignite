@@ -14,4 +14,6 @@ yarn build:lib
 yarn dev
 ```
 
-<!-- TODO add purgecss -->
+## TODO
+
+- [ ] Featured Blog Post

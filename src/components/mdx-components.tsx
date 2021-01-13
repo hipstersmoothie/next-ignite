@@ -212,7 +212,9 @@ const SearchInput = React.forwardRef(
 
           if (e.key === "Tab" || e.key === "Enter") {
             if (search && showResults) {
-              router.push(formatPath(postFixHTML(matchingResults[current].url)));
+              router.push(
+                formatPath(postFixHTML(matchingResults[current].url))
+              );
               e.preventDefault();
             }
 
@@ -244,7 +246,8 @@ const SearchInput = React.forwardRef(
             DEFAULT_TEXT_COLOR,
             "placeholder-gray-500 rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 w-full",
             "focus:bg-white focus:outline-none",
-            "dark-placeholder:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-900 dark:focus:bg-gray-1000 dark:focus:border-gray-800 dark:focus:text-white"
+            "dark:focus:bg-gray-1000 dark:focus:border-gray-800 dark:focus:text-white",
+            "dark-placeholder:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-900"
           )}
           defaultValue={term}
           onChange={(e) => {
@@ -438,9 +441,7 @@ const Sidebar = ({ className, children, ...props }: Element<"div">) => {
     >
       <div className="px-6 lg:pr-4 lg:sticky lg:top-16 w-full lg:w-60 xl:w-72">
         <div className="hidden lg:block h-12 pointer-events-none absolute inset-x-0 z-10 bg-gradient-to-b from-white mr-2.5 dark:from-gray-1000" />
-        <div
-          className="sidebar-items lg:max-h-screen lg:overflow-y-auto border-box"
-        >
+        <div className="sidebar-items lg:max-h-screen lg:overflow-y-auto border-box">
           <div className="pb-12 pt-8 lg:pb-16">{children}</div>
         </div>
       </div>
@@ -528,7 +529,8 @@ const h1 = ({ className, ...props }: Element<"h1">) => {
       className={makeClass(
         className,
         "lvl1",
-        "relative text-4xl font-semibold mb-4 md:mb-8",
+        "break-words relative text-3xl font-semibold mb-4 md:mb-8",
+        "lg:text-4xl",
         (!className || !className.includes("text-")) && HEADER_TEXT_COLOR
       )}
       {...props}
@@ -541,7 +543,9 @@ const h2 = ({ className, ...props }: Element<"h2">) => (
   <h2
     className={makeClass(
       "lvl2",
-      "relative text-3xl font-normal border-b border-gray-300 pb-4 mb-4 md:mb-8 mt-12",
+      "break-words relative text-2xl font-normal border-b border-gray-300 pb-2 mb-4 mt-6",
+      "md:mb-6",
+      "lg:text-3xl lg:mt-8 mb:pb-4",
       "dark:border-gray-700",
       HEADER_TEXT_COLOR,
       className
@@ -555,7 +559,8 @@ const h3 = ({ className, ...props }: Element<"h3">) => (
   <h3
     className={makeClass(
       "lvl3",
-      "relative text-2xl font-semibold mt-8",
+      "break-words text-xl relative font-bold mt-6",
+      "lg:text-2xl lg:font-semibold",
       HEADER_TEXT_COLOR,
       className
     )}
@@ -568,7 +573,7 @@ const h4 = ({ className, ...props }: Element<"h4">) => (
   <h4
     className={makeClass(
       "lvl4",
-      "relative text-xl font-semibold mt-8",
+      "break-words relative text-xl font-semibold mt-8",
       HEADER_TEXT_COLOR,
       className
     )}
@@ -581,7 +586,7 @@ const h5 = ({ className, ...props }: Element<"h5">) => (
   <h5
     className={makeClass(
       "lvl5",
-      "relative text-lg font-semibold mt-8",
+      "break-words relative text-lg font-semibold mt-8",
       HEADER_TEXT_COLOR,
       className
     )}
@@ -593,7 +598,7 @@ const h5 = ({ className, ...props }: Element<"h5">) => (
 const h6 = ({ className, ...props }: Element<"h6">) => (
   <h6
     className={makeClass(
-      "lvl6",
+      "break-words lvl6",
       "relative text-md font-semibold mt-8",
       HEADER_TEXT_COLOR,
       className
@@ -635,7 +640,7 @@ const inlineCode = ({ className, ...props }: Element<"code">) => (
   <code
     className={makeClass(
       "text-gray-700 bg-gray-200 rounded",
-      "dark:bg-gray-800 dark:text-gray-300",
+      "dark:bg-gray-800 dark:text-gray-200",
       className
     )}
     style={{ padding: "2px 6px" }}
@@ -687,7 +692,7 @@ const ul = ({ className, ...props }: Element<"ul">) => (
 
 const hr = ({ className, ...props }: Element<"hr">) => (
   <hr
-    className={makeClass(className, "m-12 border-b-2", "dark:border-gray-500")}
+    className={makeClass(className, "m-12 border-b-2", "dark:border-gray-700")}
     {...props}
   />
 );
@@ -714,10 +719,14 @@ const pre = ({ className, ...props }: Element<"pre">) => (
   <pre
     className={makeClass(
       className,
-      DEFAULT_SPACING,
-      "bg-gray-200 rounded",
-      "dark:bg-gray-800"
+      "bg-gray-200 rounded border my-6",
+      "dark:bg-gray-800 dark:border-gray-800"
     )}
+    style={{
+      // Prisms styles override margin!
+      marginTop: "1.5rem",
+      marginBottom: "1.5rem",
+    }}
     {...props}
   />
 );

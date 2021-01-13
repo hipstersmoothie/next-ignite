@@ -3,6 +3,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { useMDXComponents } from "@mdx-js/react";
 import makeClass from "clsx";
+import ago from "s-ago";
 
 import getBlogPosts from "../utils/get-blog-posts";
 import NavBarLayout from "../layouts/nav-bar";
@@ -11,10 +12,8 @@ import { postFixHTML } from "../utils/format-path";
 
 const posts = getBlogPosts();
 const dateFormat = new Intl.DateTimeFormat("default", {
-  hour: "numeric",
-  minute: "numeric",
-  year: "2-digit",
-  month: "numeric",
+  year: "numeric",
+  month: "short",
   day: "numeric",
 });
 
@@ -32,7 +31,7 @@ export default ({ color = "primary" }: BlogIndexProps) => {
         <title>{process.env.PROJECT_NAME} Blog</title>
       </Head>
 
-      <div className={`bg-${color}-600 flex items-center justify-center p-16`}>
+      <div className={`bg-${color}-600 flex items-center justify-center h-48`}>
         <components.h1 className="text-white" style={{ marginBottom: 0 }}>
           Blog
         </components.h1>
@@ -60,7 +59,7 @@ export default ({ color = "primary" }: BlogIndexProps) => {
                 <div>
                   <h2
                     className={makeClass(
-                      "text-2xl font-medium text-gray-800 leading-relaxed",
+                      "text-2xl font-medium text-gray-800 leading-relaxed mb-2",
                       "dark:text-gray-300"
                     )}
                   >
@@ -74,9 +73,12 @@ export default ({ color = "primary" }: BlogIndexProps) => {
                   >
                     {page.author}
                   </p>
-                  <p className="text-gray-600 text-sm font-light">
+                  <time
+                    className="text-gray-600 dark:text-gray-500 font-light"
+                    dateTime={page.date}
+                  >
                     {dateFormat.format(new Date(page.date))}
-                  </p>
+                  </time>
                 </div>
               </a>
             </Link>

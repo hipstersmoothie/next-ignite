@@ -59,7 +59,7 @@ const DocsLayout = ({
           <main
             className={makeClass(
               "DocSearch-content",
-              "pt-8 pb-20 lg:pb-16 px-4 sm:px-6 xl:px-12 lg:mx-auto w-full",
+              "pt-8 pb-16 px-4 sm:px-6 xl:px-12 lg:mx-auto w-full",
               "flex-1",
               "lg:block",
               menuOpen && "hidden"
