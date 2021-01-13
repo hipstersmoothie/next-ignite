@@ -171,7 +171,7 @@ export default ({ color = "primary" }: BlogIndexProps) => {
 
       <ul
         className={makeClass(
-          "px-4 mt-8 mb-12 w-full grid gap-6",
+          "px-4 mt-8 mb-12 lg:mb-20 w-full grid gap-6",
           posts.length >= 2 && "md:grid-cols-2",
           posts.length >= 3 && "lg:grid-cols-3",
           "lg:max-w-6xl lg:mx-auto lg:mt-16"
