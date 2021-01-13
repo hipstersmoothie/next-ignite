@@ -131,7 +131,7 @@ const BigCard = ({ page }) => {
 
           <div className="text-gray-200 text-lg font-light flex items-center mt-6">
             {page.email && (
-              <Avatar email={page.email} className="mr-3" size="w-10" />
+              <Avatar email={page.email} className="mr-3" size={10} />
             )}
 
             <div className="flex flex-col">
