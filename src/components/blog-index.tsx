@@ -163,9 +163,7 @@ export default ({ color = "primary" }: BlogIndexProps) => {
         <title>{process.env.PROJECT_NAME} Blog</title>
       </Head>
 
-      <div
-        className={`bg-${color}-600 flex items-center justify-center h-48`}
-      >
+      <div className={`bg-${color}-600 flex items-center justify-center h-48`}>
         <components.h1 className="text-white" style={{ marginBottom: 0 }}>
           Blog
         </components.h1>
@@ -174,7 +172,8 @@ export default ({ color = "primary" }: BlogIndexProps) => {
       <ul
         className={makeClass(
           "px-4 mt-8 mb-12 w-full grid gap-6",
-          "md:grid-cols-2 lg:grid-cols-3",
+          posts.length >= 2 && "md:grid-cols-2",
+          posts.length >= 3 && "lg:grid-cols-3",
           "lg:max-w-6xl lg:mx-auto lg:mt-16"
         )}
         style={
