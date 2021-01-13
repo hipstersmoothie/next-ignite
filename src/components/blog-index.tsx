@@ -76,7 +76,7 @@ const SmallCard = ({ page }) => {
             )}
           >
             {page.email && (
-              <Avatar email={page.email} className="mr-3" width="w-10" />
+              <Avatar email={page.email} className="mr-3" size={10} />
             )}
 
             <div className="flex flex-col">
