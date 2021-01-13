@@ -1,3 +1,15 @@
+# v0.8.18 (Wed Jan 13 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix big card avatar size ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.17 (Wed Jan 13 2021)
 
 #### ⚠️ Pushed to `master`
