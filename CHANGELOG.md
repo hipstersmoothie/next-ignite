@@ -1,3 +1,16 @@
+# v0.8.17 (Wed Jan 13 2021)
+
+#### ⚠️ Pushed to `master`
+
+- return if no comment area ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix markup ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.16 (Wed Jan 13 2021)
 
 #### ⚠️ Pushed to `master`
