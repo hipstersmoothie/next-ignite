@@ -28,6 +28,10 @@ class MyDocument extends Document {
                 };
 
                 (function() {
+                  if (!document.getElementById('disqus_thread')) {
+                    return;
+                  }
+
                   var d = document, s = d.createElement("script");
                   s.src = "https://ignite-2.disqus.com/embed.js";
                   s.setAttribute("data-timestamp", + new Date());
