@@ -1,3 +1,17 @@
+# v0.8.15 (Wed Jan 13 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix build ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix search index sectioning ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- design updates ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.14 (Tue Jan 12 2021)
 
 #### 🐛 Bug Fix
