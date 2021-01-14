@@ -42,7 +42,7 @@ const getHeadingsBeforeNextHeading = (
       break;
     }
 
-    if ($el.attr('class')?.includes('lvl')) {
+    if ($el.hasClass(`lvl${lvl + 1}`)) {
       titles.push(element);
     }
   }
