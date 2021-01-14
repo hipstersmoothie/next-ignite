@@ -1,3 +1,15 @@
+# v0.8.21 (Thu Jan 14 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix search index build ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.19 (Wed Jan 13 2021)
 
 #### ⚠️ Pushed to `master`
