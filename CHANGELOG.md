@@ -1,3 +1,15 @@
+# v0.8.22 (Fri Jan 15 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix overflowing doc page content ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.21 (Thu Jan 14 2021)
 
 #### ⚠️ Pushed to `master`
