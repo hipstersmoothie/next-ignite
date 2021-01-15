@@ -51,28 +51,26 @@ const DocsLayout = ({
 
   return (
     <NavBarLayout menuState={[menuOpen, setMenuOpen]}>
-      <div className="flex-1 w-full lg:max-w-6xl mx-auto">
-        <div className="flex">
-          <Sidebar links={links} folder={resource} />
+      <div className="flex-1 w-full lg:max-w-6xl mx-auto flex">
+        <Sidebar links={links} folder={resource} />
 
-          <SkipNavContent />
-          <main
-            className={makeClass(
-              "DocSearch-content",
-              "pt-8 pb-16 px-4 sm:px-6 xl:px-12 lg:mx-auto w-full",
-              "flex-1",
-              "lg:block",
-              menuOpen && "hidden"
-            )}
-          >
-            {frontMatter.title && (
-              <components.h1>
-                {constructTitleFromMarkdown(components, frontMatter.title)}
-              </components.h1>
-            )}
-            {content}
-          </main>
-        </div>
+        <SkipNavContent />
+        <main
+          className={makeClass(
+            "DocSearch-content",
+            "pt-8 pb-16 px-4 sm:px-6 xl:px-12 lg:mx-auto w-full",
+            "flex-1 overflow-hidden",
+            "lg:block",
+            menuOpen && "hidden"
+          )}
+        >
+          {frontMatter.title && (
+            <components.h1>
+              {constructTitleFromMarkdown(components, frontMatter.title)}
+            </components.h1>
+          )}
+          {content}
+        </main>
       </div>
     </NavBarLayout>
   );
