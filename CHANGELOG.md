@@ -1,3 +1,15 @@
+# v0.8.23 (Fri Jan 22 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix sidebar position saving ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.22 (Fri Jan 15 2021)
 
 #### ⚠️ Pushed to `master`
