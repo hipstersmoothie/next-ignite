@@ -430,7 +430,6 @@ const Sidebar = ({ className, children, ...props }: Element<"div">) => {
 
   return (
     <div
-      ref={ref}
       className={makeClass(
         "sidebar-root",
         className,
@@ -441,7 +440,10 @@ const Sidebar = ({ className, children, ...props }: Element<"div">) => {
     >
       <div className="px-6 lg:pr-4 lg:sticky lg:top-16 w-full lg:w-60 xl:w-72">
         <div className="hidden lg:block h-12 pointer-events-none absolute inset-x-0 z-10 bg-gradient-to-b from-white mr-2.5 dark:from-gray-1000" />
-        <div className="sidebar-items lg:max-h-screen lg:overflow-y-auto border-box">
+        <div
+          ref={ref}
+          className="sidebar-items lg:max-h-screen lg:overflow-y-auto border-box"
+        >
           <div className="pb-12 pt-8 lg:pb-16">{children}</div>
         </div>
       </div>
@@ -506,7 +508,7 @@ const SidebarLink = React.forwardRef(
       onClick={(e) => {
         localStorage.setItem(
           sidebarScrollPositionKey,
-          String(document.querySelector(".sidebar-root").scrollTop)
+          String(document.querySelector(".sidebar-items").scrollTop)
         );
         localStorage.setItem(
           pageScrollPositionKey,
