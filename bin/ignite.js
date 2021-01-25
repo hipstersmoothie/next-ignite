@@ -17,6 +17,7 @@ const { getTopLevelSections } = require("../dist/cjs/utils/docs-data");
 const { buildSearchIndex } = require("../dist/cjs/utils/build-search-index");
 const { buildRssFeed, test } = require("../dist/cjs/utils/build-rss-feed");
 const { purgeUnusedCss } = require("../dist/cjs/utils/purge-unused-css");
+const { generatePwaAssets } = require("../dist/cjs/utils/generate-pwa-assets");
 
 const buildNext = require("next/dist/build").default;
 const exportNext = require("next/dist/export").default;
@@ -107,7 +108,7 @@ if (args._command === "build") {
   buildNext(docsDir, config)
     .then(() => exportNext(docsDir, { outdir }))
     .then(() => buildSearchIndex())
-    .then(() => {
+    .then(async () => {
       console.log("Export successful", 0);
       execSync(
         `touch ${path.resolve(path.join(process.cwd(), "docs/out/.nojekyll"))}`
@@ -129,6 +130,8 @@ if (args._command === "build") {
             path.join(outdir, path.basename(workbox[0]))
           );
         }
+
+        await generatePwaAssets(igniteConfig)
       }
     })
     .catch((err) => {
