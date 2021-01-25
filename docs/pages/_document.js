@@ -48,12 +48,12 @@ class MyDocument extends Document {
           />
           <meta name="twitter:creator" content="@hipstersmoothie" />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="PWA App" />
+          <meta property="og:title" content="next-ignite Docs" />
           <meta
             property="og:description"
             content="The documentation for next-ignite"
           />
-          <meta property="og:site_name" content="PWA App" />
+          <meta property="og:site_name" content="next-ignite Docs" />
           <meta
             property="og:url"
             content="https://hipstersmoothie.github.io/next-ignite/"
