@@ -47,7 +47,7 @@ const HomePageLayout = ({
           >
             {frontMatter.tagline}
           </h2>
-          <Link href={postFixHTML("/docs")}>
+          <Link passHref href={postFixHTML("/docs")}>
             <a
               className={makeClass(
                 `px-6 py-4 rounded text-${color}-700 font-medium bg-white inline-flex mt-8 lg:mt-12`,

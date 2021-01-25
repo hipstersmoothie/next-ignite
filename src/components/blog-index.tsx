@@ -188,7 +188,7 @@ export default ({ color = "primary" }: BlogIndexProps) => {
                 isBigCard && page.image && "md:col-span-3"
               )}
             >
-              <Link href={postFixHTML(page.__resourcePath)}>
+              <Link passHref href={postFixHTML(page.__resourcePath)}>
                 <a className="h-full w-full focus:outline-none focus-visible:ring block rounded-xl">
                   {isBigCard ? (
                     <BigCard page={page} />
