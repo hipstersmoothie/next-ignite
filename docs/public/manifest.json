@@ -3,14 +3,14 @@
   "short_name": "ignite",
   "icons": [
     {
-      "src": "/public/logo.svg",
-      "sizes": "128x128",
+      "src": "/next-ignite/logo.svg",
+      "sizes": "144x144",
       "type": "image/png"
     }
   ],
-  "theme_color": "#3b82f6",
+  "theme_color": "#11151d",
   "background_color": "#11151d",
-  "start_url": "/",
+  "start_url": "/next-ignite/",
   "display": "standalone",
   "orientation": "portrait"
 }
