@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 require("dotenv").config();
 
+const fs = require("fs");
 const path = require("path");
+const glob = require("fast-glob");
 const { app } = require("command-line-application");
 const { createServer } = require("http");
 const { parse } = require("url");
@@ -15,6 +17,7 @@ const { getTopLevelSections } = require("../dist/cjs/utils/docs-data");
 const { buildSearchIndex } = require("../dist/cjs/utils/build-search-index");
 const { buildRssFeed, test } = require("../dist/cjs/utils/build-rss-feed");
 const { purgeUnusedCss } = require("../dist/cjs/utils/purge-unused-css");
+const { generatePwaAssets } = require("../dist/cjs/utils/generate-pwa-assets");
 
 const buildNext = require("next/dist/build").default;
 const exportNext = require("next/dist/export").default;
@@ -92,19 +95,20 @@ if (args._command === "dev") {
       }
 
       console.log(`> Ready on http://localhost:3000/${sections[0]}`);
-      buildSearchIndex('public');
+      buildSearchIndex("public");
     });
   });
 }
 
 if (args._command === "build") {
   const docsDir = path.resolve(path.join(process.cwd(), "docs"));
+  const distDir = path.join(docsDir, ".next");
   const outdir = path.join(docsDir, "out");
 
   buildNext(docsDir, config)
     .then(() => exportNext(docsDir, { outdir }))
     .then(() => buildSearchIndex())
-    .then(() => {
+    .then(async () => {
       console.log("Export successful", 0);
       execSync(
         `touch ${path.resolve(path.join(process.cwd(), "docs/out/.nojekyll"))}`
@@ -112,6 +116,23 @@ if (args._command === "build") {
       buildSitemap();
       buildRssFeed(igniteConfig);
       purgeUnusedCss(igniteConfig);
+
+      if (config.env.BUILD_PWA === "true") {
+        fs.copyFileSync(
+          path.join(distDir, "sw.js"),
+          path.join(outdir, "sw.js")
+        );
+        const workbox = glob.sync(path.join(distDir, "workbox-*.js"));
+
+        if (workbox[0]) {
+          fs.copyFileSync(
+            workbox[0],
+            path.join(outdir, path.basename(workbox[0]))
+          );
+        }
+
+        await generatePwaAssets(igniteConfig)
+      }
     })
     .catch((err) => {
       console.error("");

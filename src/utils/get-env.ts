@@ -37,12 +37,14 @@ export const getEnv = (config: IgniteConfig) => {
     : pathname.endsWith("/")
     ? pathname.slice(0, -1)
     : pathname;
+  const manifest = glob.sync(path.join(publicDir, "**/manifest.json"))[0];
   const favicon = glob.sync(path.join(publicDir, "**/favicon.*"))[0];
   const faviconDark = glob.sync(path.join(publicDir, "**/favicon-dark.*"))[0];
   const logo = glob.sync(path.join(publicDir, "**/logo.*"))[0];
   const darkLogo = glob.sync(path.join(publicDir, "**/logo-dark.*"))[0];
 
   return {
+    BUILD_PWA: String(Boolean(manifest)),
     BASE_PATH: debug ? "/" : BASE_PATH || "/",
     STATIC_HTML_URLS: debug
       ? ""

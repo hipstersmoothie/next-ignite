@@ -6,6 +6,7 @@ import autoLink from "rehype-autolink-headings";
 import a11yEmoji from "rehype-accessible-emojis";
 import slug from "rehype-slug";
 import emoji from "remark-emoji";
+import withPWA from "next-pwa";
 
 import { getEnv } from "./utils/get-env";
 import { IgniteConfig } from "./utils/types";
@@ -18,7 +19,10 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const getCreationDate = (file: string) => {
   try {
     return execSync(
-      `git log --diff-filter=A --follow --format=%aD -- ${path.join("docs/pages", file)} | tail -1`,
+      `git log --diff-filter=A --follow --format=%aD -- ${path.join(
+        "docs/pages",
+        file
+      )} | tail -1`,
       {
         encoding: "utf8",
         stdio: ["pipe", "ignore", "ignore"],
@@ -70,8 +74,8 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 
       if (!description && layout === "blog") {
         const [, firstParagraph] =
-          mdx.match(/---\n\n^([^#].+?)(?=^$)/sm) ||
-          mdx.match(/\n\n^([^#].+?)(?=^$)/sm) ||
+          mdx.match(/---\n\n^([^#].+?)(?=^$)/ms) ||
+          mdx.match(/\n\n^([^#].+?)(?=^$)/ms) ||
           [];
 
         if (firstParagraph) {
@@ -111,7 +115,7 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
     ...env,
   };
 
-  return withBundleAnalyzer(
+  const config = withBundleAnalyzer(
     withMdxEnhanced({
       ...nextConfig,
       basePath,
@@ -120,8 +124,20 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
       },
       env: {
         ...env,
-        browser: "true"
+        browser: "true",
       },
     })
   );
+
+  if (env.BUILD_PWA === "true") {
+    return withPWA({
+      ...config,
+      pwa: {
+        disable: process.env.NODE_ENV !== "production",
+        subdomainPrefix: env.BASE_PATH,
+      }
+    });
+  }
+
+  return config;
 };
