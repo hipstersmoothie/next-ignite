@@ -1,3 +1,19 @@
+# v0.9.0 (Mon Jan 25 2021)
+
+#### 🚀 Enhancement
+
+- Make PWA if manifest.json is available [#36](https://github.com/hipstersmoothie/next-ignite/pull/36) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### ⚠️ Pushed to `master`
+
+- improve search on mobile ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.8.23 (Fri Jan 22 2021)
 
 #### ⚠️ Pushed to `master`
