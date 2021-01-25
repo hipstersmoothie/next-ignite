@@ -1,3 +1,19 @@
+# v0.9.2 (Mon Jan 25 2021)
+
+#### ⚠️ Pushed to `master`
+
+- pass hrefs to anchors ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fallback to default logo if dark doesn't exist ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- use next link for search result ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- automate start_url ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix base cache? ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.1 (Mon Jan 25 2021)
 
 #### ⚠️ Pushed to `master`
