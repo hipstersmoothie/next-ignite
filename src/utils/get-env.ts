@@ -42,6 +42,7 @@ export const getEnv = (config: IgniteConfig) => {
   const faviconDark = glob.sync(path.join(publicDir, "**/favicon-dark.*"))[0];
   const logo = glob.sync(path.join(publicDir, "**/logo.*"))[0];
   const darkLogo = glob.sync(path.join(publicDir, "**/logo-dark.*"))[0];
+  const PROJECT_LOGO = logo ? path.relative(publicDir, logo) : DEFAULT_LOGO;
 
   return {
     BUILD_PWA: String(Boolean(manifest)),
@@ -54,10 +55,10 @@ export const getEnv = (config: IgniteConfig) => {
     PROJECT_NAME: config.name,
     FAVICON: favicon ? path.relative(publicDir, favicon) : "",
     FAVICON_DARK: faviconDark ? path.relative(publicDir, faviconDark) : "",
-    PROJECT_LOGO: logo ? path.relative(publicDir, logo) : DEFAULT_LOGO,
+    PROJECT_LOGO,
     PROJECT_LOGO_DARK: darkLogo
       ? path.relative(publicDir, darkLogo)
-      : DEFAULT_LOGO,
+      : PROJECT_LOGO || DEFAULT_LOGO,
     REPO_URL: getFullGitHubUrl(config.repo),
     PAGES_DIR,
     MDX_DATA_DIR,
