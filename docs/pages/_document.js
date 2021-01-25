@@ -32,7 +32,7 @@ class MyDocument extends Document {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="msapplication-TileColor" content="#11151d" />
           <meta name="msapplication-tap-highlight" content="no" />
-          <meta name="theme-color" content="#3b82f6" />
+          <meta name="theme-color" content="#11151d" />
           <link rel="manifest" href={formatPath("/manifest.json")} />
           <link rel="shortcut icon" href="/images/favicon.ico" />
 
