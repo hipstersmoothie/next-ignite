@@ -33,6 +33,8 @@
     "@reach/skip-nav": "^0.12.1",
     "@react-hook/passive-layout-effect": "^1.2.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
+    "@types/body-scroll-lock": "^2.6.1",
+    "body-scroll-lock": "^3.1.5",
     "cheerio": "^1.0.0-rc.5",
     "clsx": "^1.1.0",
     "command-line-application": "^0.9.6",

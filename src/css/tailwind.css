@@ -7,6 +7,16 @@
 /* purgecss end ignore */
 
 #ignite {
+  .search-results {
+    max-height: calc(100vh - 64px);
+  }
+
+  @screen lg {
+    .search-results {
+      max-height: 80vh;
+    }
+  }
+
   .small-blog-card:hover .content-fade {
     @apply from-gray-100 dark:from-gray-900;
   }

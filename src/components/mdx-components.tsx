@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import useClickOutside from "use-click-outside";
 import join from "url-join";
 import { useDebouncedCallback } from "use-debounce";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 
 import { MDXProviderComponents } from "@mdx-js/react";
 import { prefixURL } from "next-prefixed";
@@ -143,6 +144,7 @@ const SearchInput = React.forwardRef(
 
     let lastLvl0: string | undefined;
     const data = React.useRef([]);
+    const resultsRef = React.useRef<HTMLDivElement>();
     const innerRef = React.useRef<HTMLDivElement>();
     const [current, currentSet] = React.useState(0);
     const [hasInteracted, hasInteractedSet] = React.useState(false);
@@ -152,6 +154,10 @@ const SearchInput = React.forwardRef(
     const debouncedSearchSet = useDebouncedCallback(() => {
       showResultsSet(Boolean(term));
       searchSet(term);
+
+      if (resultsRef.current) {
+        disableBodyScroll(resultsRef.current);
+      }
     }, 200);
 
     const normalizedSearch = search.toLowerCase();
@@ -201,10 +207,17 @@ const SearchInput = React.forwardRef(
       }
     }, [current]);
 
+    React.useEffect(() => {
+      if (!showResults || !search) {
+        console.log("enable");
+        clearAllBodyScrollLocks();
+      }
+    }, [showResults, search]);
+
     return (
       <div
         ref={mergeRefs([ref, innerRef])}
-        className="w-full relative"
+        className="w-full lg:relative"
         onKeyDown={(e) => {
           if (e.key === "Escape") {
             showResultsSet(false);
@@ -234,39 +247,65 @@ const SearchInput = React.forwardRef(
           }
         }}
       >
-        <input
-          id="search"
-          autoComplete="off"
-          autoCorrect="off"
-          autoCapitalize="off"
-          spellCheck="false"
-          placeholder='Search (Press "/" to focus)'
-          className={makeClass(
-            className,
-            DEFAULT_TEXT_COLOR,
-            "placeholder-gray-500 rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 w-full",
-            "focus:bg-white focus:outline-none",
-            "dark:focus:bg-gray-1000 dark:focus:border-gray-800 dark:focus:text-white",
-            "dark-placeholder:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-900"
+        <div className="w-full relative">
+          <input
+            id="search"
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck="false"
+            placeholder='Search (Press "/" to focus)'
+            className={makeClass(
+              className,
+              DEFAULT_TEXT_COLOR,
+              "placeholder-gray-500 rounded border-2 border-gray-200 bg-gray-200 px-4 py-2 w-full",
+              "focus:bg-white focus:outline-none",
+              "dark:focus:bg-gray-1000 dark:focus:border-gray-800 dark:focus:text-white",
+              "dark-placeholder:placeholder-gray-600 dark:bg-gray-900 dark:border-gray-900"
+            )}
+            value={term}
+            onChange={(e) => {
+              termSet(e.target.value);
+              debouncedSearchSet.callback();
+            }}
+            {...props}
+          />
+
+          {search && (
+            <button
+              className={makeClass(
+                "w-6 h-6 absolute right-2 inset-y-1/2 transform -translate-y-1/2 rounded-full bg-gray-400 p-2 flex items-center justify-center text-white",
+                "dark:bg-gray-700 dark:text-gray-100"
+              )}
+              title="clear search"
+              onClick={() => {
+                searchSet("");
+                termSet("");
+                showResultsSet(false);
+                clearAllBodyScrollLocks();
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="8px"
+                viewBox="0 0 329.26933 329"
+                width="8px"
+                className="fill-current"
+              >
+                <path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" />
+              </svg>
+            </button>
           )}
-          defaultValue={term}
-          onChange={(e) => {
-            termSet(e.target.value);
-            debouncedSearchSet.callback();
-          }}
-          {...props}
-        />
+        </div>
 
         {showResults && search && (
           <div
+            ref={resultsRef}
             role="list-box"
             className={makeClass(
-              "bg-white rounded pt-6 px-4 mt-1 border border-gray-200 shadow-lg overflow-auto top-full left-0 right-0 absolute z-10",
+              "search-results bg-white rounded pt-6 px-4 lg:mt-1 border border-gray-200 shadow-lg overflow-auto top-full left-0 right-0 absolute z-10",
               "dark:bg-gray-1000 dark:border-gray-800"
             )}
-            style={{
-              maxHeight: "80vh",
-            }}
             onMouseOver={() => hasInteractedSet(true)}
           >
             {matchingResults.length ? (
