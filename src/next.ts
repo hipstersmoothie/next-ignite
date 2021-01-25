@@ -131,9 +131,11 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
 
   if (env.BUILD_PWA === "true") {
     return withPWA({
-      disable: process.env.NODE_ENV !== "production",
       ...config,
-      subdomainPrefix: env.BASE_PATH,
+      pwa: {
+        disable: process.env.NODE_ENV !== "production",
+        subdomainPrefix: env.BASE_PATH,
+      }
     });
   }
 
