@@ -1,3 +1,15 @@
+# v0.9.1 (Mon Jan 25 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix overscroll dark background ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.0 (Mon Jan 25 2021)
 
 #### 🚀 Enhancement
