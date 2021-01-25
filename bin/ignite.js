@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 require("dotenv").config();
 
+const fs = require("fs");
 const path = require("path");
+const glob = require("fast-glob");
 const { app } = require("command-line-application");
 const { createServer } = require("http");
 const { parse } = require("url");
@@ -92,13 +94,14 @@ if (args._command === "dev") {
       }
 
       console.log(`> Ready on http://localhost:3000/${sections[0]}`);
-      buildSearchIndex('public');
+      buildSearchIndex("public");
     });
   });
 }
 
 if (args._command === "build") {
   const docsDir = path.resolve(path.join(process.cwd(), "docs"));
+  const distDir = path.join(docsDir, ".next");
   const outdir = path.join(docsDir, "out");
 
   buildNext(docsDir, config)
@@ -112,6 +115,21 @@ if (args._command === "build") {
       buildSitemap();
       buildRssFeed(igniteConfig);
       purgeUnusedCss(igniteConfig);
+
+      if (config.env.BUILD_PWA === "true") {
+        fs.copyFileSync(
+          path.join(distDir, "sw.js"),
+          path.join(outdir, "sw.js")
+        );
+        const workbox = glob.sync(path.join(distDir, "workbox-*.js"));
+
+        if (workbox[0]) {
+          fs.copyFileSync(
+            workbox[0],
+            path.join(outdir, path.basename(workbox[0]))
+          );
+        }
+      }
     })
     .catch((err) => {
       console.error("");
