@@ -12,6 +12,7 @@ import { getEnv } from "./utils/get-env";
 import { IgniteConfig } from "./utils/types";
 import { getAuthor } from "./utils/get-author";
 
+const cachingStrategy = require("next-pwa/cache");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
@@ -130,11 +131,17 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
   );
 
   if (env.BUILD_PWA === "true") {
+    cachingStrategy[0] = {
+      ...cachingStrategy[0],
+      urlPattern: env.BASE_PATH,
+    }
+
     return withPWA({
       ...config,
       pwa: {
         disable: process.env.NODE_ENV !== "production",
         subdomainPrefix: env.BASE_PATH,
+        runtimeCaching: cachingStrategy,
       }
     });
   }
