@@ -1,16 +1,8 @@
 {
   "name": "next-ignite Docs",
   "short_name": "ignite",
-  "icons": [
-    {
-      "src": "/next-ignite/logo.svg",
-      "sizes": "144x144",
-      "type": "image/png"
-    }
-  ],
   "theme_color": "#11151d",
   "background_color": "#11151d",
-  "start_url": "/next-ignite/",
   "display": "standalone",
   "orientation": "portrait"
 }
