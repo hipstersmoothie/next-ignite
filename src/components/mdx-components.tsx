@@ -330,53 +330,54 @@ const SearchInput = React.forwardRef(
                     className="search-result pb-4 cursor-pointer"
                     aria-selected={isSelected}
                   >
-                    <a
-                      href={formatPath(postFixHTML(item.url))}
-                      onClick={() => {
-                        showResultsSet(false);
-                        searchSet("");
-                      }}
-                    >
-                      <div
-                        className={makeClass(
-                          "border-b border-gray-400 pb-2 text-gray-800 dark:text-gray-300 dark:border-gray-600",
-                          isGrouped && "hidden"
-                        )}
+                    <Link passHref href={postFixHTML(`/${item.url}`)}>
+                      <a
+                        onClick={() => {
+                          showResultsSet(false);
+                          searchSet("");
+                        }}
                       >
-                        {item.path[0]}
-                      </div>
-
-                      <div className="flex py-2 text-sm">
-                        <div className="w-1/3 font-medium	border-r border-gray-400 px-3 py-2 text-gray-600 dark:text-gray-400">
-                          <MatchHighlight term={search}>
-                            {item.path[1]}
-                          </MatchHighlight>
-                        </div>
-
                         <div
                           className={makeClass(
-                            "search-content w-2/3 px-3 py-2 text-gray-900 dark:text-gray-400",
-                            isSelected && "bg-gray-100 dark:bg-gray-800"
+                            "border-b border-gray-400 pb-2 text-gray-800 dark:text-gray-300 dark:border-gray-600",
+                            isGrouped && "hidden"
                           )}
                         >
-                          <div className="font-bold">
+                          {item.path[0]}
+                        </div>
+
+                        <div className="flex py-2 text-sm">
+                          <div className="w-1/3 font-medium	border-r border-gray-400 px-3 py-2 text-gray-600 dark:text-gray-400">
                             <MatchHighlight term={search}>
-                              {item.path.slice(2).join(" > ") || item.path[1]}
+                              {item.path[1]}
                             </MatchHighlight>
                           </div>
 
-                          {contentIndex !== -1 && (
-                            <div className="mt-2 text-gray-700 dark:text-gray-400">
-                              {contentStart !== 0 && "…"}
+                          <div
+                            className={makeClass(
+                              "search-content w-2/3 px-3 py-2 text-gray-900 dark:text-gray-400",
+                              isSelected && "bg-gray-100 dark:bg-gray-800"
+                            )}
+                          >
+                            <div className="font-bold">
                               <MatchHighlight term={search}>
-                                {item.content.slice(contentStart, contentEnd)}
+                                {item.path.slice(2).join(" > ") || item.path[1]}
                               </MatchHighlight>
-                              {contentEnd !== item.content.length && "…"}
                             </div>
-                          )}
+
+                            {contentIndex !== -1 && (
+                              <div className="mt-2 text-gray-700 dark:text-gray-400">
+                                {contentStart !== 0 && "…"}
+                                <MatchHighlight term={search}>
+                                  {item.content.slice(contentStart, contentEnd)}
+                                </MatchHighlight>
+                                {contentEnd !== item.content.length && "…"}
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    </a>
+                      </a>
+                    </Link>
                   </div>
                 );
               })
