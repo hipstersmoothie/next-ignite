@@ -34,7 +34,17 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
 
   html.map((file) => {
     const $ = cheerio.load(fs.readFileSync(file, "utf-8"));
-    $("head").append(Object.values(light.htmlMeta).join("\n"));
-    fs.writeFileSync(file, $.html())
+    $("head").append(
+      Object.values(light.htmlMeta)
+        .map((image) => {
+          if (image.includes("apple-icon-180.jpg")) {
+            return image.replace("apple-icon-180.jpg", "apple-icon-180.png");
+          }
+
+          return image;
+        })
+        .join("\n")
+    );
+    fs.writeFileSync(file, $.html());
   });
 };
