@@ -1,5 +1,6 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import { formatPath } from "next-ignite";
 
 class MyDocument extends Document {
   render() {
@@ -32,11 +33,14 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#11151d" />
           <meta name="msapplication-tap-highlight" content="no" />
           <meta name="theme-color" content="#3b82f6" />
-          <link rel="manifest" href="/manifest.json" />
+          <link rel="manifest" href={formatPath("/manifest.json")} />
           <link rel="shortcut icon" href="/images/favicon.ico" />
 
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:url" content="https://hipstersmoothie.github.io/next-ignite/" />
+          <meta
+            name="twitter:url"
+            content="https://hipstersmoothie.github.io/next-ignite/"
+          />
           <meta name="twitter:title" content="next-ignite Docs" />
           <meta
             name="twitter:description"
@@ -45,9 +49,15 @@ class MyDocument extends Document {
           <meta name="twitter:creator" content="@hipstersmoothie" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="PWA App" />
-          <meta property="og:description" content="The documentation for next-ignite" />
+          <meta
+            property="og:description"
+            content="The documentation for next-ignite"
+          />
           <meta property="og:site_name" content="PWA App" />
-          <meta property="og:url" content="https://hipstersmoothie.github.io/next-ignite/" />
+          <meta
+            property="og:url"
+            content="https://hipstersmoothie.github.io/next-ignite/"
+          />
         </Head>
         <body>
           <Main />
