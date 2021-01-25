@@ -18,7 +18,6 @@ export type Element<
 > = React.PropsWithoutRef<JSX.IntrinsicElements[T]>;
 
 const sidebarScrollPositionKey = "IGNITE_PAGE_POSITION";
-const pageScrollPositionKey = "IGNITE_FULL_PAGE_POSITION";
 
 interface MobileMenuButtonProps {
   open: boolean;
@@ -449,7 +448,6 @@ const Sidebar = ({ className, children, ...props }: Element<"div">) => {
     }
 
     const page = document.querySelector("html");
-    const pagePosition = Number(localStorage.getItem(pageScrollPositionKey));
     const sideBarPosition = Number(
       localStorage.getItem(sidebarScrollPositionKey)
     );
@@ -458,14 +456,9 @@ const Sidebar = ({ className, children, ...props }: Element<"div">) => {
       if (sideBarPosition) {
         ref.current.scrollTop = sideBarPosition;
       }
-
-      if (pagePosition) {
-        page.scrollTop = pagePosition;
-      }
     });
 
     localStorage.setItem(sidebarScrollPositionKey, "0");
-    localStorage.setItem(pageScrollPositionKey, "0");
   }, []);
 
   return (
@@ -549,10 +542,6 @@ const SidebarLink = React.forwardRef(
         localStorage.setItem(
           sidebarScrollPositionKey,
           String(document.querySelector(".sidebar-items").scrollTop)
-        );
-        localStorage.setItem(
-          pageScrollPositionKey,
-          String(Math.min(document.querySelector("html").scrollTop, 65))
         );
         onClick(e);
       }}
