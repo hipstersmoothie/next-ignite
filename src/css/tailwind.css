@@ -149,3 +149,7 @@
     }
   }
 }
+
+html {
+  @apply dark:bg-gray-1000;
+}
