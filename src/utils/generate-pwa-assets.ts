@@ -7,6 +7,7 @@ import fs from "fs";
 import { DOCS_DIR } from "./docs-data";
 import { getEnv } from "./get-env";
 import { IgniteConfig } from "./types";
+import { formatPath } from "./format-path";
 
 export const generatePwaAssets = async (config: IgniteConfig) => {
   const env = getEnv(config);
@@ -67,11 +68,14 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
       <meta property="og:site_name" content="${env.PROJECT_NAME}" />
       <meta property="og:url" content="${env.DOCS_URL}" />
       <meta name="theme-color" content="${manifest.background_color}" />
-      <meta name="msapplication-TileColor" content="${manifest.background_color}" />
+      <meta name="msapplication-TileColor" content="${
+        manifest.background_color
+      }" />
 
       <meta name="description" content="${manifest.description}" />
       <meta name="twitter:description" content="${manifest.description}" />
       <meta property="og:description" content="${manifest.description}" />
+      <link rel="manifest" href={${formatPath("/manifest.json")}} />
     `);
     fs.writeFileSync(file, $.html());
   });
