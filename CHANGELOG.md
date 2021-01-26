@@ -1,3 +1,15 @@
+# v0.9.7 (Tue Jan 26 2021)
+
+#### ⚠️ Pushed to `master`
+
+- add to sidebar ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.6 (Tue Jan 26 2021)
 
 #### ⚠️ Pushed to `master`
