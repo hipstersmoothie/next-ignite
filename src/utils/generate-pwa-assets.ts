@@ -11,22 +11,22 @@ import { IgniteConfig } from "./types";
 export const generatePwaAssets = async (config: IgniteConfig) => {
   const env = getEnv(config);
   const outDir = path.join(DOCS_DIR, "out");
-
-  console.log(env.BASE_PATH);
+  const manifestPath = path.join(outDir, "manifest.json");
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
 
   const light = await pwaAssetGenerator.generateImages(
     path.join(DOCS_DIR, "public", env.PROJECT_LOGO),
     outDir,
-    { pathOverride: env.BASE_PATH, log: false }
+    {
+      pathOverride: env.BASE_PATH,
+      log: false,
+      background: manifest.background_color,
+    }
   );
 
   // Add items to manifest
-
-  const manifestPath = path.join(outDir, "manifest.json");
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
-
   manifest.icons = [...light.manifestJsonContent];
-  manifest.start_url = path.join(env.BASE_PATH, '/');
+  manifest.start_url = path.join(env.BASE_PATH, "/");
 
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
@@ -48,6 +48,4 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
     );
     fs.writeFileSync(file, $.html());
   });
-
-  
 };
