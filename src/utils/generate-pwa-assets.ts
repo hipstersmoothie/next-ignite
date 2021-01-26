@@ -26,7 +26,7 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
 
   manifest.icons = [...light.manifestJsonContent];
-  manifest.start_url = env.BASE_PATH;
+  manifest.start_url = path.join(env.BASE_PATH, '/');
 
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
