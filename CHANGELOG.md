@@ -1,3 +1,17 @@
+# v0.9.3 (Tue Jan 26 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix start-url ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- reduce title scroll top ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- remove page scroll position weirdness ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.2 (Mon Jan 25 2021)
 
 #### ⚠️ Pushed to `master`
