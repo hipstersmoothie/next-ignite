@@ -46,6 +46,33 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
         })
         .join("\n")
     );
+    $("head").append(`
+      <meta name="application-name" content="${env.PROJECT_NAME}" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="default"
+      />
+      <meta name="apple-mobile-web-app-title" content="${env.PROJECT_NAME} />
+      <meta name="format-detection" content="telephone=no" />
+      <meta name="mobile-web-app-capable" content="yes" />
+
+      <meta name="msapplication-tap-highlight" content="no" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:url" content="${env.DOCS_URL}" />
+      <meta name="twitter:title" content="${env.PROJECT_NAME}" />
+
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="${env.PROJECT_NAME}" />
+      <meta property="og:site_name" content="${env.PROJECT_NAME}" />
+      <meta property="og:url" content="${env.DOCS_URL}" />
+      <meta name="theme-color" content="${manifest.background_color}" />
+      <meta name="msapplication-TileColor" content="${manifest.background_color}" />
+
+      <meta name="description" content="${config.description}" />
+      <meta name="twitter:description" content="${config.description}" />
+      <meta property="og:description" content="${config.description}" />
+    `);
     fs.writeFileSync(file, $.html());
   });
 };

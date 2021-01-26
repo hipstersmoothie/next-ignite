@@ -86,7 +86,8 @@
   },
   "ignite": {
     "repo": "hipstersmoothie/next-ignite",
-    "url": "https://hipstersmoothie.github.io/next-ignite"
+    "url": "https://hipstersmoothie.github.io/next-ignite",
+    "description": "The documentation for next-ignite"
   },
   "auto": {
     "plugins": [
