@@ -1,3 +1,15 @@
+# v0.9.4 (Tue Jan 26 2021)
+
+#### ⚠️ Pushed to `master`
+
+- use app bg color for app icon ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.3 (Tue Jan 26 2021)
 
 #### ⚠️ Pushed to `master`
