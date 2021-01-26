@@ -1,3 +1,17 @@
+# v0.9.6 (Tue Jan 26 2021)
+
+#### ⚠️ Pushed to `master`
+
+- generate dark mode PWA assets ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- use html ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- add manifest back to head ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.5 (Tue Jan 26 2021)
 
 #### ⚠️ Pushed to `master`
