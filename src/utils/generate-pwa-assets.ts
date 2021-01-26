@@ -69,9 +69,9 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
       <meta name="theme-color" content="${manifest.background_color}" />
       <meta name="msapplication-TileColor" content="${manifest.background_color}" />
 
-      <meta name="description" content="${config.description}" />
-      <meta name="twitter:description" content="${config.description}" />
-      <meta property="og:description" content="${config.description}" />
+      <meta name="description" content="${manifest.description}" />
+      <meta name="twitter:description" content="${manifest.description}" />
+      <meta property="og:description" content="${manifest.description}" />
     `);
     fs.writeFileSync(file, $.html());
   });

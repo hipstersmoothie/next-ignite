@@ -27,8 +27,6 @@ export interface MarkdownPage extends Page {
 export interface IgniteConfig {
   /** The name to use for the docs */
   name?: string;
-  /** A description of the project */
-  description?: string;
   /** The repo the docs are for */
   repo?: string;
   /** The url the docs will be deployed to */
