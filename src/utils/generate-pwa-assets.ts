@@ -75,7 +75,7 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
       <meta name="description" content="${manifest.description}" />
       <meta name="twitter:description" content="${manifest.description}" />
       <meta property="og:description" content="${manifest.description}" />
-      <link rel="manifest" href={${formatPath("/manifest.json")}} />
+      <link rel="manifest" href="${formatPath("/manifest.json")}" />
     `);
     fs.writeFileSync(file, $.html());
   });
