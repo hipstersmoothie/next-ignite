@@ -25,8 +25,19 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
     }
   );
 
+  const dark = await pwaAssetGenerator.generateImages(
+    path.join(DOCS_DIR, "public", env.PROJECT_LOGO),
+    outDir,
+    {
+      darkMode: true,
+      pathOverride: env.BASE_PATH,
+      log: false,
+      background: manifest.dark_background_color,
+    }
+  );
+
   // Add items to manifest
-  manifest.icons = [...light.manifestJsonContent];
+  manifest.icons = [...light.manifestJsonContent, ...dark.manifestJsonContent];
   manifest.start_url = path.join(env.BASE_PATH, "/");
 
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
@@ -37,7 +48,7 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
   html.map((file) => {
     const $ = cheerio.load(fs.readFileSync(file, "utf-8"));
     $("head").append(
-      Object.values(light.htmlMeta)
+      [...Object.values(light.htmlMeta), ...Object.values(dark.htmlMeta)]
         .map((image) => {
           if (image.includes("apple-icon-180.jpg")) {
             return image.replace("apple-icon-180.jpg", "apple-icon-180.png");
