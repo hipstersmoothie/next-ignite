@@ -158,7 +158,12 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
             path.join(outDir, "**/*.html"),
           ])
           .map((f) => ({
-            url: path.posix.join(env.BASE_PATH, path.relative(outDir, f)),
+            url: path.posix.join(
+              env.BASE_PATH,
+              f.includes("/public/")
+                ? path.relative(path.join(DOCS_DIR, "public"), f)
+                : path.relative(outDir, f)
+            ),
             revision: getRevision(f),
           })),
       },
