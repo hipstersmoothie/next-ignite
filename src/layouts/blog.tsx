@@ -31,6 +31,7 @@ const BlogLayout = ({
     <NavBarLayout>
       <Head>
         <title>{frontMatter.title.replace(/\\`/g, "`")}</title>
+        <meta property="og:type" content="article" />
       </Head>
 
       <SkipNavContent />
@@ -78,7 +79,10 @@ const BlogLayout = ({
         {content}
       </article>
 
-      <div id="disqus_thread" className="px-6 lg:max-w-screen-md lg:mx-auto w-full mb-16 lg:mb-28" />
+      <div
+        id="disqus_thread"
+        className="px-6 lg:max-w-screen-md lg:mx-auto w-full mb-16 lg:mb-28"
+      />
     </NavBarLayout>
   );
 };
