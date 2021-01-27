@@ -1,3 +1,15 @@
+# v0.9.11 (Wed Jan 27 2021)
+
+#### ⚠️ Pushed to `master`
+
+- precache all HTML files for PWA ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.10 (Wed Jan 27 2021)
 
 #### ⚠️ Pushed to `master`
