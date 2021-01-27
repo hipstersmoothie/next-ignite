@@ -85,10 +85,8 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
       <meta property="og:title" content="${env.PROJECT_NAME}" />
       <meta property="og:site_name" content="${env.PROJECT_NAME}" />
       <meta property="og:url" content="${env.DOCS_URL}" />
-      <meta name="theme-color" content="${manifest.background_color}" />
-      <meta name="msapplication-TileColor" content="${
-        manifest.background_color
-      }" />
+      <meta name="theme-color" content="${manifest.theme_color}" />
+      <meta name="msapplication-TileColor" content="${manifest.theme_color}" />
 
       ${description}
       <link rel="manifest" href="${formatPath("/manifest.json")}" />
