@@ -3,6 +3,7 @@ import path from "path";
 import cheerio from "cheerio";
 import glob from "fast-glob";
 import fs from "fs";
+import join from "url-join";
 
 import { DOCS_DIR } from "./docs-data";
 import { getEnv } from "./get-env";
@@ -44,16 +45,25 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
 
   // Add to html HEADs
   const html = await glob(path.join(outDir, "**/*.html"));
-  const description = manifest.description
-    ? `
-      <meta name="description" content="${manifest.description}" />
-      <meta name="twitter:description" content="${manifest.description}" />
-      <meta property="og:description" content="${manifest.description}" />
-    `
-    : "";
 
   html.map((file) => {
     const $ = cheerio.load(fs.readFileSync(file, "utf-8"));
+    const titleNode = $("h1");
+    const title = (titleNode && titleNode.text()) || manifest.PROJECT_NAME;
+    const descriptionText = titleNode
+      ? file.includes("/blog/")
+        ? titleNode.parent().next("p").text()
+        : titleNode.next("p").text()
+      : "";
+
+    const description = descriptionText
+      ? `
+        <meta name="description" content="${descriptionText}" />
+        <meta name="twitter:description" content="${descriptionText}" />
+        <meta property="og:description" content="${descriptionText}" />
+      `
+      : "";
+
     $("head").append(
       [...Object.values(light.htmlMeta), ...Object.values(dark.htmlMeta)]
         .map((image) => {
@@ -72,21 +82,28 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
         name="apple-mobile-web-app-status-bar-style"
         content="default"
       />
-      <meta name="apple-mobile-web-app-title" content="${env.PROJECT_NAME} />
+      <meta name="apple-mobile-web-app-title" content="${env.PROJECT_NAME}" />
       <meta name="format-detection" content="telephone=no" />
       <meta name="mobile-web-app-capable" content="yes" />
 
       <meta name="msapplication-tap-highlight" content="no" />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:url" content="${env.DOCS_URL}" />
-      <meta name="twitter:title" content="${env.PROJECT_NAME}" />
-
+      <meta name="twitter:title" content="${title}" />
+      
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="${env.PROJECT_NAME}" />
+      <meta property="og:title" content="${title}" />
       <meta property="og:site_name" content="${env.PROJECT_NAME}" />
-      <meta property="og:url" content="${env.DOCS_URL}" />
       <meta name="theme-color" content="${manifest.theme_color}" />
       <meta name="msapplication-TileColor" content="${manifest.theme_color}" />
+
+      <meta name="twitter:url" content="${join(
+        env.DOCS_URL,
+        path.relative(outDir, file)
+      )}" />
+      <meta property="og:url" content="${join(
+        env.DOCS_URL,
+        path.relative(outDir, file)
+      )}" />
 
       ${description}
       <link rel="manifest" href="${formatPath("/manifest.json")}" />
