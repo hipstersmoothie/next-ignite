@@ -5,20 +5,20 @@ import glob from "fast-glob";
 import fs from "fs";
 import join from "url-join";
 
-import { DOCS_DIR } from "./docs-data";
+import { DOCS_DIR, OUT_DIR } from "./docs-data";
 import { getEnv } from "./get-env";
 import { IgniteConfig } from "./types";
 import { formatPath } from "./format-path";
+import { createAdditionalManifestAssets } from "./create-additional-manifest-asset";
 
 export const generatePwaAssets = async (config: IgniteConfig) => {
   const env = getEnv(config);
-  const outDir = path.join(DOCS_DIR, "out");
-  const manifestPath = path.join(outDir, "manifest.json");
+  const manifestPath = path.join(OUT_DIR, "manifest.json");
   const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf-8"));
 
   const light = await pwaAssetGenerator.generateImages(
     path.join(DOCS_DIR, "public", env.PROJECT_LOGO),
-    outDir,
+    OUT_DIR,
     {
       pathOverride: env.BASE_PATH,
       log: false,
@@ -28,7 +28,7 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
 
   const dark = await pwaAssetGenerator.generateImages(
     path.join(DOCS_DIR, "public", env.PROJECT_LOGO_DARK),
-    outDir,
+    OUT_DIR,
     {
       darkMode: true,
       pathOverride: env.BASE_PATH,
@@ -44,7 +44,7 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
   // Add to html HEADs
-  const html = await glob(path.join(outDir, "**/*.html"));
+  const html = await glob(path.join(OUT_DIR, "**/*.html"));
 
   html.map((file) => {
     const $ = cheerio.load(fs.readFileSync(file, "utf-8"));
@@ -98,11 +98,11 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
 
       <meta name="twitter:url" content="${join(
         env.DOCS_URL,
-        path.relative(outDir, file)
+        path.relative(OUT_DIR, file)
       )}" />
       <meta property="og:url" content="${join(
         env.DOCS_URL,
-        path.relative(outDir, file)
+        path.relative(OUT_DIR, file)
       )}" />
 
       ${description}
@@ -110,4 +110,21 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
     `);
     fs.writeFileSync(file, $.html());
   });
+
+  const additionalAssets = createAdditionalManifestAssets(
+    path.join(OUT_DIR, "**/*.html"),
+    env.BASE_PATH
+  );
+
+  if (additionalAssets.length) {
+    const swFilename = path.join(OUT_DIR, "sw.js");
+    const sw = fs.readFileSync(swFilename, "utf-8");
+    fs.writeFileSync(
+      swFilename,
+      sw.replace(
+        '{url:"replace-me",revision:"replace-me"}',
+        additionalAssets.map((a) => JSON.stringify(a)).join(",")
+      )
+    );
+  }
 };

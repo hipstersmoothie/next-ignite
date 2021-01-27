@@ -3,6 +3,7 @@ import path from "path";
 import glob from "fast-glob";
 
 export const DOCS_DIR = path.resolve("./docs");
+export const OUT_DIR = path.join(DOCS_DIR, "out");
 export const PAGES_DIR = path.resolve("./docs/pages");
 export const MDX_DATA_DIR = path.resolve("./docs/.mdx-data");
 

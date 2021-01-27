@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
-import crypto from "crypto";
-import glob from "fast-glob";
+
 import { execSync } from "child_process";
 import rehypePrism from "@mapbox/rehype-prism";
 import autoLink from "rehype-autolink-headings";
@@ -14,14 +13,12 @@ import { getEnv } from "./utils/get-env";
 import { IgniteConfig } from "./utils/types";
 import { getAuthor } from "./utils/get-author";
 import { DOCS_DIR } from "./utils/docs-data";
+import { createAdditionalManifestAssets } from "./utils/create-additional-manifest-asset";
 
 const cachingStrategy = require("next-pwa/cache");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
-
-const getRevision = (file: string) =>
-  crypto.createHash("md5").update(fs.readFileSync(file)).digest("hex");
 
 const getCreationDate = (file: string) => {
   try {
@@ -142,30 +139,19 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
       urlPattern: env.BASE_PATH,
     };
 
-    const outDir = path.join(DOCS_DIR, "out");
-
     return withPWA({
       ...config,
       pwa: {
         disable: process.env.NODE_ENV !== "production",
         subdomainPrefix: env.BASE_PATH,
         runtimeCaching: cachingStrategy,
-        additionalManifestEntries: glob
-          .sync([
-            // Cache public folder
+        additionalManifestEntries: [
+          ...createAdditionalManifestAssets(
             path.join(DOCS_DIR, "public", "**/*"),
-            // Cache all HTML files from next export
-            path.join(outDir, "**/*.html"),
-          ])
-          .map((f) => ({
-            url: path.posix.join(
-              env.BASE_PATH,
-              f.includes("/public/")
-                ? path.relative(path.join(DOCS_DIR, "public"), f)
-                : path.relative(outDir, f)
-            ),
-            revision: getRevision(f),
-          })),
+            env.BASE_PATH
+          ),
+          { url: "replace-me", revision: "replace-me" },
+        ],
       },
     });
   }
