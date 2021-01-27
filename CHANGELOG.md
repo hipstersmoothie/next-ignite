@@ -1,3 +1,16 @@
+# v0.9.13 (Wed Jan 27 2021)
+
+#### ⚠️ Pushed to `master`
+
+- inject html manifest assets at end of build ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix public asset paths ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.12 (Wed Jan 27 2021)
 
 #### ⚠️ Pushed to `master`
