@@ -44,6 +44,13 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
 
   // Add to html HEADs
   const html = await glob(path.join(outDir, "**/*.html"));
+  const description = manifest.description
+    ? `
+      <meta name="description" content="${manifest.description}" />
+      <meta name="twitter:description" content="${manifest.description}" />
+      <meta property="og:description" content="${manifest.description}" />
+    `
+    : "";
 
   html.map((file) => {
     const $ = cheerio.load(fs.readFileSync(file, "utf-8"));
@@ -83,9 +90,7 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
         manifest.background_color
       }" />
 
-      <meta name="description" content="${manifest.description}" />
-      <meta name="twitter:description" content="${manifest.description}" />
-      <meta property="og:description" content="${manifest.description}" />
+      ${description}
       <link rel="manifest" href="${formatPath("/manifest.json")}" />
     `);
     fs.writeFileSync(file, $.html());

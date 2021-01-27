@@ -4,6 +4,7 @@
   "theme_color": "#11151d",
   "background_color": "#fff",
   "dark_background_color": "#11151d",
+  "description": "The documentation for using next-ignite.",
   "display": "standalone",
   "orientation": "portrait"
 }
