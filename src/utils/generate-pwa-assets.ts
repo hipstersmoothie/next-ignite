@@ -26,7 +26,7 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
   );
 
   const dark = await pwaAssetGenerator.generateImages(
-    path.join(DOCS_DIR, "public", env.PROJECT_LOGO),
+    path.join(DOCS_DIR, "public", env.PROJECT_LOGO_DARK),
     outDir,
     {
       darkMode: true,
