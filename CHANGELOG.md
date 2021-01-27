@@ -1,3 +1,15 @@
+# v0.9.9 (Wed Jan 27 2021)
+
+#### ⚠️ Pushed to `master`
+
+- generate dark assets with dark logo ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.8 (Wed Jan 27 2021)
 
 #### ⚠️ Pushed to `master`
