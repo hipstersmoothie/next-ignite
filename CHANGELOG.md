@@ -1,3 +1,15 @@
+# v0.9.12 (Wed Jan 27 2021)
+
+#### ⚠️ Pushed to `master`
+
+- set unique title and description for each page ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.11 (Wed Jan 27 2021)
 
 #### ⚠️ Pushed to `master`
