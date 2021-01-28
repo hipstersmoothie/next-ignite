@@ -1,3 +1,15 @@
+# v0.9.15 (Thu Jan 28 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix search input keyboard ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.14 (Wed Jan 27 2021)
 
 #### ⚠️ Pushed to `master`
