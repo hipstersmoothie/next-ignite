@@ -90,7 +90,6 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content="${title}" />
       
-      <meta property="og:type" content="website" />
       <meta property="og:title" content="${title}" />
       <meta property="og:site_name" content="${env.PROJECT_NAME}" />
       <meta name="theme-color" content="${manifest.theme_color}" />

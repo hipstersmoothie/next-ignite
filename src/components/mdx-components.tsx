@@ -224,9 +224,7 @@ const SearchInput = React.forwardRef(
 
           if (e.key === "Tab" || e.key === "Enter") {
             if (search && showResults) {
-              router.push(
-                formatPath(postFixHTML(`/${matchingResults[current].url}`))
-              );
+              router.push(postFixHTML(`/${matchingResults[current].url}`));
               e.preventDefault();
             }
 
