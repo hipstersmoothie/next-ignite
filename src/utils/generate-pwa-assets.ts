@@ -50,11 +50,12 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
     const $ = cheerio.load(fs.readFileSync(file, "utf-8"));
     const titleNode = $("h1");
     const title = (titleNode && titleNode.text()) || manifest.PROJECT_NAME;
-    const descriptionText = titleNode
+    const descriptionText = (titleNode
       ? file.includes("/blog/")
         ? titleNode.parent().next("p").text()
         : titleNode.next("p").text()
-      : "";
+      : ""
+    ).replace(/"/g, '&quot;');
 
     const description = descriptionText
       ? `
