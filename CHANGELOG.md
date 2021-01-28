@@ -1,3 +1,15 @@
+# v0.9.16 (Thu Jan 28 2021)
+
+#### ⚠️ Pushed to `master`
+
+- replace double quotes in meta description ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.15 (Thu Jan 28 2021)
 
 #### ⚠️ Pushed to `master`
