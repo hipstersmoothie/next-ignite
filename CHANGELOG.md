@@ -1,3 +1,15 @@
+# v0.9.17 (Thu Feb 11 2021)
+
+#### ⚠️ Pushed to `master`
+
+- add support for custom remark and rehype plugins ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.16 (Thu Jan 28 2021)
 
 #### ⚠️ Pushed to `master`
