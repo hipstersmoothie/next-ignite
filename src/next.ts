@@ -60,7 +60,7 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
 
   const withMdxEnhanced = mdxEnhanced({
     layoutPath: path.resolve(path.join(__dirname, "./layouts")),
-    remarkPlugins: [emoji],
+    remarkPlugins: [emoji, ...(igniteConfig.remarkPlugins || [])],
     rehypePlugins: [
       slug,
       [
@@ -74,6 +74,7 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
       ],
       a11yEmoji,
       [rehypePrism, { ignoreMissing: true }],
+      ...(igniteConfig.rehypePlugins || [])
     ],
     extendFrontMatter: {
       process: (mdx: string, frontMatter) => {
