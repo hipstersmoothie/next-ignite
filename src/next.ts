@@ -44,7 +44,7 @@ const getCreationDate = (file: string) => {
 // repo - The repo the documentation is for
 // order - string array of top level section order
 // htmlUrls - Add .html to the end of each URL
-module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
+export default (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
   const debug = process.env.NODE_ENV !== "production";
   const env = getEnv(igniteConfig);
   const basePath = debug
