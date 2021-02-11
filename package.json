@@ -24,6 +24,7 @@
     "src",
     "bin",
     "next.js",
+    "next.d.ts",
     "template"
   ],
   "dependencies": {
