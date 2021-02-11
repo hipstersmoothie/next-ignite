@@ -69,10 +69,10 @@ Control the order of the top level section in the navbar.
 Each item in the array should be a name of one of your top-level documentation folders.
 Any unordered sections will be put after your provided order in alphabetical order.
 
-```json5
+```jsonc
 {
   // The Default
-  "order": ["docs", "blog"],
+  "order": ["docs", "blog"]
 }
 ```
 
@@ -80,9 +80,9 @@ Any unordered sections will be put after your provided order in alphabetical ord
 
 Add `.html` to the end of each internal URL.
 
-```json5
+```jsonc
 {
-  "htmlUrls": true,
+  "htmlUrls": true
 }
 ```
 
@@ -92,10 +92,26 @@ By default `next-ignite` will purge CSS it doesn't use.
 
 You can turn off this behavior:
 
-```json5
+```jsonc
 {
-  "purge": false,
+  "purge": false
 }
+```
+
+## Remark and ReHype Plugins.
+
+You can provide plugins for the underlying markdown and html libraries we use to add more features.
+
+> NOTE: You can only specify these plugins in a JavaScript based configuration
+
+```js
+const toc = require("rehype-toc");
+const withIgnite = require("next-ignite/next")({
+  // your ignite options
+  rehypePlugins: [toc],
+});
+
+module.exports = withIgnite();
 ```
 
 ## Files

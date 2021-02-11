@@ -37,4 +37,8 @@ export interface IgniteConfig {
   order?: string[];
   /** Whether to purge unused CSS from static build */
   purge?: boolean;
+  /** Plugins for remark. JS CONFIG ONLY */
+  remarkPlugins?: any[];
+  /** Plugins for rehype. JS CONFIG ONLY */
+  rehypePlugins?: any[];
 }

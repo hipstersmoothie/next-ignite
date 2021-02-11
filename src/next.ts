@@ -13,6 +13,7 @@ import { getEnv } from "./utils/get-env";
 import { IgniteConfig } from "./utils/types";
 import { getAuthor } from "./utils/get-author";
 import { DOCS_DIR } from "./utils/docs-data";
+import mdxEnhanced from "next-mdx-enhanced";
 import { createAdditionalManifestAssets } from "./utils/create-additional-manifest-asset";
 
 const cachingStrategy = require("next-pwa/cache");
@@ -37,68 +38,6 @@ const getCreationDate = (file: string) => {
   }
 };
 
-const withMdxEnhanced = require("next-mdx-enhanced")({
-  layoutPath: path.resolve(path.join(__dirname, "./layouts")),
-  remarkPlugins: [emoji],
-  rehypePlugins: [
-    slug,
-    [
-      autoLink,
-      {
-        behavior: "wrap",
-        properties: {
-          className: 'header-link no-underline text-gray-900" hover:underline',
-        },
-      },
-    ],
-    a11yEmoji,
-    [rehypePrism, { ignoreMissing: true }],
-  ],
-  extendFrontMatter: {
-    process: (mdx: string, frontMatter) => {
-      let { __resourcePath, date, layout, description, ...rest } = frontMatter;
-      const creationDate = getCreationDate(__resourcePath);
-      const [author, email] = getAuthor(__resourcePath);
-
-      if (!layout) {
-        const defaultLayout = __resourcePath.split("/")[0];
-
-        if (__resourcePath === "index.mdx") {
-          layout = "home-page";
-        } else if (__resourcePath.includes("_sidebar.mdx")) {
-          return {};
-        } else if (
-          fs.existsSync(path.join(__dirname, `layouts/${defaultLayout}.js`))
-        ) {
-          layout = defaultLayout;
-        } else {
-          layout = "docs";
-        }
-      }
-
-      if (!description && layout === "blog") {
-        const [, firstParagraph] =
-          mdx.match(/---\n\n^([^#].+?)(?=^$)/ms) ||
-          mdx.match(/\n\n^([^#].+?)(?=^$)/ms) ||
-          [];
-
-        if (firstParagraph) {
-          description = firstParagraph;
-        }
-      }
-
-      return {
-        layout,
-        description,
-        date: date || creationDate,
-        author: rest.author || author,
-        email: rest.email || email,
-      };
-    },
-    phase: "both",
-  },
-});
-
 // ignite config options
 // url - the url your site is deployed to
 // name - The name of the project you are documenting
@@ -118,6 +57,68 @@ module.exports = (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
     ...process.env,
     ...env,
   };
+
+  const withMdxEnhanced = mdxEnhanced({
+    layoutPath: path.resolve(path.join(__dirname, "./layouts")),
+    remarkPlugins: [emoji],
+    rehypePlugins: [
+      slug,
+      [
+        autoLink,
+        {
+          behavior: "wrap",
+          properties: {
+            className: 'header-link no-underline text-gray-900" hover:underline',
+          },
+        },
+      ],
+      a11yEmoji,
+      [rehypePrism, { ignoreMissing: true }],
+    ],
+    extendFrontMatter: {
+      process: (mdx: string, frontMatter) => {
+        let { __resourcePath, date, layout, description, ...rest } = frontMatter;
+        const creationDate = getCreationDate(__resourcePath);
+        const [author, email] = getAuthor(__resourcePath);
+  
+        if (!layout) {
+          const defaultLayout = __resourcePath.split("/")[0];
+  
+          if (__resourcePath === "index.mdx") {
+            layout = "home-page";
+          } else if (__resourcePath.includes("_sidebar.mdx")) {
+            return {};
+          } else if (
+            fs.existsSync(path.join(__dirname, `layouts/${defaultLayout}.js`))
+          ) {
+            layout = defaultLayout;
+          } else {
+            layout = "docs";
+          }
+        }
+  
+        if (!description && layout === "blog") {
+          const [, firstParagraph] =
+            mdx.match(/---\n\n^([^#].+?)(?=^$)/ms) ||
+            mdx.match(/\n\n^([^#].+?)(?=^$)/ms) ||
+            [];
+  
+          if (firstParagraph) {
+            description = firstParagraph;
+          }
+        }
+  
+        return {
+          layout,
+          description,
+          date: date || creationDate,
+          author: rest.author || author,
+          email: rest.email || email,
+        };
+      },
+      phase: "both",
+    },
+  });
 
   const config = withBundleAnalyzer(
     withMdxEnhanced({
