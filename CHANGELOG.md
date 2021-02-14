@@ -1,3 +1,15 @@
+# v0.10.2 (Sun Feb 14 2021)
+
+#### ⚠️ Pushed to `master`
+
+- further fix graph url problem ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.10.1 (Sun Feb 14 2021)
 
 #### ⚠️ Pushed to `master`
