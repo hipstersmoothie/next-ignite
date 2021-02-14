@@ -13,7 +13,7 @@ export const OpenGraphTags = ({
   const router = useRouter();
   const url = process.env.DOCS_URL
     ? join(process.env.DOCS_URL, router.pathname)
-    : router.pathname;
+    : undefined;
 
   return (
     <Head>
