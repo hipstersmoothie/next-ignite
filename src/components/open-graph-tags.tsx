@@ -11,7 +11,9 @@ export const OpenGraphTags = ({
   image,
 }: Pick<Page, "description" | "image" | "title">) => {
   const router = useRouter();
-  const url = join(process.env.DOCS_URL, router.pathname);
+  const url = process.env.DOCS_URL
+    ? join(process.env.DOCS_URL, router.pathname)
+    : router.pathname;
 
   return (
     <Head>
