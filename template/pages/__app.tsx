@@ -1,5 +1,5 @@
 import React from "react";
-import App from "next/app";
+import { AppProps } from "next/app";
 import { MDXProvider } from "@mdx-js/react";
 import { igniteComponents } from "next-ignite";
 
