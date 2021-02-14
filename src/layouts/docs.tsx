@@ -8,6 +8,7 @@ import { Sidebar } from "../components/sidebar";
 import NavBarLayout from "./nav-bar";
 import { Page } from "../utils/types";
 import getFrontMatters from "../utils/get-front-matters";
+import { OpenGraphTags } from "../components/open-graph-tags";
 
 const CODE_BLOCK_REGEX = /([^`]*)`([^`]*)`(.*)/m;
 
@@ -50,29 +51,32 @@ const DocsLayout = ({
     .map((key) => frontMatters.find((f) => f.__resourcePath === key));
 
   return (
-    <NavBarLayout menuState={[menuOpen, setMenuOpen]}>
-      <div className="flex-1 w-full lg:max-w-6xl mx-auto flex">
-        <Sidebar links={links} folder={resource} />
+    <>
+      <OpenGraphTags {...frontMatter} />
+      <NavBarLayout menuState={[menuOpen, setMenuOpen]}>
+        <div className="flex-1 w-full lg:max-w-6xl mx-auto flex">
+          <Sidebar links={links} folder={resource} />
 
-        <SkipNavContent />
-        <main
-          className={makeClass(
-            "DocSearch-content",
-            "pt-8 pb-16 px-4 sm:px-6 xl:px-12 lg:mx-auto w-full",
-            "flex-1 overflow-hidden",
-            "lg:block",
-            menuOpen && "hidden"
-          )}
-        >
-          {frontMatter.title && (
-            <components.h1>
-              {constructTitleFromMarkdown(components, frontMatter.title)}
-            </components.h1>
-          )}
-          {content}
-        </main>
-      </div>
-    </NavBarLayout>
+          <SkipNavContent />
+          <main
+            className={makeClass(
+              "DocSearch-content",
+              "pt-8 pb-16 px-4 sm:px-6 xl:px-12 lg:mx-auto w-full",
+              "flex-1 overflow-hidden",
+              "lg:block",
+              menuOpen && "hidden"
+            )}
+          >
+            {frontMatter.title && (
+              <components.h1>
+                {constructTitleFromMarkdown(components, frontMatter.title)}
+              </components.h1>
+            )}
+            {content}
+          </main>
+        </div>
+      </NavBarLayout>
+    </>
   );
 };
 

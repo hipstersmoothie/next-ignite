@@ -7,18 +7,17 @@ export interface Resource {
 export interface Page extends Resource {
   /** Title from front-matter */
   title: string;
-}
-
-export interface BlogPost extends Page {
-  title: string;
+  /** The description for the page, used in meta tags */
   description?: string;
-  author: string;
-  email?: string;
   image?: string;
 }
 
+export interface BlogPost extends Page {
+  author: string;
+  email?: string;
+}
+
 export interface MarkdownPage extends Page {
-  title: string;
   author: string;
   email?: string;
   content: string;

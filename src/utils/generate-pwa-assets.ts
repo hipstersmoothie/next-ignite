@@ -3,7 +3,6 @@ import path from "path";
 import cheerio from "cheerio";
 import glob from "fast-glob";
 import fs from "fs";
-import join from "url-join";
 
 import { DOCS_DIR, OUT_DIR } from "./docs-data";
 import { getEnv } from "./get-env";
@@ -48,22 +47,6 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
 
   html.map((file) => {
     const $ = cheerio.load(fs.readFileSync(file, "utf-8"));
-    const titleNode = $("h1");
-    const title = (titleNode && titleNode.text()) || manifest.PROJECT_NAME;
-    const descriptionText = (titleNode
-      ? file.includes("/blog/")
-        ? titleNode.parent().next("p").text()
-        : titleNode.next("p").text()
-      : ""
-    ).replace(/"/g, '&quot;');
-
-    const description = descriptionText
-      ? `
-        <meta name="description" content="${descriptionText}" />
-        <meta name="twitter:description" content="${descriptionText}" />
-        <meta property="og:description" content="${descriptionText}" />
-      `
-      : "";
 
     $("head").append(
       [...Object.values(light.htmlMeta), ...Object.values(dark.htmlMeta)]
@@ -89,23 +72,9 @@ export const generatePwaAssets = async (config: IgniteConfig) => {
 
       <meta name="msapplication-tap-highlight" content="no" />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content="${title}" />
-      
-      <meta property="og:title" content="${title}" />
       <meta property="og:site_name" content="${env.PROJECT_NAME}" />
       <meta name="theme-color" content="${manifest.theme_color}" />
       <meta name="msapplication-TileColor" content="${manifest.theme_color}" />
-
-      <meta name="twitter:url" content="${join(
-        env.DOCS_URL,
-        path.relative(OUT_DIR, file)
-      )}" />
-      <meta property="og:url" content="${join(
-        env.DOCS_URL,
-        path.relative(OUT_DIR, file)
-      )}" />
-
-      ${description}
       <link rel="manifest" href="${formatPath("/manifest.json")}" />
     `);
     fs.writeFileSync(file, $.html());

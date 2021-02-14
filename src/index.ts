@@ -5,6 +5,7 @@ export { default as NavBarLayout } from "./layouts/nav-bar";
 
 export { default as igniteComponents } from "./components/mdx-components";
 export * from "./components/mdx-components";
+export * from "./components/open-graph-tags";
 export { default as BlogIndex } from "./components/blog-index";
 export * from "./utils/format-path";
 export * from "./utils/is-dark-mode";
