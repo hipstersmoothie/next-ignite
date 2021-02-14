@@ -29,7 +29,9 @@ export const OpenGraphTags = ({
       {image && <meta name="og:image" content={image} />}
 
       {/* <!-- Twitter Meta Tags --> */}
-      <meta property="twitter:domain" content={new URL(url).hostname} />
+      {url && (
+        <meta property="twitter:domain" content={new URL(url).hostname} />
+      )}
       <meta property="twitter:url" content={url} />
       <meta name="twitter:title" content={title} />
       {description && <meta name="twitter:description" content={description} />}
