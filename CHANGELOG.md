@@ -1,3 +1,17 @@
+# v0.10.1 (Sun Feb 14 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix typescript template ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix unconfigured graph tag render ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- fix clean init ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.10.0 (Sun Feb 14 2021)
 
 ### Release Notes
