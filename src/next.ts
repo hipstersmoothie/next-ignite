@@ -1,8 +1,8 @@
+import { IShikiTheme } from "shiki";
 import fs from "fs";
 import path from "path";
 
 import { execSync } from "child_process";
-import rehypePrism from "@mapbox/rehype-prism";
 import autoLink from "rehype-autolink-headings";
 import a11yEmoji from "rehype-accessible-emojis";
 import slug from "rehype-slug";
@@ -15,6 +15,7 @@ import { getAuthor } from "./utils/get-author";
 import { DOCS_DIR } from "./utils/docs-data";
 import mdxEnhanced from "next-mdx-enhanced";
 import { createAdditionalManifestAssets } from "./utils/create-additional-manifest-asset";
+import shiki from "./utils/shiki";
 
 const cachingStrategy = require("next-pwa/cache");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
@@ -36,6 +37,14 @@ const getCreationDate = (file: string) => {
   } catch (error) {
     return "";
   }
+};
+
+const resolveTheme = (theme: string | IShikiTheme, defaultTheme: string) => {
+  return theme
+    ? typeof theme === "string" && fs.existsSync(theme)
+      ? path.resolve(theme)
+      : theme
+    : defaultTheme;
 };
 
 // ignite config options
@@ -68,23 +77,43 @@ export default (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
         {
           behavior: "wrap",
           properties: {
-            className: 'header-link no-underline text-gray-900" hover:underline',
+            className:
+              'header-link no-underline text-gray-900" hover:underline',
           },
         },
       ],
       a11yEmoji,
-      [rehypePrism, { ignoreMissing: true }],
-      ...(igniteConfig.rehypePlugins || [])
+      [
+        shiki,
+        {
+          theme: resolveTheme(igniteConfig.lightSyntaxTheme, "github-light"),
+          darkTheme: resolveTheme(igniteConfig.darkSyntaxTheme, "github-dark"),
+          langs: [
+            {
+              id: "mdx",
+              scopeName: "text.html.markdown.jsx",
+              path: path.join(__dirname, "./utils/mdx-lang.json"),
+            },
+          ],
+        },
+      ],
+      ...(igniteConfig.rehypePlugins || []),
     ],
     extendFrontMatter: {
       process: (mdx: string, frontMatter) => {
-        let { __resourcePath, date, layout, description, ...rest } = frontMatter;
+        let {
+          __resourcePath,
+          date,
+          layout,
+          description,
+          ...rest
+        } = frontMatter;
         const creationDate = getCreationDate(__resourcePath);
         const [author, email] = getAuthor(__resourcePath);
-  
+
         if (!layout) {
           const defaultLayout = __resourcePath.split("/")[0];
-  
+
           if (__resourcePath === "index.mdx") {
             layout = "home-page";
           } else if (__resourcePath.includes("_sidebar.mdx")) {
@@ -97,18 +126,18 @@ export default (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
             layout = "docs";
           }
         }
-  
+
         if (!description && layout === "blog") {
           const [, firstParagraph] =
             mdx.match(/---\n\n^([^#].+?)(?=^$)/ms) ||
             mdx.match(/\n\n^([^#].+?)(?=^$)/ms) ||
             [];
-  
+
           if (firstParagraph) {
             description = firstParagraph;
           }
         }
-  
+
         return {
           layout,
           description,

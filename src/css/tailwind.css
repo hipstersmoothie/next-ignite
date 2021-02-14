@@ -150,6 +150,20 @@
   }
 }
 
+.syntax-dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .syntax-light {
+    display: none;
+  }
+
+  .syntax-dark {
+    display: block;
+  }
+}
+
 html {
   @apply dark:bg-gray-1000;
 }

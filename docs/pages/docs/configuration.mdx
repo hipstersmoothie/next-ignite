@@ -115,6 +115,37 @@ const withIgnite = require("next-ignite/next")({
 module.exports = withIgnite();
 ```
 
+## Syntax Theme
+
+You can change the theme for syntax highlighting in both light and dark mode.
+
+[See supported themes](https://github.com/shikijs/shiki/blob/master/docs/themes.md#literal-values);
+
+```jsonc
+{
+  "lightSyntaxTheme": "light-plus",
+  "darkSyntaxTheme": "dark-plus"
+}
+```
+
+You can also specify the theme as a path:
+
+```jsonc
+{
+  "lightSyntaxTheme": "./my-custom-theme.json"
+}
+```
+
+or as JSON:
+
+```jsonc
+{
+  "lightSyntaxTheme": {
+    // Theming values
+  }
+}
+```
+
 ## Files
 
 ## `docs/public/logo.png`

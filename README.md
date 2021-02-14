@@ -5,6 +5,7 @@
 - Home Page (Break out into JS easy as hell)
 - Simple search (only work after a full production build)
 - Dynamically match `layouts` + add fallbacks based on routes
+- Customize the dark and light mode syntax highlighting. Use any VSCode or textmate theme.
 
 ## Getting Started
 
@@ -16,4 +17,4 @@ yarn dev
 
 ## TODO
 
-- [ ] Featured Blog Post
+- [ ] generate open graph images for docs and blog?

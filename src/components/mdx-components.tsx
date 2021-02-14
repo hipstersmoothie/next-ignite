@@ -11,7 +11,7 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { MDXProviderComponents } from "@mdx-js/react";
 import { prefixURL } from "next-prefixed";
 import useLayoutEffect from "@react-hook/passive-layout-effect";
-import { postFixHTML, formatPath } from "../utils/format-path";
+import { postFixHTML } from "../utils/format-path";
 
 export type Element<
   T extends keyof JSX.IntrinsicElements
@@ -737,7 +737,7 @@ const code = ({ className, ...props }: Element<"code">) => (
   <code
     className={makeClass(
       className,
-      "text-gray-600 rounded block py-4 px-2",
+      "text-gray-600 rounded block py-8 px-6",
       "dark:bg-gray-800"
     )}
     {...props}
@@ -750,10 +750,9 @@ const pre = ({ className, ...props }: Element<"pre">) => (
     className={makeClass(
       className,
       "bg-gray-200 rounded border my-6",
-      "dark:bg-gray-800 dark:border-gray-800"
+      "dark:bg-gray-800 dark:border-gray-700"
     )}
     style={{
-      // Prisms styles override margin!
       marginTop: "1.5rem",
       marginBottom: "1.5rem",
     }}
