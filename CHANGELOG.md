@@ -1,3 +1,23 @@
+# v0.10.0 (Sun Feb 14 2021)
+
+### Release Notes
+
+#### move to shiki for syntax highlighting ([#38](https://github.com/hipstersmoothie/next-ignite/pull/38))
+
+If you are upgrading to this release you must remove all references to `prism` from your website and optionally configure a dark and light syntax theme through your `next-ignite` configuration.
+
+---
+
+#### 🚀 Enhancement
+
+- move to shiki for syntax highlighting [#38](https://github.com/hipstersmoothie/next-ignite/pull/38) ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.9.21 (Sun Feb 14 2021)
 
 #### ⚠️ Pushed to `master`
