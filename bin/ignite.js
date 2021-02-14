@@ -71,90 +71,91 @@ const run = () => {
 
       console.log("Initialized ignite documentation website!");
     });
-    return;
-  }
-
-  const ignite = require("../next");
-  const igniteConfig = getConfig();
-  const nextConfig = getNextConfig();
-  const config =
-    igniteConfig && !nextConfig ? ignite(igniteConfig)() : nextConfig;
-
-  if (args._command === "dev") {
-    const docs = next({ dev: true, dir: "docs", conf: config });
-    const handle = docs.getRequestHandler();
-    const sections = getTopLevelSections(config.order);
-
-    docs.prepare().then(() => {
-      createServer((req, res) => {
-        // Be sure to pass `true` as the second argument to `url.parse`.
-        // This tells it to parse the query portion of the URL.
-        const parsedUrl = parse(req.url, true);
-        handle(req, res, parsedUrl);
-      }).listen(3000, (err) => {
-        if (err) {
-          throw err;
-        }
-
-        console.log(`> Ready on http://localhost:3000/${sections[0]}`);
-        buildSearchIndex("public");
-      });
-    });
-  }
-
-  if (args._command === "build") {
-    const docsDir = path.resolve(path.join(process.cwd(), "docs"));
-    const distDir = path.join(docsDir, ".next");
-    const outdir = path.join(docsDir, "out");
-
-    buildNext(docsDir, config)
-      .then(() => exportNext(docsDir, { outdir }))
-      .then(() => buildSearchIndex())
-      .then(async () => {
-        console.log("Export successful", 0);
-        execSync(
-          `touch ${path.resolve(
-            path.join(process.cwd(), "docs/out/.nojekyll")
-          )}`
-        );
-        buildSitemap();
-        buildRssFeed(igniteConfig);
-        purgeUnusedCss(igniteConfig);
-
-        if (config.env.BUILD_PWA === "true") {
-          fs.copyFileSync(
-            path.join(distDir, "sw.js"),
-            path.join(outdir, "sw.js")
-          );
-          const workbox = glob.sync(path.join(distDir, "workbox-*.js"));
-
-          if (workbox[0]) {
-            fs.copyFileSync(
-              workbox[0],
-              path.join(outdir, path.basename(workbox[0]))
-            );
+  } else {
+    const ignite = require("../next");
+    const igniteConfig = getConfig();
+    const nextConfig = getNextConfig();
+    const config =
+      igniteConfig && !nextConfig ? ignite(igniteConfig)() : nextConfig;
+  
+    if (args._command === "dev") {
+      const docs = next({ dev: true, dir: "docs", conf: config });
+      const handle = docs.getRequestHandler();
+      const sections = getTopLevelSections(config.order);
+  
+      docs.prepare().then(() => {
+        createServer((req, res) => {
+          // Be sure to pass `true` as the second argument to `url.parse`.
+          // This tells it to parse the query portion of the URL.
+          const parsedUrl = parse(req.url, true);
+          handle(req, res, parsedUrl);
+        }).listen(3000, (err) => {
+          if (err) {
+            throw err;
           }
-
-          await generatePwaAssets(igniteConfig);
-        }
-      })
-      .catch((err) => {
-        console.error("");
-        console.error("> Build error occurred");
-        console.log(err);
+  
+          console.log(`> Ready on http://localhost:3000/${sections[0]}`);
+          buildSearchIndex("public");
+        });
       });
-  }
-
-  if (args._command === "deploy") {
-    try {
-      execSync(
-        'npx push-dir --cleanup --dir=docs/out --branch=gh-pages --message="Update docs [skip ci]" --verbose'
-      );
-
-      console.log("Export successful");
-    } catch (error) {
-      console.log(error.stdout.toString());
-      console.log(error.stderr.toString());
+    }
+  
+    if (args._command === "build") {
+      const docsDir = path.resolve(path.join(process.cwd(), "docs"));
+      const distDir = path.join(docsDir, ".next");
+      const outdir = path.join(docsDir, "out");
+  
+      buildNext(docsDir, config)
+        .then(() => exportNext(docsDir, { outdir }))
+        .then(() => buildSearchIndex())
+        .then(async () => {
+          console.log("Export successful", 0);
+          execSync(
+            `touch ${path.resolve(
+              path.join(process.cwd(), "docs/out/.nojekyll")
+            )}`
+          );
+          buildSitemap();
+          buildRssFeed(igniteConfig);
+          purgeUnusedCss(igniteConfig);
+  
+          if (config.env.BUILD_PWA === "true") {
+            fs.copyFileSync(
+              path.join(distDir, "sw.js"),
+              path.join(outdir, "sw.js")
+            );
+            const workbox = glob.sync(path.join(distDir, "workbox-*.js"));
+  
+            if (workbox[0]) {
+              fs.copyFileSync(
+                workbox[0],
+                path.join(outdir, path.basename(workbox[0]))
+              );
+            }
+  
+            await generatePwaAssets(igniteConfig);
+          }
+        })
+        .catch((err) => {
+          console.error("");
+          console.error("> Build error occurred");
+          console.log(err);
+        });
+    }
+  
+    if (args._command === "deploy") {
+      try {
+        execSync(
+          'npx push-dir --cleanup --dir=docs/out --branch=gh-pages --message="Update docs [skip ci]" --verbose'
+        );
+  
+        console.log("Export successful");
+      } catch (error) {
+        console.log(error.stdout.toString());
+        console.log(error.stderr.toString());
+      }
     }
   }
 };
+
+run()
