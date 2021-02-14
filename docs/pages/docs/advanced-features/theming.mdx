@@ -61,15 +61,12 @@ All you need to do is open up your `_app.js` and the your components to the `MDX
 
 See the [full list of base elements](../features/markdown-components).
 
-```jsx
+```js
 import React from "react";
 import App from "next/app";
 import { MDXProvider } from "@mdx-js/react";
 import { igniteComponents } from "next-ignite";
 
-// Import a prismjs theme to highlight the code blocks
-// Make sure to import this first! The order matters
-import "prismjs/themes/prism.css";
 // Import the css to style the docs
 import "ignite/dist/main.css";
 
@@ -108,7 +105,7 @@ Two things you should consider are:
 
 **Example `h1` Component:**
 
-```jsx
+```js
 import React from "react";
 import makeClass from "clsx";
 

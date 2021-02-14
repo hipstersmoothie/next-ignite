@@ -47,7 +47,7 @@ You **must have**:
 
 Add the following to your `.gitignore`.
 
-```gitignore
+```
 .next
 .mdx-data
 docs/public/search-index.json
@@ -59,17 +59,13 @@ You need to at least do the following:
 
 1. Import `MDXProvider`, `igniteComponents`, and combine the at the root of the app
 2. Import `ignite`'s css
-3. Import a `prismjs` theme to style the code block
 
-```jsx
+```js
 import React from "react";
 import App from "next/app";
 import { MDXProvider } from "@mdx-js/react";
 import { igniteComponents } from "next-ignite";
 
-// Import a prismjs theme to highlight the code blocks
-// Make sure to import this first! The order matters
-import "prismjs/themes/prism.css";
 // Import the css to style the docs
 import "ignite/dist/main.css";
 
