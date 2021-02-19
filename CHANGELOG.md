@@ -1,3 +1,15 @@
+# v0.10.4 (Fri Feb 19 2021)
+
+#### ⚠️ Pushed to `master`
+
+- don't format direct links to headings ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.10.3 (Sun Feb 14 2021)
 
 #### ⚠️ Pushed to `master`
