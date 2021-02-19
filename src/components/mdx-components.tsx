@@ -737,7 +737,7 @@ const code = ({ className, ...props }: Element<"code">) => (
   <code
     className={makeClass(
       className,
-      "text-gray-600 rounded block py-8 px-6",
+      "text-gray-600 rounded block py-8 px-6 overflow-auto",
       "dark:bg-gray-800"
     )}
     {...props}
