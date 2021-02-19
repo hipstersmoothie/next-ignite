@@ -1,3 +1,15 @@
+# v0.10.5 (Fri Feb 19 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix overflowing code block ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.10.4 (Fri Feb 19 2021)
 
 #### ⚠️ Pushed to `master`
