@@ -9,6 +9,11 @@ export function postFixHTML(p: string) {
     return p
   }
 
+  if (p.startsWith("#")) {
+    return p;
+  }
+
+  // Handle: path/to/page#header
   if (path.basename(p).includes('#')) {
     return p.replace('#', '.html#')
   }
