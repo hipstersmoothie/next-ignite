@@ -1,3 +1,15 @@
+# v0.10.7 (Sat Feb 20 2021)
+
+#### ⚠️ Pushed to `master`
+
+- only create shiki highlighter/theme once ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.10.6 (Sat Feb 20 2021)
 
 #### ⚠️ Pushed to `master`
