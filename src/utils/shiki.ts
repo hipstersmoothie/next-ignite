@@ -83,9 +83,6 @@ interface PluginOptions {
   langs?: shiki.ILanguageRegistration[];
 }
 
-let lightHighlighter: shiki.Highlighter;
-let darkHighlighter: shiki.Highlighter | undefined;
-
 function highlightBlock(
   highlighter: shiki.Highlighter,
   node: Node,
@@ -111,9 +108,6 @@ function highlightBlock(
   node.children = tree;
 }
 
-let light: Theme;
-let dark: Theme;
-
 async function getTheme(theme: Theme) {
   return typeof theme === "string"
     ? shiki.BUNDLED_THEMES.includes(theme)
@@ -121,6 +115,21 @@ async function getTheme(theme: Theme) {
       : shiki.loadTheme(theme)
     : theme;
 }
+
+async function getHighlighter(
+  theme: Theme,
+  langs: shiki.ILanguageRegistration[] = []
+) {
+  const loadedTheme = await getTheme(theme);
+
+  return shiki.getHighlighter({
+    theme: loadedTheme,
+    langs: [...BUNDLED_LANGUAGES, ...langs],
+  });
+}
+
+let lightHighlighterPromise: Promise<shiki.Highlighter>;
+let darkHighlighterPromise: Promise<shiki.Highlighter>;
 
 export default function attacher(options: PluginOptions = {}) {
   const {
@@ -130,20 +139,12 @@ export default function attacher(options: PluginOptions = {}) {
     langs = [],
   } = options;
 
-  return async function transformer(tree: NodeWithChildren) {
-    light ||= await getTheme(theme);
-    lightHighlighter ||= await shiki.getHighlighter({
-      theme: light,
-      langs: [...BUNDLED_LANGUAGES, ...langs],
-    });
+  lightHighlighterPromise ||= getHighlighter(theme, langs);
+  darkHighlighterPromise ||= getHighlighter(darkTheme, langs);
 
-    dark ||= await getTheme(darkTheme);
-    darkHighlighter ||= darkTheme
-      ? await shiki.getHighlighter({
-          theme: dark,
-          langs: [...BUNDLED_LANGUAGES, ...langs],
-        })
-      : undefined;
+  return async function transformer(tree: NodeWithChildren) {
+    const lightHighlighter = await lightHighlighterPromise;
+    const darkHighlighter = await darkHighlighterPromise;
 
     visit(tree, "element", (node, index, parent) => {
       if (
