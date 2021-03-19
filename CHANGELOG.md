@@ -1,3 +1,15 @@
+# v0.10.8 (Fri Mar 19 2021)
+
+#### ⚠️ Pushed to `master`
+
+- use published rehpye shiki plugin ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.10.7 (Sat Feb 20 2021)
 
 #### ⚠️ Pushed to `master`
