@@ -63,6 +63,7 @@
     "rehype": "^9.0.1",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-autolink-headings": "^3.0.0",
+    "rehype-shiki-reloaded": "^0.0.10",
     "rehype-slug": "^3.0.0",
     "remark-emoji": "^2.0.2",
     "scroll-lock": "^2.1.4",

@@ -5,6 +5,7 @@ import path from "path";
 import { execSync } from "child_process";
 import autoLink from "rehype-autolink-headings";
 import a11yEmoji from "rehype-accessible-emojis";
+import shiki from "rehype-shiki-reloaded";
 import slug from "rehype-slug";
 import emoji from "remark-emoji";
 import withPWA from "next-pwa";
@@ -15,7 +16,6 @@ import { getAuthor } from "./utils/get-author";
 import { DOCS_DIR } from "./utils/docs-data";
 import mdxEnhanced from "next-mdx-enhanced";
 import { createAdditionalManifestAssets } from "./utils/create-additional-manifest-asset";
-import shiki from "./utils/shiki";
 
 const cachingStrategy = require("next-pwa/cache");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
