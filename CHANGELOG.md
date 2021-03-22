@@ -1,3 +1,15 @@
+# v0.10.10 (Mon Mar 22 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix getting ignite options from next.config.js for static build steps ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.10.9 (Fri Mar 19 2021)
 
 #### ⚠️ Pushed to `master`
