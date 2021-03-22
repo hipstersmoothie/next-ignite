@@ -75,14 +75,14 @@ const run = () => {
     const ignite = require("../next");
     const igniteConfig = getConfig();
     const nextConfig = getNextConfig();
-    const { ignite: igniteFinalConfig ...config} =
+    const { ignite: igniteFinalConfig, ...config } =
       igniteConfig && !nextConfig ? ignite(igniteConfig)() : nextConfig;
-  
+
     if (args._command === "dev") {
       const docs = next({ dev: true, dir: "docs", conf: config });
       const handle = docs.getRequestHandler();
       const sections = getTopLevelSections(config.order);
-  
+
       docs.prepare().then(() => {
         createServer((req, res) => {
           // Be sure to pass `true` as the second argument to `url.parse`.
@@ -93,18 +93,18 @@ const run = () => {
           if (err) {
             throw err;
           }
-  
+
           console.log(`> Ready on http://localhost:3000/${sections[0]}`);
           buildSearchIndex("public");
         });
       });
     }
-  
+
     if (args._command === "build") {
       const docsDir = path.resolve(path.join(process.cwd(), "docs"));
       const distDir = path.join(docsDir, ".next");
       const outdir = path.join(docsDir, "out");
-  
+
       buildNext(docsDir, config)
         .then(() => exportNext(docsDir, { outdir }))
         .then(() => buildSearchIndex())
@@ -118,21 +118,21 @@ const run = () => {
           buildSitemap();
           buildRssFeed(igniteFinalConfig);
           purgeUnusedCss(igniteFinalConfig);
-  
+
           if (config.env.BUILD_PWA === "true") {
             fs.copyFileSync(
               path.join(distDir, "sw.js"),
               path.join(outdir, "sw.js")
             );
             const workbox = glob.sync(path.join(distDir, "workbox-*.js"));
-  
+
             if (workbox[0]) {
               fs.copyFileSync(
                 workbox[0],
                 path.join(outdir, path.basename(workbox[0]))
               );
             }
-  
+
             await generatePwaAssets(igniteFinalConfig);
           }
         })
@@ -142,13 +142,13 @@ const run = () => {
           console.log(err);
         });
     }
-  
+
     if (args._command === "deploy") {
       try {
         execSync(
           'npx push-dir --cleanup --dir=docs/out --branch=gh-pages --message="Update docs [skip ci]" --verbose'
         );
-  
+
         console.log("Export successful");
       } catch (error) {
         console.log(error.stdout.toString());
@@ -158,4 +158,4 @@ const run = () => {
   }
 };
 
-run()
+run();
