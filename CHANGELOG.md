@@ -1,3 +1,15 @@
+# v0.10.11 (Mon Mar 22 2021)
+
+#### ⚠️ Pushed to `master`
+
+- fix syntax error ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+#### Authors: 1
+
+- Andrew Lisowski ([@hipstersmoothie](https://github.com/hipstersmoothie))
+
+---
+
 # v0.10.10 (Mon Mar 22 2021)
 
 #### ⚠️ Pushed to `master`
