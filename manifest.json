@@ -1,0 +1,37 @@
+{
+  "name": "next-ignite Docs",
+  "short_name": "ignite",
+  "theme_color": "#11151d",
+  "background_color": "#fff",
+  "dark_background_color": "#11151d",
+  "description": "The documentation for using next-ignite.",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/next-ignite/manifest-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/next-ignite/manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/next-ignite/manifest-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/next-ignite/manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "start_url": "/next-ignite/"
+}

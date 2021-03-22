@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>next-ignite</title>
+        <link>https://hipstersmoothie.github.io/next-ignite</link>
+        <description>The next-ignite blog feed.</description>
+        <lastBuildDate>Mon, 22 Mar 2021 21:01:29 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <image>
+            <title>next-ignite</title>
+            <url>https://hipstersmoothie.github.io/next-ignite/logo.svg</url>
+            <link>https://hipstersmoothie.github.io/next-ignite</link>
+        </image>
+        <copyright>All rights reserved 2021, </copyright>
+        <item>
+            <title><![CDATA[My Second Blog Post]]></title>
+            <link>https://hipstersmoothie.github.io/next-ignite/blog/second</link>
+            <guid>https://hipstersmoothie.github.io/next-ignite/blog/second</guid>
+            <pubDate>Thu, 01 Jan 1970 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[<div class="mx-auto text-center flex flex-col items-center"><img src="//www.gravatar.com/avatar/ff725a631f869cdb78beeb003825bb40" class="rounded-full border-2 border-gray-200 dark:border-gray-900 w-12 h-12 -mt-12 mb-4"><h1 class="lvl1 text-3xl font-light mb-2 lg:mb-4 dark:text-gray-200">My Second Blog Post</h1><p class="mb-6"><span class="dark:text-gray-300">Andrew lisowski</span> <time class="text-gray-600 dark:text-gray-500">on <!-- -->Jan 1, 1970</time></p></div><p class="my-4 text-gray-800 dark:text-gray-300">Some better content. Explore more text inside of a blog post.</p><h2 class="lvl2 break-words relative text-2xl font-normal border-b border-gray-300 pb-2 mb-4 mt-6 md:mb-6 lg:text-3xl lg:mt-8 mb:pb-4 dark:border-gray-700 text-gray-900 dark:text-gray-200" id="heading-2"><a class="focus-visible:ring ring-offset-2 focus:outline-none rounded header-link no-underline text-gray-900&quot; hover:underline" href="#heading-2">Heading 2</a></h2><p class="my-4 text-gray-800 dark:text-gray-300">Some content.</p><h3 class="lvl3 break-words text-xl relative font-bold mt-6 lg:text-2xl lg:font-semibold text-gray-900 dark:text-gray-200" id="heading-21"><a class="focus-visible:ring ring-offset-2 focus:outline-none rounded header-link no-underline text-gray-900&quot; hover:underline" href="#heading-21">Heading 2.1</a></h3><p class="my-4 text-gray-800 dark:text-gray-300">More.</p><h2 class="lvl2 break-words relative text-2xl font-normal border-b border-gray-300 pb-2 mb-4 mt-6 md:mb-6 lg:text-3xl lg:mt-8 mb:pb-4 dark:border-gray-700 text-gray-900 dark:text-gray-200" id="heading-3"><a class="focus-visible:ring ring-offset-2 focus:outline-none rounded header-link no-underline text-gray-900&quot; hover:underline" href="#heading-3">Heading 3</a></h2><p class="my-4 text-gray-800 dark:text-gray-300">Here</p>]]></content:encoded>
+            <author>lisowski54@gmail.com (Andrew lisowski)</author>
+            <enclosure url="https://images.unsplash.com/photo-1566386087068-55645996b234?crop=entropy&c…rgb&fit=crop&fm=jpg&h=500&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1950" length="0" type="image//photo-1566386087068-55645996b234"/>
+        </item>
+        <item>
+            <title><![CDATA[My First Blog Post]]></title>
+            <link>https://hipstersmoothie.github.io/next-ignite/blog/first</link>
+            <guid>https://hipstersmoothie.github.io/next-ignite/blog/first</guid>
+            <pubDate>Fri, 13 Mar 2020 06:00:02 GMT</pubDate>
+            <content:encoded><![CDATA[<div class="mx-auto text-center flex flex-col items-center"><img src="//www.gravatar.com/avatar/ff725a631f869cdb78beeb003825bb40" class="rounded-full border-2 border-gray-200 dark:border-gray-900 w-12 h-12 -mt-12 mb-4"><h1 class="lvl1 text-3xl font-light mb-2 lg:mb-4 dark:text-gray-200">My First Blog Post</h1><p class="mb-6"><span class="dark:text-gray-300">Andrew lisowski</span> <time class="text-gray-600 dark:text-gray-500" datetime="Thu, 12 Mar 2020 23:00:02 -0700">on <!-- -->Mar 13, 2020</time></p></div><p class="my-4 text-gray-800 dark:text-gray-300">Aenean faucibus dui at arcu dignissim, eu maximus neque consectetur.
+Cras urna nisi, lobortis ut ultrices facilisis, luctus ut magna.
+Fusce sit amet porttitor velit. Nullam eu placerat dui.
+In hac habitasse platea dictumst.
+Donec in diam quis nibh posuere porttitor a ut ipsum.
+Fusce eu consectetur turpis.
+Nulla accumsan ipsum a ipsum consectetur luctus.</p><p class="my-4 text-gray-800 dark:text-gray-300">Some killer content.</p>]]></content:encoded>
+            <author>lisowski54@gmail.com (Andrew lisowski)</author>
+        </item>
+    </channel>
+</rss>
