@@ -164,6 +164,8 @@ export default (igniteConfig: IgniteConfig = {}) => (nextConfig = {}) => {
     })
   );
 
+  config.ignite = igniteConfig;
+
   if (env.BUILD_PWA === "true") {
     cachingStrategy[0] = {
       ...cachingStrategy[0],

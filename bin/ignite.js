@@ -75,7 +75,7 @@ const run = () => {
     const ignite = require("../next");
     const igniteConfig = getConfig();
     const nextConfig = getNextConfig();
-    const config =
+    const { ignite: igniteFinalConfig ...config} =
       igniteConfig && !nextConfig ? ignite(igniteConfig)() : nextConfig;
   
     if (args._command === "dev") {
@@ -116,8 +116,8 @@ const run = () => {
             )}`
           );
           buildSitemap();
-          buildRssFeed(igniteConfig);
-          purgeUnusedCss(igniteConfig);
+          buildRssFeed(igniteFinalConfig);
+          purgeUnusedCss(igniteFinalConfig);
   
           if (config.env.BUILD_PWA === "true") {
             fs.copyFileSync(
@@ -133,7 +133,7 @@ const run = () => {
               );
             }
   
-            await generatePwaAssets(igniteConfig);
+            await generatePwaAssets(igniteFinalConfig);
           }
         })
         .catch((err) => {
